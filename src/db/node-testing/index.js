@@ -1,19 +1,10 @@
-const {User, Recipe, Intolerance } = require("tbc")
+const { User, Recipe, Intolerance } = require("../../models")
+const { truncate } = require("../../models/User")
 
-// get the user with 1
-const user = async (req, res) => {
-  try {
-    const user = await User.findbyPk({ id:1 })
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-const {User, Recipe, Intolerance } = require("tbc")
 // get the user with id 1 and their recipes and intolerances
 const getUser = async () => {
   try {
-    const user = await User.findbyPk(1, {
+    const user = await User.findByPk(1, {
       include: [
         {
           model: Recipe
@@ -23,15 +14,15 @@ const getUser = async () => {
         }
       ]
     })
-    console.log(user)
+    console.log(user.get({plain:true}))
   } catch (error) {
     console.log(error)
   }
 }
 // get a recipe + users who have that recipe
-const getRecipe = async () => {
+const getRecipes = async () => {
   try {
-    const recipe = await Recipe.findAll({
+    const recipes = await Recipe.findAll({
       where: {
         recipe_id : 716426,
       },
@@ -41,17 +32,20 @@ const getRecipe = async () => {
         },
       ]
     });
-    console.log(recipe)
+    const data = recipes.map((each)=> {
+    return each.get({plain:true})
+    })
+    console.log(data)
   } catch (error) {
     console.log(error)
   }
 }
 // get all users with gluten intolerance
-const getIntolerance = async () => {
+const getIntolerances = async () => {
   try {
-    const intolerance = await Intolerance.findAll({
+    const intolerances = await Intolerance.findAll({
       where: {
-        intolerance_name = "gluten"
+        intolerance_name:"gluten"
       },
       include: [
         {
@@ -59,8 +53,36 @@ const getIntolerance = async () => {
         }
       ]
     })
-    console.log(intolerance)
+    const data = intolerances.map((each)=> {
+      return each.get({plain:true})
+      })
+      console.log(data)
   } catch (error) {
     console.log(error)
   }
 }
+const getMultipleIntolerances = async () => {
+  try {
+    const intolerances = await Intolerance.findAll({
+      where: {
+        intolerance_name:"gluten"
+      },
+      include: [
+        {
+          model: User
+        }
+      ]
+    })
+    const data = intolerances.map((each)=> {
+      return each.get({plain:true})
+      })
+      console.log(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// getUser()
+// getRecipes()
+// getIntolerances()
+getMultipleIntolerances()

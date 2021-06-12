@@ -13,11 +13,15 @@ const options = {
 };
 
 const schema = {
-  recipe_id: {
+    id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
+  },
+  recipe_id: {
+    type: DataTypes.INTEGER,
+    allowNull:false,
   },
   dish_name: {
     type: DataTypes.STRING,
