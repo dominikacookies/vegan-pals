@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const sequelize = require("../../config/connection");
 const { User, Recipe, Intolerance } = require("../../models");
 const users = require("./data/users.json");
