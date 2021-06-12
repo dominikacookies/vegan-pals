@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS vegan_pals;
+
+CREATE DATABASE vegan_pals;
