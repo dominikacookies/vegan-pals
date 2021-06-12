@@ -1,0 +1,16 @@
+[
+  {
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "email": "bob_smith@email.com",
+    "password": "password123",
+    "bio": "I love cooking!"
+  },
+  {
+    "first_name": "Sally",
+    "last_name": "Jones",
+    "email": "sally_jones@email.com",
+    "password": "password456",
+    "bio": "Vegan is life!"
+  }
+]

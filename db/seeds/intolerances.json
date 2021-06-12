@@ -1,0 +1,18 @@
+[
+  {
+    "intolerance_name": "gluten",
+    "user_id": "1"
+  },
+  {
+    "intolerance_name": "egg",
+    "user_id": "1"
+  },
+  {
+    "intolerance_name": "dairy",
+    "user_id": "2"
+  },
+  {
+    "intolerance_name": "gluten",
+    "user_id": "2"
+  }
+]
