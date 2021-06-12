@@ -1,6 +1,8 @@
 const { User, Recipe, Intolerance } = require("../../models")
 const { truncate } = require("../../models/User")
 
+const sequelize = require("sequelize");
+
 // get the user with id 1 and their recipes and intolerances
 const getUser = async () => {
   try {
@@ -61,12 +63,15 @@ const getIntolerances = async () => {
     console.log(error)
   }
 }
-const getMultipleIntolerances = async () => {
+                        //req and res > 
+const getMultipleIntolerances = async (id) => {
   try {
     const intolerances = await Intolerance.findAll({
       where: {
-        intolerance_name:"gluten"
+        user_id: id
       },
+      // after setting up routes use req.params.id (where to get the user id from)
+      // request string as params or from req.session 
       include: [
         {
           model: User
@@ -78,11 +83,11 @@ const getMultipleIntolerances = async () => {
       })
       console.log(data)
   } catch (error) {
-    console.log(error)
+      console.log(error)
   }
 }
 
 // getUser()
 // getRecipes()
 // getIntolerances()
-getMultipleIntolerances()
+getMultipleIntolerances(1)
