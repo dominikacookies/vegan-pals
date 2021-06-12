@@ -5,7 +5,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "seed": "node src/db/seed.js",
+    "seed": "node src/db/seeds/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

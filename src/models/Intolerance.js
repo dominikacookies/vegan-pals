@@ -20,12 +20,29 @@ const schema = {
     autoIncrement: true,
   },
   intolerance_name: {
-    type: DataTypes.ENUM,
+    type: DataTypes.ENUM(
+      "gluten",
+      "egg",
+      "dairy",
+      "seafood",
+      "peanuts",
+      "shellfish",
+      "sesame",
+      "grain",
+      "soy",
+      "sulfite",
+      "tree nuts",
+      "wheat"
+    ),
     allowNull: false,
   },
   user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: "user",
+      key: "id",
+    },
   },
 };
 
