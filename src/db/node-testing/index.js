@@ -26,7 +26,7 @@ const getRecipes = async () => {
   try {
     const recipes = await Recipe.findAll({
       where: {
-        recipe_id : 716426,
+        user_id:2
       },
       include: [
         {
@@ -88,6 +88,6 @@ const getMultipleIntolerances = async (id) => {
 }
 
 // getUser()
-// getRecipes()
+getRecipes()
 // getIntolerances()
-getMultipleIntolerances(1)
+// getMultipleIntolerances(1)
