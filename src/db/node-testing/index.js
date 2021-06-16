@@ -92,6 +92,6 @@ const getMultipleIntolerances = async (id) => {
 };
 
 // getUser()
-getRecipes();
+// getRecipes();
 getIntolerances();
 // getMultipleIntolerances(1)
