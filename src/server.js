@@ -1,6 +1,6 @@
 const express = require("express")
 const session = require("express-session")
-const handleBars = require("express-handle-bars")
+const handleBars = require("express-handlebars")
 const routes = require("./routes");
 
 // import sequelize connection
