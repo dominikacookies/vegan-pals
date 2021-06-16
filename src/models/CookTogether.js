@@ -51,6 +51,14 @@ const schema = {
       key: "id",
     },
   },
+  recipe_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  recipe_title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 };
 
 CookTogether.init(schema, options);
