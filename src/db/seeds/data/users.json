@@ -16,5 +16,14 @@
     "bio": "Vegan is life!",
     "gluten_intolerance": "true",
     "soy_intolerance": "true"
+  },
+  {
+    "first_name": "Shrek",
+    "last_name": "Shrek",
+    "email": "shrek@shrek.com",
+    "password": "password420",
+    "bio": "What are you doing in my swamp?",
+    "gluten_intolerance": "false",
+    "soy_intolerance": "true"
   }
 ]
