@@ -5,7 +5,7 @@ const authRoutes = require("./auth")
 
 const router = Router();
 
-// router.use("/api", apiRoutes);
+router.use("/api", apiRoutes);
 
 router.use("/auth", authRoutes)
 
