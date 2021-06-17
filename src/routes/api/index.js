@@ -6,8 +6,8 @@ const router = Router();
 
 router.get("/cooktogether", getAllCookTogethers);
 router.post("/cooktogether", createCookTogether);
-router.put("/cooktogether/:id", updateCookTogether);
-router.delete("/cooktogether/:id", deleteCookTogether)
+router.put("/cooktogether/:cookTogetherId", updateCookTogether);
+router.delete("/cooktogether/:cookTogetherId", deleteCookTogether)
 
 router.post("/recipe", saveRecipe)
 router.delete("/recipe/:id", deleteRecipe)
