@@ -10,7 +10,7 @@ router.put("/cooktogether/:cookTogetherId", updateCookTogether);
 router.delete("/cooktogether/:cookTogetherId", deleteCookTogether)
 
 router.post("/recipe", saveRecipe)
-router.delete("/recipe/:id", deleteRecipe)
+router.delete("/recipe/:recipeId", deleteRecipe)
 
 
 module.exports = router;
