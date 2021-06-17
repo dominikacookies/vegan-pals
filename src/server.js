@@ -1,18 +1,19 @@
+require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const session = require("express-session");
 const handlebars = require("express-handlebars");
-const routes = require("./routes");
+const sequelizeStore = require("connect-session-sequelize")(session.Store);
 
-// import sequelize connection
+const routes = require("./routes");
+const sequelize = require("./config/connection");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const sequelize = require("./config/connection");
 
-const sequelizeStore = require("connect-session-sequelize")(session.Store);
 const sessionOptions = {
-  secret: "secret string",
+  secret: process.env.SESSION_SECRET || "secret string",
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -22,18 +23,30 @@ const sessionOptions = {
 };
 
 //handlebars
-const hbs = handlebars.create();
+
+const handlebarsOptions = {};
+const hbs = handlebars.create(handlebarsOptions);
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+app.use(cors());
 app.use(session(sessionOptions));
-app.use(express.json());
+app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(routes);
 
 // sync sequelize models to the database, then turn on the server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+const init = async () => {
+  try {
+    await sequelize.sync();
+    app.listen(PORT, () =>
+      console.log(`Server running on http://localhost:${PORT}`)
+    );
+  } catch (error) {
+    console.error("Failed to connect to DB");
+  }
+};
+
+init();
