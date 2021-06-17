@@ -8,6 +8,7 @@ router.get("/cooktogether", getAllCookTogethers);
 router.post("/cooktogether", createCookTogether);
 router.put("/cooktogether/:id", updateCookTogether);
 router.delete("/cooktogether/:id", deleteCookTogether)
+router.post("/search", search)
 
 router.post("/recipe", saveRecipe)
 router.delete("/recipe/:id", deleteRecipe)
