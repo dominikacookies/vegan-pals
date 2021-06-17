@@ -1,16 +1,20 @@
 const { Router } = require("express");
 
-const apiRoutes = require("../controllers/api");
-const userRoutes = require("../controllers/userRoutes")
+const apiRoutes = require("./api");
+const authRoutes = require("./auth")
 
 const router = Router();
 
 router.use("/api", apiRoutes);
 
-router.use("/user", userRoutes)
+router.use("/auth", authRoutes)
 
-router.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>");
-});
+//not sure what the below is. commenting out for now.
+// router.use("/user", userRoutes)
+
+// what does this do?
+// router.use((req, res) => {
+//   res.send("<h1>Wrong Route!</h1>");
+// });
 
 module.exports = router;
