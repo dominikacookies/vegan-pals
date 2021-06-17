@@ -13,7 +13,7 @@ const renderHomePage = (req, res) => {
 const renderLoginPage = (req, res) => {
   try {
     res.render("login", {
-      layout: "login",
+      // layout: "login",
     });
   } catch (err) {
     console.log(err.message);
@@ -24,7 +24,7 @@ const renderLoginPage = (req, res) => {
 const renderSignupPage = (req, res) => {
   try {
     res.render("signup", {
-      layout: "signup",
+      // layout: "signup",
     });
   } catch (err) {
     console.log(err.message);
@@ -35,8 +35,8 @@ const renderSignupPage = (req, res) => {
 const renderSearchResults = async (req, res) => {
   //get data from spoonacular api ready to render to search results page
   // /search-results?query=broccoli&maxReadyTime=30&intolerance=wheat
-  // const { isLoggedIn } = req.session;
-  const isLoggedIn = false;
+  const { isLoggedIn } = req.session;
+  // const isLoggedIn = false;
   if (isLoggedIn) {
     //get intolerances from user
     //make request
