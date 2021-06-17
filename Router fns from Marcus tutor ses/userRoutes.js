@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const router = Router();
 
-const { User } = require("../models")
+const { User } = require("../src/models")
 
 router.post("/signup",async(req,res)=>{
 try {
