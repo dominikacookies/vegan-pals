@@ -1,13 +1,33 @@
 const renderHomePage = (req, res) => {
-  res.render("homepage");
+  try {
+    const { isLoggedIn } = req.session;
+    res.render("homepage", { isLoggedIn });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
 };
 
 const renderLoginPage = (req, res) => {
-  res.render("login");
+  try {
+    res.render("login", {
+      layout: "login",
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
 };
 
 const renderSignupPage = (req, res) => {
-  res.render("signup");
+  try {
+    res.render("signup", {
+      layout: "signup",
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
 };
 
 const renderSearchResults = (req, res) => {
