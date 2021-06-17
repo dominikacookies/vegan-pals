@@ -12,6 +12,6 @@ router.get("/", renderHomePage);
 router.get("/login", renderLoginPage);
 router.get("/signup", renderSignupPage);
 
-router.post("/search", renderSearchResults);
+router.get("/search-results", renderSearchResults);
 
 module.exports = router;

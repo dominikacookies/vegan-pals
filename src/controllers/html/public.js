@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const renderHomePage = (req, res) => {
   try {
     const { isLoggedIn } = req.session;
@@ -30,10 +32,23 @@ const renderSignupPage = (req, res) => {
   }
 };
 
-const renderSearchResults = (req, res) => {
+const renderSearchResults = async (req, res) => {
   //get data from spoonacular api ready to render to search results page
-  res.send("Get search results");
-  res.render("search-results");
+  // /search-results?query=broccoli&maxReadyTime=30&intolerance=wheat
+  // const { isLoggedIn } = req.session;
+  const isLoggedIn = false;
+  if (isLoggedIn) {
+    //get intolerances from user
+    //make request
+  } else {
+    //get intolerances from req.params
+    // const intolerance = req.params;
+    //make request
+    const response = await axios.get(
+      "https://api.spoonacular.com/recipes/complexSearch?&intolerances=soy&query=rice&apiKey=214dc041d6d44757b2a72a21f418f1e7&diet=vegan"
+    );
+    res.render("search-results", { data: JSON.stringify(response.data) });
+  }
 };
 
 module.exports = {
