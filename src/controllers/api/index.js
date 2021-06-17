@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 const { Op } = require("sequelize");
 
 const { CookTogether, User, Recipe } = require("../../models")
@@ -67,11 +68,13 @@ const createCookTogether = async (req, res) => {
         error: "Missing parameters",
       })
     }
+
+    newCookTogetherId = uuidv4();
     
     const newCookTogether = [
       // row for user requesting cook together
       {
-        request_id: 123,
+        request_id: newCookTogetherId,
         datetime: dateTime,
         meal_type: mealType,
         "status": "sent",
@@ -81,7 +84,7 @@ const createCookTogether = async (req, res) => {
       },
       // row for user receiving cook together invite
       {
-        request_id: 123,
+        request_id: newCookTogetherId,
         datetime: dateTime,
         meal_type: mealType,
         message: message,
@@ -98,6 +101,7 @@ const createCookTogether = async (req, res) => {
     return res.status(200).json(newCookTogetherData)
 
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
       error: "Could not create new cook together"
     })
