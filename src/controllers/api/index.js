@@ -213,14 +213,39 @@ const saveRecipe = async (req, res) => {
 
   } catch (error) {
     return res.status(500).json({
-      error: "Could not save recipe together"
+      error: "Could not save recipe"
     })
   }
 }
 
 //remove recipe from favourites
 const deleteRecipe = async (req, res) => {
-  console.log("deleting recipe")
+  try {
+    const {recipeId} =  req.params
+
+    const deleteResult = await Recipe.destroy({
+      where: { 
+        recipe_id : recipeId,
+        user_id : userId
+      }
+    });
+
+    if (!deleteResult) {
+      return res.status(404).json({
+        error: "Recipe doesn't exist for this user"
+      })
+    };
+
+    return res.status(200).json({
+      message: "Recipe successfully deleted",
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      error: "Couldn't delete recipe."
+    }) 
+  }
+
 }
 
 module.exports = {
