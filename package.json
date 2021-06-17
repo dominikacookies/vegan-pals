@@ -31,7 +31,8 @@
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "uuid": "^8.3.2"
   },
   "homepage": "https://github.com/dominikacookies/vegan-pals#readme"
 }

@@ -20,7 +20,7 @@ const schema = {
     autoIncrement: true,
   },
   request_id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   datetime: {
