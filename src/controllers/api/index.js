@@ -1,4 +1,9 @@
+const { Op } = require("sequelize");
+
 const { CookTogether, User, Recipe } = require("../../models")
+
+// TO DO: get user id 
+const userId = 1
 
 // get all cooktogether information specific to a user and group response by sent, accepted and received
 const getAllCookTogethers = async (req, res) => {
@@ -62,9 +67,6 @@ const createCookTogether = async (req, res) => {
         error: "Missing parameters",
       })
     }
-
-    // TO DO: get user id 
-    const userId = 1
     
     const newCookTogether = [
       // row for user requesting cook together
@@ -106,9 +108,18 @@ const createCookTogether = async (req, res) => {
 // if somebody accepts a request
 const updateCookTogether = async (req, res) => {
   try {
+    const { contactDetails } = req.body
+    console.log(contactDetails)
+
+    if ( !contactDetails ) {
+      return res.status(404).json({
+        error: "Missing parameters",
+      })
+    }
+
     const {cookTogetherId} = req.params
 
-    const updateResult = await CookTogether.update(
+    const updateStatusResult = await CookTogether.update(
       {
         status : "accepted"
       },
@@ -118,17 +129,31 @@ const updateCookTogether = async (req, res) => {
         }
       })
 
-    if ( !updateResult[0] ) {
+    if ( !updateStatusResult[0] ) {
       return res.status(404).json({
         error: "Cook together doesn't exist"
       })
     }
+
+    await CookTogether.update(
+      {
+        contact_details : contactDetails
+      },
+      {
+        where: {
+          request_id : cookTogetherId,
+          user_id: {
+            [Op.ne] : userId
+          }
+        }
+      })
 
     return res.status(200).json({
       message: "Update successful"
     })
 
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
       error: "Could not update cook together"
     })
@@ -139,17 +164,58 @@ const updateCookTogether = async (req, res) => {
 // delete cooktogether
 // if someone declines or cancels a request
 const deleteCookTogether = async (req, res) => {
-  const {cookTogetherId} = req.params
+  try {
+    const {cookTogetherId} = req.params
 
-  
+    const deleteResult = await CookTogether.destroy({
+      where: { 
+        request_id : cookTogetherId 
+      }
+    });
 
+    if (!deleteResult) {
+      return res.status(404).json({
+        error: "Cook together doesn't exist"
+      })
+    };
 
-  console.log("deleting cook together")
+    return res.status(200).json({
+      message: "Cook together successfully deleted",
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      error: "Couldn't delete cook together."
+    }) 
+  }
 }
 
 // save recipe to favourites
 const saveRecipe = async (req, res) => {
-  console.log("saving recipe")
+  try {
+    const {recipeId, dishName} = req.body
+  
+    if (!recipeId || !dishName) {
+      return res.status(404).json({
+        error: "Missing parameters",
+      })
+    }
+    
+    const newRecipe = {
+        recipe_id: recipeId,
+        dish_name: dishName,
+        user_id: userId
+      }
+
+    const newRecipeData = await Recipe.create(newRecipe)
+
+    return res.status(200).json(newRecipeData)
+
+  } catch (error) {
+    return res.status(500).json({
+      error: "Could not save recipe together"
+    })
+  }
 }
 
 //remove recipe from favourites
