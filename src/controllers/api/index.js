@@ -65,7 +65,7 @@ const createCookTogether = async (req, res) => {
   
     if (!dateTime || !mealType || !message || !contactDetailsForSendingUser || !userIdReceivingInvite || !recipeId || !recipeTitle) {
       return res.status(404).json({
-        error: "Missing parameters",
+        error: "Required values missing.",
       })
     }
 
@@ -117,7 +117,7 @@ const updateCookTogether = async (req, res) => {
 
     if ( !contactDetails ) {
       return res.status(404).json({
-        error: "Missing parameters",
+        error: "Required values missing.",
       })
     }
 
@@ -201,7 +201,7 @@ const saveRecipe = async (req, res) => {
   
     if (!recipeId || !dishName) {
       return res.status(404).json({
-        error: "Missing parameters",
+        error: "Required values missing.",
       })
     }
     
