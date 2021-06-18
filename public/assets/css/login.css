@@ -12,6 +12,11 @@
   left: 20%;
 }
 
+.login-error-message {
+  text-align: center;
+  color: red;
+}
+
 .login-inputs {
   width: 60%;
   margin: auto;

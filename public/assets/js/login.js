@@ -5,6 +5,12 @@ const handleSubmit = async (event) => {
   const email = $("#email").val();
   const password = $("#password").val();
 
+  if (!email || !password) {
+    $("#login-error-messages").append(`
+    <p class="login-error-message "> Please enter an email and password to login </p>
+    `)
+  }
+
   console.log(email)
   console.log(password)
 } 
