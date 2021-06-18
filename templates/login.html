@@ -23,39 +23,38 @@
           <h2>Welcome back pal!</h2>
           <h3>Enter your details below to login now. </h3>
         </div>
-        <div class="mb-3 login-inputs">
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Email address"
-          />
-        </div>
-        <div class="mb-3 login-inputs">
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            placeholder="Password"
-          />
-        </div>
-        <div class="login-buttons-container">
-          <div class="mb-3 d-grid gap-2 login-submit-button">
-            <button type="submit" class="bt mb-3">Login</button>
+        <form id="login-form">
+          <div class="mb-3 login-inputs">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Email address"
+            />
           </div>
-          <div class="mb-3 d-grid gap-2 login-submit-button">
-            <button class="bt mb-3">Signup</button>
+          <div class="mb-3 login-inputs">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Password"
+            />
           </div>
-        </div>
+          <div class="login-buttons-container">
+            <div class="mb-3 d-grid gap-2 login-button">
+              <button type="submit" class="bt mb-3">Login</button>
+            </div>
+            <div class="mb-3 d-grid gap-2 login-button">
+              <button id="signup-button" class="bt mb-3">Signup</button>
+            </div>
+          </div>
+        </form>
       </div>
     </main>  
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../public/assets/js/login.js"></script>
 
   </body>
 </html>
