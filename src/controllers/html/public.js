@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const BASE_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=a400351722ac47169e8e48e6415e0440&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&diet=vegan&number=10`;
+const BASE_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=a400351722ac47169e8e48e6415e0440&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&number=10&diet=vegan`;
 
 const renderHomePage = (req, res) => {
   try {
@@ -34,9 +34,16 @@ const renderSignupPage = (req, res) => {
   }
 };
 
+const getUserIntolerances = (intolerances) =>
+  Object.entries(intolerances)
+    .filter(([key, value]) => value === 1)
+    .map(([key, value]) => key)
+    .join(",");
+
 const renderSearchResults = async (req, res) => {
   const { loggedIn } = req.session;
-
+  const { query } = req.query;
+  console.log(query);
   if (loggedIn) {
     let intoleranceParams = "";
     const generateIntoleranceParams = (intoleranceKeyValuePairArray) => {
@@ -55,18 +62,33 @@ const renderSearchResults = async (req, res) => {
       }
     };
     const { intolerances } = req.session.user;
+    console.log(intolerances);
 
     Object.entries(intolerances).map(generateIntoleranceParams);
-
-    const spoonacularParams = req.params;
+    // console.log(intoleranceParams);
+    //
     const response = await axios.get(
-      `${BASE_URL}${spoonacularParams}${intoleranceParams}`
+      "https://api.spoonacular.com/recipes/complexSearch",
+      {
+        params: {
+          apiKey: "a400351722ac47169e8e48e6415e0440",
+          instructionsRequired: true,
+          addRecipeInformation: true,
+          fillIngredients: true,
+          number: 10,
+          diet: "vegan",
+          intolerances: getUserIntolerances(intolerances),
+        },
+      }
     );
+    // console.log(response.data);
     res.render("search-results", { data: JSON.stringify(response.data) });
   } else {
-    const spoonacularParams = req.params;
-    const response = await axios.get(`${BASE_URL}${spoonacularParams}`);
-    res.render("search-results", { data: JSON.stringify(response.data) });
+    // const response = await axios.get(`${BASE_URL}${query}`);
+    // res.render("search-results", {
+    //   data: JSON.stringify(response.data),
+    // });
+    //map through each result
   }
 };
 

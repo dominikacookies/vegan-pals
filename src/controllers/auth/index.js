@@ -53,7 +53,7 @@ const login = async (req, res) => {
         grain: user.grain_intolerance,
         soy: user.soy_intolerance,
         sulphite: user.sulphite_intolerance,
-        treeNut: user.tree_nut_intolerance,
+        "tree nut": user.tree_nut_intolerance,
         wheat: user.wheat_intolerance,
       },
     };
