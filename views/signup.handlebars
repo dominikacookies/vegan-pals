@@ -1,29 +1,53 @@
-{{> public-navbar}}
-
-<form class="ui form">
-  <h4 class="ui dividing header">Sign up</h4>
-  <div class="field">
-    <label>Name</label>
-    <div class="two fields">
-      <div class="field">
-        <input type="text" name="[first-name]" placeholder="First Name">
+<div
+  class="position-absolute top-50 start-50 translate-middle text-center form-container"
+>
+  <h2 class="text-center">Sign Up</h2>
+  <hr />
+  <form id="signup-form">
+    <div class="d-flex flex-wrap">
+      <div class="mb-3 w-100">
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="First Name"
+        />
       </div>
-      <div class="field">
-        <input type="text" name="[last-name]" placeholder="Last Name">
+      <div class="mb-3 w-100">
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="Last Name"
+        />
+      </div>
+      <div class="mb-3 w-100">
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+        />
+      </div>
+      <div class="mb-3 w-100">
+        <input
+          type="text"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+        />
+      </div>
+      <div class="mb-3 w-100">
+        <input
+          type="text"
+          class="form-control"
+          id="confirmPassword"
+          placeholder="Confirm password"
+        />
+      </div>
+      <div class="d-grid gap-2 w-100">
+        <button class="btn btn-primary" type="submit">Sign Up</button>
       </div>
     </div>
-  </div>
-  <div class="field">
-      <label>Email</label>
-      <input type="text" placeholder="email">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="text" placeholder="Password">
-    </div>
-    <div class="field">
-      <label>Confirm Password</label>
-      <input type="text" placeholder="Confirm Password">
-    </div>
-<button class="ui button" type="submit">Sign Up</button>
-</form>
+  </form>
+</div>
