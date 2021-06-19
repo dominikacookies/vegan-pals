@@ -35,4 +35,4 @@ const handleSignupSubmit = async (event) => {
 };
 
 console.log("client-side JS");
-$("#sign-up-ui-form").submit(handleSignupSubmit);
+$("#sign-up-form").submit(handleSignupSubmit);
