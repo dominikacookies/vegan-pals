@@ -20,10 +20,25 @@ const onSubmit = (event) => {
     }
     const intoleranceNames = intolerances.map(callback)
     console.log(intoleranceNames,prepTime)
+
+    const requestBody = {
+      searchInput, intoleranceNames,prepTime
+    }
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      body: JSON.stringify(requestBody),
+    };
+    const response = await fetch("/search-results",options)
+    
 };
 
 $("#searchButton").on("click", onSubmit);
 
 $(document).ready(() => {
 //   renderHomePageCards();
+console.log("hi")
 });
