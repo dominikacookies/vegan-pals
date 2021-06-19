@@ -23,7 +23,7 @@
     "email": "shrek@shrek.com",
     "password": "password420",
     "bio": "What are you doing in my swamp?",
-    "gluten_intolerance": "false",
-    "soy_intolerance": "true"
+    "tree_nut_intolerance": "true",
+    "gluten_intolerance": "true"
   }
 ]

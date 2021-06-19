@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+const BASE_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=a400351722ac47169e8e48e6415e0440&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&diet=vegan`;
+
 const renderHomePage = (req, res) => {
   try {
     const { isLoggedIn } = req.session;
@@ -33,20 +35,38 @@ const renderSignupPage = (req, res) => {
 };
 
 const renderSearchResults = async (req, res) => {
-  //get data from spoonacular api ready to render to search results page
-  // /search-results?query=broccoli&maxReadyTime=30&intolerance=wheat
-  const { isLoggedIn } = req.session;
-  // const isLoggedIn = false;
-  if (isLoggedIn) {
-    //get intolerances from user
-    //make request
-  } else {
-    //get intolerances from req.params
-    // const intolerance = req.params;
-    //make request
+  const { loggedIn } = req.session;
+
+  if (loggedIn) {
+    let intoleranceParams = "";
+    const generateIntoleranceParams = (intoleranceKeyValuePairArray) => {
+      if (!intoleranceKeyValuePairArray[1]) {
+        return;
+      }
+      if (intoleranceParams === "") {
+        intoleranceParams =
+          intoleranceKeyValuePairArray[0] == "treeNut"
+            ? "&intolerances=tree%20nut"
+            : `&intolerances=${intoleranceKeyValuePairArray[0]}`;
+      } else {
+        intoleranceKeyValuePairArray[0] == "treeNut"
+          ? (intoleranceParams += ",tree%20nut")
+          : (intoleranceParams += `,${intoleranceKeyValuePairArray[0]}`);
+      }
+    };
+    const { intolerances } = req.session.user;
+    console.log(intolerances);
+    Object.entries(intolerances).map(generateIntoleranceParams);
+    console.log(intoleranceParams);
+
+    const spoonacularParams = req.params;
     const response = await axios.get(
-      "https://api.spoonacular.com/recipes/complexSearch?&intolerances=soy&query=rice&apiKey=214dc041d6d44757b2a72a21f418f1e7&diet=vegan"
+      `${BASE_URL}${spoonacularParams}${intoleranceParams}`
     );
+    res.render("search-results", { data: JSON.stringify(response.data) });
+  } else {
+    const spoonacularParams = req.params;
+    const response = await axios.get(`${BASE_URL}${spoonacularParams}`);
     res.render("search-results", { data: JSON.stringify(response.data) });
   }
 };
