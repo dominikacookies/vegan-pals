@@ -1,6 +1,5 @@
 const handleSubmit = async (event) => {
   event.preventDefault();
-  console.log("submit")
 
   const email = $("#email").val();
   const password = $("#password").val();
@@ -26,7 +25,6 @@ const handleSubmit = async (event) => {
   };
 
   const response = await fetch("http://localhost:3001/auth/login", options);
-  console.log(response)
 
   if (response.status == 200) {
     window.location.replace("http://localhost:3001/"); 
@@ -41,18 +39,8 @@ const handleSubmit = async (event) => {
     <p class="login-error-message "> Oops! We're having some trouble at the moment. Please try again later. </p>
     `)
   }
-
-  console.log(response)
 } 
-
-const renderSignUpPage = (event) => {
-  event.preventDefault();
-  // event.stopPropagation()
-  console.log("signup")
-}
 
 
 
 $("#login-form").submit(handleSubmit)
-
-$("#signup-button").click(renderSignUpPage)
