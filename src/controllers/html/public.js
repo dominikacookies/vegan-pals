@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const BASE_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=a400351722ac47169e8e48e6415e0440&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&diet=vegan`;
+const BASE_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=a400351722ac47169e8e48e6415e0440&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&diet=vegan&number=10`;
 
 const renderHomePage = (req, res) => {
   try {
@@ -55,9 +55,8 @@ const renderSearchResults = async (req, res) => {
       }
     };
     const { intolerances } = req.session.user;
-    console.log(intolerances);
+
     Object.entries(intolerances).map(generateIntoleranceParams);
-    console.log(intoleranceParams);
 
     const spoonacularParams = req.params;
     const response = await axios.get(
