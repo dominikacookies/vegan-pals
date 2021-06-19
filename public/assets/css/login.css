@@ -1,0 +1,45 @@
+.login-page-container {
+  background-color: aqua;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-container {
+  width: 60%;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+}
+
+.login-error-message {
+  text-align: center;
+  color: red;
+}
+
+.login-inputs {
+  width: 60%;
+  margin: auto;
+}
+
+.login-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-button {
+  width: 150px;
+  display: inline;
+  margin: 10px
+}
+
+@media screen and (max-width: 768px) {
+  .login-container {
+    width: 80%;
+    left: 10%;
+  }
+  .login-inputs {
+    width: 80%;
+  }
+}
+
