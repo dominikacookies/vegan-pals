@@ -252,11 +252,16 @@ const deleteRecipe = async (req, res) => {
 
 }
 
+const search = async (req, res) => {
+  console.log("search result")
+}
+
 module.exports = {
   getAllCookTogethers,
   createCookTogether,
   updateCookTogether,
   deleteCookTogether,
   saveRecipe,
-  deleteRecipe
+  deleteRecipe,
+  search
 }
