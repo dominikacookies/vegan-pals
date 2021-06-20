@@ -23,7 +23,16 @@
     "email": "shrek@shrek.com",
     "password": "password420",
     "bio": "What are you doing in my swamp?",
-    "gluten_intolerance": "false",
+    "gluten_intolerance": "true",
+    "soy_intolerance": "true"
+  },
+  {
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "email": "alice@gmail.com",
+    "password": "passwordpassword",
+    "bio": "Hello, I love cooking!",
+    "gluten_intolerance": "true",
     "soy_intolerance": "true"
   }
 ]
