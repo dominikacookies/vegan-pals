@@ -32,7 +32,7 @@ const login = async (req, res) => {
     const passwordValidationResult = await bcrypt.compare(password, user.password); 
 
     if (!passwordValidationResult) {
-      return res.status(404).json({
+      return res.status(401).json({
         error: "Password invalid."
       })
     }
@@ -46,7 +46,7 @@ const login = async (req, res) => {
       lastName: user.last_name,
       intolerances: {
         gluten: user.gluten_intolerance,
-        peanuts: user.peanuts_intolerance,
+        peanut: user.peanut_intolerance,
         sesame: user.sesame_intolerance,
         grain: user.grain_intolerance,
         soy: user.soy_intolerance,
@@ -63,7 +63,6 @@ const login = async (req, res) => {
     })
   
   } catch (error) {
-    console.log(error)
     return res.status(500).json({
       error: "Unable to login."
     })
@@ -71,7 +70,12 @@ const login = async (req, res) => {
 }
 
 const logout = async (req, res) => {
-  console.log("logout")
+  delete req.session.loggedIn
+  delete req.session.user
+  
+  res.status(200).json({
+    message: "Logout successful"
+  })
 }
 
 const signup = async (req, res) => {

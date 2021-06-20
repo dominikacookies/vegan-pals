@@ -49,7 +49,7 @@ const schema = {
     allowNull: false,
     defaultValue: false,
   },
-  peanuts_intolerance: {
+  peanut_intolerance: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: false,
