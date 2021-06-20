@@ -17,7 +17,15 @@ const onSubmit = async (event) => {
       intoleranceParams = "&intolerances=" + intolerances.map(getIntoleranceName).join(",")
     }
 
+    let prepTimeParams
+
     const prepTime = $("input[type='radio']:checked").attr("id")
+
+    if (prepTime) {
+      prepTimeParams = `&maxReadyTime=${prepTime}`
+
+      console.log(prepTimeParams)
+    }
 
     const options = {
       method: "POST",
@@ -27,7 +35,7 @@ const onSubmit = async (event) => {
       redirect: "follow",
       body: JSON.stringify(requestBody),
     };
-    const response = await fetch("/search-results",options)
+    const response = await fetch(`/search-results${intoleranceParams}`,options)
     
 };
 
