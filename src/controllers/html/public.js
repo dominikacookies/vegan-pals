@@ -64,7 +64,17 @@ const renderSearchResults = async (req, res) => {
       },
     });
 
-    res.render("search-results", { data: JSON.stringify(response.data) });
+    const recipeData = response.data.results.map((recipe) => {
+      const recipeInfo = {
+        title: recipe.title,
+        image: recipe.image,
+        recipe_id: recipe.id,
+      };
+
+      return recipeInfo;
+    });
+
+    res.render("search-results", { recipeData });
   } else {
     const response = await axios.get(COMPLEX_SEARCH_URL, {
       params: {
@@ -72,8 +82,17 @@ const renderSearchResults = async (req, res) => {
         ...req.query,
       },
     });
+    const recipeData = response.data.results.map((recipe) => {
+      const recipeInfo = {
+        title: recipe.title,
+        image: recipe.image,
+        recipe_id: recipe.id,
+      };
 
-    res.render("search-results", { data: JSON.stringify(response.data) });
+      return recipeInfo;
+    });
+
+    res.render("search-results", { recipeData });
   }
 };
 
