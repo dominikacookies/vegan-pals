@@ -1,5 +1,16 @@
 const axios = require("axios");
 
+const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
+
+const baseParams = {
+  apiKey: "a400351722ac47169e8e48e6415e0440",
+  instructionsRequired: true,
+  addRecipeInformation: true,
+  fillIngredients: true,
+  number: 10,
+  diet: "vegan",
+};
+
 const renderHomePage = (req, res) => {
   try {
     const { isLoggedIn } = req.session;
@@ -32,22 +43,56 @@ const renderSignupPage = (req, res) => {
   }
 };
 
+const getUserIntolerances = (intolerances) =>
+  Object.entries(intolerances)
+    .filter(([key, value]) => value === 1)
+    .map(([key, value]) => key)
+    .join(",");
+
 const renderSearchResults = async (req, res) => {
-  //get data from spoonacular api ready to render to search results page
-  // /search-results?query=broccoli&maxReadyTime=30&intolerance=wheat
-  const { isLoggedIn } = req.session;
-  // const isLoggedIn = false;
-  if (isLoggedIn) {
-    //get intolerances from user
-    //make request
+  const { loggedIn } = req.session;
+  const { query } = req.query;
+
+  if (loggedIn) {
+    const { intolerances } = req.session.user;
+
+    const response = await axios.get(COMPLEX_SEARCH_URL, {
+      params: {
+        ...baseParams,
+        ...req.query,
+        intolerances: getUserIntolerances(intolerances),
+      },
+    });
+
+    const recipeData = response.data.results.map((recipe) => {
+      const recipeInfo = {
+        title: recipe.title,
+        image: recipe.image,
+        recipe_id: recipe.id,
+      };
+
+      return recipeInfo;
+    });
+
+    res.render("search-results", { recipeData });
   } else {
-    //get intolerances from req.params
-    // const intolerance = req.params;
-    //make request
-    const response = await axios.get(
-      "https://api.spoonacular.com/recipes/complexSearch?&intolerances=soy&query=rice&apiKey=214dc041d6d44757b2a72a21f418f1e7&diet=vegan"
-    );
-    res.render("search-results", { data: JSON.stringify(response.data) });
+    const response = await axios.get(COMPLEX_SEARCH_URL, {
+      params: {
+        ...baseParams,
+        ...req.query,
+      },
+    });
+    const recipeData = response.data.results.map((recipe) => {
+      const recipeInfo = {
+        title: recipe.title,
+        image: recipe.image,
+        recipe_id: recipe.id,
+      };
+
+      return recipeInfo;
+    });
+
+    res.render("search-results", { recipeData });
   }
 };
 
