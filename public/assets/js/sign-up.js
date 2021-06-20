@@ -26,8 +26,7 @@ const handleSignupSubmit = async (event) => {
 
     const response = await fetch("/auth/sign-up", options);
 
-    if (response.status === 200) {
-      window.location.replace("/login");
+    if (response.status === 200) window.location.replace("/login");
   } else if (response.status == 404) {
     $("#sign-up-error-messages").empty();
     $("#sign-up-error-messages").append(`
@@ -41,8 +40,6 @@ const handleSignupSubmit = async (event) => {
   }
 };
 
-
-
 console.log("client-side JS");
 
-$("#sign-up-form").submit(handleSignupSubmit)
+$("#sign-up-form").submit(handleSignupSubmit);
