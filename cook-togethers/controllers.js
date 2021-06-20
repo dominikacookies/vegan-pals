@@ -8,9 +8,9 @@ const userId = 2;
 recipeId = 798400;
 
 // Requests fns
-const getReceived = async (req, res) => {
+const getAllReceived = async (req, res) => {
   try {
-    const receivedCookTogether = await CookTogether.findAll({
+    const allReceived = await CookTogether.findAll({
       where: {
         user_id: userId,
         status: "received",
@@ -18,7 +18,7 @@ const getReceived = async (req, res) => {
       raw: true,
       nested: true,
     });
-    console.log(receivedCookTogether);
+    console.log(allReceived);
   } catch (error) {
     console.log(error);
   }
@@ -40,6 +40,7 @@ const getAllUpcoming = async (req, res) => {
   }
 };
 
+//how to filter by datetime??
 const getNearestUpcoming = async (req, res) => {
   try {
     const nearestUpcoming = await CookTogether.findOne({
@@ -55,6 +56,23 @@ const getNearestUpcoming = async (req, res) => {
     console.log(error);
   }
 };
+
+const getAllSent = async (req, res) => {
+  try {
+    const allSent = await CookTogether.findOne({
+      where: {
+        user_id: userId,
+        status: "sent",
+      },
+      raw: true,
+      nested: true,
+    });
+    console.log(allSent);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // User info
 const getUserInfo = async (req, res) => {
   try {
@@ -86,8 +104,9 @@ const getRecipe = async (req, res) => {
   }
 };
 
-//getReceived();
+//getAllReceived();
 //getUserInfo();
 //getRecipe();
-getAllUpcoming();
+//getAllUpcoming();
 //getNearestUpcoming();
+getAllSent();
