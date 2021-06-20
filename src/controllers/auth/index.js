@@ -46,7 +46,7 @@ const login = async (req, res) => {
       lastName: user.last_name,
       intolerances: {
         gluten: user.gluten_intolerance,
-        peanuts: user.peanuts_intolerance,
+        peanut: user.peanut_intolerance,
         sesame: user.sesame_intolerance,
         grain: user.grain_intolerance,
         soy: user.soy_intolerance,
