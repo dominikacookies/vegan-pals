@@ -109,4 +109,13 @@ const getRecipe = async (req, res) => {
 //getRecipe();
 //getAllUpcoming();
 //getNearestUpcoming();
-getAllSent();
+//getAllSent();
+
+module.exports = {
+  getAllReceived,
+  getUserInfo,
+  getRecipe,
+  getAllUpcoming,
+  getNearestUpcoming,
+  getAllSent,
+};
