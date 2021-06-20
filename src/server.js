@@ -46,6 +46,7 @@ const init = async () => {
     );
   } catch (error) {
     console.error("Failed to connect to DB");
+    console.log(error)
   }
 };
 
