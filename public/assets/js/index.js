@@ -1,29 +1,24 @@
-console.log("hello to the client");
-
-const renderHomePageCards = () => {
-    
-}
-
-
-const onSubmit = (event) => {
+const onSubmit = async (event) => {
   event.preventDefault();
 
   const searchInput = $("#searchInput").val();
-  console.log(searchInput);
   
-    let intolerances = document.querySelectorAll(".intolerance:checked")
-    intolerances = Array.prototype.slice.call(intolerances);
-    const prepTime = $("input[type='radio']:checked").attr("id")
-    console.log(intolerances)
-     const callback = (each) => {
-        return each.name
-    }
-    const intoleranceNames = intolerances.map(callback)
-    console.log(intoleranceNames,prepTime)
+    const checkedIntolerances = document.querySelectorAll(".intolerance:checked")
 
-    const requestBody = {
-      searchInput, intoleranceNames,prepTime
+    let intoleranceParams
+
+    if (checkedIntolerances.length > 0) {
+      const intolerances = Array.prototype.slice.call(checkedIntolerances);
+
+       const getIntoleranceName = (intolerance) => {
+          return intolerance.name
+      }
+
+      intoleranceParams = "&intolerances=" + intolerances.map(getIntoleranceName).join(",")
     }
+
+    const prepTime = $("input[type='radio']:checked").attr("id")
+
     const options = {
       method: "POST",
       headers: {
@@ -37,8 +32,3 @@ const onSubmit = (event) => {
 };
 
 $("#searchButton").on("click", onSubmit);
-
-$(document).ready(() => {
-//   renderHomePageCards();
-console.log("hi")
-});
