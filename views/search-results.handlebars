@@ -1,19 +1,17 @@
 <h1 class="text-center">Recipe Search Results</h1>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title text-center">{{recipe.title}}</h5>
-  </div>
-  <img src="..." class="card-img-top" alt="..." />
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+{{#each recipeData as |recipe|}}
+  <div
+    class="card d-inline-flex justify-content-between p-2 bd-highlight"
+    style="width: 18rem;"
+  >
+    <div class="card-body">
+      <h5 class="card-title text-center">{{recipe.title}}</h5>
+    </div>
+    <img src={{recipe.image}} class="card-img-top" alt="..." />
+    <div class="card-body">
 
-<div></div>
+      <a href="#" class="card-link">View more</a>
+    </div>
+  </div>
+{{/each}}
