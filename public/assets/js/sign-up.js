@@ -28,21 +28,20 @@ const handleSignupSubmit = async (event) => {
 
     if (response.status === 200) {
       window.location.replace("/login");
-  } else if (response.status == 404) {
-    $("#sign-up-error-messages").empty();
-    $("#sign-up-error-messages").append(`
+    } else if (response.status == 404) {
+      $("#sign-up-error-messages").empty();
+      $("#sign-up-error-messages").append(`
       <p class="sign-up-error-message "> The email/password you have entered are incorrect.Please try again </p>
       `);
-  } else {
-    $("#sign-up-error-messages").empty();
-    $("#sign-up-error-messages").append(`
+    } else {
+      $("#sign-up-error-messages").empty();
+      $("#sign-up-error-messages").append(`
       <p class="sign-up-error-message "> For the moment the page cannot be accessed. Please try again later </p>
       `);
+    }
   }
 };
 
-
-
 console.log("client-side JS");
 
-$("#sign-up-form").submit(handleSignupSubmit)
+$("#sign-up-form").submit(handleSignupSubmit);
