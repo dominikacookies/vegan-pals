@@ -10,31 +10,36 @@ const renderMyRecipesCookTogether = (req, res) => {
 };
 
 const renderCookTogetherPals = async (req, res) => {
- const {gluten, peanut, sesame, grain, soy, sulphite, treeNut, wheat} = req.session.user.intolerances
+  const {recipeId} = req.params
+  req.session.recipeId = recipeId
 
- const pals = await User.findAll({
-    attributes: ['first_name', 'last_name', 'bio'],
-    where: {
-      [Op.and]: [
-        { gluten_intolerance: gluten },
-        { grain_intolerance: grain },
-        { soy_intolerance: soy },
-        { peanut_intolerance: peanut },
-        { sesame_intolerance: sesame },
-        { sulphite_intolerance: sulphite },
-        { tree_nut_intolerance: treeNut },
-        { wheat_intolerance: wheat },
-      ],
-      id: {
-        [Op.ne] : req.session.user.id
-      }
-    },
-    raw: true,
-    nested: true
-  })
+  const {gluten, peanut, sesame, grain, soy, sulphite, treeNut, wheat} = req.session.user.intolerances
 
-console.log(pals)
-}
+  const pals = await User.findAll({
+      attributes: ['first_name', 'last_name', 'bio'],
+      where: {
+        [Op.and]: [
+          { gluten_intolerance: gluten },
+          { grain_intolerance: grain },
+          { soy_intolerance: soy },
+          { peanut_intolerance: peanut },
+          { sesame_intolerance: sesame },
+          { sulphite_intolerance: sulphite },
+          { tree_nut_intolerance: treeNut },
+          { wheat_intolerance: wheat },
+        ],
+        id: {
+          [Op.ne] : req.session.user.id
+        }
+      },
+      raw: true,
+      nested: true
+    });
+
+    console.log(pals)
+
+    res.render("cooktogether-pals", {pals})
+};
 
 
 
