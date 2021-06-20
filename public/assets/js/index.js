@@ -1,11 +1,19 @@
 const onSubmit = async (event) => {
   event.preventDefault();
 
-  const searchInput = $("#searchInput").val();
+    const searchInput = $("#searchInput").val();
+
+    console.log(searchInput)
+
+    let searchInputParams = ""
+
+    if (searchInput) {
+      searchInputParams = `&query=${searchInput}`
+    }
   
     const checkedIntolerances = document.querySelectorAll(".intolerance:checked")
 
-    let intoleranceParams
+    let intoleranceParams = ""
 
     if (checkedIntolerances.length > 0) {
       const intolerances = Array.prototype.slice.call(checkedIntolerances);
@@ -17,25 +25,18 @@ const onSubmit = async (event) => {
       intoleranceParams = "&intolerances=" + intolerances.map(getIntoleranceName).join(",")
     }
 
-    let prepTimeParams
+    let prepTimeParams =""
 
     const prepTime = $("input[type='radio']:checked").attr("id")
 
     if (prepTime) {
       prepTimeParams = `&maxReadyTime=${prepTime}`
-
-      console.log(prepTimeParams)
     }
+    
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      body: JSON.stringify(requestBody),
-    };
-    const response = await fetch(`/search-results${intoleranceParams}`,options)
+    console.log(`/search-results/${searchInputParams}${intoleranceParams}${prepTimeParams}`)
+
+    const response = await fetch(`/search-results/${searchInputParams}${intoleranceParams}${prepTimeParams}`,options)
     
 };
 
