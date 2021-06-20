@@ -13,199 +13,284 @@
     <title>Cook Togethers</title>
   </head>
   <body>
-    <!-- nav -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Vegan Pals<3</a>
-        <div class="d-flex justify-content-end">
-          <a class="navbar-brand" href="#">Login</a>
-          <a class="navbar-brand" href="#">SignUp</a>
+    <main>
+      <!-- nav -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#/">Vegan Pals<3</a>
+          <div class="d-flex justify-content-end">
+            <a class="navbar-brand" href="/login">Login</a>
+            <a class="navbar-brand" href="/signup">SignUp</a>
+          </div>
         </div>
-      </div>
-    </nav>
-    <!-- find pal -->
-    <section class="d-flex flex-row justify-content-evenly m-5 p-3">
-      <div>
-        <h2 class="p-1">Find a new pal!</h2>
-        <button type="button" class="btn btn-outline-success">Search</button>
-      </div>
-      <div class="card" style="width: 20rem">
-        <img
-          src="https://images.unsplash.com/photo-1452857297128-d9c29adba80b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <p class="card-text">
-            This is my bio. bio bio bio bio bio bio bio bio bio bio bio bio bio
-            bio bio bio bio bio bio bio.
-          </p>
+      </nav>
+      <!-- find pal -->
+      <section class="d-flex flex-row justify-content-evenly m-5 p-3">
+        <div>
+          <h2 class="p-1">Find a new pal!</h2>
+          <a href="# " class="btn btn-outline-success">Search</a>
         </div>
-      </div>
-    </section>
-    <!-- Upcoming card -->
-    <div class="card mx-auto" style="width: 60vw">
-      <div class="row g-0">
-        <div class="col-md-6">
+        <div class="card m-4" style="width: 25vw">
           <img
-            src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            src="https://images.unsplash.com/photo-1452857297128-d9c29adba80b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80"
+            class="card-img-top"
             alt="..."
           />
-        </div>
-        <div class="col-md-6">
           <div class="card-body">
-            <h5 class="card-title">< > with Keanu Reeves</h5>
-            <p class="card-text">when: < Time and Date ></p>
-            <p class="card-text">contact: < Contact info ></p>
-            <button type="button" class="btn btn-outline-success">
-              Recipe
-            </button>
+            <p class="card-text">
+              This is my bio. bio bio bio bio bio bio bio bio bio bio bio bio
+              bio bio bio bio bio bio bio bio.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Upcoming card -->
+      <div class="card mx-auto" style="width: 60vw">
+        <div class="row g-0">
+          <div class="col-md-7">
+            <img
+              src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-5">
+            <div class="card-body">
+              <h5 class="card-title">< > with Keanu Reeves</h5>
+              <p class="card-text">when: < Time and Date ></p>
+              <p class="card-text">contact: < Contact info ></p>
+              <button type="button" class="btn btn-outline-success">
+                Recipe
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Carousels -->
-    <main class="container carousel-container" style="justify-content: center">
-      <!-- carousel Upcoming -->
-      <div
-        id="carouselExampleOne"
-        class="carousel slide p-5"
-        data-bs-touch="false"
-        data-bs-interval="false"
-        style="width: 40vw"
-      >
-        <div><h4>See all upcoming Cook Togethers</h4></div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">< Recipe name > with < user ></h5>
-                  <p class="card-text">when: < Time and Date ></p>
-                  <p class="card-text">contact: < Contact info ></p>
-                  <a href="#" class="btn btn-success">Recipe</a>
-                </div>
-              </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">< Recipe name > with < user ></h5>
-                  <p class="card-text">when: < Time and Date ></p>
-                  <p class="card-text">contact: < Contact info ></p>
-                  <a href="#" class="btn btn-success">Recipe</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">< Recipe name > with < user ></h5>
-                  <p class="card-text">when: < Time and Date ></p>
-                  <p class="card-text">contact: < Contact info ></p>
-                  <a href="#" class="btn btn-success">Recipe</a>
-                </div>
-              </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">< Recipe name > with < user ></h5>
-                  <p class="card-text">when: < Time and Date ></p>
-                  <p class="card-text">contact: < Contact info ></p>
-                  <a href="#" class="btn btn-success">Recipe</a>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="carousel-item">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">< Recipe name > with < user ></h5>
-                  <p class="card-text">when: < Time and Date ></p>
-                  <p class="card-text">contact: < Contact info ></p>
-                  <a href="#" class="btn btn-success">Recipe</a>
+      <!-- Carousels -->
+      <section
+        class="container carousel-container"
+        style="justify-content: center"
+      >
+        <!-- carousel Upcoming -->
+        <div
+          id="carouselUpcoming"
+          class="carousel slide p-5 justify-content-evenly"
+          data-bs-touch="false"
+          data-bs-interval="false"
+          style="width: 80vw"
+        >
+          <div><h4>See all upcoming Cook Togethers</h4></div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">< Recipe name > with < user ></h5>
+                    <p class="card-text">when: < Time and Date ></p>
+                    <p class="card-text">contact: < Contact info ></p>
+                    <a href="" class="btn btn-success">Recipe</a>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">< Recipe name > with < user ></h5>
+                    <p class="card-text">when: < Time and Date ></p>
+                    <p class="card-text">contact: < Contact info ></p>
+                    <a href="#" class="btn btn-success">Recipe</a>
+                  </div>
                 </div>
               </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">< Recipe name > with < user ></h5>
-                  <p class="card-text">when: < Time and Date ></p>
-                  <p class="card-text">contact: < Contact info ></p>
-                  <a href="#" class="btn btn-success">Recipe</a>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">< Recipe name > with < user ></h5>
+                    <p class="card-text">when: < Time and Date ></p>
+                    <p class="card-text">contact: < Contact info ></p>
+                    <a href="#" class="btn btn-success">Recipe</a>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">< Recipe name > with < user ></h5>
+                    <p class="card-text">when: < Time and Date ></p>
+                    <p class="card-text">contact: < Contact info ></p>
+                    <a href="#" class="btn btn-success">Recipe</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">< Recipe name > with < user ></h5>
+                    <p class="card-text">when: < Time and Date ></p>
+                    <p class="card-text">contact: < Contact info ></p>
+                    <a href="#" class="btn btn-success">Recipe</a>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">< Recipe name > with < user ></h5>
+                    <p class="card-text">when: < Time and Date ></p>
+                    <p class="card-text">contact: < Contact info ></p>
+                    <a href="#" class="btn btn-success">Recipe</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselUpcoming"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselUpcoming"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleOne"
-          data-bs-slide="prev"
+        <!-- carousel Received -->
+        <div
+          id="carouselReceived"
+          class="carousel slide p-5 justify-content-evenly"
+          data-bs-touch="false"
+          data-bs-interval="false"
+          style="width: 80vw"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleOne"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      <!-- carousel Received -->
-      <div
-        id="carouselExampleTwo"
-        class="carousel slide p-5"
-        data-bs-touch="false"
-        data-bs-interval="false"
-        style="width: 40vw"
-      >
-        <div><h4>See all Cook Together invitations you've received</h4></div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
+          <div><h4>See all Cook Together invitations you've received</h4></div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">< Recipe name ></h5>
+                      <p class="card-text">when: < Time and Date ></p>
+                      <p class="card-text">from: < User's name ></p>
+                      <a href="#" class="btn btn-success">Accept</a>
+                      <a href="#" class="btn btn-success">Decline</a>
+                      <a href="#" class="btn btn-success">Recipe</a>
+                      <a
+                        href="#exampleModal"
+                        class="btn btn-success"
+                        data-bs-toggle="modal"
+                        >User Info</a
+                      >
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                            User Info
+                          </h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          user info user info user infoo user info user info
+                          user infoo
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">< Recipe name ></h5>
+                      <p class="card-text">when: < Time and Date ></p>
+                      <p class="card-text">from: < User's name ></p>
+                      <a href="#" class="btn btn-success">Accept</a>
+                      <a href="#" class="btn btn-success">Decline</a>
+                      <a href="#" class="btn btn-success">Recipe</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
                   <div class="card-body">
                     <h5 class="card-title">< Recipe name ></h5>
                     <p class="card-text">when: < Time and Date ></p>
@@ -215,250 +300,213 @@
                     <a href="#" class="btn btn-success">Recipe</a>
                   </div>
                 </div>
-              </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
                   <div class="card-body">
-                    <h5 class="card-title">< Recipe name ></h5>
-                    <p class="card-text">when: < Time and Date ></p>
-                    <p class="card-text">from: < User's name ></p>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
                     <a href="#" class="btn btn-success">Accept</a>
                     <a href="#" class="btn btn-success">Decline</a>
-
-                    <a href="#" class="btn btn-success">Recipe</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Accept</a>
+                    <a href="#" class="btn btn-success">Decline</a>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Accept</a>
+                    <a href="#" class="btn btn-success">Decline</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">< Recipe name ></h5>
-                  <p class="card-text">when: < Time and Date ></p>
-                  <p class="card-text">from: < User's name ></p>
-                  <a href="#" class="btn btn-success">Accept</a>
-                  <a href="#" class="btn btn-success">Decline</a>
-                  <a href="#" class="btn btn-success">Recipe</a>
-                </div>
-              </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Accept</a>
-                  <a href="#" class="btn btn-success">Decline</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Accept</a>
-                  <a href="#" class="btn btn-success">Decline</a>
-                </div>
-              </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Accept</a>
-                  <a href="#" class="btn btn-success">Decline</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselReceived"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselReceived"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleTwo"
-          data-bs-slide="prev"
+        <!-- carousel Sent -->
+        <div
+          id="carouselSent"
+          class="carousel slide p-5 justify-content-evenly"
+          data-bs-touch="false"
+          data-bs-interval="false"
+          style="width: 80vw"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleTwo"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      <!-- carousel Sent -->
-      <div
-        id="carouselExampleThree"
-        class="carousel slide p-5"
-        data-bs-touch="false"
-        data-bs-interval="false"
-        style="width: 40vw"
-      >
-        <div><h4>See all Cook Together invitations you've sent</h4></div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Go somewhere</a>
+          <div><h4>See all Cook Together invitations you've sent</h4></div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Go somewhere</a>
+                  </div>
                 </div>
               </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Go somewhere</a>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex flex-row justify-content-evenly">
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card m-4" style="width: 25vw">
+                  <img
+                    src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-success">Go somewhere</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="d-flex flex-row justify-content-evenly">
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 20rem">
-                <img
-                  src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  class="d-block w-100"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-success">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselSent"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselSent"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleThree"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleThree"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+      </section>
     </main>
 
     <!-- scripts -->
@@ -467,6 +515,6 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-    <script src="./index.js"></script>
+    <script src="./controllers.js"></script>
   </body>
 </html>
