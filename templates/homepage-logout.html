@@ -50,22 +50,20 @@
           <div class="pr-2">prep-time</div>
           <div class="form-check mx-3">
             <input
-              class="form-check-input radioButton"
-              type="radio"
-              name="flexRadioDefault"
-              id="radiobutton1"
-            />
-          </div>
-          <label class="form-check-label" for="radiobutton">
-            >30mins
-          </label>
-          <div class="form-check mx-2">
-            <input
-              class="form-check-input radioButton"
+              class="form-check-input radioButton prep-time"
               type="radio"
               name="flexRadioDefault"
               id=">30mins"
-              checked
+            />
+          </div>
+          <label class="form-check-label" for="radiobutton"> >30mins </label>
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton prep-time"
+              type="radio"
+              name="flexRadioDefault"
+              id="30-60mins"
+              
             />
             <label class="form-check-label" for="flexRadioDefault2">
               30 60minutes
@@ -73,11 +71,11 @@
           </div>
           <div class="form-check mx-2">
             <input
-              class="form-check-input radioButton"
+              class="form-check-input radioButton prep-time"
               type="radio"
               name="flexRadioDefault"
-              id="30-60minutes"
-              checked
+              id="60minutes+"
+              
             />
             <label class="form-check-label" for="flexRadioDefault2">
               60minutes+
@@ -85,42 +83,100 @@
           </div>
         </div>
 
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-wrap">
           <div class="">intolerances</div>
           <div class="form-check mx-2">
             <input
-              class="form-check-input radioButton"
-              type="radio"
-              name="flexRadioDefault"
-              id="intolerances"
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="gluten"
+              id="gluten"
             />
+            <label class="form-check-label" for="gluten"> gluten </label>
           </div>
-          <label class="form-check-label" for="radiobutton">
-            intolerances
-          </label>
           <div class="form-check mx-2">
             <input
-              class="form-check-input radioButton"
-              type="radio"
-              name="flexRadioDefault"
-              id="intolerances"
-              checked
+              class="form-check-input radioButton intolerance"
+              aria-controls=" "
+              type="checkbox"
+              name="peanuts"
+              id="peanuts"
             />
-            <label class="form-check-label" for="flexRadioDefault2">
-              intolerances
+            <label class="form-check-label" for="peanuts">
+              peanuts
             </label>
           </div>
           <div class="form-check mx-2">
             <input
-              class="form-check-input radioButton"
-              type="radio"
-              name="flexRadioDefault"
-              id="intolerances"
-              checked
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="sesame"
+              id="sesame"
+              />
+              <label class="form-check-label" for="sesame">
+                sesame
+              </label>
+          </div>
+
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="grain"
+              id="grain"
             />
-      
+            <label class="form-check-label" for="grain">
+              grain
+            </label>
+          </div>
+          
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="soy"
+              id="soy"
+            />
+            <label class="form-check-label" for="soy"> soy </label>
+          </div>
+         
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="sulphite"
+              id="sulphite"
+            />
+            <label class="form-check-label" for="sulphite">
+              sulphite
+            </label>
+          </div>
+          
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="tree-nut"
+              id="tree-nut"
+            />
+            <label class="form-check-label" for="tree nut">
+              tree nut
+            </label>
+          </div>
+         
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="wheat"
+              id="wheat"
+            />
+            <label class="form-check-label" for="wheat">
+              wheat
+            </label>
           </div>
         </div>
+        
         <button
           id="searchButton"
           type="click"
@@ -237,6 +293,10 @@
       </div>
     </div>
   </body>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
   <script src="../src/public/js/index.js"></script>
 </html>
