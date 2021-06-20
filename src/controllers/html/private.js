@@ -53,7 +53,6 @@ const renderMyRecipes = async (req, res) => {
     nested: true
   })
 
-  console.log(recipes)
   res.render("myrecipes", {recipes})
 };
 
