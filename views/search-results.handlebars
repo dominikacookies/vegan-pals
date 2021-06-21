@@ -8,12 +8,23 @@
 
 
 {{#each recipeData as |recipe|}}
+  
   <div
-    class="card d-flex justify-content-between p-2 bd-highlight"
+    class="card position-relative d-inline-flex  justify-content-between p-2 bd-highlight"
     style="width: 18rem">
-    <div class="card-body">
+    <div class="card-body mx-auto">
       <h5 class="card-title text-center">{{recipe.title}}</h5>
       <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
+      <div class="m-2 w-25 h-25"> <button
+          id="view-recipe-btn"
+          type="click"
+          class="btn btn-primary input-group-text mb-3 fw-bold"> View recipe </button>
+        </div>
+        <div class="m-2 w-25 h-25"> <button
+          id="save-recipe"
+          type="click"
+          class="btn btn-secondary input-group-text mb-3 fw-bold"> Save to favourites </button>
+        </div>
     </div>
   </div>
   {{/each}}
