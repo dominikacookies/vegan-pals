@@ -6,96 +6,25 @@
   <h2 class="text-center">Your yummy recipes</h2>
   <hr />
   <form id="my-recipes-form">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title
-          and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title
-          and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title
-          and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title
-          and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title
-          and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title
-          and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title
-          and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in
-              to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+    <div
+    class="card d-inline-flex  justify-content-between p-2 bd-highlight"
+    style="width: 18rem">
+    <div class="card-body mx-auto">
+      <h5 class="card-title text-center">{{recipe.title}}</h5>
+      <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
+      <div class="m-2 w-25 h-50"> <button
+          id="view-recipe-btn"
+          type="click"
+          class="btn btn-primary input-group-text mb-3 fw-bold"> View recipe </button>
         </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in
-              to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+        <div class="m-2 w-25 h-50"> <button
+          id="save-recipe"
+          type="click"
+          class="btn btn-secondary input-group-text mb-3 fw-bold"> Save to favourites </button>
         </div>
+    </div>
+  </div>
+    
       </div>
     </div>
   </form>

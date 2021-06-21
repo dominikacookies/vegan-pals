@@ -2,31 +2,37 @@
   {
     "recipe_id": "643428",
     "dish_name": "Broccoli salad",
-    "user_id": 1
+    "user_id": 1,
+    "image": "https://spoonacular.com/recipeImages/658287-312x231.jpg"
   },
   {
     "recipe_id": "716426",
     "dish_name": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
-    "user_id": 1
+    "user_id": 1,
+    "image": "https://spoonacular.com/recipeImages/716426-312x231.jpg"
   },
   {
     "recipe_id": "716627",
     "dish_name": "Easy Homemade Rice and Beans",
-    "user_id": 2
+    "user_id": 2,
+    "image": "https://spoonacular.com/recipeImages/644387-312x231.jpg"
   },
   {
     "recipe_id": "782585",
     "dish_name": "Cannellini Bean and Asparagus Salad with Mushrooms",
-    "user_id": 2
+    "user_id": 2,
+    "image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
   },
   {
     "recipe_id": "798400",
     "dish_name": "Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant",
-    "user_id": 2
+    "user_id": 2,
+    "image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
   },
   {
     "recipe_id": "716426",
     "dish_name": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
-    "user_id": 2
+    "user_id": 2,
+    "image": "https://spoonacular.com/recipeImages/716381-312x231.jpg"
   }
 ]
