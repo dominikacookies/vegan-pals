@@ -5,7 +5,7 @@ const renderHomePageCards = () => {
 }
 
 
-const onSubmit = (event) => {
+const onSubmit = async (event) => {
   event.preventDefault();
 
   const searchInput = $("#searchInput").val();
@@ -33,7 +33,6 @@ const onSubmit = (event) => {
       body: JSON.stringify(requestBody),
     };
     const response = await fetch("/search-results",options)
-    
 };
 
 $("#searchButton").on("click", onSubmit);

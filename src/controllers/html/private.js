@@ -55,9 +55,19 @@ const renderMyRecipes = async (req, res) => {
   res.render("myrecipes", { recipes });
 };
 
+const renderPrivateHomePage = (req, res) => {
+  try {
+    const { firstName } = req.session;
+    res.render("privatehomepage", { firstName });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
+};
 module.exports = {
   renderCookTogether,
   renderMyRecipesCookTogether,
   renderMyRecipes,
   renderCookTogetherPals,
+  renderPrivateHomePage,
 };

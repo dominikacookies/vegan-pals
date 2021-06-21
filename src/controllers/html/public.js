@@ -14,7 +14,7 @@ const baseParams = {
 const renderHomePage = (req, res) => {
   try {
     const { isLoggedIn } = req.session;
-    res.render("homepage", { isLoggedIn });
+    res.render("publichomepage", { isLoggedIn });
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ error: "Failed to render" });
