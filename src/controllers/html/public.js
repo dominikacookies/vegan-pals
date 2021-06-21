@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+const { Recipe } = require("../../models")
+
 const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
 
 const baseParams = {
@@ -11,10 +13,24 @@ const baseParams = {
   diet: "vegan",
 };
 
-const renderHomePage = (req, res) => {
+const renderHomePage = async (req, res) => {
   try {
     const { isLoggedIn } = req.session;
-    res.render("homepage", { isLoggedIn });
+    if (isLoggedIn) {
+      return res.render("homepage-loggedIn")
+
+      
+    } else {
+      const latestSavedRecipes = await Recipe.findAll({
+          order: [[ 'createdAt', 'DESC']],
+          limit: 6,
+          raw: true,
+          nested: true,
+        })
+
+      console.log(latestSavedRecipes)
+      res.render("homepage-loggedout", {latestSavedRecipes})
+    }
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ error: "Failed to render" });
@@ -50,8 +66,8 @@ const getUserIntolerances = (intolerances) =>
     .join(",");
 
 const renderSearchResults = async (req, res) => {
+
   const { loggedIn } = req.session;
-  const { query } = req.query;
 
   if (loggedIn) {
     const { intolerances } = req.session.user;
@@ -76,12 +92,14 @@ const renderSearchResults = async (req, res) => {
 
     res.render("search-results", { recipeData });
   } else {
+
     const response = await axios.get(COMPLEX_SEARCH_URL, {
       params: {
         ...baseParams,
         ...req.query,
       },
     });
+
     const recipeData = response.data.results.map((recipe) => {
       const recipeInfo = {
         title: recipe.title,
@@ -91,6 +109,8 @@ const renderSearchResults = async (req, res) => {
 
       return recipeInfo;
     });
+
+    console.log(recipeData)
 
     res.render("search-results", { recipeData });
   }
