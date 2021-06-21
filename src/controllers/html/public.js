@@ -1,6 +1,7 @@
 const axios = require("axios");
+const { Op } = require("sequelize");
 
-const { Recipe } = require("../../models")
+const { Recipe, User, CookTogether } = require("../../models")
 
 const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
 
@@ -15,11 +16,43 @@ const baseParams = {
 
 const renderHomePage = async (req, res) => {
   try {
-    const { isLoggedIn } = req.session;
-    if (isLoggedIn) {
+    const { loggedIn } = req.session;
+    if (loggedIn) {
+
+      const {request_id : upcomingCooktogetherId} = await CookTogether.findOne({
+        attributes: ["request_id"],
+        where: {
+          user_id: req.session.user.id,
+          status: "accepted"
+        },
+        order: [['datetime', 'DESC']],
+        raw: true,
+        nested: true
+      })
+
+      const upcomingCooktogetherDetails = await CookTogether.findAll({
+        attributes: ["recipe_title", "contact_details", "datetime", "meal_type"],
+        where: {
+          request_id: upcomingCooktogetherId,
+          user_id: {
+            [Op.ne] : req.session.user.id
+          }
+        },
+        include: [
+          {
+            model: User,
+            attributes: ["first_name", "last_name"]
+          },
+        ],
+        raw: true,
+        nested: true
+      })
+
+      console.log(upcomingCooktogetherDetails)
+
       return res.render("homepage-loggedIn")
 
-      
+
     } else {
       const latestSavedRecipes = await Recipe.findAll({
           order: [[ 'createdAt', 'DESC']],
