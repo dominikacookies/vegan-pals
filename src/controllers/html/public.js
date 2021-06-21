@@ -4,7 +4,7 @@ const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
 BASE_URL = `https://api.spoonacular.com/recipes/`;
 
 const baseParams = {
-  apiKey: "a400351722ac47169e8e48e6415e0440",
+  apiKey: "a694fd998d4342db94e07530f4373371",
   instructionsRequired: true,
   addRecipeInformation: true,
   fillIngredients: true,
@@ -102,24 +102,25 @@ const renderRecipePage = async (req, res) => {
   console.log(id);
 
   const response = await axios.get(
-    `https://api.spoonacular.com/recipes/${id}/information?apiKey=214dc041d6d44757b2a72a21f418f1e7`
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
   );
 
-  console.log(response.data);
+  const ingredients = response.data.extendedIngredients.map((ingredient) => {
+    return ingredient.original;
+  });
 
-  //call to spoonacular
-  const { loggedIn } = req.session;
+  const recipeData = {
+    title: response.data.title,
+    image: response.data.image,
+    servings: response.data.servings,
+    prepTime: response.data.readyInMinutes,
+    ingredients,
+    directions: response.data.instructions,
+  };
+  console.log(recipeData);
+  res.render("recipe", { recipeData });
 
-  if (!loggedIn) {
-    res.render("login");
-  } else {
-    try {
-      res.render("recipe");
-    } catch (err) {
-      console.log(err.message);
-      res.status(500).json({ error: "Failed to render" });
-    }
-  }
+  return recipeData;
 };
 
 module.exports = {

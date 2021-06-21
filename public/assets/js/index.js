@@ -8,7 +8,7 @@ const renderRecipe = (event) => {
   window.location.replace("/recipe/:id");
 };
 
-const onSubmit = (event) => {
+const onSubmit = async (event) => {
   event.preventDefault();
 
   const searchInput = $("#searchInput").val();
