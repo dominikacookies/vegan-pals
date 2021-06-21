@@ -31,7 +31,7 @@ const onSubmit = async (event) => {
       prepTimeParams = `&maxReadyTime=${prepTime}`
     }
 
-    fetch(`http://localhost:3001/search-results?${searchInputParams}${intoleranceParams}${prepTimeParams}`)
+    window.location.replace(`/search-results?${searchInputParams}${intoleranceParams}${prepTimeParams}`)
     
 };
 
