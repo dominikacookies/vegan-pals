@@ -1,15 +1,15 @@
 <figure id="image-container" class="mx-auto" style="width: 50vw">
   <figcaption id="recipe-name" class="text-center">
-    <h2>{{recipeData.title}}</h2>
+    <h2>{{title}}</h2>
   </figcaption>
-  <img src={{recipeData.image}} alt="Recipe image" style="width: 50vw" />
+  <img src={{image}} alt="Recipe image" style="width: 50vw" />
 </figure>
 <section class="row text-center pb-4" style="justify-content: center">
   <div class="col-sm-2">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Cook time:</h5>
-        <p class="card-text">{{recipeData.prepTime}}</p>
+        <p class="card-text">{{prepTime}} minutes</p>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Serves:</h5>
-        <p class="card-text">{{recipeData.servings}}</p>
+        <p class="card-text">{{servings}}</p>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
     <div class="card">
       <div class="card-body">
         <a href=""><h5 class="card-title"><i class="fas fa-heart"></i></h5></a>
-        <p class="card-text">Add to Favourites</p>
+        <button type="button" class="btn btn-primary">Save to favourites</button>
       </div>
     </div>
   </div>
@@ -35,8 +35,8 @@
     <div class="card">
       <h3>Ingredients:</h3>
       <ul>
-        {{#each recipeData.ingredients}}
-          <li>{{recipeData.ingredients}}</li>
+        {{#each ingredients as |ingredient|}}
+          <li>{{ingredient}}</li>
         {{/each}}
       </ul>
     </div>
@@ -45,7 +45,7 @@
     <div class="directions">
       <h3>Directions:</h3>
       <p>
-        {{{recipeData.directions}}}
+        {{{directions}}}
       </p>
 
     </div>
