@@ -1,6 +1,7 @@
 const axios = require("axios");
 
 const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
+BASE_URL = `https://api.spoonacular.com/recipes/`;
 
 const baseParams = {
   apiKey: "a400351722ac47169e8e48e6415e0440",
@@ -100,14 +101,12 @@ const renderRecipePage = async (req, res) => {
   const { id } = req.params;
   console.log(id);
 
-  const response = await axios.get(COMPLEX_SEARCH_URL, {
-    params: {
-      ...baseParams,
-      id,
-    },
-  });
+  const response = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=214dc041d6d44757b2a72a21f418f1e7`
+  );
 
   console.log(response.data);
+
   //call to spoonacular
   const { loggedIn } = req.session;
 
