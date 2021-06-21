@@ -3,8 +3,6 @@ const onSubmit = async (event) => {
 
     const searchInput = $("#searchInput").val();
 
-    console.log(searchInput)
-
     let searchInputParams = ""
 
     if (searchInput) {
@@ -32,11 +30,8 @@ const onSubmit = async (event) => {
     if (prepTime) {
       prepTimeParams = `&maxReadyTime=${prepTime}`
     }
-    
 
-    console.log(`/search-results/${searchInputParams}${intoleranceParams}${prepTimeParams}`)
-
-    const response = await fetch(`/search-results/${searchInputParams}${intoleranceParams}${prepTimeParams}`,options)
+    fetch(`http://localhost:3001/search-results?${searchInputParams}${intoleranceParams}${prepTimeParams}`)
     
 };
 
