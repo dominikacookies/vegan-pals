@@ -1,99 +1,88 @@
+{{#each latestSavedRecipes as |recipe|}} <a href=/recipe/{{recipe.recipe_id}}>
 <div
-  class="
-    position-absolute
-    top-50
-    start-50
-    translate-middle
-    text-center
-    form-container
-  "
+  class="card d-inline-flex justify-content-between p-2 bd-highlight"
+  style="width: 18rem"
 >
-  <h2 class="text-center">Your yummy recipes</h2>
-  <hr />
-  <form id="my-recipes-form">
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
+  <div class="card-body mx-auto">
+    <img src="{{recipe.image}}" class="card-img-top" alt="Image of dish" />
+    <a href=/recipe/{{recipe.recipe_id}}`>`
+    <div
+      class="card d-inline-flex justify-content-between p-2 bd-highlight"
+      style="width: 18rem"
+    >
+      <div class="card-body mx-auto">
+        <img src="{{recipe.image}}" class="card-img-top" alt="Image of dish" />
+        <a href=/recipe/{{recipe.recipe_id}}`>`
+        <div
+          class="card d-inline-flex justify-content-between p-2 bd-highlight"
+          style="width: 18rem"
+        >
+          <div class="card-body mx-auto">
+            <img
+              src="{{recipe.image}}"
+              class="card-img-top"
+              alt="Image of dish"
+            />
+            <a href=/recipe/{{recipe.recipe_id}}`>`
+            <div
+              class="
+                card
+                d-inline-flex
+                justify-content-between
+                p-2
+                bd-highlight
+              "
+              style="width: 18rem"
+            >
+              <div class="card-body mx-auto">
+                <img
+                  src="{{recipe.image}}"
+                  class="card-img-top"
+                  alt="Image of dish"
+                />
+                <a href=/recipe/{{recipe.recipe_id}}`>`
+                <div
+                  class="
+                    card
+                    d-inline-flex
+                    justify-content-between
+                    p-2
+                    bd-highlight
+                  "
+                  style="width: 18rem"
+                >
+                  <div class="card-body mx-auto">
+                    <img
+                      src="{{recipe.image}}"
+                      class="card-img-top"
+                      alt="Image of dish"
+                    />
+                    <a href=/recipe/{{recipe.recipe_id}}`>`
+                    <div
+                      class="
+                        card
+                        d-inline-flex
+                        justify-content-between
+                        p-2
+                        bd-highlight
+                      "
+                      style="width: 18rem"
+                    >
+                      <div class="card-body mx-auto">
+                        <img
+                          src="{{recipe.image}}"
+                          class="card-img-top"
+                          alt="Image of dish"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Recipe name</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="card-link">Recipe</a>
-        <a href="#" class="card-link">Connect</a>
-      </div>
-    </div>
-    </div>
-  </form>
+  </div>
 </div>

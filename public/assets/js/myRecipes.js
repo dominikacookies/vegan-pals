@@ -1,1 +1,3 @@
-const handleRecipes = async (req, res) => {};
+const handleRecipes = async (req, res) => {
+  //
+};
