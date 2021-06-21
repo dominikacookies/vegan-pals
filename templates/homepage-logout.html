@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,30 +16,30 @@
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
-    <title>Vegan Pals</title>
+    <title class="">Vegan Pals</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5" style="height:5rem;">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Vegan Pals<3</a>
+        <div><a class="navbar-brand fw-bold" href="#">Vegan Pals</a><i class="fas fa-pepper-hot fa-2x" style="color: white;"></i></div>
         <div class="d-flex justify-content-end">
-          <a class="navbar-brand" href="#">Login</a>
-          <a class="navbar-brand" href="#">SignUp</a>
+          <a class="navbar-brand fw-bold" href="#">Login</a>
+          <a class="navbar-brand fw-bold" href="#">SignUp</a>
         </div>
       </div>
     </nav>
     <header>
-      <h1>Hey Pal!</h1>
+      <h1 class="text-center mb-4">Hey Pal!</h1>
     </header>
     <div class="d-flex flex-row justify-content-evenly">
       <div class="mt-5">
         <div>
-          <h4>Find new exciting recipes:</h4>
-          <form class="input-group mb-4 mt-3">
+          <h3>Find new exciting recipes</h3>
+          <form class="input-group mb-4 mt-4">
             <input
               type="text"
               id="searchInput"
-              class="form-control me-3 rounded-3"
+              class="form-control me-3 rounded-pill"
               placeholder="search for recipes here"
             />
             <div class="input-group-append"></div>
@@ -47,8 +47,8 @@
         </div>
 
         <div class="d-flex flex-row">
-          <div class="pr-2">prep-time</div>
-          <div class="form-check mx-3">
+          <div class="fw-bold mx-2">Prep-Time:</div>
+          <div class="form-check">
             <input
               class="form-check-input radioButton prep-time"
               type="radio"
@@ -56,17 +56,16 @@
               id=">30mins"
             />
           </div>
-          <label class="form-check-label" for="radiobutton"> >30mins </label>
+          <label class="form-check-label fw-bold" for="radiobutton"> >30mins </label>
           <div class="form-check mx-2">
             <input
               class="form-check-input radioButton prep-time"
               type="radio"
               name="flexRadioDefault"
               id="30-60mins"
-              
             />
-            <label class="form-check-label" for="flexRadioDefault2">
-              30 60minutes
+            <label class="form-check-label fw-bold" for="flexRadioDefault2">
+              30-60minutes
             </label>
           </div>
           <div class="form-check mx-2">
@@ -77,14 +76,14 @@
               id="60minutes+"
               
             />
-            <label class="form-check-label" for="flexRadioDefault2">
+            <label class="form-check-label fw-bold" for="flexRadioDefault2">
               60minutes+
             </label>
           </div>
         </div>
 
-        <div class="d-flex flex-wrap">
-          <div class="">intolerances</div>
+        <div class="d-flex flex-wrap mt-3">
+          <div class="fw-bold">Intolerances:</div>
           <div class="form-check mx-2">
             <input
               class="form-check-input radioButton intolerance"
@@ -92,7 +91,7 @@
               name="gluten"
               id="gluten"
             />
-            <label class="form-check-label" for="gluten"> gluten </label>
+            <label class="form-check-label fw-bold" for="gluten"> gluten </label>
           </div>
           <div class="form-check mx-2">
             <input
@@ -102,7 +101,7 @@
               name="peanuts"
               id="peanuts"
             />
-            <label class="form-check-label" for="peanuts">
+            <label class="form-check-label fw-bold" for="peanuts">
               peanuts
             </label>
           </div>
@@ -113,7 +112,7 @@
               name="sesame"
               id="sesame"
               />
-              <label class="form-check-label" for="sesame">
+              <label class="form-check-label fw-bold" for="sesame">
                 sesame
               </label>
           </div>
@@ -125,7 +124,7 @@
               name="grain"
               id="grain"
             />
-            <label class="form-check-label" for="grain">
+            <label class="form-check-label fw-bold" for="grain">
               grain
             </label>
           </div>
@@ -137,7 +136,7 @@
               name="soy"
               id="soy"
             />
-            <label class="form-check-label" for="soy"> soy </label>
+            <label class="form-check-label fw-bold" for="soy"> soy </label>
           </div>
          
           <div class="form-check mx-2">
@@ -147,7 +146,7 @@
               name="sulphite"
               id="sulphite"
             />
-            <label class="form-check-label" for="sulphite">
+            <label class="form-check-label fw-bold" for="sulphite">
               sulphite
             </label>
           </div>
@@ -159,7 +158,7 @@
               name="tree-nut"
               id="tree-nut"
             />
-            <label class="form-check-label" for="tree nut">
+            <label class="form-check-label fw-bold " for="tree nut">
               tree nut
             </label>
           </div>
@@ -171,7 +170,7 @@
               name="wheat"
               id="wheat"
             />
-            <label class="form-check-label" for="wheat">
+            <label class="form-check-label fw-bold fs-6" for="wheat">
               wheat
             </label>
           </div>
@@ -180,116 +179,47 @@
         <button
           id="searchButton"
           type="click"
-          class="btn btn-success input-group-text mb-3 fw-bold"
+          class="btn-lg btn-success input-group-text mb-3 mt-3 fw-bold"
         >
           SEARCH
         </button>
       </div>
-      <div class="">
-        <image>image here</image>
-      </div>
-    </div>
-
-    <div>
-      <h3>how it works</h3>
-      <div class="d-flex flex-row justify-content-evenly mt-5">
-        <div>
-          <div>
-            <image>image here</image>
-          </div>
-          <p>Find a recipe</p>
-          <p>1. Find best recipes that accommodate your intolerances</p>
-        </div>
-        <div>
-          <div>
-            <image>image here</image>
-          </div>
-          <p>Find a recipe</p>
-          <p>1. Find best recipes that accommodate your intolerances</p>
-        </div>
-        <div>
-          <div>
-            <image>image here</image>
-          </div>
-          <p>Find a recipe</p>
-          <p>1. Find best recipes that accommodate your intolerances</p>
-        </div>
-      </div>
+      <!-- <div class="card">
+        <img src="../images/food.jpg" alt="foodImage">
+      </div> -->
     </div>
     <div>
-      <h2>Other pals love</h2>
-      <div class="d-flex flex-wrap justify-content-around">
-        <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+  
+    </div>
+    <div class="mb-5">
+      <h2 class="text-center">How It Works</h2>
+      <div class="d-flex flex-row justify-content-evenly mt-5"> 
+      <div class="card text-dark bg-light rounded" style="max-width: 17rem; height: 12rem;">
+        <i class="fas fa-2x fa-search position-absolute top-0 start-50 translate-middle-x mt-4"></i>
+        <div class="card-body mt-5">
+          <h4 class="card-title">1. Find a recipe</h4>
+          <h6 class="card-text">Find best recipes that accommodate your intolerances</h6>
         </div>
+      </div>
+      <div class="card text-dark bg-light rounded" style="max-width: 17rem; height: 12rem">
+        <i class=" far fa-2x fa-save position-absolute top-0 start-50 translate-middle-x mt-4"></i>
+        <div class="card-body mt-5">
+          <h4 class="card-title ">2. Save it </h4>
+          <h6 class="card-text">Save the recipes in your cook later</h6>
+        </div>
+      </div>
+      <div class="card text-dark bg-light rounded-3" style="max-width: 17rem; height: 12rem">
+        <i class="fas fa-2x fa-users position-absolute top-0 start-50 translate-middle-x mt-4"></i>
+        <div class="card-body mt-5">
+          <h4 class="card-title">3. Cook it with a pal!</h4>
+          <h6 class="card-text">Meet awesome people and cook your favorites together</h6>
+        </div>
+      </div>
+    </div>  
+    </div>
 
-        <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+      <h2 class="mx-5">Other Pals Love</h2>
+  
       </div>
     </div>
   </body>
