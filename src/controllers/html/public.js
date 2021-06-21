@@ -48,9 +48,20 @@ const renderHomePage = async (req, res) => {
         nested: true
       })
 
-      console.log(upcomingCooktogetherDetails)
+      const latestSavedRecipes = await Recipe.findAll({
+        where : {
+          user_id: req.session.user.id
+        },
+        order: [[ 'createdAt', 'DESC']],
+        limit: 6,
+        raw: true,
+        nested: true,
+      })
 
-      return res.render("homepage-loggedIn")
+      console.log(upcomingCooktogetherDetails)
+      console.log(latestSavedRecipes)
+
+      return res.render("homepage-loggedIn", {upcomingCooktogetherDetails, latestSavedRecipes})
 
 
     } else {
