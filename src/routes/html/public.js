@@ -4,6 +4,7 @@ const {
   renderLoginPage,
   renderSignupPage,
   renderSearchResults,
+  renderRecipePage,
 } = require("../../controllers/html/public");
 
 const router = Router();
@@ -13,5 +14,6 @@ router.get("/login", renderLoginPage);
 router.get("/signup", renderSignupPage);
 
 router.get("/search-results", renderSearchResults);
+router.get("/recipe", renderRecipePage);
 
 module.exports = router;
