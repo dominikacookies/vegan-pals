@@ -14,6 +14,6 @@ router.get("/login", renderLoginPage);
 router.get("/signup", renderSignupPage);
 
 router.get("/search-results", renderSearchResults);
-router.get("/recipe", renderRecipePage);
+router.get("/recipe/:id", renderRecipePage);
 
 module.exports = router;

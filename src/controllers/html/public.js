@@ -97,18 +97,30 @@ const renderSearchResults = async (req, res) => {
 };
 
 const renderRecipePage = async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+
+  const response = await axios.get(COMPLEX_SEARCH_URL, {
+    params: {
+      ...baseParams,
+      id,
+    },
+  });
+
+  console.log(response.data);
+  //call to spoonacular
   const { loggedIn } = req.session;
 
   if (!loggedIn) {
     res.render("login");
-  } else { try {
-    res.render("recipe");
-  } catch (err) {
-    console.log(err.message);
-    res.status(500).json({ error: "Failed to render" });
+  } else {
+    try {
+      res.render("recipe");
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).json({ error: "Failed to render" });
+    }
   }
-  }
- 
 };
 
 module.exports = {

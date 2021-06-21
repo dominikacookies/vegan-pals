@@ -5,7 +5,7 @@ const renderHomePageCards = () => {};
 const renderRecipe = (event) => {
   event.preventDefault();
   //click event on image
-  window.location.replace("/recipe");
+  window.location.replace("/recipe/:id");
 };
 
 const onSubmit = (event) => {
