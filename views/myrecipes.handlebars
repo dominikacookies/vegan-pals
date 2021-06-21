@@ -29,3 +29,7 @@
     </div>
   </form>
 </div>
+{{#each recipes as |recipe|}}
+  <p> {{recipe.recipe_id}} </p>
+  <p> {{recipe.dish_name}} </p>
+{{/each }}

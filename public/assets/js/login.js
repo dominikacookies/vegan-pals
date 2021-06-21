@@ -24,11 +24,11 @@ const handleSubmit = async (event) => {
     }),
   };
 
-  const response = await fetch("http://localhost:3001/auth/login", options);
+  const { status } = await fetch("http://localhost:3001/auth/login", options);
 
-  if (response.status == 200) {
+  if (status === 200) {
     window.location.replace("http://localhost:3001/"); 
-  } else if (response.status == 404) {
+  } else if (status > 399 && status < 500 ) {
     $("#login-error-messages").empty()
     $("#login-error-messages").append(`
     <p class="login-error-message "> Email or password incorrect, please try again. </p>
