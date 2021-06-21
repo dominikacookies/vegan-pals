@@ -38,6 +38,12 @@ const onSubmit = async (event) => {
     body: JSON.stringify(requestBody),
   };
   const response = await fetch("/search-results", options);
+  console.log(response);
+  if (response.status !== 200) {
+    console.log("FAILED TO RENDER SEARCH RESULTS");
+  } else {
+    window.location.replace("/search-results");
+  }
 };
 
 $("#searchButton").on("click", onSubmit);
