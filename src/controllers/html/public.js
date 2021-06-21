@@ -1,9 +1,10 @@
 const axios = require("axios");
 
 const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
+BASE_URL = `https://api.spoonacular.com/recipes/`;
 
 const baseParams = {
-  apiKey: "a400351722ac47169e8e48e6415e0440",
+  apiKey: "a694fd998d4342db94e07530f4373371",
   instructionsRequired: true,
   addRecipeInformation: true,
   fillIngredients: true,
@@ -96,9 +97,33 @@ const renderSearchResults = async (req, res) => {
   }
 };
 
+const renderRecipePage = async (req, res) => {
+  const { id } = req.params;
+
+  const response = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
+  );
+
+  const ingredients = response.data.extendedIngredients.map((ingredient) => {
+    return ingredient.original;
+  });
+
+  const recipeData = {
+    title: response.data.title,
+    image: response.data.image,
+    servings: response.data.servings,
+    prepTime: response.data.readyInMinutes,
+    ingredients,
+    directions: response.data.instructions,
+  };
+
+  res.render("recipe", recipeData);
+};
+
 module.exports = {
   renderHomePage,
   renderLoginPage,
   renderSignupPage,
   renderSearchResults,
+  renderRecipePage,
 };
