@@ -231,13 +231,13 @@ const saveRecipe = async (req, res) => {
       recipe_id: id,
       dish_name: title,
       user_id: req.session.user.id,
+      image,
     };
-    console.log(newRecipe);
 
     const newRecipeData = await Recipe.create(newRecipe);
-    console.log(newRecipeData);
     return res.status(200).json(newRecipeData);
   } catch (error) {
+    console.error(error.message);
     return res.status(500).json({
       error: "Could not save recipe",
     });

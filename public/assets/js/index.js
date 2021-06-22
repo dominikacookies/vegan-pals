@@ -106,7 +106,7 @@ const saveToFavourites = async (event) => {
   };
 
   console.log(title, image, id);
-  const response = await fetch("/api/recipe", options);
+  const response = await fetch(`/api/recipe/${id}`, options);
 
   if (response.status !== 200) {
     console.log("FAILED TO SAVE RECIPE");
