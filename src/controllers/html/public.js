@@ -33,7 +33,7 @@ const renderHomePage = async (req, res) => {
 
       // TO DO: add image
       const upcomingCooktogetherDetails = await CookTogether.findOne({
-        attributes: ["recipe_title", "contact_details", "datetime", "meal_type",],
+        attributes: ["recipe_title", "contact_details", "datetime", "meal_type", "recipe_image"],
         where: {
           request_id: upcomingCooktogetherId,
           user_id: {
@@ -60,7 +60,9 @@ const renderHomePage = async (req, res) => {
         nested: true,
       })
 
-      return res.render("homepage-loggedIn", {upcomingCooktogetherDetails, latestSavedRecipes})
+      const name = req.session.user.firstName
+
+      return res.render("private-homepage", {upcomingCooktogetherDetails, latestSavedRecipes, name})
 
     } else {
       const latestSavedRecipes = await Recipe.findAll({
@@ -70,7 +72,7 @@ const renderHomePage = async (req, res) => {
           nested: true,
         })
 
-      res.render("homepage-loggedout", {latestSavedRecipes})
+      res.render("public-homepage", {latestSavedRecipes})
     }
   } catch (err) {
     console.log(err.message);
@@ -130,7 +132,7 @@ const renderSearchResults = async (req, res) => {
       return recipeInfo;
     });
 
-    res.render("search-results", { recipeData });
+    res.render("search-results", { recipeData, loggedIn });
   } else {
 
     const response = await axios.get(COMPLEX_SEARCH_URL, {

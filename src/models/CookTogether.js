@@ -59,6 +59,10 @@ const schema = {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  recipe_image: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
 };
 
 CookTogether.init(schema, options);
