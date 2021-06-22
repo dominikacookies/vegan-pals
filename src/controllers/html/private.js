@@ -68,7 +68,7 @@ const renderCookTogetherPals = async (req, res) => {
 
 const renderMyRecipes = async (req, res) => {
   const recipes = await Recipe.findAll({
-    attributes: ["recipe_id", "dish_name"],
+    attributes: ["recipe_id", "dish_name", "image"],
     where: {
       user_id: req.session.user.id,
     },
