@@ -1,4 +1,6 @@
-{{>publicNavbar}}
+
+{{> public-nav }} 
+
 <div class="background">
     <header>
       <h1 class="text-center mb-4">Hey Pal!</h1>
@@ -25,19 +27,19 @@
               class="form-check-input radioButton prep-time"
               type="radio"
               name="flexRadioDefault"
-              id=">30mins"
+              id="30"
             />
           </div>
-          <label class="form-check-label fw-bold" for="radiobutton"> >30mins </label>
+          <label class="form-check-label fw-bold" for="radiobutton"> up to 30minutes</label>
           <div class="form-check mx-2">
             <input
               class="form-check-input radioButton prep-time"
               type="radio"
               name="flexRadioDefault"
-              id="30-60mins"
+              id="60"
             />
             <label class="form-check-label fw-bold" for="flexRadioDefault2">
-              30-60minutes
+              up to 60minutes
             </label>
           </div>
           <div class="form-check mx-2">
@@ -45,7 +47,7 @@
               class="form-check-input radioButton prep-time"
               type="radio"
               name="flexRadioDefault"
-              id="60minutes+"
+              id="500"
               
             />
             <label class="form-check-label fw-bold" for="flexRadioDefault2">
@@ -71,7 +73,7 @@
               aria-controls=" "
               type="checkbox"
               name="peanuts"
-              id="peanuts"
+              id="peanut"
             />
             <label class="form-check-label fw-bold" for="peanuts">
               peanuts
@@ -189,9 +191,21 @@
       </div>
     </div>  
     </div>
-
-      <h2 class="mx-5">Other Pals Love</h2>
-  
+    <div>
+      <h2>Other pals love</h2>
+      <div class="d-flex flex-wrap justify-content-around">
+      
+        {{#each latestSavedRecipes as |recipe|}}
+        <a href=`/recipe/{{recipe.recipe_id}}`>
+          <div class="card d-inline-flex  justify-content-between p-2 bd-highlight" style="width: 18rem">
+            <div class="card-body mx-auto">
+              <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
+              <h5 class="card-title text-center">{{recipe.dish_name}}</h5>
+            </div>
+          </div>
+        </a>
+        {{/each }}
+      </div>
       </div>
     </div>
    </div>

@@ -1,7 +1,11 @@
-  {{>publicNavbar}}  
-    <header>
-      <h1>Hey Pal!</h1>
-    </header>
+ {{#if loggedIn}}
+  {{>private-nav}}  
+  {{>private-searchbar}}
+
+{{else}}
+  {{>public-nav}}  
+  {{>public-searchbar}}
+{{/if}}
 
    <div><h1 class="text-center">Recipe Search Results</h1></div>
 
