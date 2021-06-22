@@ -48,7 +48,7 @@ const createCookTogether = async (event) => {
   const contactDetailsForSendingUser = $(".contact-details").val()
   const userIdReceivingInvite = $(".offcanvas").attr("data-user")
 
-  console.log(date, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite, recipeId)
+  console.log(date, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite)
 
   const options = {
     method: "POST",
