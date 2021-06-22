@@ -1,8 +1,17 @@
+ {{#if loggedIn}}
+  {{>private-nav}}  
+  {{>private-searchbar}}
+{{else}}
+  {{>public-nav}}  
+  {{>public-searchbar}}
+{{/if}}  
+
+<main>
 <figure id="image-container" class="mx-auto" style="width: 50vw">
   <figcaption id="recipe-name" class="text-center">
-    <h2>{{title}}</h2>
+    <h2 name="recipe-title">{{title}}</h2>
   </figcaption>
-  <img src={{image}} alt="Recipe image" style="width: 50vw" />
+  <img name="recipe-image" src={{image}} alt="Recipe image" style="width: 50vw" />
 </figure>
 <section class="row text-center pb-4" style="justify-content: center">
   <div class="col-sm-2">
@@ -25,7 +34,7 @@
     <div class="card">
       <div class="card-body">
         <a href=""><h5 class="card-title"><i class="fas fa-heart"></i></h5></a>
-        <button type="button" class="btn btn-primary">Save to favourites</button>
+        <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn btn-primary">Save to favourites</button>
       </div>
     </div>
   </div>
@@ -51,3 +60,4 @@
     </div>
   </div>
 </section>
+</main>

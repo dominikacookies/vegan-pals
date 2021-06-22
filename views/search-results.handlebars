@@ -1,13 +1,12 @@
  {{#if loggedIn}}
   {{>private-nav}}  
   {{>private-searchbar}}
-
 {{else}}
   {{>public-nav}}  
   {{>public-searchbar}}
 {{/if}}
 
-   <div><h1 class="text-center">Recipe Search Results</h1></div>
+  <main><div><h1 class="text-center">Recipe Search Results</h1></div>
 
 
 {{#each recipeData as |recipe|}}
@@ -27,4 +26,4 @@
     <button id="renderMoreResults">
       Render more results
     </button>
-  </div>
+  </div></main> 
