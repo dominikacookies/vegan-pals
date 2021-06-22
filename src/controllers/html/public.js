@@ -171,12 +171,13 @@ const renderSearchResults = async (req, res) => {
       return recipeInfo;
     });
 
-    res.render("search-results", { recipeData });
+    res.render("search-results", { recipeData, loggedIn });
   }
 };
 
 const renderRecipePage = async (req, res) => {
   const { id } = req.params;
+  const { loggedIn } = req.session;
 
   const response = await axios.get(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
@@ -187,12 +188,15 @@ const renderRecipePage = async (req, res) => {
   });
 
   const recipeData = {
+    id,
+    loggedIn,
     title: response.data.title,
     image: response.data.image,
     servings: response.data.servings,
     prepTime: response.data.readyInMinutes,
     ingredients,
     directions: response.data.instructions,
+    loggedIn,
   };
 
   res.render("recipe", recipeData);

@@ -91,6 +91,9 @@ const getUserInfo = async (req, res) => {
 const renderRecipePage = async (req, res) => {
   const { id } = req.params;
 
+  const { loggedIn } = req.session;
+  console.log(req.session);
+
   const response = await axios.get(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
   );
@@ -106,6 +109,7 @@ const renderRecipePage = async (req, res) => {
     prepTime: response.data.readyInMinutes,
     ingredients,
     directions: response.data.instructions,
+    loggedIn,
   };
 
   res.render("recipe", recipeData);

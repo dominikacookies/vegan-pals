@@ -2,17 +2,45 @@ const { Recipe, User, CookTogether } = require("../../models");
 const { Op } = require("sequelize");
 
 const renderCookTogether = async (req, res) => {
-
-  
-  
-  const requestedCookTogethers = await CookTogether.findAll({
+  const requestedCookTogetherIds = await CookTogether.findAll({
     where: {
       user_id: req.session.user.id,
       status: "received",
     },
     raw: true,
     nested: true,
-  })
+  });
+
+  const requestedPromises = requestedCookTogetherIds.map((cooktogether) => {
+    const userInformation = CookTogether.findOne({
+      attributes: [
+        "recipe_title",
+        "contact_details",
+        "datetime",
+        "meal_type",
+        "recipe_image",
+        "request_id",
+      ],
+      where: {
+        request_id: cooktogether.request_id,
+        user_id: {
+          [Op.ne]: req.session.user.id,
+        },
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["first_name", "last_name", "bio"],
+        },
+      ],
+      raw: true,
+      nested: true,
+    });
+
+    return userInformation;
+  });
+
+  const requestedCookTogethers = await Promise.all(requestedPromises);
 
   const sentCookTogethers = await CookTogether.findAll({
     where: {
@@ -21,18 +49,53 @@ const renderCookTogether = async (req, res) => {
     },
     raw: true,
     nested: true,
-  })
+  });
 
-  const upcomingCookTogethers = await CookTogether.findAll({
+  const upcomingCookTogetherIds = await CookTogether.findAll({
+    attributes: ["request_id"],
     where: {
       user_id: req.session.user.id,
       status: "accepted",
     },
     raw: true,
     nested: true,
-  })
+  });
 
-  res.render("cooktogether", {requestedCookTogethers, sentCookTogethers, upcomingCookTogethers})
+  const upcomingPromises = upcomingCookTogetherIds.map((cooktogether) => {
+    const userInformation = CookTogether.findOne({
+      attributes: [
+        "recipe_title",
+        "contact_details",
+        "datetime",
+        "meal_type",
+        "recipe_image",
+      ],
+      where: {
+        request_id: cooktogether.request_id,
+        user_id: {
+          [Op.ne]: req.session.user.id,
+        },
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["first_name", "last_name", "bio"],
+        },
+      ],
+      raw: true,
+      nested: true,
+    });
+
+    return userInformation;
+  });
+
+  const upcomingCookTogethers = await Promise.all(upcomingPromises);
+
+  res.render("cooktogether", {
+    requestedCookTogethers,
+    sentCookTogethers,
+    upcomingCookTogethers,
+  });
 };
 
 const renderMyRecipesCookTogether = async (req, res) => {
@@ -65,7 +128,7 @@ const renderCookTogetherPals = async (req, res) => {
         { peanut_intolerance: peanut },
         { sesame_intolerance: sesame },
         { sulphite_intolerance: sulphite },
-        // { tree_nut_intolerance: treeNut },
+        { tree_nut_intolerance: req.session.user["tree nut"] },
         { wheat_intolerance: wheat },
       ],
       id: {
@@ -77,28 +140,28 @@ const renderCookTogetherPals = async (req, res) => {
   });
 
   const hasPalSavedRecipe = async (pal) => {
-
     const recipe = await Recipe.findOne({
       where: {
         user_id: pal.id,
-        recipe_id: recipeId
-      }
-    })
+        recipe_id: recipeId,
+      },
+    });
 
     if (recipe) {
-      pal.savedRecipe = true
+      pal.savedRecipe = true;
     }
 
-    return pal
+    return pal;
+  };
 
-  }
+  const palsWithRecipeInfo = pals.map(hasPalSavedRecipe);
 
-  const palsWithRecipeInfo = pals.map(hasPalSavedRecipe)
-
-  res.render("cooktogether-pals", {pals});
+  res.render("cooktogether-pals", { pals });
 };
 
 const renderMyRecipes = async (req, res) => {
+  const { loggedIn } = req.session;
+
   const recipes = await Recipe.findAll({
     attributes: ["recipe_id", "dish_name", "image"],
     where: {
@@ -107,8 +170,8 @@ const renderMyRecipes = async (req, res) => {
     raw: true,
     nested: true,
   });
-  console.log(recipes);
-  res.render("myrecipes", { recipes });
+
+  res.render("myrecipes", { recipes, loggedIn });
 };
 
 const renderPrivateHomePage = (req, res) => {

@@ -192,15 +192,17 @@
     </div>  
     </div>
     <div>
-      <h2>Other pals love</h2>
+      <h2 class="mx-5">Other pals love</h2>
       <div class="d-flex flex-wrap justify-content-around">
-      
         {{#each latestSavedRecipes as |recipe|}}
-        <a href=`/recipe/{{recipe.recipe_id}}`>
-          <div class="card d-inline-flex  justify-content-between p-2 bd-highlight" style="width: 18rem">
+        <a href=`/recipe/{{recipe.recipe_id}}` style="text-decoration: none; color:#f6EFDD">
+           <div
+            class="card justify-content-between p-2 bd-highlight mb-4 shadow rounded"
+            style="width: 18rem; height:20rem; background-color:#8EB44F;"
+          >
             <div class="card-body mx-auto">
-              <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
-              <h5 class="card-title text-center">{{recipe.dish_name}}</h5>
+              <img src={{recipe.image}} class="card-img-top border border-light" alt="Image of dish" />
+              <h5 class="card-title text-center mt-3">{{recipe.dish_name}}</h5>
             </div>
           </div>
         </a>
@@ -209,7 +211,6 @@
       </div>
     </div>
    </div>
-
   <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
