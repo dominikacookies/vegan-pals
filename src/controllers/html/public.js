@@ -30,8 +30,9 @@ const renderHomePage = async (req, res) => {
         nested: true
       })
 
-      const upcomingCooktogetherDetails = await CookTogether.findAll({
-        attributes: ["recipe_title", "contact_details", "datetime", "meal_type"],
+      // TO DO: add image
+      const upcomingCooktogetherDetails = await CookTogether.findOne({
+        attributes: ["recipe_title", "contact_details", "datetime", "meal_type",],
         where: {
           request_id: upcomingCooktogetherId,
           user_id: {
