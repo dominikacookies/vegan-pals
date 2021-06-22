@@ -3,73 +3,22 @@
 
     <div class="d-flex flex-row justify-content-evenly">
         <div class="mt-5">
-          <div>
-            <h3 class="text-center">Find new exciting recipes</h3>
-            <form class="input-group mb-4 mt-4" style="width:30rem">
-              <input
-                type="text"
-                id="searchInput"
-                class="form-control me-3 rounded-pill"
-                placeholder="search for recipes here"
-              />
-              <div class="input-group-append"></div>
-            </form>
-          </div>
-          <div class="d-flex flex-row">
-            <div class="fw-bold mx-2">Prep-Time:</div>
-            <div class="form-check">
-              <input
-                class="form-check-input radioButton prep-time"
-                type="radio"
-                name="flexRadioDefault"
-                id="30"
-              />
-            </div>
-            <label class="form-check-label fw-bold" for="radiobutton"> up to 30mins </label>
-            <div class="form-check mx-2">
-              <input
-                class="form-check-input radioButton prep-time"
-                type="radio"
-                name="flexRadioDefault"
-                id="60"
-              />
-              <label class="form-check-label fw-bold" for="flexRadioDefault2">
-                up to 60minutes
-              </label>
-            </div>
-            <div class="form-check mx-2">
-              <input
-                class="form-check-input radioButton prep-time"
-                type="radio"
-                name="flexRadioDefault"
-                id="500"
-              />
-              <label class="form-check-label fw-bold" for="flexRadioDefault2">
-                60minutes+
-              </label>
-            </div> 
-          </div>
-          <button
-          id="searchButton"
-          type="click"
-          class="btn-lg btn-success input-group-text mb-3 mt-3 fw-bold"
-        >
-          SEARCH
-        </button>
+        {{>private-searchbar}}
+       
 
-        <div>
-          <h2>Upcoming Cooktogether </h2>
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src={{upcomingCooktogetherDetails.recipe_image}} alt="..." style="max-width: 200px;">
+        <div class="mb-5">
+          <h2 class="mb-3">Upcoming Cooktogether </h2>
+          <div class="card mb-3 mx-auto" style="max-width: 70vw;">
+            <div class="row">
+              <div class="col-md-6">
+                <img src={{upcomingCooktogetherDetails.recipe_image}} alt="..." style="height: 25vw;">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-6">
                 <div class="card-body">
                   <h5 class="card-title"> {{upcomingCooktogetherDetails.recipe_title}}  with {{upcomingCooktogetherDetails.user.first_name}}  </h5>
                   <p class="card-text">Meeting for {{upcomingCooktogetherDetails.meal_type}} on {{upcomingCooktogetherDetails.datetime}} </p>
                   <p class="card-text">Get in touch: {{upcomingCooktogetherDetails.contact_details}}</p>
-                  <a href='/recipe/{{upcomingCooktogetherDetails.recipe_id}}' class="anchor-button-primary"> View recipe </a>
+                  <a href='/recipe/{{upcomingCooktogetherDetails.recipe_id}}' class="btn main-button-style"> View recipe </a>
                 </div>
               </div>
             </div>
@@ -77,17 +26,20 @@
         </div>
         
 
-        <div>
-          <h2>Your yummy recipes </h2>
-          {{#each latestSavedRecipes as |recipe|}}
-          <a href='/recipe/{{recipe.recipe_id}}'>
-            <div class="card d-inline-flex  justify-content-between p-2 bd-highlight" style="width: 18rem">
-              <div class="card-body mx-auto">
-                <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
-                <h5 class="card-title text-center">{{recipe.dish_name}}</h5>
-              </div>
-            </div>
-          </a>
-          {{/each }}
+        <div class="mb-5">
+          <h2 class="mb-3">Your yummy recipes </h2>
+            <section class="card-group p-2" style="justify-content:space-around;">
+              {{#each latestSavedRecipes as |recipe|}}
+              <a href='/recipe/{{recipe.recipe_id}}'>
+                <div class="card d-inline-flex  justify-content-between p-2 bd-highlight" style="width: 30vw; background-color:#8EB44F">
+                  <div class="card-body mx-auto">
+                    <img src={{recipe.image}} class="card-img-top mb-3" alt="Image of dish" />
+                    <h5 class="card-title btn recipe-title text-center fw-bold">{{recipe.dish_name}}</h5>
+                  </div>
+                  
+                </div>
+              </a>
+              {{/each }}
+            </section>
         </div> 
       </div>

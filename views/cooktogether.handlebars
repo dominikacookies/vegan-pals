@@ -1,8 +1,4 @@
- {{#if loggedIn}}
-  {{>private-nav}}  
-{{else}}
-  {{>public-nav}}  
-{{/if}}
+{{>private-nav}}  
 
 <main>
   <section class="d-flex flex-row justify-content-evenly m-5 p-3">
@@ -27,26 +23,27 @@
     </div>
   </section>
   <div>
-          <h2>Upcoming Cooktogether </h2>
+    <div class="container">
+          <h2 class="text-center mb-3">Upcoming Cooktogether </h2>
           {{#each upcomingCookTogethers as |upcoming|}}
           
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src={{upcoming.recipe_image}} alt="..." style="max-width: 200px;">
+          <div class="card mb-3 mx-auto" style="max-width: 70vw;">
+            <div class="row">
+              <div class="col-md-6">
+                <img src={{upcoming.recipe_image}} alt="..." style="height: 25vw;">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-6">
                 <div class="card-body">
                   <h5 class="card-title"> {{upcoming.recipe_title}}  with {{upcoming.user.first_name}}  </h5>
                   <p class="card-text">Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}} </p>
                   <p class="card-text">Get in touch: {{upcoming.contact_details}}</p>
-                  <a href='/recipe/{{upcoming.recipe_id}}' target="_blank"  class="anchor-button-primary"> View recipe </a>
+                  <a href='/recipe/{{upcoming.recipe_id}}' target="_blank"  class="btn btn-success"> View recipe </a>
                 </div>
               </div>
             </div>
           </div>
-          {{/each}}
-        </div>
+         </div> 
+         {{/each}}</div>
 
   <section 
     class="container carousel-container"
