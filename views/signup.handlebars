@@ -2,24 +2,9 @@
   class="position-absolute top-50 start-50 translate-middle text-center form-container"
 >
   <div class="d-flex flex-wrap">
-    <div class="">intolerances</div>
-    {{#each intolerances as |intolerance|}}
-      <div class="form-check mx-2">
-        <input
-          class="form-check-input radioButton intolerance"
-          type="checkbox"
-          name="{{intolerance}}"
-          id="{{intolerance}}"
-        />
-        <label
-          class="form-check-label"
-          for="{{intolerance}}"
-        >{{intolerance}}</label>
-      </div>
-    {{/each}}
-    <h2 class="text-center"></h2>
+    <h2 class="text-center">Sign Up</h2>
     <hr />
-    <form id="signup-form">
+    <form id="sign-up-form">
       <div id="sign-up-error-messages"></div>
       <div class="d-flex flex-wrap">
         <div class="mb-3 w-100">
@@ -38,6 +23,23 @@
             placeholder="Last Name"
           />
         </div>
+
+        <div class="">intolerances</div>
+        {{#each intolerances as |intolerance|}}
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="{{intolerance}}"
+              id="{{intolerance}}"
+            />
+            <label
+              class="form-check-label"
+              for="{{intolerance}}"
+            >{{intolerance}}</label>
+          </div>
+        {{/each}}
+
         <div class="mb-3 w-100">
           <input
             type="text"
