@@ -92,7 +92,27 @@ const saveToFavourites = async (event) => {
   const image = $('[name="recipe-image"]').attr("src");
   const { id } = event.currentTarget;
 
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    body: JSON.stringify({
+      title,
+      image,
+      id,
+    }),
+  };
+
   console.log(title, image, id);
+  const response = await fetch("/api/recipe", options);
+
+  if (response.status !== 200) {
+    console.log("FAILED TO SAVE RECIPE");
+  } else {
+    window.location.replace(`/myrecipes`);
+  }
 };
 
 $("#searchButton").on("click", onSubmit);
