@@ -167,6 +167,7 @@ const renderSearchResults = async (req, res) => {
 
 const renderRecipePage = async (req, res) => {
   const { id } = req.params;
+  const { loggedIn } = req.session;
 
   const response = await axios.get(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
@@ -177,6 +178,7 @@ const renderRecipePage = async (req, res) => {
   });
 
   const recipeData = {
+    loggedIn,
     title: response.data.title,
     image: response.data.image,
     servings: response.data.servings,
@@ -185,7 +187,7 @@ const renderRecipePage = async (req, res) => {
     directions: response.data.instructions,
   };
 
-  res.render("recipe", recipeData, { loggedIn });
+  res.render("recipe", recipeData);
 };
 
 module.exports = {
