@@ -1,8 +1,38 @@
-const { Recipe, User } = require("../../models");
+const { Recipe, User, CookTogether } = require("../../models");
 const { Op } = require("sequelize");
 
-const renderCookTogether = (req, res) => {
-  res.render("cooktogether");
+const renderCookTogether = async (req, res) => {
+
+  
+  
+  const requestedCookTogethers = await CookTogether.findAll({
+    where: {
+      user_id: req.session.user.id,
+      status: "received",
+    },
+    raw: true,
+    nested: true,
+  })
+
+  const sentCookTogethers = await CookTogether.findAll({
+    where: {
+      user_id: req.session.user.id,
+      status: "sent",
+    },
+    raw: true,
+    nested: true,
+  })
+
+  const upcomingCookTogethers = await CookTogether.findAll({
+    where: {
+      user_id: req.session.user.id,
+      status: "accepted",
+    },
+    raw: true,
+    nested: true,
+  })
+
+  res.render("cooktogether", {requestedCookTogethers, sentCookTogethers, upcomingCookTogethers})
 };
 
 const renderMyRecipesCookTogether = async (req, res) => {

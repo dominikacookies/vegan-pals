@@ -28,20 +28,24 @@
   </section>
   <div>
           <h2>Upcoming Cooktogether </h2>
+          {{#each upcomingCookTogethers as |upcoming|}}
+          
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src={{upcomingCooktogetherDetails.recipe_image}} alt="..." style="max-width: 200px;">
+                <img src={{upcoming.recipe_image}} alt="..." style="max-width: 200px;">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title"> {{upcomingCooktogetherDetails.recipe_title}}  with {{upcomingCooktogetherDetails.user.first_name}}  </h5>
-                  <p class="card-text">Meeting for {{upcomingCooktogetherDetails.meal_type}} on {{upcomingCooktogetherDetails.datetime}} </p>
-                  <p class="card-text">Get in touch: {{upcomingCooktogetherDetails.contact_details}}</p>
+                  <h5 class="card-title"> {{upcoming.recipe_title}}  with {{upcoming.user.first_name}}  </h5>
+                  <p class="card-text">Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}} </p>
+                  <p class="card-text">Get in touch: {{upcoming.contact_details}}</p>
+                  <a href='/recipe/{{upcoming.recipe_id}}' target="_blank"  class="anchor-button-primary"> View recipe </a>
                 </div>
               </div>
             </div>
           </div>
+          {{/each}}
         </div>
 
   <section 
