@@ -79,8 +79,6 @@ const createCookTogether = async (req, res) => {
       raw: true,
       nested: true,
     })
-
-    console.log(recipe)
     
     const newCookTogether = [
       // row for user requesting cook together
