@@ -1,6 +1,30 @@
-<h1>Your favourite recipes</h1>
+{{#if loggedIn}}
+  {{>private-nav}}  
+{{else}}
+  {{>public-nav}}  
+{{/if}}
+<main><div class="mb-5">
+    <h1 class="mb-3">Your yummy recipes </h1>
+    <section class="card-group p-2" style="justify-content:space-around;">
+      {{#each recipes as |recipe|}}
+        <a href="/recipe/{{recipe.recipe_id}}">
+          <div
+            class="card d-inline-flex justify-content-between p-2 bd-highlight"
+            style="width: 30vw; background-color:#8EB44F"
+          >
+            <div class="card-body mx-auto">
+              <img
+                src={{recipe.image}}
+                class="card-img-top mb-3"
+                alt="Image of dish"
+              />
+              <h5
+                class="card-title btn recipe-title text-center fw-bold"
+              >{{recipe.dish_name}}</h5>
+            </div>
 
-{{#each recipes as |recipe|}}
-  <p> {{recipe.recipe_id}} </p>
-  <p> {{recipe.dish_name}} </p>
-{{/each }}
+          </div>
+        </a>
+      {{/each}}
+    </section>
+  </div></main>
