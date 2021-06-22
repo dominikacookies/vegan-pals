@@ -1,16 +1,15 @@
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 const { Op } = require("sequelize");
 
-const { CookTogether, User, Recipe } = require("../../models")
+const { CookTogether, User, Recipe } = require("../../models");
 
-// TO DO: get user id 
-const userId = 1
+// TO DO: get user id
+const userId = 1;
 
 // get all cooktogether information specific to a user and group response by sent, accepted and received
 const getAllCookTogethers = async (req, res) => {
-
   // TO DO: get user id from session
-  const userId = 1
+  const userId = 1;
 
   try {
     // get all received
@@ -21,7 +20,7 @@ const getAllCookTogethers = async (req, res) => {
       },
       raw: true,
       nested: true,
-    })
+    });
 
     // get all sent
     const sentCookTogether = await CookTogether.findAll({
@@ -31,8 +30,8 @@ const getAllCookTogethers = async (req, res) => {
       },
       raw: true,
       nested: true,
-    })
-    
+    });
+
     const upcomingCookTogether = await CookTogether.findAll({
       where: {
         user_id: userId,
@@ -40,221 +39,242 @@ const getAllCookTogethers = async (req, res) => {
       },
       raw: true,
       nested: true,
-    })
-    
+    });
+
     const cookTogetherData = {
       requestedCookTogether,
       sentCookTogether,
-      upcomingCookTogether
-    }
+      upcomingCookTogether,
+    };
 
-   return res.status(200).json(cookTogetherData)
-    
+    return res.status(200).json(cookTogetherData);
   } catch (error) {
     return res.status(500).json({
-      error: "Could not get cooktogethers"
-    })
+      error: "Could not get cooktogethers",
+    });
   }
-}
+};
 
 // create new cooktogether
 // if somebody creates a new request
 const createCookTogether = async (req, res) => {
   try {
-    const { dateTime, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite, recipeId, recipeTitle } = req.body
-  
-    if (!dateTime || !mealType || !message || !contactDetailsForSendingUser || !userIdReceivingInvite || !recipeId || !recipeTitle) {
+    const {
+      date,
+      mealType,
+      message,
+      contactDetailsForSendingUser,
+      userIdReceivingInvite,
+    } = req.body;
+
+    if (
+      !date ||
+      !mealType ||
+      !message ||
+      !contactDetailsForSendingUser ||
+      !userIdReceivingInvite
+    ) {
       return res.status(404).json({
         error: "Required values missing.",
-      })
+      });
     }
 
     newCookTogetherId = uuidv4();
-    
+
+    const recipe = await Recipe.findOne({
+      where: {
+        recipe_id: req.session.recipeId,
+      },
+      raw: true,
+      nested: true,
+    });
+
+    console.log(recipe);
+
     const newCookTogether = [
       // row for user requesting cook together
       {
         request_id: newCookTogetherId,
-        datetime: dateTime,
+        datetime: date,
         meal_type: mealType,
-        "status": "sent",
-        "user_id": userId,
-        "recipe_id": recipeId,
-        "recipe_title": recipeTitle
+        status: "sent",
+        user_id: userId,
+        recipe_id: req.session.recipeId,
+        recipe_title: recipe.dish_name,
+        recipe_image: recipe.image,
       },
       // row for user receiving cook together invite
       {
         request_id: newCookTogetherId,
-        datetime: dateTime,
+        datetime: date,
         meal_type: mealType,
         message: message,
         contact_details: contactDetailsForSendingUser,
-        "status": "received",
-        "user_id": userIdReceivingInvite,
-        "recipe_id": recipeId,
-        "recipe_title": recipeTitle
+        status: "received",
+        user_id: userIdReceivingInvite,
+        recipe_id: req.session.recipeId,
+        recipe_title: recipe.dish_name,
+        recipe_image: recipe.image,
       },
-    ]
+    ];
 
-    const newCookTogetherData = await CookTogether.bulkCreate(newCookTogether)
+    const newCookTogetherData = await CookTogether.bulkCreate(newCookTogether);
 
-    return res.status(200).json(newCookTogetherData)
+    delete req.session.recipeId;
 
+    return res.status(200).json(newCookTogetherData);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(500).json({
-      error: "Could not create new cook together"
-    })
+      error: "Could not create new cook together",
+    });
   }
-}
+};
 
 // update a cooktogether
 // if somebody accepts a request
 const updateCookTogether = async (req, res) => {
   try {
-    const { contactDetails } = req.body
-    console.log(contactDetails)
+    const { contactDetails } = req.body;
+    console.log(contactDetails);
 
-    if ( !contactDetails ) {
+    if (!contactDetails) {
       return res.status(404).json({
         error: "Required values missing.",
-      })
+      });
     }
 
-    const {cookTogetherId} = req.params
+    const { cookTogetherId } = req.params;
 
     const updateStatusResult = await CookTogether.update(
       {
-        status : "accepted"
+        status: "accepted",
       },
       {
         where: {
-          "request_id" : cookTogetherId
-        }
-      })
+          request_id: cookTogetherId,
+        },
+      }
+    );
 
-    if ( !updateStatusResult[0] ) {
+    if (!updateStatusResult[0]) {
       return res.status(404).json({
-        error: "Cook together doesn't exist"
-      })
+        error: "Cook together doesn't exist",
+      });
     }
 
     await CookTogether.update(
       {
-        contact_details : contactDetails
+        contact_details: contactDetails,
       },
       {
         where: {
-          request_id : cookTogetherId,
+          request_id: cookTogetherId,
           user_id: {
-            [Op.ne] : userId
-          }
-        }
-      })
+            [Op.ne]: userId,
+          },
+        },
+      }
+    );
 
     return res.status(200).json({
-      message: "Update successful"
-    })
-
+      message: "Update successful",
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(500).json({
-      error: "Could not update cook together"
-    })
+      error: "Could not update cook together",
+    });
   }
-
-}
+};
 
 // delete cooktogether
 // if someone declines or cancels a request
 const deleteCookTogether = async (req, res) => {
   try {
-    const {cookTogetherId} = req.params
+    const { cookTogetherId } = req.params;
 
     const deleteResult = await CookTogether.destroy({
-      where: { 
-        request_id : cookTogetherId 
-      }
+      where: {
+        request_id: cookTogetherId,
+      },
     });
 
     if (!deleteResult) {
       return res.status(404).json({
-        error: "Cook together doesn't exist"
-      })
-    };
+        error: "Cook together doesn't exist",
+      });
+    }
 
     return res.status(200).json({
       message: "Cook together successfully deleted",
     });
-
   } catch (error) {
     return res.status(500).json({
-      error: "Couldn't delete cook together."
-    }) 
+      error: "Couldn't delete cook together.",
+    });
   }
-}
+};
 
 // save recipe to favourites
 const saveRecipe = async (req, res) => {
   try {
-    const {recipeId, dishName} = req.body
-  
-    if (!recipeId || !dishName) {
+    const { title, image, id } = req.body;
+
+    if (!id || !title || !image) {
       return res.status(404).json({
         error: "Required values missing.",
-      })
+      });
     }
-    
+
     const newRecipe = {
-        recipe_id: recipeId,
-        dish_name: dishName,
-        user_id: userId
-      }
+      recipe_id: id,
+      dish_name: title,
+      user_id: req.session.user.id,
+      image,
+    };
 
-    const newRecipeData = await Recipe.create(newRecipe)
-
-    return res.status(200).json(newRecipeData)
-
+    const newRecipeData = await Recipe.create(newRecipe);
+    return res.status(200).json(newRecipeData);
   } catch (error) {
+    console.error(error.message);
     return res.status(500).json({
-      error: "Could not save recipe"
-    })
+      error: "Could not save recipe",
+    });
   }
-}
+};
 
 //remove recipe from favourites
 const deleteRecipe = async (req, res) => {
   try {
-    const {recipeId} =  req.params
+    const { recipeId } = req.params;
 
     const deleteResult = await Recipe.destroy({
-      where: { 
-        recipe_id : recipeId,
-        user_id : userId
-      }
+      where: {
+        recipe_id: recipeId,
+        user_id: userId,
+      },
     });
 
     if (!deleteResult) {
       return res.status(404).json({
-        error: "Recipe doesn't exist for this user"
-      })
-    };
+        error: "Recipe doesn't exist for this user",
+      });
+    }
 
     return res.status(200).json({
       message: "Recipe successfully deleted",
     });
-
   } catch (error) {
     return res.status(500).json({
-      error: "Couldn't delete recipe."
-    }) 
+      error: "Couldn't delete recipe.",
+    });
   }
-
-}
+};
 
 const search = async (req, res) => {
-  console.log("search result")
-}
+  console.log("search result");
+};
 
 module.exports = {
   getAllCookTogethers,
@@ -263,5 +283,5 @@ module.exports = {
   deleteCookTogether,
   saveRecipe,
   deleteRecipe,
-  search
-}
+  search,
+};

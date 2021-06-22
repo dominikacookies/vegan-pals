@@ -161,12 +161,13 @@ const renderSearchResults = async (req, res) => {
       return recipeInfo;
     });
 
-    res.render("search-results", { recipeData });
+    res.render("search-results", { recipeData, loggedIn });
   }
 };
 
 const renderRecipePage = async (req, res) => {
   const { id } = req.params;
+  const { loggedIn } = req.session;
 
   const { loggedIn } = req.session;
 
@@ -179,6 +180,8 @@ const renderRecipePage = async (req, res) => {
   });
 
   const recipeData = {
+    id,
+    loggedIn,
     title: response.data.title,
     image: response.data.image,
     servings: response.data.servings,

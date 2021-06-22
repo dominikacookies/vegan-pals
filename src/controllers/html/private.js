@@ -77,8 +77,6 @@ const renderCookTogetherPals = async (req, res) => {
     nested: true,
   });
 
-  console.log(pals);
-
   const hasPalSavedRecipe = async (pal) => {
     const recipe = await Recipe.findOne({
       where: {
@@ -96,7 +94,7 @@ const renderCookTogetherPals = async (req, res) => {
 
   const palsWithRecipeInfo = pals.map(hasPalSavedRecipe);
 
-  res.render("cooktogether-pals", { pals, recipeId });
+  res.render("cooktogether-pals", { pals });
 };
 
 const renderMyRecipes = async (req, res) => {
