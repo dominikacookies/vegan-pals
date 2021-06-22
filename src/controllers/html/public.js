@@ -1,4 +1,7 @@
 const axios = require("axios");
+const { Op } = require("sequelize");
+
+const { Recipe, User, CookTogether } = require("../../models")
 
 const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
 BASE_URL = `https://api.spoonacular.com/recipes/`;
@@ -12,10 +15,68 @@ const baseParams = {
   diet: "vegan",
 };
 
-const renderHomePage = (req, res) => {
+const renderHomePage = async (req, res) => {
   try {
-    const { isLoggedIn } = req.session;
-    res.render("homepage", { isLoggedIn });
+    const { loggedIn } = req.session;
+    if (loggedIn) {
+
+      const {request_id : upcomingCooktogetherId} = await CookTogether.findOne({
+        attributes: ["request_id"],
+        where: {
+          user_id: req.session.user.id,
+          status: "accepted"
+        },
+        order: [['datetime', 'DESC']],
+        raw: true,
+        nested: true
+      })
+
+      // TO DO: add image
+      const upcomingCooktogetherDetails = await CookTogether.findOne({
+        attributes: ["recipe_title", "contact_details", "datetime", "meal_type",],
+        where: {
+          request_id: upcomingCooktogetherId,
+          user_id: {
+            [Op.ne] : req.session.user.id
+          }
+        },
+        include: [
+          {
+            model: User,
+            attributes: ["first_name", "last_name"]
+          },
+        ],
+        raw: true,
+        nested: true
+      })
+
+      const latestSavedRecipes = await Recipe.findAll({
+        where : {
+          user_id: req.session.user.id
+        },
+        order: [[ 'createdAt', 'DESC']],
+        limit: 6,
+        raw: true,
+        nested: true,
+      })
+
+      console.log(upcomingCooktogetherDetails)
+      console.log(latestSavedRecipes)
+
+      return res.render("homepage-loggedIn", {upcomingCooktogetherDetails, latestSavedRecipes})
+
+
+    } else {
+      const latestSavedRecipes = await Recipe.findAll({
+          order: [[ 'createdAt', 'DESC']],
+          limit: 6,
+          raw: true,
+          nested: true,
+        })
+
+      console.log(latestSavedRecipes)
+      res.render("homepage-loggedout", {latestSavedRecipes})
+    }
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ error: "Failed to render" });
@@ -51,8 +112,8 @@ const getUserIntolerances = (intolerances) =>
     .join(",");
 
 const renderSearchResults = async (req, res) => {
+
   const { loggedIn } = req.session;
-  const { query } = req.query;
 
   if (loggedIn) {
     const { intolerances } = req.session.user;
@@ -77,12 +138,14 @@ const renderSearchResults = async (req, res) => {
 
     res.render("search-results", { recipeData });
   } else {
+
     const response = await axios.get(COMPLEX_SEARCH_URL, {
       params: {
         ...baseParams,
         ...req.query,
       },
     });
+
     const recipeData = response.data.results.map((recipe) => {
       const recipeInfo = {
         title: recipe.title,
@@ -92,6 +155,8 @@ const renderSearchResults = async (req, res) => {
 
       return recipeInfo;
     });
+
+    console.log(recipeData)
 
     res.render("search-results", { recipeData });
   }
