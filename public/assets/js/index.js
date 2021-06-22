@@ -47,7 +47,6 @@ const createCookTogether = async (event) => {
   const message = $(".message").val()
   const contactDetailsForSendingUser = $(".contact-details").val()
   const userIdReceivingInvite = $(".offcanvas").attr("data-user")
-  const recipeId = $("#pal-cards-container").attr("data-recipe")
 
   console.log(date, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite, recipeId)
 
@@ -63,7 +62,6 @@ const createCookTogether = async (event) => {
       message,
       contactDetailsForSendingUser,
       userIdReceivingInvite,
-      recipeId
     }),
   };
 
