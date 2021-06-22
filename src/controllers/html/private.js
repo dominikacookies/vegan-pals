@@ -109,10 +109,9 @@ const renderMyRecipes = async (req, res) => {
     },
     raw: true,
     nested: true,
-    loggedIn,
   });
 
-  res.render("myrecipes", { recipes });
+  res.render("myrecipes", { recipes, loggedIn });
 };
 
 const renderPrivateHomePage = (req, res) => {
