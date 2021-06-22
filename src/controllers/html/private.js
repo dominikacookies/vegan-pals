@@ -7,7 +7,7 @@ const renderCookTogether = (req, res) => {
 
 const renderMyRecipesCookTogether = async (req, res) => {
   const recipes = await Recipe.findAll({
-    attributes: ["recipe_id", "dish_name"],
+    attributes: ["recipe_id", "dish_name", "image"],
     where: {
       user_id: req.session.user.id,
     },
@@ -15,14 +15,14 @@ const renderMyRecipesCookTogether = async (req, res) => {
     nested: true,
   });
 
-  res.render("myrecipes-cooktogether", { recipes });
+  res.render("cooktogether-recipes", { recipes });
 };
 
 const renderCookTogetherPals = async (req, res) => {
   const { recipeId } = req.params;
   req.session.recipeId = recipeId;
 
-  const { gluten, peanut, sesame, grain, soy, sulphite, treeNut, wheat } =
+  const { gluten, peanut, sesame, grain, soy, sulphite, wheat } =
     req.session.user.intolerances;
 
   const pals = await User.findAll({
@@ -35,7 +35,7 @@ const renderCookTogetherPals = async (req, res) => {
         { peanut_intolerance: peanut },
         { sesame_intolerance: sesame },
         { sulphite_intolerance: sulphite },
-        { tree_nut_intolerance: treeNut },
+        // { tree_nut_intolerance: treeNut },
         { wheat_intolerance: wheat },
       ],
       id: {
@@ -48,22 +48,26 @@ const renderCookTogetherPals = async (req, res) => {
 
   console.log(pals)
 
-  const hasPalSavedRecipe = (pal) => {
-    const recipe = Recipe.findOne({
+  const hasPalSavedRecipe = async (pal) => {
+
+    const recipe = await Recipe.findOne({
       where: {
         user_id: pal.id,
         recipe_id: recipeId
       }
     })
 
-    console.log(recipe)
+    if (recipe) {
+      pal.savedRecipe = true
+    }
+
+    return pal
+
   }
 
-  pals.map(hasPalSavedRecipe)
-  .map(([key, value]) => key)
-  console.log(pals);
+  const palsWithRecipeInfo = pals.map(hasPalSavedRecipe)
 
-  res.render("cooktogether-pals", { pals });
+  res.render("cooktogether-pals", { pals, recipeId });
 };
 
 const renderMyRecipes = async (req, res) => {

@@ -33,7 +33,7 @@ const renderHomePage = async (req, res) => {
 
       // TO DO: add image
       const upcomingCooktogetherDetails = await CookTogether.findOne({
-        attributes: ["recipe_title", "contact_details", "datetime", "meal_type", "recipe_image"],
+        attributes: ["recipe_title", "contact_details", "datetime", "meal_type", "recipe_image", "recipe_id"],
         where: {
           request_id: upcomingCooktogetherId,
           user_id: {

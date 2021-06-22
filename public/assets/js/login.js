@@ -27,7 +27,7 @@ const handleSubmit = async (event) => {
   const { status } = await fetch("http://localhost:3001/auth/login", options);
 
   if (status === 200) {
-    window.location.replace("http://localhost:3001/"); 
+    window.location.replace("/"); 
   } else if (status > 399 && status < 500 ) {
     $("#login-error-messages").empty()
     $("#login-error-messages").append(`
