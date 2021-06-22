@@ -1,3 +1,5 @@
+$(".datepicker").datepicker(); 
+
 const onSubmit = async (event) => {
   event.preventDefault();
 
@@ -35,5 +37,50 @@ const onSubmit = async (event) => {
     
 };
 
+const renderMoreResults = async () => {
+   console.log("render")
+}
+
+const createCookTogether = async (event) => {
+  const date = $("#date-input").val()
+  const mealType = $(".form-check-input:checked").val()
+  const message = $(".message").val()
+  const contactDetailsForSendingUser = $(".contact-details").val()
+  const userIdReceivingInvite = $(".offcanvas").attr("data-user")
+
+  console.log(date, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite)
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    body: JSON.stringify({
+      date,
+      mealType,
+      message,
+      contactDetailsForSendingUser,
+      userIdReceivingInvite,
+    }),
+  };
+
+  const response = await fetch("/api/cooktogether", options);
+
+  if (response.status === 200) {
+
+    $(".offcanvas-body").empty()
+    $(".offcanvas-body").append(`
+    <h3> Request sent successfully! </h3>`)
+
+    setTimeout(() => { window.location.replace(`/cooktogether`) }, 500);
+
+  }
+  //handle errors
+
+}
+
 
 $("#searchButton").on("click", onSubmit);
+$("#renderMoreResults").on("click", renderMoreResults)
+$("#cooktogether-button").on("click", createCookTogether)

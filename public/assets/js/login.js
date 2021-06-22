@@ -24,7 +24,7 @@ const handleSubmit = async (event) => {
     }),
   };
 
-  const { status } = await fetch("http://localhost:3001/auth/login", options);
+  const { status } = await fetch("/auth/login", options);
 
   if (status === 200) {
     window.location.replace("/"); 
