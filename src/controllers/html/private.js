@@ -2,7 +2,6 @@ const { Recipe, User, CookTogether } = require("../../models");
 const { Op } = require("sequelize");
 
 const renderCookTogether = async (req, res) => {
-
   const requestedCookTogetherIds = await CookTogether.findAll({
     where: {
       user_id: req.session.user.id,
@@ -14,24 +13,31 @@ const renderCookTogether = async (req, res) => {
 
   const requestedPromises = requestedCookTogetherIds.map((cooktogether) => {
     const userInformation = CookTogether.findOne({
-      attributes: ["recipe_title", "contact_details", "datetime", "meal_type", "recipe_image", "request_id"],
+      attributes: [
+        "recipe_title",
+        "contact_details",
+        "datetime",
+        "meal_type",
+        "recipe_image",
+        "request_id",
+      ],
       where: {
         request_id: cooktogether.request_id,
-         user_id: {
-           [Op.ne] : req.session.user.id
-        }
+        user_id: {
+          [Op.ne]: req.session.user.id,
+        },
       },
       include: [
         {
           model: User,
-          attributes: ["first_name", "last_name", "bio"]
+          attributes: ["first_name", "last_name", "bio"],
         },
-      ], 
+      ],
       raw: true,
-      nested: true
-    })
+      nested: true,
+    });
 
-    return userInformation
+    return userInformation;
   });
 
   const requestedCookTogethers = await Promise.all(requestedPromises);
@@ -56,30 +62,40 @@ const renderCookTogether = async (req, res) => {
   });
 
   const upcomingPromises = upcomingCookTogetherIds.map((cooktogether) => {
-      const userInformation = CookTogether.findOne({
-        attributes: ["recipe_title", "contact_details", "datetime", "meal_type", "recipe_image"],
-        where: {
-          request_id: cooktogether.request_id,
-           user_id: {
-             [Op.ne] : req.session.user.id
-          }
+    const userInformation = CookTogether.findOne({
+      attributes: [
+        "recipe_title",
+        "contact_details",
+        "datetime",
+        "meal_type",
+        "recipe_image",
+      ],
+      where: {
+        request_id: cooktogether.request_id,
+        user_id: {
+          [Op.ne]: req.session.user.id,
         },
-        include: [
-          {
-            model: User,
-            attributes: ["first_name", "last_name", "bio"]
-          },
-        ], 
-        raw: true,
-        nested: true
-      })
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["first_name", "last_name", "bio"],
+        },
+      ],
+      raw: true,
+      nested: true,
+    });
 
-      return userInformation
+    return userInformation;
   });
 
   const upcomingCookTogethers = await Promise.all(upcomingPromises);
 
-  res.render("cooktogether", {requestedCookTogethers, sentCookTogethers, upcomingCookTogethers})
+  res.render("cooktogether", {
+    requestedCookTogethers,
+    sentCookTogethers,
+    upcomingCookTogethers,
+  });
 };
 
 const renderMyRecipesCookTogether = async (req, res) => {

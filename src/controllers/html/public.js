@@ -103,8 +103,18 @@ const renderLoginPage = (req, res) => {
 
 const renderSignupPage = (req, res) => {
   try {
+    const intolerances = [
+      "gluten",
+      "gray",
+      "soy",
+      "peanut",
+      "sesame",
+      "sulphite",
+      "tree nut",
+      "wheat",
+    ];
     res.render("signup", {
-      // layout: "signup",
+      intolerances,
     });
   } catch (err) {
     console.log(err.message);

@@ -85,12 +85,24 @@ const signup = async (req, res) => {
     const lastName = req.body.lastName;
     const password = req.body.password;
     const email = req.body.email;
+    const bio = req.body.bio;
+    const { gluten, peanut, sesame, grain, soy, sulphite, treeNut, wheat } =
+      req.body.intolerances;
 
     const user = await User.create({
       first_name: firstName,
       last_name: lastName,
       email: email,
       password: password,
+      bio,
+      gluten_intolerance: gluten,
+      peanut_intolerance: peanut,
+      sesame_intolerance: sesame,
+      grain_intolerance: grain,
+      soy_intolerance: soy,
+      sulphite_intolerance: sulphite,
+      tree_nut_intolerance: treeNut,
+      wheat_intolerance: wheat,
     });
 
     if (!user) {
