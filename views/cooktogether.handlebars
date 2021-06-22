@@ -17,92 +17,67 @@
       <input type="text" class="form-control" placeholder="Your bio.">
     </div>
   </section>
-  <div>
-    <div class="container">
-          <h2 class="text-center mb-3">Upcoming Cooktogether </h2>
-          {{#each upcomingCookTogethers as |upcoming|}}
-          
-          <div class="card mb-3 mx-auto" style="max-width: 70vw;">
-            <div class="row">
-              <div class="col-md-6">
-                <img src={{upcoming.recipe_image}} alt="..." style="height: 25vw;">
-              </div>
-              <div class="col-md-6">
-                <div class="card-body">
-                  <h5 class="card-title"> {{upcoming.recipe_title}}  with {{upcoming.user.first_name}}  </h5>
-                  <p class="card-text">Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}} </p>
-                  <p class="card-text">Get in touch: {{upcoming.contact_details}}</p>
-                  <a href='/recipe/{{upcoming.recipe_id}}' target="_blank"  class="btn btn-success"> View recipe </a>
-                </div>
-              </div>
-            </div>
-          </div>
-         </div> 
-         {{/each}}</div>
+  <section>
+    <h2>Upcoming Cooktogethers </h2>
+     <div class="card d-inline-flex  justify-content-between p-2 bd-highlight text-center" style="width: 20rem">
+       {{#each upcomingCookTogethers as |upcoming|}}
 
+      <div class="card" style="width: 18rem;">
+         <img src={{upcoming.recipe_image}} class="card-img-top" alt={{upcoming.recipe_image}}>
+         <div class="card-body">
+          <h5 class="card-title"> {{upcoming.recipe_title}}  with {{upcoming.user.first_name}}  </h5>
+          <p class="card-text">Get in touch: {{upcoming.contact_details}}</p>
+          <p class="card-text">Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}} </p>
+          <p>About: {{ upcoming.user.bio }}</p>
+         </div>
+      </div>
+    {{/each}}
+  </section>
   <section 
     class="container carousel-container"
     style="justify-content: center"
   >
-    <!-- carousel Upcoming -->
-        <div
-          id="carouselUpcoming"
-          class="carousel slide p-5 justify-content-evenly"
-          data-bs-touch="false"
-          data-bs-interval="false"
-          style="width: 80vw"
-        >
-          <div><h4>See all upcoming Cook Togethers</h4></div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="d-flex flex-row justify-content-evenly">
-                <div class="card m-4" style="width: 25vw">
-                  <img
-                    src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHxmb29kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">< Recipe name > with < user ></h5>
-                    <p class="card-text">when: < Time and Date ></p>
-                    <p class="card-text">contact: < Contact info ></p>
-                    <a href="" class="btn btn-success">Recipe</a>
-                  </div>
-                </div>
-                <div class="card m-4" style="width: 25vw">
-                  <img
-                    src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">< Recipe name > with < user ></h5>
-                    <p class="card-text">when: < Time and Date ></p>
-                    <p class="card-text">contact: < Contact info ></p>
-                    <a href="/recipe" class="btn btn-success">Recipe</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <h4>Requests received</h4>
+    <div class="card d-inline-flex  justify-content-between p-2 bd-highlight text-center" style="width: 20rem">
+      {{#each requestedCookTogethers as |requested|}}  
+      <div class="card" style="width: 18rem;">
+        <img src={{requested.recipe_image}} class="card-img-top" alt={{requested.title}}>
+        <div class="card-body">
+          <h5 class="card-title"> {{requested.recipe_title}} with {{requested.user.first_name}}  </h5>
+          <p class="card-text">Meeting for {{requested.meal_type}} on {{requested.datetime}} </p>
+          <p>About: {{ requested.user.bio }}</p>
+          <div class="requests-buttons" data-requestId={{requested.request_id}}>
+            <button class="extra-info-button">
+              Accept
+            </button>
+            <button class="decline-request-button">
+              Decline
+            </button>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselUpcoming"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselUpcoming"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <section>
+    <h4>Requests sent </h4>
+      <div class="card d-inline-flex  justify-content-between p-2 bd-highlight text-center" style="width: 20rem">
+      {{#each sentCookTogethers as |sent|}}  
+      <div class="card" style="width: 18rem;">
+        <img src={{sent.recipe_image}} class="card-img-top" alt={{sent.title}}>
+        <div class="card-body">
+          <h5 class="card-title"> {{sent.recipe_title}} with {{sent.user.first_name}}  </h5>
+          <p class="card-text">Meeting for {{sent.meal_type}} on {{sent.datetime}} </p>
+          <p>About: {{ sent.user.bio }}</p>
+          <div data-requestId={{sent.request_id}} >
+            <button class="cancel-request-button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
   </section>
 </main>
