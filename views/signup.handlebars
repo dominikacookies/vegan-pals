@@ -1,9 +1,90 @@
 <div
   class="position-absolute top-50 start-50 translate-middle text-center form-container"
 >
-  <h2 class="text-center">Sign Up</h2>
+<div class="d-flex flex-wrap">
+          <div class="">intolerances</div>
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="gluten"
+              id="gluten"
+            />
+            <label class="form-check-label" for="gluten"> gluten </label>
+          </div>
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              aria-controls=" "
+              type="checkbox"
+              name="peanuts"
+              id="peanuts"
+            />
+            <label class="form-check-label" for="peanuts">
+              peanuts
+            </label>
+          </div>
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="sesame"
+              id="sesame"
+              />
+              <label class="form-check-label" for="sesame">
+                sesame
+              </label>
+          </div>
+
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="grain"
+              id="grain"
+            />
+            <label class="form-check-label" for="grain">
+              grain
+            </label>
+          </div>
+          
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="soy"
+              id="soy"
+            />
+            <label class="form-check-label" for="soy"> soy </label>
+          </div>
+         
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="sulphite"
+              id="sulphite"
+            />
+            <label class="form-check-label" for="sulphite">
+              sulphite
+            </label>
+          </div>
+          
+          <div class="form-check mx-2">
+            <input
+              class="form-check-input radioButton intolerance"
+              type="checkbox"
+              name="tree-nut"
+              id="tree-nut"
+            />
+            <label class="form-check-label" for="tree nut">
+              tree nut
+            </label>
+          </div>
+  <h2 class="text-center"></h2>
   <hr />
   <form id="signup-form">
+     <div id="login-error-messages"></div>
     <div class="d-flex flex-wrap">
       <div class="mb-3 w-100">
         <input
@@ -29,7 +110,7 @@
           placeholder="Email"
         />
       </div>
-      <div class="mb-3 w-100">
+      <div class="mb-3 w-100 sign-up inputs">
         <input
           type="password"
           class="form-control"
@@ -40,13 +121,15 @@
       </div>
       <div class="mb-3 w-100">
         <input
-          type="text"
+          type="password"
           class="form-control"
-          id="confirmPassword"
-          placeholder="Confirm password"
+           value="FakePSW"
+          id="myInput"
+          placeholder="confirmPassword"
         />
       </div>
       <div class="d-grid gap-2 w-100">
+         <div class="login-buttons-container"></div>
         <button class="btn btn-primary" type="submit">Sign Up</button>
       </div>
     </div>
