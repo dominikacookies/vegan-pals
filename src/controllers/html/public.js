@@ -60,11 +60,7 @@ const renderHomePage = async (req, res) => {
         nested: true,
       })
 
-      console.log(upcomingCooktogetherDetails)
-      console.log(latestSavedRecipes)
-
       return res.render("homepage-loggedIn", {upcomingCooktogetherDetails, latestSavedRecipes})
-
 
     } else {
       const latestSavedRecipes = await Recipe.findAll({
@@ -74,7 +70,6 @@ const renderHomePage = async (req, res) => {
           nested: true,
         })
 
-      console.log(latestSavedRecipes)
       res.render("homepage-loggedout", {latestSavedRecipes})
     }
   } catch (err) {
@@ -89,7 +84,6 @@ const renderLoginPage = (req, res) => {
       // layout: "login",
     });
   } catch (err) {
-    console.log(err.message);
     res.status(500).json({ error: "Failed to render" });
   }
 };
@@ -155,8 +149,6 @@ const renderSearchResults = async (req, res) => {
 
       return recipeInfo;
     });
-
-    console.log(recipeData)
 
     res.render("search-results", { recipeData });
   }
