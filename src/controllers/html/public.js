@@ -1,5 +1,17 @@
 const axios = require("axios");
 
+const COMPLEX_SEARCH_URL = `https://api.spoonacular.com/recipes/complexSearch`;
+BASE_URL = `https://api.spoonacular.com/recipes/`;
+
+const baseParams = {
+  apiKey: "a694fd998d4342db94e07530f4373371",
+  instructionsRequired: true,
+  addRecipeInformation: true,
+  fillIngredients: true,
+  number: 10,
+  diet: "vegan",
+};
+
 const renderHomePage = (req, res) => {
   try {
     const { isLoggedIn } = req.session;
@@ -32,23 +44,80 @@ const renderSignupPage = (req, res) => {
   }
 };
 
+const getUserIntolerances = (intolerances) =>
+  Object.entries(intolerances)
+    .filter(([key, value]) => value === 1)
+    .map(([key, value]) => key)
+    .join(",");
+
 const renderSearchResults = async (req, res) => {
-  //get data from spoonacular api ready to render to search results page
-  // /search-results?query=broccoli&maxReadyTime=30&intolerance=wheat
-  const { isLoggedIn } = req.session;
-  // const isLoggedIn = false;
-  if (isLoggedIn) {
-    //get intolerances from user
-    //make request
+  const { loggedIn } = req.session;
+  const { query } = req.query;
+
+  if (loggedIn) {
+    const { intolerances } = req.session.user;
+
+    const response = await axios.get(COMPLEX_SEARCH_URL, {
+      params: {
+        ...baseParams,
+        ...req.query,
+        intolerances: getUserIntolerances(intolerances),
+      },
+    });
+
+    const recipeData = response.data.results.map((recipe) => {
+      const recipeInfo = {
+        title: recipe.title,
+        image: recipe.image,
+        recipe_id: recipe.id,
+      };
+
+      return recipeInfo;
+    });
+
+    res.render("search-results", { recipeData });
   } else {
-    //get intolerances from req.params
-    // const intolerance = req.params;
-    //make request
-    const response = await axios.get(
-      "https://api.spoonacular.com/recipes/complexSearch?&intolerances=soy&query=rice&apiKey=214dc041d6d44757b2a72a21f418f1e7&diet=vegan"
-    );
-    res.render("search-results", { data: JSON.stringify(response.data) });
+    const response = await axios.get(COMPLEX_SEARCH_URL, {
+      params: {
+        ...baseParams,
+        ...req.query,
+      },
+    });
+    const recipeData = response.data.results.map((recipe) => {
+      const recipeInfo = {
+        title: recipe.title,
+        image: recipe.image,
+        recipe_id: recipe.id,
+      };
+
+      return recipeInfo;
+    });
+
+    res.render("search-results", { recipeData });
   }
+};
+
+const renderRecipePage = async (req, res) => {
+  const { id } = req.params;
+
+  const response = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
+  );
+
+  const ingredients = response.data.extendedIngredients.map((ingredient) => {
+    return ingredient.original;
+  });
+
+  const recipeData = {
+    title: response.data.title,
+    image: response.data.image,
+    servings: response.data.servings,
+    prepTime: response.data.readyInMinutes,
+    ingredients,
+    directions: response.data.instructions,
+  };
+
+  res.render("recipe", recipeData);
 };
 
 module.exports = {
@@ -56,4 +125,5 @@ module.exports = {
   renderLoginPage,
   renderSignupPage,
   renderSearchResults,
+  renderRecipePage,
 };

@@ -1,2 +1,21 @@
-<h1>Search results show here</h1>
-<p> {{data}}</p>
+  {{>publicNavbar}}  
+    <header>
+      <h1>Hey Pal!</h1>
+    </header>
+
+   <div><h1 class="text-center">Recipe Search Results</h1></div>
+
+
+{{#each recipeData as |recipe|}}
+  
+  <div class="d-inline-flex justify-content-evenly">
+  <div
+    class="card position-relative d-inline-flex justify-content-between p-2 bd-highlight"
+    style="width: 18rem">
+   <a href='recipe/{{recipe.recipe_id}}'> <div id= "recipe-card" class="card-body mx-auto">
+      <h5 class="card-title text-center">{{recipe.title}}</h5>
+      <img src={{recipe.image}} class="card-img-top" alt="Image of dish" /> </a>
+       </div> 
+  </div>
+  </div>
+  {{/each}}
