@@ -10,7 +10,7 @@ const renderCookTogether = async (req, res) => {
     },
     raw: true,
     nested: true,
-  })
+  });
 
   const requestedPromises = requestedCookTogetherIds.map((cooktogether) => {
     const userInformation = CookTogether.findOne({
@@ -43,7 +43,7 @@ const renderCookTogether = async (req, res) => {
     },
     raw: true,
     nested: true,
-  })
+  });
 
   const upcomingCookTogetherIds = await CookTogether.findAll({
     attributes: ["request_id"],
@@ -53,7 +53,7 @@ const renderCookTogether = async (req, res) => {
     },
     raw: true,
     nested: true,
-  })
+  });
 
   const upcomingPromises = upcomingCookTogetherIds.map((cooktogether) => {
       const userInformation = CookTogether.findOne({
@@ -124,28 +124,28 @@ const renderCookTogetherPals = async (req, res) => {
   });
 
   const hasPalSavedRecipe = async (pal) => {
-
     const recipe = await Recipe.findOne({
       where: {
         user_id: pal.id,
-        recipe_id: recipeId
-      }
-    })
+        recipe_id: recipeId,
+      },
+    });
 
     if (recipe) {
-      pal.savedRecipe = true
+      pal.savedRecipe = true;
     }
 
-    return pal
+    return pal;
+  };
 
-  }
+  const palsWithRecipeInfo = pals.map(hasPalSavedRecipe);
 
-  const palsWithRecipeInfo = pals.map(hasPalSavedRecipe)
-
-  res.render("cooktogether-pals", {pals});
+  res.render("cooktogether-pals", { pals });
 };
 
 const renderMyRecipes = async (req, res) => {
+  const { loggedIn } = req.session;
+
   const recipes = await Recipe.findAll({
     attributes: ["recipe_id", "dish_name", "image"],
     where: {
@@ -155,7 +155,7 @@ const renderMyRecipes = async (req, res) => {
     nested: true,
   });
 
-  res.render("myrecipes", { recipes });
+  res.render("myrecipes", { recipes, loggedIn });
 };
 
 const renderPrivateHomePage = (req, res) => {

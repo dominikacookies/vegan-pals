@@ -1,52 +1,62 @@
-$(".datepicker").datepicker(); 
+$(".datepicker").datepicker();
 
 const onSubmit = async (event) => {
   event.preventDefault();
 
-    const searchInput = $("#searchInput").val();
+  const searchInput = $("#searchInput").val();
 
-    let searchInputParams = ""
+  let searchInputParams = "";
 
-    if (searchInput) {
-      searchInputParams = `&query=${searchInput}`
-    }
-  
-    const checkedIntolerances = document.querySelectorAll(".intolerance:checked")
+  if (searchInput) {
+    searchInputParams = `&query=${searchInput}`;
+  }
 
-    let intoleranceParams = ""
+  const checkedIntolerances = document.querySelectorAll(".intolerance:checked");
 
-    if (checkedIntolerances.length > 0) {
-      const intolerances = Array.prototype.slice.call(checkedIntolerances);
+  let intoleranceParams = "";
 
-       const getIntoleranceName = (intolerance) => {
-          return intolerance.name
-      }
+  if (checkedIntolerances.length > 0) {
+    const intolerances = Array.prototype.slice.call(checkedIntolerances);
 
-      intoleranceParams = "&intolerances=" + intolerances.map(getIntoleranceName).join(",")
-    }
+    const getIntoleranceName = (intolerance) => {
+      return intolerance.name;
+    };
 
-    let prepTimeParams =""
+    intoleranceParams =
+      "&intolerances=" + intolerances.map(getIntoleranceName).join(",");
+  }
 
-    const prepTime = $("input[type='radio']:checked").attr("id")
+  let prepTimeParams = "";
 
-    if (prepTime) {
-      prepTimeParams = `&maxReadyTime=${prepTime}`
-    }
+  const prepTime = $("input[type='radio']:checked").attr("id");
 
-    window.location.replace(`/search-results?${searchInputParams}${intoleranceParams}${prepTimeParams}`)
-    
+  if (prepTime) {
+    prepTimeParams = `&maxReadyTime=${prepTime}`;
+  }
+
+  window.location.replace(
+    `/search-results?${searchInputParams}${intoleranceParams}${prepTimeParams}`
+  );
 };
 
 const renderMoreResults = async () => {
-   console.log("render")
-}
+  console.log("render");
+};
 
-const createCooktogether = async (event) => {
-  const date = $("#date-input").val()
-  const mealType = $(".form-check-input:checked").val()
-  const message = $(".message").val()
-  const contactDetailsForSendingUser = $(".contact-details").val()
-  const userIdReceivingInvite = $(".offcanvas").attr("data-user")
+const createCookTogether = async (event) => {
+  const date = $("#date-input").val();
+  const mealType = $(".form-check-input:checked").val();
+  const message = $(".message").val();
+  const contactDetailsForSendingUser = $(".contact-details").val();
+  const userIdReceivingInvite = $(".offcanvas").attr("data-user");
+
+  console.log(
+    date,
+    mealType,
+    message,
+    contactDetailsForSendingUser,
+    userIdReceivingInvite
+  );
 
   const options = {
     method: "POST",
@@ -66,16 +76,43 @@ const createCooktogether = async (event) => {
   const response = await fetch("/api/cooktogether", options);
 
   if (response.status === 200) {
-
-    $(".offcanvas-body").empty()
+    $(".offcanvas-body").empty();
     $(".offcanvas-body").append(`
-    <h3> Request sent successfully! </h3>`)
+    <h3> Request sent successfully! </h3>`);
 
-    setTimeout(() => { window.location.replace(`/cooktogether`) }, 500);
-
+    setTimeout(() => {
+      window.location.replace(`/cooktogether`);
+    }, 500);
   }
   //handle errors
+};
 
+const saveToFavourites = async (event) => {
+  const title = $('[name="recipe-title"]').text();
+  const image = $('[name="recipe-image"]').attr("src");
+  const { id } = event.currentTarget;
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    body: JSON.stringify({
+      title,
+      image,
+      id,
+    }),
+  };
+
+  console.log(title, image, id);
+  const response = await fetch(`/api/recipe/${id}`, options);
+
+  if (response.status !== 200) {
+    console.log("FAILED TO SAVE RECIPE");
+  } else {
+    window.location.replace(`/myrecipes`);
+  }
 }
 
 const provideCooktogetherContactDetails = async (event) => {
@@ -141,3 +178,4 @@ $(".extra-info-button").on("click", acceptCooktogether)
 $(".accept-request-button").on("click", acceptCooktogether)
 $(".cancel-request-button").on("click", deleteCooktogether)
 $(".decline-request-button").on("click", deleteCooktogether)
+$('button[name="add-to-favourites-btn"]').on("click", saveToFavourites);
