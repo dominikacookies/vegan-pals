@@ -1,3 +1,11 @@
+ {{#if loggedIn}}
+  {{>privateNavbar}}  
+  {{>privateSearchbar}}
+{{else}}
+  {{>publicNavbar}}  
+  {{>publicSearchbar}}
+{{/if}}  
+
 <figure id="image-container" class="mx-auto" style="width: 50vw">
   <figcaption id="recipe-name" class="text-center">
     <h2>{{title}}</h2>
