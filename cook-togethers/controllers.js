@@ -88,32 +88,40 @@ const getUserInfo = async (req, res) => {
   }
 };
 
-const getRecipe = async (req, res) => {
-  const { isLoggedIn } = req.session;
-  if (isLoggedIn) {
-    const response = await axios.get(
-      `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=a694fd998d4342db94e07530f4373371`
-    );
-    res.render("recipe-save", { data: JSON.stringify(response.data) });
-  } else {
-    const response = await axios.get(
-      `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=a694fd998d4342db94e07530f4373371`
-    );
-    res.render("recipe", { data: JSON.stringify(response.data) });
-  }
+const renderRecipePage = async (req, res) => {
+  const { id } = req.params;
+
+  const response = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
+  );
+
+  const ingredients = response.data.extendedIngredients.map((ingredient) => {
+    return ingredient.original;
+  });
+
+  const recipeData = {
+    title: response.data.title,
+    image: response.data.image,
+    servings: response.data.servings,
+    prepTime: response.data.readyInMinutes,
+    ingredients,
+    directions: response.data.instructions,
+  };
+
+  res.render("recipe", recipeData);
 };
 
 //getAllReceived();
 //getUserInfo();
-getRecipe();
-//getAllUpcoming();
+//renderRecipePage();
+getAllUpcoming();
 //getNearestUpcoming();
 //getAllSent();
 
 module.exports = {
   getAllReceived,
   getUserInfo,
-  getRecipe,
+  renderRecipePage,
   getAllUpcoming,
   getNearestUpcoming,
   getAllSent,
