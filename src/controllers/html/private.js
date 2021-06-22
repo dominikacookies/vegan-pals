@@ -7,7 +7,7 @@ const renderCookTogether = (req, res) => {
 
 const renderMyRecipesCookTogether = async (req, res) => {
   const recipes = await Recipe.findAll({
-    attributes: ["recipe_id", "dish_name"],
+    attributes: ["recipe_id", "dish_name", "image"],
     where: {
       user_id: req.session.user.id,
     },
@@ -15,7 +15,7 @@ const renderMyRecipesCookTogether = async (req, res) => {
     nested: true,
   });
 
-  res.render("myrecipes-cooktogether", { recipes });
+  res.render("cooktogether-recipes", { recipes });
 };
 
 const renderCookTogetherPals = async (req, res) => {
