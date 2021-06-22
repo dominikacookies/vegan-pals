@@ -1,5 +1,34 @@
+main {
+  margin-right: 35;
+  margin-left: 35;
+}
+
 .form-container {
   width: 75%;
+}
+
+.recipe-car-anchors-container {
+  text-align: center;
+}
+
+.anchor-button-primary {
+  background-color: black;
+  color: white;
+  width: 150px;
+  max-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 6px;
+}
+
+.anchor-button-secondary {
+  background-color: rgb(199, 235, 184);
+  color: rgb(0, 0, 0);
+  width: 150px;
+  max-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 6px;
 }
 
 @media (min-width: 767.98px) {
@@ -7,3 +36,13 @@
     width: 50%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  main {
+    margin-right: 10;
+    margin-left: 10;
+  }
+}
+
+
+
