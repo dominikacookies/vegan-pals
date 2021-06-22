@@ -11,6 +11,15 @@
   left: 20%;
 }
 
+.main-button-style {
+  background-color: #304922;
+  color: #f6efdd;
+  width: 150px;
+  max-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+}
 .login-error-message {
   text-align: center;
   color: red;
@@ -32,17 +41,7 @@
   display: inline;
   margin: 10px;
   background-color: black;
-  color: white
-}
-
-.sign-up-anchor{
-  background-color: black;
   color: white;
-  width: 150px;
-  max-height: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -54,4 +53,3 @@
     width: 80%;
   }
 }
-
