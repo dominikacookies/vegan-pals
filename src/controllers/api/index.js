@@ -90,7 +90,7 @@ const createCookTogether = async (req, res) => {
         meal_type: mealType,
         "status": "sent",
         "user_id": userId,
-        "recipe_id": recipeId,
+        "recipe_id": req.session.recipeId,
         "recipe_title": recipe.dish_name,
         "recipe_image" : recipe.image
       },
@@ -103,7 +103,7 @@ const createCookTogether = async (req, res) => {
         contact_details: contactDetailsForSendingUser,
         "status": "received",
         "user_id": userIdReceivingInvite,
-        "recipe_id": recipeId,
+        "recipe_id": req.session.recipeId,
         "recipe_title": recipe.dish_name,
         "recipe_image" : recipe.image
       },
