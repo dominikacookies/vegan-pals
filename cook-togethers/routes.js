@@ -13,6 +13,7 @@ const router = Router();
 //pals page
 router.get("/cooktogether/myrecipes/pals");
 
-//recipe
-router.get("/myrecipes/recipe", getRecipe);
+//cook togethers
+router.get("cooktogether/cooktogethers/upcoming", getAllUpcoming);
+router.get("cooktogether/cooktogethers/received", getAllReceived);
 module.exports = router;
