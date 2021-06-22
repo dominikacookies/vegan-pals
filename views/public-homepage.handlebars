@@ -192,15 +192,14 @@
     </div>  
     </div>
     <div>
-      <h2>Other pals love</h2>
+      <h2 class="mx-5">Other pals love</h2>
       <div class="d-flex flex-wrap justify-content-around">
-      
         {{#each latestSavedRecipes as |recipe|}}
-        <a href=`/recipe/{{recipe.recipe_id}}`>
-          <div class="card d-inline-flex  justify-content-between p-2 bd-highlight" style="width: 18rem">
+        <a href=`/recipe/{{recipe.recipe_id}}` style="text-decoration: none; color: hotpink;">
+          <div class="card p-3 bg-light bd-highlight mb-4 mt-4 shadow p-3 mb-5 bg-body rounded border border-secondary" style="width:18rem; height:20rem;">
             <div class="card-body mx-auto">
-              <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
-              <h5 class="card-title text-center">{{recipe.dish_name}}</h5>
+              <img src={{recipe.image}} class="card-img-top border border-success" alt="Image of dish" />
+              <h5 class="card-title text-center mt-3">{{recipe.dish_name}}</h5>
             </div>
           </div>
         </a>
