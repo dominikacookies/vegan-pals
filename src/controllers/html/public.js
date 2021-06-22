@@ -178,6 +178,7 @@ const renderRecipePage = async (req, res) => {
   });
 
   const recipeData = {
+    id,
     loggedIn,
     title: response.data.title,
     image: response.data.image,
