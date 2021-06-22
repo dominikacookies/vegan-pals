@@ -4,6 +4,9 @@ lighter green - #8EB44F
 pink/red - #ED6160
 yellow - #DAAF53
 pale beige - #F6EFDD*/
+body {
+  background-color: #f6efdd;
+}
 
 main {
   margin-right: 35;
@@ -14,12 +17,21 @@ main {
   width: 75%;
 }
 
+.search-bar {
+  padding: 1rem;
+  background-color: #daaf53;
+}
+
 .recipe-car-anchors-container {
   text-align: center;
 }
 .recipe-title {
   background-color: #f6efdd;
   color: #304922;
+}
+.recipe-card-sm {
+  background-color: #304922;
+  color: #f6efdd;
 }
 
 .main-button-style {
@@ -35,6 +47,12 @@ main {
   text-align: center;
   text-decoration: none;
   margin: 6px;
+}
+
+/* recipe page */
+
+.ingredient-list {
+  font-size: 0.8rem;
 }
 
 @media (min-width: 767.98px) {

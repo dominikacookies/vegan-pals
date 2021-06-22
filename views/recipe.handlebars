@@ -1,53 +1,64 @@
-<figure id="image-container" class="mx-auto" style="width: 50vw">
-  <figcaption id="recipe-name" class="text-center">
-    <h2>{{title}}</h2>
-  </figcaption>
-  <img src={{image}} alt="Recipe image" style="width: 50vw" />
-</figure>
-<section class="row text-center pb-4" style="justify-content: center">
-  <div class="col-sm-2">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Cook time:</h5>
-        <p class="card-text">{{prepTime}} minutes</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-2">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Serves:</h5>
-        <p class="card-text">{{servings}}</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-2">
-    <div class="card">
-      <div class="card-body">
-        <a href=""><h5 class="card-title"><i class="fas fa-heart"></i></h5></a>
-        <button type="button" class="btn btn-primary">Save to favourites</button>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="row">
-  <div class="col-sm-3 ms-5">
-    <div class="card">
-      <h3>Ingredients:</h3>
-      <ul>
-        {{#each ingredients as |ingredient|}}
-          <li>{{ingredient}}</li>
-        {{/each}}
-      </ul>
-    </div>
-  </div>
-  <div class="col-sm-6 m-5">
-    <div class="directions">
-      <h3>Directions:</h3>
-      <p>
-        {{{directions}}}
-      </p>
+{{#if loggedIn}}
+  {{>private-nav}}  
+{{else}}
+  {{>public-nav}}  
+{{/if}}
 
+<main><figure id="image-container" class="mx-auto" style="width: 50vw">
+    <figcaption id="recipe-name" class="text-center">
+      <h2 class="m-5 fw-bold">{{title}}</h2>
+    </figcaption>
+    <img src={{image}} alt="Recipe image" style="width: 50vw" />
+  </figure>
+  <section
+    class="card-group row text-center pb-4 mb-5"
+    style="justify-content: center"
+  >
+    <div class="col-sm-2">
+      <div class="card recipe-card-sm">
+        <div class="card-body">
+          <h5 class="card-title">Cook time:</h5>
+          <p class="card-text">{{prepTime}} minutes</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="col-sm-2">
+      <div class="card recipe-card-sm">
+        <div class="card-body">
+          <h5 class="card-title">Serves:</h5>
+          <p class="card-text">{{servings}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-body">
+          <form action="" method="POST"><a href="recipe"><h5 class="card-title">
+          <button type="submit" class="btn main-button-style">Save to favourites</button></a></form>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="row">
+    <div class="col-sm-3 ms-5">
+      <div class="card">
+        <h3 class="ms-3"> Ingredients:</h3>
+        <ul class="list-group list-group-flush ingredient-list">
+          {{#each ingredients as |ingredient|}}
+            <li class="list-group-item">{{ingredient}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-6 m-5">
+      <div class="directions">
+        <h3>Directions:</h3>
+        <p>
+          {{{directions}}}
+        </p>
+
+      </div>
+    </div>
+  </section>
+</main>
