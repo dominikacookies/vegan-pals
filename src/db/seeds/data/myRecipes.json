@@ -26,13 +26,13 @@
   {
     "recipe_id": "798400",
     "dish_name": "Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant",
-    "user_id": 2,
+    "user_id": 3,
     "image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
   },
   {
     "recipe_id": "716426",
     "dish_name": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
-    "user_id": 2,
+    "user_id": 3,
     "image": "https://spoonacular.com/recipeImages/716381-312x231.jpg"
   }
 ]

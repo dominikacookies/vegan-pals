@@ -1,11 +1,10 @@
-const { raw } = require("express");
-const { Op } = require("sequelize");
+const axios = require("axios");
 
 const { CookTogether, User, Recipe } = require("../src/models");
 
 //how do I get ids from session??
 const userId = 2;
-recipeId = 798400;
+const recipeId = 798400;
 
 // Requests fns
 const getAllReceived = async (req, res) => {
@@ -89,32 +88,40 @@ const getUserInfo = async (req, res) => {
   }
 };
 
-const getRecipe = async (req, res) => {
-  try {
-    const recipeInfo = await Recipe.findAll({
-      where: {
-        recipe_id: recipeId,
-      },
-      raw: true,
-      nested: true,
-    });
-    console.log(recipeInfo);
-  } catch (error) {
-    console.log(error);
-  }
+const renderRecipePage = async (req, res) => {
+  const { id } = req.params;
+
+  const response = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=a694fd998d4342db94e07530f4373371`
+  );
+
+  const ingredients = response.data.extendedIngredients.map((ingredient) => {
+    return ingredient.original;
+  });
+
+  const recipeData = {
+    title: response.data.title,
+    image: response.data.image,
+    servings: response.data.servings,
+    prepTime: response.data.readyInMinutes,
+    ingredients,
+    directions: response.data.instructions,
+  };
+
+  res.render("recipe", recipeData);
 };
 
 //getAllReceived();
 //getUserInfo();
-//getRecipe();
-//getAllUpcoming();
+//renderRecipePage();
+getAllUpcoming();
 //getNearestUpcoming();
 //getAllSent();
 
 module.exports = {
   getAllReceived,
   getUserInfo,
-  getRecipe,
+  renderRecipePage,
   getAllUpcoming,
   getNearestUpcoming,
   getAllSent,

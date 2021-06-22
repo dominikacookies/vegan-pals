@@ -1,6 +1,6 @@
 const handleSignupSubmit = async (event) => {
   event.preventDefault();
-
+  console.log("handleSignupSubmit");
   const firstname = $("#firstname").val();
   const lastname = $("#lasttname").val();
   const password = $("#password").val();

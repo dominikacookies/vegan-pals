@@ -1,0 +1,146 @@
+<div class="d-flex flex-row justify-content-evenly">
+  <div class="mt-5">
+    <div>
+      <h3>Find new exciting recipes</h3>
+      <form class="input-group mb-4 mt-4">
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control me-3 rounded-pill"
+          placeholder="search for recipes here"
+        />
+        <div class="input-group-append"></div>
+      </form>
+    </div>
+
+    <div class="d-flex flex-row">
+      <div class="fw-bold mx-2">Prep-Time:</div>
+      <div class="form-check">
+        <input
+          class="form-check-input radioButton prep-time"
+          type="radio"
+          name="flexRadioDefault"
+          id="30"
+        />
+      </div>
+      <label class="form-check-label fw-bold" for="radiobutton">
+        up to 30minutes</label>
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton prep-time"
+          type="radio"
+          name="flexRadioDefault"
+          id="60"
+        />
+        <label class="form-check-label fw-bold" for="flexRadioDefault2">
+          up to 60minutes
+        </label>
+      </div>
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton prep-time"
+          type="radio"
+          name="flexRadioDefault"
+          id="500"
+        />
+        <label class="form-check-label fw-bold" for="flexRadioDefault2">
+          60minutes+
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap mt-3">
+      <div class="fw-bold">Intolerances:</div>
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          type="checkbox"
+          name="gluten"
+          id="gluten"
+        />
+        <label class="form-check-label fw-bold" for="gluten"> gluten </label>
+      </div>
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          aria-controls=" "
+          type="checkbox"
+          name="peanuts"
+          id="peanut"
+        />
+        <label class="form-check-label fw-bold" for="peanuts"> peanuts </label>
+      </div>
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          type="checkbox"
+          name="sesame"
+          id="sesame"
+        />
+        <label class="form-check-label fw-bold" for="sesame"> sesame </label>
+      </div>
+
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          type="checkbox"
+          name="grain"
+          id="grain"
+        />
+        <label class="form-check-label fw-bold" for="grain"> grain </label>
+      </div>
+
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          type="checkbox"
+          name="soy"
+          id="soy"
+        />
+        <label class="form-check-label fw-bold" for="soy"> soy </label>
+      </div>
+
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          type="checkbox"
+          name="sulphite"
+          id="sulphite"
+        />
+        <label class="form-check-label fw-bold" for="sulphite">
+          sulphite
+        </label>
+      </div>
+
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          type="checkbox"
+          name="tree-nut"
+          id="tree-nut"
+        />
+        <label class="form-check-label fw-bold" for="tree nut">
+          tree nut
+        </label>
+      </div>
+
+      <div class="form-check mx-2">
+        <input
+          class="form-check-input radioButton intolerance"
+          type="checkbox"
+          name="wheat"
+          id="wheat"
+        />
+        <label class="form-check-label fw-bold fs-6" for="wheat"> wheat </label>
+      </div>
+    </div>
+
+    <button
+      id="searchButton"
+      type="click"
+      class="btn-lg btn-success input-group-text mb-3 mt-3 fw-bold"
+    >
+      SEARCH
+    </button>
+  </div>
+</div>

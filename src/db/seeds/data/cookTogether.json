@@ -8,7 +8,8 @@
     "status": "sent",
     "user_id": "1",
     "recipe_id": "716426",
-    "recipe_title": "Cauliflower, Brown Rice, and Vegetable Fried Rice"
+    "recipe_title": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+    "recipe_image": "https://spoonacular.com/recipeImages/716426-312x231.jpg"
   },
   {
     "request_id": "123",
@@ -19,7 +20,8 @@
     "status": "received",
     "user_id": "2",
     "recipe_id": "716426",
-    "recipe_title": "Cauliflower, Brown Rice, and Vegetable Fried Rice"
+    "recipe_title": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+    "recipe_image": "https://spoonacular.com/recipeImages/716426-312x231.jpg"
   },
   {
     "request_id": "456",
@@ -30,7 +32,8 @@
     "status": "sent",
     "user_id": "2",
     "recipe_id": "798400",
-    "recipe_title": "Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant"
+    "recipe_title": "Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant",
+    "recipe_image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
   },
   {
     "request_id": "456",
@@ -41,7 +44,8 @@
     "status": "received",
     "user_id": "1",
     "recipe_id": "798400",
-    "recipe_title": "Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant"
+    "recipe_title": "Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant",
+    "recipe_image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
   },
   {
     "request_id": "777",
@@ -52,7 +56,8 @@
     "status": "accepted",
     "user_id": "3",
     "recipe_id": "782585",
-    "recipe_title": "Cannellini Bean and Asparagus Salad with Mushrooms"
+    "recipe_title": "Cannellini Bean and Asparagus Salad with Mushrooms",
+    "recipe_image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
   },
   {
     "request_id": "777",
@@ -63,6 +68,7 @@
     "status": "accepted",
     "user_id": "1",
     "recipe_id": "782585",
-    "recipe_title": "Cannellini Bean and Asparagus Salad with Mushrooms"
+    "recipe_title": "Cannellini Bean and Asparagus Salad with Mushrooms",
+    "recipe_image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
   }
 ]
