@@ -35,4 +35,5 @@ const onSubmit = async (event) => {
     
 };
 
+
 $("#searchButton").on("click", onSubmit);
