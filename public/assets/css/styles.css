@@ -1,3 +1,10 @@
+/* colours
+dark green - #304922
+lighter green - #8EB44F
+pink/red - #ED6160
+yellow - #DAAF53
+pale beige - #F6EFDD*/
+
 main {
   margin-right: 35;
   margin-left: 35;
@@ -10,15 +17,14 @@ main {
 .recipe-car-anchors-container {
   text-align: center;
 }
+.recipe-title {
+  background-color: #f6efdd;
+  color: #304922;
+}
 
-.anchor-button-primary {
-  background-color: black;
-  color: white;
-  width: 150px;
-  max-height: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 6px;
+.main-button-style {
+  background-color: #304922;
+  color: #f6efdd;
 }
 
 .anchor-button-secondary {
@@ -43,8 +49,3 @@ main {
     margin-left: 10;
   }
 }
-
-
-
-
-
