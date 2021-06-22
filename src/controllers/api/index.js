@@ -61,42 +61,57 @@ const getAllCookTogethers = async (req, res) => {
 // if somebody creates a new request
 const createCookTogether = async (req, res) => {
   try {
-    const { dateTime, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite, recipeId, recipeTitle } = req.body
+
+    const { date, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite} = req.body
   
-    if (!dateTime || !mealType || !message || !contactDetailsForSendingUser || !userIdReceivingInvite || !recipeId || !recipeTitle) {
+    if (!date || !mealType || !message || !contactDetailsForSendingUser || !userIdReceivingInvite ) {
       return res.status(404).json({
         error: "Required values missing.",
       })
     }
 
     newCookTogetherId = uuidv4();
+
+    const recipe = await Recipe.findOne({
+      where: {
+        recipe_id : req.session.recipeId
+      },
+      raw: true,
+      nested: true,
+    })
+
+    console.log(recipe)
     
     const newCookTogether = [
       // row for user requesting cook together
       {
         request_id: newCookTogetherId,
-        datetime: dateTime,
+        datetime: date,
         meal_type: mealType,
         "status": "sent",
         "user_id": userId,
         "recipe_id": recipeId,
-        "recipe_title": recipeTitle
+        "recipe_title": recipe.dish_name,
+        "recipe_image" : recipe.image
       },
       // row for user receiving cook together invite
       {
         request_id: newCookTogetherId,
-        datetime: dateTime,
+        datetime: date,
         meal_type: mealType,
         message: message,
         contact_details: contactDetailsForSendingUser,
         "status": "received",
         "user_id": userIdReceivingInvite,
         "recipe_id": recipeId,
-        "recipe_title": recipeTitle
+        "recipe_title": recipe.dish_name,
+        "recipe_image" : recipe.image
       },
     ]
 
     const newCookTogetherData = await CookTogether.bulkCreate(newCookTogether)
+
+    delete req.session.recipeId
 
     return res.status(200).json(newCookTogetherData)
 
