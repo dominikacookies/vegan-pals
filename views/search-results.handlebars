@@ -8,7 +8,7 @@
 
   <main><div><h1 class="text-center">Recipe Search Results</h1></div>
 
-<section class="card-group p-2 m-3" style="justify-content:space-around;">
+<div class="d-inline-flex flex-wrap justify-content-center p-4">
 {{#each recipeData as |recipe|}}
   
   <div class="d-inline-flex justify-content-evenly" id="search-results-container">
@@ -22,8 +22,8 @@
   </div>
   </div>
 {{/each}}
-  <div>
-    <button id="renderMoreResults">
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-outline-success" type="button" id="renderMoreResults">
       Render more results
     </button>
   </div></main> 
