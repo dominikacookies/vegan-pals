@@ -72,7 +72,6 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   if (req.session.loggedIn) {
-    console.log("hello");
     await req.session.destroy(() => {
       console.log("log out successful");
       return res.render("login");
