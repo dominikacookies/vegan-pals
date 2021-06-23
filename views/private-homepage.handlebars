@@ -10,7 +10,7 @@
           <div class="row">
             <div class="col-md-6">
               <img
-                src="{{upcomingCooktogetherDetails.recipe_image}}"
+                src="{{mostUpcomingCooktogether.recipe_image}}"
                 alt="..."
                 style="height: 25vw;"
               />
@@ -18,18 +18,18 @@
             <div class="col-md-6">
               <div class="card-body">
                 <h5 class="card-title">
-                  {{upcomingCooktogetherDetails.recipe_title}} with
-                  {{upcomingCooktogetherDetails.user.first_name}}
+                  {{mostUpcomingCooktogether.recipe_title}} with
+                  {{mostUpcomingCooktogether.user.first_name}}
                 </h5>
                 <p class="card-text">
-                  Meeting for {{upcomingCooktogetherDetails.meal_type}} on
-                  {{upcomingCooktogetherDetails.datetime}}
+                  Meeting for {{mostUpcomingCooktogether.meal_type}} on
+                  {{mostUpcomingCooktogether.datetime}}
                 </p>
                 <p class="card-text">
-                  Get in touch: {{upcomingCooktogetherDetails.contact_details}}
+                  Get in touch: {{mostUpcomingCooktogether.contact_details}}
                 </p>
                 <a
-                  href="/recipe/{{upcomingCooktogetherDetails.recipe_id}}"
+                  href="/recipe/{{mostUpcomingCooktogether.recipe_id}}"
                   class="btn main-button-style"
                 >
                   View recipe
