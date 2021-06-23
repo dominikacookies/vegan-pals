@@ -6,6 +6,7 @@ const {
   deleteCookTogether,
   saveRecipe,
   deleteRecipe,
+  saveBio,
 } = require("../../controllers/api");
 
 const router = Router();
@@ -16,5 +17,5 @@ router.delete("/cooktogether/:cookTogetherId", deleteCookTogether);
 
 router.post("/recipe/:id", saveRecipe);
 router.delete("/recipe/:recipeId", deleteRecipe);
-
+router.post ("/saveBio", saveBio)
 module.exports = router;

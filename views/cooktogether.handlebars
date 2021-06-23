@@ -14,7 +14,17 @@
         class="card-img-top"
         alt="..."
       />
-      <input type="text" class="form-control" placeholder="Your bio." />
+
+      {{#if bio}}
+      <p>{{bio}}</p>
+      {{else}}
+      <input type="text" class="form-control" placeholder="type in your bio here" id="userBio" />
+      <button id="bioBtn">submit</button>
+      {{/if}}
+    
+      <div>
+         
+      </div> 
     </div>
   </section>
 
