@@ -38,6 +38,8 @@ main {
 .main-button-style {
   background-color: #304922;
   color: #f6efdd;
+  margin: 1rem;
+  text-align: center;
 }
 
 .anchor-button-secondary {
