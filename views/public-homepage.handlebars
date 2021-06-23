@@ -7,13 +7,9 @@
       {{>public-searchbar}}
       <section id="how-it-works" class="mb-5">
         <h2 class="mb-3 text-center">How It Works</h2>
-        <div class="d-flex flex-row justify-content-evenly mt-5">
-          <div
-            class="card text-dark bg-light rounded"
-            style="max-width: 17rem; height: 12rem"
-          >
-            <i
-              class="
+        <div class="d-flex flex-row justify-content-between row mt-5">
+          <div class="card text-dark bg-light rounded" style="max-width: 17rem; height: 12rem">
+            <i class="
                 fas
                 fa-2x fa-search
                 position-absolute
@@ -21,21 +17,17 @@
                 start-50
                 translate-middle-x
                 mt-4
-              "
-            ></i>
-            <div class="card-body mt-5">
-              <h4 class="card-title mb-2">1. Find a recipe</h4>
+              "></i>
+              <br>
+            <div class="mt-5">
+              <h4 class="card-title mb-2 text-center">1. Find a recipe</h4>
               <h6 class="card-text text-center">
                 Find exciting new recipes that accommodate your intolerances.
               </h6>
             </div>
           </div>
-          <div
-            class="card text-dark bg-light rounded"
-            style="max-width: 17rem; height: 12rem"
-          >
-            <i
-              class="
+          <div class="card text-dark bg-light rounded" style="max-width: 17rem; height: 12rem">
+            <i class="
                 far
                 fa-2x fa-save
                 position-absolute
@@ -43,19 +35,15 @@
                 start-50
                 translate-middle-x
                 mt-4
-              "
-            ></i>
-            <div class="card-body mt-5">
-              <h4 class="card-title mb-2">2. Save it for later</h4>
+              "></i>
+              <br>
+            <div class="mt-5">
+              <h4 class="card-title mb-2 text-center">2. Save it for later</h4>
               <h6 class="card-text text-center">Save your chosen yummy recipes to cook later.</h6>
             </div>
           </div>
-          <div
-            class="card text-dark bg-light rounded-3"
-            style="max-width: 17rem; height: 12rem"
-          >
-            <i
-              class="
+          <div class="card text-dark bg-light rounded-3" style="max-width: 17rem; height: 12rem">
+            <i class="
                 fas
                 fa-2x fa-users
                 position-absolute
@@ -63,10 +51,10 @@
                 start-50
                 translate-middle-x
                 mt-4
-              "
-            ></i>
-            <div class="card-body mt-5">
-              <h4 class="card-title mb-2">3. Cook it with a pal!</h4>
+              "></i>
+              <br>
+            <div class="mt-5">
+              <h4 class="card-title mb-2 text-center">3. Cook it with a pal!</h4>
               <h6 class="card-text text-center">
                 Find new awesome pals to cook you favourite recipes with!
               </h6>
@@ -75,42 +63,16 @@
         </div>
       </section>
       <section id="other-pals-love" class="mb-5">
-        <h2 class="mb-3">Other pals love</h2>
+        <h2 class="mb-3 text-center">Other pals love</h2>
         <section class="card-group p-2" style="justify-content:space-around;">
-          
-          {{#each latestSavedRecipes as |recipe|}}
-          <a
-            href="/recipe/{{recipe.recipe_id}}"
-            style="text-decoration: none; color: #f6efdd"
-          >
-            <div
-              class="
-                card
-                d-inline-flex
-                justify-content-between
-                p-2
-                bd-highlight
-                mb-4
-                shadow
-                rounded
-              "
-              style="width: 18rem; height: 20rem; background-color: #304922"
-            >
-              <div class="card-body mx-auto">
-                <img
-                  src="{{recipe.image}}"
-                  class="card-img-top mb-3"
-                  alt="Image of dish"
-                />
-                <h5 class="card-title btn recipe-title text-center fw-bold" style="width: 15rem;">
-                  {{recipe.dish_name}}
-                </h5>
-              </div>
-            </div>
-          </a>
+
+          {{#each latestSavedRecipes}}
+          {{> recipe-card}}
           {{/each }}
+
+
         </section>
-        
+
       </section>
     </div>
   </div>
