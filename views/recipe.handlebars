@@ -6,9 +6,9 @@
 
 <main><figure id="image-container" class="mx-auto" style="width: 50vw">
     <figcaption id="recipe-name" class="text-center">
-      <h2 class="m-5 fw-bold">{{title}}</h2>
+      <h2 name="recipe-title" class="m-5 fw-bold">{{title}}</h2>
     </figcaption>
-    <img src={{image}} class="rounded-3 border border-4" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
+    <img name="recipe-image" src={{image}} class="rounded-3 border border-4" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
   </figure>
 
   <div class="container d-flex justify-content-center">
@@ -16,7 +16,7 @@
     class="card-group row text-center pb-4 mb-5"
     style="justify-content: center"
   >
-    <div class="col border border-warning">
+    <div class="col">
       <div class="card recipe-card-sm">
         <div class="card-body">
           <h5 class="card-title">Cook time:</h5>
@@ -33,17 +33,15 @@
       </div>
     </div>
     
-    <div class="col">
+     <div class="col">
       <div class="card recipe-card-sm">
-         <div class="card-body">
-            <a href="/myrecipes">
-          <button type="submit" class="btn main-button-style"><i class="far fs-1 fa-heart"></i></button>
-          </a></div> </div>
-                
-  </div>
-  <div class="col-sm-2">
-    <div class="card">
+        <div class="card-body card-title">
+
+          <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn main-button-style" data-bs-toggle="modal" data-bs-target="#login-modal"><p class="card-text ">Save to favourites</p></button>
+        </div>
+      </div>
     </div>
+
   </section>
   </div>
   <section class="row">
@@ -68,4 +66,24 @@
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login or Sign up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>You must be logged in to save a recipe.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Log in</button>
+        <button type="button" class="btn btn-primary">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
+

@@ -72,7 +72,7 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
-    req.session.destroy(() => {
+    await req.session.destroy(() => {
       console.log("log out successful");
       return res.status(200).json({
         message: "Logout successful",
