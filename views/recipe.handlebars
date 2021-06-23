@@ -4,11 +4,11 @@
   {{>public-nav}}  
 {{/if}}
 
-<main><figure id="image-container" class="mx-auto" style="width: 50vw">
+<main><figure id="image-container" class="mx-auto mb-4" style="width: 50vw">
     <figcaption id="recipe-name" class="text-center">
-      <h2 name="recipe-title" class="m-5 fw-bold">{{title}}</h2>
+      <h2 class="m-5 fw-bold" style="color: #304922;">{{title}}</h2>
     </figcaption>
-    <img name="recipe-image" src={{image}} class="rounded-3 border border-4" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
+    <img src={{image}} class="recipe-image" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
   </figure>
 
   <div class="container d-flex justify-content-center">
@@ -34,10 +34,10 @@
     </div>
     
      <div class="col">
-      <div class="card recipe-card-sm">
+      <div class="card" style="background-color: #304922;">
         <div class="card-body card-title">
 
-          <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn main-button-style" data-bs-toggle="modal" data-bs-target="#login-modal"><p class="card-text ">Save to favourites</p></button>
+          <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn main-button-style" data-bs-toggle="modal" data-bs-target="#login-modal" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
         </div>
       </div>
     </div>
@@ -86,4 +86,4 @@
   </div>
 </div>
 </main>
-
+{{>footer}}
