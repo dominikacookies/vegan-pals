@@ -1,18 +1,11 @@
-{{> public-nav }} 
+{{> public-nav }}
 <main>
   <section
     id="sign-up-page"
-    class="
-      position-absolute
-      top-50
-      start-50
-      translate-middle
-      text-center
-      form-container
-    "
+    class="sign-up-page text-center form-container mx-auto"
   >
-    <section id="sign-up-form-container" class="d-flex flex-wrap">
-      <h2 class="text-center">Sign Up</h2>
+    <section class="sign-up-form-container d-flex flex-wrap">
+      <h2 class="text-center mb-3">Sign Up</h2>
       <form id="sign-up-form">
         <div id="sign-up-error-messages"></div>
         <div class="d-flex flex-wrap">
@@ -33,9 +26,11 @@
             />
           </div>
 
-          <div class="">intolerances</div>
+          <div class="fw-bolder">Intolerances:</div>
+
           {{#each intolerances as |intolerance|}}
-          <div class="form-check mx-2">
+
+          <div class="form-check mx-2 mb-2">
             <input
               class="form-check-input radioButton intolerance"
               type="checkbox"
@@ -69,16 +64,20 @@
               type="password"
               class="form-control"
               id="confirmPassword"
-              placeholder="confirmPassword"
+              placeholder="Confirm password"
             />
           </div>
-          <div class="d-grid gap-2 w-100">
-            <div class="sign-up-buttons-container"></div>
-            <button class="btn main-button-style" type="submit">Sign Up</button>
+          <div class="d-grid gap-2 mx-auto">
+            <div class="sign-up-button-container">
+              <button class="btn" type="submit" style="background-color: #304922;
+  color: #f6efdd;">
+  <h5>Sign Up</h5>
+               
+              </button>
+            </div>
           </div>
         </div>
       </form>
     </section>
   </section>
 </main>
-
