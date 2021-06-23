@@ -1,4 +1,4 @@
-{{>private-nav}}  
+{{>private-nav}}
 
 <main>
   <section class="d-flex flex-row justify-content-evenly m-5 p-3">
@@ -14,73 +14,200 @@
         class="card-img-top"
         alt="..."
       />
-      <input type="text" class="form-control" placeholder="Your bio.">
+      <input type="text" class="form-control" placeholder="Your bio." />
     </div>
   </section>
 
-  <section class="cooktogether-section">
-    <h2>Upcoming Cooktogethers </h2>
-     <div class="d-flex flex-wrap justify-content-around">
-
-      {{#each upcomingCookTogethers as |upcoming|}}
-        <div class="card" style="width: 18rem;">
-          <img src={{upcoming.recipe_image}} class="card-img-top" alt={{upcoming.recipe_image}}>
-          <div class="card-body">
-            <h5 class="card-title"> {{upcoming.recipe_title}}  with {{upcoming.user.first_name}}  </h5>
-            <p class="card-text">Get in touch: {{upcoming.contact_details}}</p>
-            <p class="card-text">Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}} </p>
-            <p>About: {{ upcoming.user.bio }}</p>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  </section>
-
-  <section 
-    class="container carousel-container cooktogether-section"
+  <section
+    id="carousels-container"
+    class="container carousel-container"
     style="justify-content: center"
   >
-    <h4>Requests received</h4>
-    <div class="d-flex flex-wrap justify-content-around m-10">
-      {{#each requestedCookTogethers as |requested|}}  
-          <div class="card" style="width: 18rem;">
-            <img src={{requested.recipe_image}} class="card-img-top" alt={{requested.title}}>
-            <div class="card-body">
-              <h5 class="card-title"> {{requested.recipe_title}} with {{requested.user.first_name}}  </h5>
-              <p class="card-text">Meeting for {{requested.meal_type}} on {{requested.datetime}} </p>
-              <p>About: {{ requested.user.bio }}</p>
-              <div class="requests-buttons" id={{requested.request_id}}>
-                <button class="extra-info-button">
-                  Accept
-                </button>
-                <button class="decline-request-button">
-                  Decline
-                </button>
+    <div
+      id="carouselSent"
+      class="carousel slide p-5 justify-content-evenly"
+      data-bs-touch="false"
+      data-bs-interval="false"
+    >
+      <div><h4>Upcoming Cook Togethers</h4></div>
+
+      {{#each upcomingCookTogethers as |upcoming|}}
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="card mb-3 mx-auto">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="{{upcoming.recipe_image}}"
+                  alt="{{upcoming.recipe_title}}"
+                  style="height: 20vw"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 id="recipe-name" class="card-title">
+                    {{upcoming.recipe_title}} with {{upcoming.user.first_name}}
+                  </h5>
+                  <p class="card-text">
+                    Get in touch: {{upcoming.contact_details}}
+                  </p>
+                  <p class="card-text">
+                    Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}}
+                  </p>
+                  <p>About: {{ upcoming.user.bio }}</p>
+                </div>
               </div>
             </div>
           </div>
-      {{/each}}
-    </div>
-  </section>
-
-  <section class="cooktogether-section">
-    <h4>Requests sent </h4>
-      <div class="d-flex flex-wrap justify-content-around">
-      {{#each sentCookTogethers as |sent|}}  
-      <div class="card" style="width: 18rem;">
-        <img src={{sent.recipe_image}} class="card-img-top" alt={{sent.title}}>
-        <div class="card-body">
-          <h5 class="card-title"> {{sent.recipe_title}} with {{sent.user.first_name}}  </h5>
-          <p class="card-text">Meeting for {{sent.meal_type}} on {{sent.datetime}} </p>
-          <p>About: {{ sent.user.bio }}</p>
-          <div id={{sent.request_id}}>
-            <button class="cancel-request-button">
-              Cancel
-            </button>
-          </div>
         </div>
       </div>
-      {{/each}}
+      
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselSent"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselSent"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>{{/each}}
     </div>
+    <div
+          id="carouselReceived"
+          class="carousel slide p-5 justify-content-evenly"
+          data-bs-touch="false"
+          data-bs-interval="false"
+        >
+          <div><h4>Received Cook Together Requests</h4></div>
+
+          {{#each requestedCookTogethers as |requested|}}
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card mb-3 mx-auto">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img
+                      
+                      src="{{requested.recipe_image}}"
+                      alt="{{requested.recipe_image}}"
+                      style="height: 20vw"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 id="recipe-name" class="card-title">
+                        {{requested.recipe_title}} with
+                        {{requested.user.first_name}}
+                      </h5>
+                      <p class="card-text">
+                        Meeting for {{requested.meal_type}} on
+                        {{requested.datetime}}
+                      </p>
+                      <p class="card-text">About: {{ requested.user.bio }}</p>
+                      <div
+                        class="requests-buttons"
+                        id="{{requested.request_id}}"
+                      >
+                        <button class="extra-info-button btn main-button-style">Accept</button>
+                        <button class="decline-request-button btn main-button-style">Decline</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselReceived"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselReceived"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>{{/each}}
+        </div>
+    
+    <div
+          id="carouselSent"
+          class="carousel slide p-5 justify-content-evenly"
+          data-bs-touch="false"
+          data-bs-interval="false"
+        >
+          <div><h4>Sent Cook Together Requests</h4></div>
+
+          {{#each sentCookTogethers as |sent|}}
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card mb-3 mx-auto">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img
+                      src="{{sent.recipe_image}}"
+                      alt="{{sent.title}}"
+                      style="height: 20vw"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 id="recipe-name" class="card-title">
+                        {{sent.recipe_title}} with {{sent.user.first_name}}
+                      </h5>
+                      <p class="card-text">
+                        Meeting for {{sent.meal_type}} on {{sent.datetime}}
+                      </p>
+                      <p class="card-text">About: {{ sent.user.bio }}</p>
+                      <div id="{{sent.request_id}}">
+                        <button class="cancel-request-button btn main-button-style">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselSent"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselSent"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span></button
+          >{{/each}}
+        </div>
   </section>
+
 </main>
+{{>footer}}
