@@ -129,6 +129,7 @@ const provideCooktogetherContactDetails = async (event) => {
     <input id="contact-info" placeholder="Contact details">
     <button class="accept-request-button"> Accept </button>
   `);
+  
   $(".accept-request-button").on("click", acceptCooktogether);
 };
 
