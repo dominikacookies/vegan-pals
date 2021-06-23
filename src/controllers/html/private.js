@@ -11,8 +11,8 @@ const renderCookTogether = async (req, res) => {
     nested: true,
   });
 
-  const requestedPromises = requestedCookTogetherIds.map((cooktogether) => {
-    const userInformation = CookTogether.findOne({
+  const requestedPromises = requestedCookTogetherIds.map( async (cooktogether) => {
+    const userInformation = await CookTogether.findOne({
       attributes: [
         "recipe_title",
         "contact_details",
@@ -33,11 +33,10 @@ const renderCookTogether = async (req, res) => {
           attributes: ["first_name", "last_name", "bio"],
         },
       ],
-      raw: true,
-      nested: true,
     });
 
-    return userInformation;
+    return userInformation.get({ plain: true });
+
   });
 
   const requestedCookTogethers = await Promise.all(requestedPromises);
@@ -61,8 +60,8 @@ const renderCookTogether = async (req, res) => {
     nested: true,
   });
 
-  const upcomingPromises = upcomingCookTogetherIds.map((cooktogether) => {
-    const userInformation = CookTogether.findOne({
+  const upcomingPromises = upcomingCookTogetherIds.map(async (cooktogether) => {
+    const userInformation = await CookTogether.findOne({
       attributes: [
         "recipe_title",
         "contact_details",
@@ -82,14 +81,15 @@ const renderCookTogether = async (req, res) => {
           attributes: ["first_name", "last_name", "bio"],
         },
       ],
-      raw: true,
-      nested: true,
     });
 
-    return userInformation;
+    return userInformation.get({ plain: true });
   });
 
+
   const upcomingCookTogethers = await Promise.all(upcomingPromises);
+
+  console.log(upcomingCookTogethers)
 
   res.render("cooktogether", {
     requestedCookTogethers,
