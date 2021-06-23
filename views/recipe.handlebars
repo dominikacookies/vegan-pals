@@ -6,9 +6,9 @@
 
 <main><figure id="image-container" class="mx-auto mb-4" style="width: 50vw">
     <figcaption id="recipe-name" class="text-center">
-      <h2 class="m-5 fw-bold" style="color: #304922;">{{title}}</h2>
+      <h2 name="recipe-title" class="m-5 fw-bold" style="color: #304922;">{{title}}</h2>
     </figcaption>
-    <img src={{image}} class="recipe-image" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
+    <img src={{image}} name="recipe-image" class="recipe-image" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
   </figure>
 
   <div class="container d-flex justify-content-center">
@@ -36,8 +36,12 @@
      <div class="col">
       <div class="card" style="background-color: #304922;">
         <div class="card-body card-title">
-
-          <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn main-button-style" data-bs-toggle="modal" data-bs-target="#login-modal" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
+         
+        {{#if loggedIn}}
+           <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn main-button-style" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
+        {{else}}
+            <button id="{{id}}" name="add-to-favourites-btn" type="button" data-bs-toggle="modal" data-bs-target="#login-modal" class="btn main-button-style" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
+        {{/if}}
         </div>
       </div>
     </div>
@@ -73,14 +77,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Login or Sign up</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p>You must be logged in to save a recipe.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Log in</button>
-        <button type="button" class="btn btn-primary">Sign up</button>
+        <button type="button" id="prompt-login-btn" class="btn btn-secondary" data-bs-dismiss="modal">Log in</button>
+        <button type="button" id="prompt-signup-btn" class="btn btn-primary">Sign up</button>
       </div>
     </div>
   </div>
