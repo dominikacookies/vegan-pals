@@ -4,8 +4,9 @@
   <section class="d-flex flex-row justify-content-evenly m-5 p-3">
     <div>
       <h2 class="p-1">Find a new pal!</h2>
-
-      <a href="# " class="btn main-button-style">Search</a>
+      
+     
+      <a href="/cooktogether/myrecipes" class="btn btn-outline-success">Search</a>
     </div>
     <div class="card m-4" style="width: 25vw">
       <img
@@ -38,7 +39,7 @@
               <div class="col-md-6">
                 <img
                   src="{{upcoming.recipe_image}}"
-                  alt="{{upcoming.recipe_image}}"
+                  alt="{{upcoming.recipe_title}}"
                   style="height: 20vw"
                 />
               </div>
@@ -115,7 +116,7 @@
                       <p class="card-text">About: {{ requested.user.bio }}</p>
                       <div
                         class="requests-buttons"
-                        data-requestId="{{requested.request_id}}"
+                        id="{{requested.request_id}}"
                       >
                         <button class="extra-info-button btn main-button-style">Accept</button>
                         <button class="decline-request-button btn main-button-style">Decline</button>
@@ -177,7 +178,7 @@
                         Meeting for {{sent.meal_type}} on {{sent.datetime}}
                       </p>
                       <p class="card-text">About: {{ sent.user.bio }}</p>
-                      <div data-requestId="{{sent.request_id}}">
+                      <div id="{{sent.request_id}}">
                         <button class="cancel-request-button btn main-button-style">Cancel</button>
                       </div>
                     </div>

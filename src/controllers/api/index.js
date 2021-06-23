@@ -3,58 +3,6 @@ const { Op } = require("sequelize");
 
 const { CookTogether, User, Recipe } = require("../../models");
 
-// TO DO: get user id
-const userId = 1;
-
-// get all cooktogether information specific to a user and group response by sent, accepted and received
-const getAllCookTogethers = async (req, res) => {
-  // TO DO: get user id from session
-  const userId = 1;
-
-  try {
-    // get all received
-    const requestedCookTogether = await CookTogether.findAll({
-      where: {
-        user_id: userId,
-        status: "received",
-      },
-      raw: true,
-      nested: true,
-    });
-
-    // get all sent
-    const sentCookTogether = await CookTogether.findAll({
-      where: {
-        user_id: userId,
-        status: "sent",
-      },
-      raw: true,
-      nested: true,
-    });
-
-    const upcomingCookTogether = await CookTogether.findAll({
-      where: {
-        user_id: userId,
-        status: "accepted",
-      },
-      raw: true,
-      nested: true,
-    });
-
-    const cookTogetherData = {
-      requestedCookTogether,
-      sentCookTogether,
-      upcomingCookTogether,
-    };
-
-    return res.status(200).json(cookTogetherData);
-  } catch (error) {
-    return res.status(500).json({
-      error: "Could not get cooktogethers",
-    });
-  }
-};
-
 // create new cooktogether
 // if somebody creates a new request
 const createCookTogether = async (req, res) => {
@@ -98,7 +46,7 @@ const createCookTogether = async (req, res) => {
         datetime: date,
         meal_type: mealType,
         status: "sent",
-        user_id: userId,
+        user_id: req.session.user.id,
         recipe_id: req.session.recipeId,
         recipe_title: recipe.dish_name,
         recipe_image: recipe.image,
@@ -136,7 +84,6 @@ const createCookTogether = async (req, res) => {
 const updateCookTogether = async (req, res) => {
   try {
     const { contactDetails } = req.body;
-    console.log(contactDetails);
 
     if (!contactDetails) {
       return res.status(404).json({
@@ -171,7 +118,7 @@ const updateCookTogether = async (req, res) => {
         where: {
           request_id: cookTogetherId,
           user_id: {
-            [Op.ne]: userId,
+            [Op.ne]: req.session.user.id,
           },
         },
       }
@@ -282,7 +229,6 @@ const search = async (req, res) => {
 };
 
 module.exports = {
-  getAllCookTogethers,
   createCookTogether,
   updateCookTogether,
   deleteCookTogether,

@@ -24,7 +24,7 @@ const schema = {
     allowNull: false,
   },
   datetime: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: false,
   },
   meal_type: {

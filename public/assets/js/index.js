@@ -43,12 +43,19 @@ const renderMoreResults = async () => {
   console.log("render");
 };
 
+const getPalId = (event) => {
+  const palId = $(event.target).data("pal")
+  $("#cooktogether-button").attr("data-pal", palId)
+
+  console.log(palId)
+}
+
 const createCookTogether = async (event) => {
   const date = $("#date-input").val();
   const mealType = $(".form-check-input:checked").val();
   const message = $(".message").val();
   const contactDetailsForSendingUser = $(".contact-details").val();
-  const userIdReceivingInvite = $(".offcanvas").attr("data-user");
+  const userIdReceivingInvite = $(event.target).attr("data-pal");
 
   console.log(
     date,
@@ -82,48 +89,60 @@ const createCookTogether = async (event) => {
 
     setTimeout(() => {
       window.location.replace(`/cooktogether`);
-    }, 500);
+    }, 1000);
   }
   //handle errors
 };
 
-const provideCooktogetherContactDetails = async (event) => {
-  $(event.currentTarget).parent().empty();
-  $(event.currentTarget).parent().append(`
-    <p> What's the best way to get in touch?</p>
-    <textarea class="contact-details"> </textarea>
-    <button class="accept-request-button"> Accept </button>
-  `);
-};
-
 const acceptCooktogether = async (event) => {
-  event.preventDefault();
-  const cooktogetherId = $(event.currentTarget).parent().attr("data-requestId");
+  const parentContainer = $(event.target).parent()
+  const cooktogetherId = parentContainer.attr("id");
+  const contactDetails = $(event.target).siblings("#contact-info").val()
+
+  console.log(contactDetails)
 
   const options = {
-    method: "DELETE",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      contactDetails
+    }),
     redirect: "follow",
   };
 
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
 
+  console.log(response)
+
   if (response.status === 200) {
-    $(".requests-buttons").parent().empty();
-    $(".requests-buttons").parent().append(`
-    <p> Deleted successfully. </p>
+    parentContainer.empty();
+    parentContainer.append(`
+    <p> It's all set! </p>
     `);
     setTimeout(() => {
       location.reload();
-    }, 500);
+    }, 1000);
   }
 };
 
+const provideCooktogetherContactDetails = async (event) => {
+
+  const parentContainer = $(event.target).parent()
+  parentContainer.empty()
+  parentContainer.append(`
+    <p class="small-text-bolded"> Insta, Whatsapp or pigeon mail? </p>
+    <input id="contact-info" placeholder="Contact details">
+    <button class="accept-request-button"> Accept </button>
+  `);
+  
+  $(".accept-request-button").on("click", acceptCooktogether);
+};
+
 const deleteCooktogether = async (event) => {
-  event.preventDefault();
-  const cooktogetherId = $(event.currentTarget).parent().attr("data-requestId");
+  const parentContainer = $(event.target).parent()
+  const cooktogetherId = parentContainer.attr("id");
 
   const options = {
     method: "DELETE",
@@ -135,21 +154,22 @@ const deleteCooktogether = async (event) => {
 
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
 
+  console.log(response)
   if (response.status === 200) {
-    $(".requests-buttons").empty();
-    $(".requests-buttons").append(`
+    $(event.currentTarget).parent().empty()
+    $(event.currentTarget).parent().append(`
     <p> Deleted successfully. </p>
     `);
     setTimeout(() => {
       location.reload();
-    }, 500);
+    }, 1000);
   }
 };
 
 $("#searchButton").on("click", onSubmit);
 $("#renderMoreResults").on("click", renderMoreResults);
-$("#cooktogether-button").on("click", provideCooktogetherContactDetails);
-$(".extra-info-button").on("click", acceptCooktogether);
-$(".accept-request-button").on("click", acceptCooktogether);
+$("#cooktogether-button").on("click", createCookTogether);
+$('[data-name="pal-selector"]').on("click", getPalId)
+$(".extra-info-button").on("click", provideCooktogetherContactDetails);
 $(".cancel-request-button").on("click", deleteCooktogether);
 $(".decline-request-button").on("click", deleteCooktogether);
