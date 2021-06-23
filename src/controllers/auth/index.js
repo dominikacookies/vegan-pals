@@ -72,11 +72,10 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   if (req.session.loggedIn) {
+    console.log("hello");
     await req.session.destroy(() => {
       console.log("log out successful");
-      return res.status(200).json({
-        message: "Logout successful",
-      });
+      return res.render("login");
     });
   } else {
     console.log(error.message);
