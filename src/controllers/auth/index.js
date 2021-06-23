@@ -71,12 +71,19 @@ const login = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-  delete req.session.loggedIn;
-  delete req.session.user;
-
-  res.status(200).json({
-    message: "Logout successful",
-  });
+  try {
+    req.session.destroy(() => {
+      console.log("log out successful");
+      return res.status(200).json({
+        message: "Logout successful",
+      });
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({
+      error: "Unable to logout.",
+    });
+  }
 };
 
 const signup = async (req, res) => {
