@@ -3,7 +3,7 @@ const saveToFavourites = async (event) => {
   const image = $('[name="recipe-image"]').attr("src");
 
   const { id } = event.currentTarget;
-  console.log(id);
+
   const options = {
     method: "POST",
     headers: {
@@ -17,7 +17,6 @@ const saveToFavourites = async (event) => {
     }),
   };
 
-  console.log(title, image, id);
   const response = await fetch(`/api/recipe/${id}`, options);
 
   if (response.status !== 200) {
@@ -28,6 +27,7 @@ const saveToFavourites = async (event) => {
 };
 
 const deleteFromFavourites = async (event) => {
+  event.preventDefault();
   const { id } = event.currentTarget;
   console.log(id);
 
@@ -39,12 +39,12 @@ const deleteFromFavourites = async (event) => {
     redirect: "follow",
   };
 
-  const response = await fetch(`/api/comments/${id}`, options);
+  const response = await fetch(`/api/recipe/${id}`, options);
 
   if (response.status === 200) {
     window.location.replace(window.location.pathname);
   } else {
-    console.log("Failed to delete comment");
+    console.log("Failed to delete recipe");
   }
 };
 
