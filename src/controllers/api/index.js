@@ -220,6 +220,7 @@ const deleteCookTogether = async (req, res) => {
 const saveRecipe = async (req, res) => {
   try {
     const { title, image, id } = req.body;
+    console.log(title, image, id)
 
     if (!id || !title || !image) {
       return res.status(404).json({

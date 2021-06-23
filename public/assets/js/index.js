@@ -87,34 +87,6 @@ const createCookTogether = async (event) => {
   //handle errors
 };
 
-const saveToFavourites = async (event) => {
-  const title = $('[name="recipe-title"]').text();
-  const image = $('[name="recipe-image"]').attr("src");
-  const { id } = event.currentTarget;
-
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    redirect: "follow",
-    body: JSON.stringify({
-      title,
-      image,
-      id,
-    }),
-  };
-
-  console.log(title, image, id);
-  const response = await fetch(`/api/recipe/${id}`, options);
-
-  if (response.status !== 200) {
-    console.log("FAILED TO SAVE RECIPE");
-  } else {
-    window.location.replace(`/myrecipes`);
-  }
-};
-
 const provideCooktogetherContactDetails = async (event) => {
   $(event.currentTarget).parent().empty();
   $(event.currentTarget).parent().append(`
@@ -174,8 +146,6 @@ const deleteCooktogether = async (event) => {
   }
 };
 
-const deleteFromFavourites = async () => {};
-
 $("#searchButton").on("click", onSubmit);
 $("#renderMoreResults").on("click", renderMoreResults);
 $("#cooktogether-button").on("click", provideCooktogetherContactDetails);
@@ -183,5 +153,3 @@ $(".extra-info-button").on("click", acceptCooktogether);
 $(".accept-request-button").on("click", acceptCooktogether);
 $(".cancel-request-button").on("click", deleteCooktogether);
 $(".decline-request-button").on("click", deleteCooktogether);
-$('button[name="add-to-favourites-btn"]').on("click", saveToFavourites);
-$('button[name="remove-from-favourites-btn"]').on("click", deleteFromFavourites);
