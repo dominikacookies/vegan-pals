@@ -43,12 +43,19 @@ const renderMoreResults = async () => {
   console.log("render");
 };
 
+const getPalId = (event) => {
+  const palId = $(event.target).data("pal")
+  $("#cooktogether-button").attr("data-pal", palId)
+
+  console.log(palId)
+}
+
 const createCookTogether = async (event) => {
   const date = $("#date-input").val();
   const mealType = $(".form-check-input:checked").val();
   const message = $(".message").val();
   const contactDetailsForSendingUser = $(".contact-details").val();
-  const userIdReceivingInvite = $(".offcanvas").attr("data-user");
+  const userIdReceivingInvite = $(event.target).attr("data-pal");
 
   console.log(
     date,
@@ -82,7 +89,7 @@ const createCookTogether = async (event) => {
 
     setTimeout(() => {
       window.location.replace(`/cooktogether`);
-    }, 500);
+    }, 1000);
   }
   //handle errors
 };
@@ -162,6 +169,7 @@ const deleteCooktogether = async (event) => {
 $("#searchButton").on("click", onSubmit);
 $("#renderMoreResults").on("click", renderMoreResults);
 $("#cooktogether-button").on("click", createCookTogether);
+$('[data-name="pal-selector"]').on("click", getPalId)
 $(".extra-info-button").on("click", provideCooktogetherContactDetails);
 $(".cancel-request-button").on("click", deleteCooktogether);
 $(".decline-request-button").on("click", deleteCooktogether);
