@@ -12,14 +12,41 @@ main {
   margin-right: 35;
   margin-left: 35;
 }
+/* partials style */
 
 .search-bar {
+  width: 70vw;
   border-radius: 35px;
   padding: 1rem;
   background-color: #daaf53;
 }
 
+.navbar {
+  text-indent: 1rem;
+  height: 5rem;
+  background-color: #304922;
+}
+
+.footer {
+  background-color: #304922;
+  color: white;
+  height: 4rem;
+  padding-top: 1rem;
+}
+
+/* my recipes page */
+
+.recipe-title {
+  background-color: #f6efdd;
+  color: #304922;
+  width: 22vw;
+}
+
 /* recipe render page */
+
+.recipe-image {
+  border: 1rem solid #daaf53;
+}
 
 .ingredient-list {
   font-size: 0.8rem;
@@ -27,13 +54,12 @@ main {
 .recipe-car-anchors-container {
   text-align: center;
 }
-.recipe-title {
-  background-color: #f6efdd;
-  color: #304922;
-}
+
 .recipe-card-sm {
   background-color: #304922;
   color: #f6efdd;
+  height: 5.5rem;
+  width: 10rem;
 }
 
 .main-button-style {
@@ -65,6 +91,22 @@ main {
   background-color: #daaf53;
   padding: 3rem;
   border-radius: 35px;
+}
+
+/* private homepage styles */
+
+.upcoming-header {
+  margin: 3rem 0rem 0rem 0rem;
+}
+
+/* search-results */
+
+.results-header {
+  margin: 5rem 0rem 5rem 0rem;
+}
+
+.results-cards {
+  padding: 5rem;
 }
 
 @media (max-width: 767.98px) {
