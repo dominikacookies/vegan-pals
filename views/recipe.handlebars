@@ -6,9 +6,9 @@
 
 <main><figure id="image-container" class="mx-auto" style="width: 50vw">
     <figcaption id="recipe-name" class="text-center">
-      <h2 class="m-5 fw-bold">{{title}}</h2>
+      <h2 name="recipe-title" class="m-5 fw-bold">{{title}}</h2>
     </figcaption>
-    <img src={{image}} class="rounded-3 border border-4" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
+    <img name="recipe-image" src={{image}} class="rounded-3 border border-4" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
   </figure>
 
   <div class="container d-flex justify-content-center">
@@ -33,13 +33,13 @@
       </div>
     </div>
     
-    <div class="col">
-      <div class="card recipe-card-sm">
-         <div class="card-body">
-            <button id="{{id}}" name="add-to-favourites-btn" class="btn main-button-style"><i class="far fs-1 fa-heart"></i></button>
-          
-          </div> </div>
-                
+ <div class="col-sm-2">
+    <div class="card">
+      <div class="card-body">
+        <a href=""><h5 class="card-title"><i class="fas fa-heart"></i></h5></a>
+        <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn btn-primary">Save to favourites</button>
+      </div>
+    </div>
   </div>
   <div class="col-sm-2">
     <div class="card">

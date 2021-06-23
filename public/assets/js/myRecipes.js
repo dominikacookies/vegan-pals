@@ -1,6 +1,7 @@
 const saveToFavourites = async (event) => {
   const title = $('[name="recipe-title"]').text();
   const image = $('[name="recipe-image"]').attr("src");
+
   const { id } = event.currentTarget;
   console.log(id);
   const options = {
