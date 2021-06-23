@@ -39,6 +39,7 @@ main {
 .main-button-style {
   background-color: #304922;
   color: #f6efdd;
+  max-height: 40px;
 }
 
 /* login page */
