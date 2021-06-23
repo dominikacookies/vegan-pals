@@ -33,7 +33,8 @@ const renderHomePage = async (req, res) => {
       );
 
       // TO DO: add image
-      const upcomingCooktogetherDetails = await CookTogether.findOne({
+      const upcomingCooktogetherDetails = await CookTogether.findAll({
+        order: [["createdAt", "ASC"]],
         attributes: [
           "recipe_title",
           "contact_details",
@@ -54,9 +55,11 @@ const renderHomePage = async (req, res) => {
             attributes: ["first_name", "last_name"],
           },
         ],
-        raw: true,
+        limit: 1,
         nested: true,
       });
+
+      const mostUpcomingCooktogether = upcomingCooktogetherDetails[0].get({plain: true})
 
       const latestSavedRecipes = await Recipe.findAll({
         where: {
@@ -71,7 +74,7 @@ const renderHomePage = async (req, res) => {
       const name = req.session.user.firstName;
 
       return res.render("private-homepage", {
-        upcomingCooktogetherDetails,
+        mostUpcomingCooktogether,
         latestSavedRecipes,
         name,
       });
