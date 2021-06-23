@@ -112,6 +112,7 @@ const renderMyRecipesCookTogether = async (req, res) => {
 };
 
 const renderCookTogetherPals = async (req, res) => {
+
   const { recipeId } = req.params;
   req.session.recipeId = recipeId;
 
@@ -128,7 +129,7 @@ const renderCookTogetherPals = async (req, res) => {
         { peanut_intolerance: peanut },
         { sesame_intolerance: sesame },
         { sulphite_intolerance: sulphite },
-        { tree_nut_intolerance: req.session.user["tree nut"] },
+        { tree_nut_intolerance: req.session.user.intolerances["tree nut"]},
         { wheat_intolerance: wheat },
       ],
       id: {
