@@ -6,25 +6,24 @@
 <main><div class="mb-5">
     <h1 class="mb-3">Your yummy recipes </h1>
     <section class="card-group p-2" style="justify-content:space-around;">
+    <div class="d-inline-flex flex-wrap justify-content-center p-4 ">
       {{#each recipes as |recipe|}}
         <a href="/recipe/{{recipe.recipe_id}}">
           <div
             class="card d-inline-flex justify-content-between p-2 bd-highlight"
-            style="width: 18rem; height: 20rem; background-color:#8EB44F"
+            style="width: 18rem; height: 20rem; background-color:#304922"
           >
             <div class="card-body mx-auto">
-              <img
-                src={{recipe.image}}
-                class="card-img-top mb-3"
-                alt="Image of dish"
-              />
-              <h5
-                class="card-title btn recipe-title text-center fw-bold"
-              >{{recipe.dish_name}}</h5>
+              <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
+              <h5 class="card-title text-center pt-4">{{recipe.dish_name}}</h5>
             </div>
-
+            <div class="d-grid gap-2 col-6 mx-auto row row-cols-1">
+              <a href='/recipe/{{recipe.recipe_id}}' target="_blank" class="btn main-button-style"> View recipe </a>
+              <a href="/myrecipes" id="{{id}}" name="remove-from-favourites"><h5 class="card-title text-center"><i class="far fa-trash-alt"></i></h5></a>
+            </div>
           </div>
-        </a>
+           </a>
       {{/each}}
+      </div>  
     </section>
   </div></main>

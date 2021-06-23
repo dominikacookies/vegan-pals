@@ -13,16 +13,17 @@ main {
   margin-left: 35;
 }
 
-.form-container {
-  width: 75%;
-}
-
 .search-bar {
   border-radius: 35px;
   padding: 1rem;
   background-color: #daaf53;
 }
 
+/* recipe render page */
+
+.ingredient-list {
+  font-size: 0.8rem;
+}
 .recipe-car-anchors-container {
   text-align: center;
 }
@@ -38,26 +39,36 @@ main {
 .main-button-style {
   background-color: #304922;
   color: #f6efdd;
+  max-height: 40px;
 }
 
-.anchor-button-secondary {
-  background-color: rgb(199, 235, 184);
-  color: rgb(0, 0, 0);
-  width: 150px;
-  max-height: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 6px;
+/* login page */
+.login-page {
+  padding-top: 5rem;
 }
 
-/* recipe page */
-
-.ingredient-list {
-  font-size: 0.8rem;
+.login-form-container {
+  background-color: #daaf53;
+  width: 60vw;
+  padding-top: 5rem;
+  border-radius: 35px;
 }
 
-@media (min-width: 767.98px) {
-  .form-container {
+/* sign-up page */
+
+.sign-up-page {
+  width: 50vw;
+  margin: 5rem 0rem 5rem 0rem;
+}
+
+.sign-up-form-container {
+  background-color: #daaf53;
+  padding: 3rem;
+  border-radius: 35px;
+}
+
+@media (max-width: 767.98px) {
+  .login-form-container {
     width: 50%;
   }
 }

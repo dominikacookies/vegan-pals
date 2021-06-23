@@ -1,45 +1,74 @@
- {{>private-nav}}
- <h1 class="text-center mb-4">Hey {{name}}</h1> 
-
-    <div class="d-flex flex-row justify-content-evenly">
-        <div class="mt-5">
-        {{>private-searchbar}}
-       
-
-        <div class="mb-5">
-          <h2 class="mb-3">Upcoming Cooktogether </h2>
-          <div class="card mb-3 mx-auto" style="max-width: 70vw;">
-            <div class="row">
-              <div class="col-md-6">
-                <img src={{upcomingCooktogetherDetails.recipe_image}} alt="..." style="height: 25vw;">
-              </div>
-              <div class="col-md-6">
-                <div class="card-body">
-                  <h5 class="card-title"> {{upcomingCooktogetherDetails.recipe_title}}  with {{upcomingCooktogetherDetails.user.first_name}}  </h5>
-                  <p class="card-text">Meeting for {{upcomingCooktogetherDetails.meal_type}} on {{upcomingCooktogetherDetails.datetime}} </p>
-                  <p class="card-text">Get in touch: {{upcomingCooktogetherDetails.contact_details}}</p>
-                  <a href='/recipe/{{upcomingCooktogetherDetails.recipe_id}}' class="btn main-button-style"> View recipe </a>
-                </div>
+{{>private-nav}}
+<main>
+  <h1 class="text-center mb-4">Hey {{name}}</h1>
+  <div class="d-flex flex-row justify-content-evenly">
+    <div class="mt-5">
+      {{>private-searchbar}}
+      <section id="nearest-upcoming" class="mb-5">
+        <h2 class="mb-3 text-center">Upcoming Cooktogether</h2>
+        <div class="card mb-3 mx-auto" style="max-width: 70vw">
+          <div class="row">
+            <div class="col-md-6">
+              <img
+                src="{{upcomingCooktogetherDetails.recipe_image}}"
+                alt="..."
+                style="height: 25vw"
+              />
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{upcomingCooktogetherDetails.recipe_title}} with
+                  {{upcomingCooktogetherDetails.user.first_name}}
+                </h5>
+                <p class="card-text">
+                  Meeting for {{upcomingCooktogetherDetails.meal_type}} on
+                  {{upcomingCooktogetherDetails.datetime}}
+                </p>
+                <p class="card-text">
+                  Get in touch: {{upcomingCooktogetherDetails.contact_details}}
+                </p>
+                <a
+                  href="/recipe/{{upcomingCooktogetherDetails.recipe_id}}"
+                  class="btn main-button-style"
+                >
+                  View recipe
+                </a>
               </div>
             </div>
           </div>
         </div>
-        
-
-        <div class="mb-5">
-          <h2 class="mb-3">Your yummy recipes </h2>
-            <section class="card-group p-2" style="justify-content:space-around;">
-              {{#each latestSavedRecipes as |recipe|}}
-              <a href='/recipe/{{recipe.recipe_id}}'>
-                <div class="card d-inline-flex  justify-content-between p-2 bd-highlight" style="width: 18rem; height: 20rem; background-color:#8EB44F">
-                  <div class="card-body mx-auto">
-                    <img src={{recipe.image}} class="card-img-top mb-3" alt="Image of dish" />
-                    <h5 class="card-title btn recipe-title text-center fw-bold">{{recipe.dish_name}}</h5>
-                  </div>
-                  
-                </div>
-              </a>
-              {{/each }}
-            </section>
-        </div> 
-      </div>
+      </section>
+      <section id="your-recipes" class="mb-5">
+        <h2 class="mb-3">Your yummy recipes</h2>
+        <section class="card-group p-2" style="justify-content: space-around">
+          {{#each latestSavedRecipes as |recipe|}}
+          <a href="/recipe/{{recipe.recipe_id}}">
+            <div
+              class="
+                card
+                d-inline-flex
+                justify-content-between
+                p-2
+                bd-highlight
+              "
+              style="width: 18rem; height: 20rem; background-color: #304922"
+            >
+              <div class="card-body mx-auto">
+                <img
+                  src="{{recipe.image}}"
+                  class="card-img-top mb-3"
+                  alt="Image of dish"
+                />
+                <h5 class="card-title btn recipe-title text-center fw-bold" style="width: 15rem;">
+                  {{recipe.dish_name}}
+                </h5>
+              </div>
+            </div>
+          </a>
+          {{/each }}
+        </section>
+      </section>
+    </div>
+  </div>
+</main>

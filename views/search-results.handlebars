@@ -8,13 +8,13 @@
 
   <main><div><h1 class="text-center">Recipe Search Results</h1></div>
 
-<section class="card-group p-2 m-3" style="justify-content:space-around;">
+<div class="d-inline-flex flex-wrap justify-content-center p-4">
 {{#each recipeData as |recipe|}}
   
   <div class="d-inline-flex justify-content-evenly" id="search-results-container">
   <div
     class="card position-relative d-inline-flex justify-content-between p-2 mb-3 bd-highlight"
-    style="width: 30rem; background-color:#8EB44F">
+    style="width: 30rem; background-color:#304922">
    <a href='recipe/{{recipe.recipe_id}}'> <div id= "recipe-card" class="card-body mx-auto">
       <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
       <h5 class="card-title text-center btn recipe-title fw-bold">{{recipe.title}}</h5> </a>
@@ -22,8 +22,8 @@
   </div>
   </div>
 {{/each}}
-  <div>
-    <button id="renderMoreResults">
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-outline-success" type="button" id="renderMoreResults">
       Render more results
     </button>
   </div></main> 
