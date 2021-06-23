@@ -113,20 +113,20 @@ const saveToFavourites = async (event) => {
   } else {
     window.location.replace(`/myrecipes`);
   }
-}
+};
 
 const provideCooktogetherContactDetails = async (event) => {
-  $(event.currentTarget).parent().empty()
+  $(event.currentTarget).parent().empty();
   $(event.currentTarget).parent().append(`
     <p> What's the best way to get in touch?</p>
     <textarea class="contact-details"> </textarea>
     <button class="accept-request-button"> Accept </button>
-  `)
-}
+  `);
+};
 
 const acceptCooktogether = async (event) => {
-  event.preventDefault()
-  const cooktogetherId = $(event.currentTarget).parent().attr("data-requestId")
+  event.preventDefault();
+  const cooktogetherId = $(event.currentTarget).parent().attr("data-requestId");
 
   const options = {
     method: "DELETE",
@@ -139,17 +139,19 @@ const acceptCooktogether = async (event) => {
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
 
   if (response.status === 200) {
-    $(".requests-buttons").parent().empty()
+    $(".requests-buttons").parent().empty();
     $(".requests-buttons").parent().append(`
     <p> Deleted successfully. </p>
-    `)
-    setTimeout(() => { location.reload() }, 500);
+    `);
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   }
-}
+};
 
 const deleteCooktogether = async (event) => {
-  event.preventDefault()
-  const cooktogetherId = $(event.currentTarget).parent().attr("data-requestId")
+  event.preventDefault();
+  const cooktogetherId = $(event.currentTarget).parent().attr("data-requestId");
 
   const options = {
     method: "DELETE",
@@ -162,20 +164,21 @@ const deleteCooktogether = async (event) => {
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
 
   if (response.status === 200) {
-    $(".requests-buttons").empty()
+    $(".requests-buttons").empty();
     $(".requests-buttons").append(`
     <p> Deleted successfully. </p>
-    `)
-    setTimeout(() => { location.reload() }, 500);
+    `);
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   }
-}
-
+};
 
 $("#searchButton").on("click", onSubmit);
-$("#renderMoreResults").on("click", renderMoreResults)
-$("#cooktogether-button").on("click", provideCooktogetherContactDetails)
-$(".extra-info-button").on("click", acceptCooktogether)
-$(".accept-request-button").on("click", acceptCooktogether)
-$(".cancel-request-button").on("click", deleteCooktogether)
-$(".decline-request-button").on("click", deleteCooktogether)
+$("#renderMoreResults").on("click", renderMoreResults);
+$("#cooktogether-button").on("click", provideCooktogetherContactDetails);
+$(".extra-info-button").on("click", acceptCooktogether);
+$(".accept-request-button").on("click", acceptCooktogether);
+$(".cancel-request-button").on("click", deleteCooktogether);
+$(".decline-request-button").on("click", deleteCooktogether);
 $('button[name="add-to-favourites-btn"]').on("click", saveToFavourites);
