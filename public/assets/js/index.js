@@ -174,6 +174,8 @@ const deleteCooktogether = async (event) => {
   }
 };
 
+const deleteFromFavourites = async () => {};
+
 $("#searchButton").on("click", onSubmit);
 $("#renderMoreResults").on("click", renderMoreResults);
 $("#cooktogether-button").on("click", provideCooktogetherContactDetails);
@@ -182,3 +184,4 @@ $(".accept-request-button").on("click", acceptCooktogether);
 $(".cancel-request-button").on("click", deleteCooktogether);
 $(".decline-request-button").on("click", deleteCooktogether);
 $('button[name="add-to-favourites-btn"]').on("click", saveToFavourites);
+$('button[name="remove-from-favourites-btn"]').on("click", deleteFromFavourites);

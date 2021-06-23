@@ -234,6 +234,8 @@ const saveRecipe = async (req, res) => {
       image,
     };
 
+    console.log(newRecipe);
+
     const newRecipeData = await Recipe.create(newRecipe);
     return res.status(200).json(newRecipeData);
   } catch (error) {
