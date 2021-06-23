@@ -74,9 +74,7 @@ const logout = async (req, res) => {
   if (req.session.loggedIn) {
     await req.session.destroy(() => {
       console.log("log out successful");
-      return res.status(200).json({
-        message: "Logout successful",
-      });
+      return res.render("login");
     });
   } else {
     console.log(error.message);

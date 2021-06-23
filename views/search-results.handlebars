@@ -13,34 +13,11 @@
     </div>
 
     <div class="card-group results-cards">
-      {{#each recipeData as |recipe|}}
-      <div
-        class="search-results-container d-inline-flex mx-auto"
-        style="justify-content: center"
-      >
-        <div
-          class="card d-inline-flex p-2 bd-highlight m-3"
-          style="width: 30vw; height: 28vw; background-color: #304922"
-        >
-          <a href="recipe/{{recipe.recipe_id}}">
-            <div id="recipe-card" class="card-body mx-auto">
-              <img
-                src="{{recipe.image}}"
-                class="card-img-top mb-3"
-                alt="Image of dish"
-              />
-              <h5
-                class="card-title text-center btn recipe-title fw-bold"
-                style="width: 25vw"
-              >
-                {{recipe.title}}
-              </h5>
-            </div>
-          </a>
-        </div>
-      </div>
+      {{#each recipeData}}
+             {{> recipe-card}}
       {{/each}}
     </div>
+
 
     <div class="d-grid gap-2 col-6 mx-auto m-5">
       <button

@@ -8,6 +8,7 @@ const sequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const routes = require("./routes");
 const sequelize = require("./config/connection");
+const helpers = require("./helpers/helpers");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,7 +25,7 @@ const sessionOptions = {
 
 //handlebars
 
-const handlebarsOptions = {};
+const handlebarsOptions = { helpers: helpers };
 const hbs = handlebars.create(handlebarsOptions);
 
 app.engine("handlebars", hbs.engine);
@@ -46,7 +47,7 @@ const init = async () => {
     );
   } catch (error) {
     console.error("Failed to connect to DB");
-    console.log(error)
+    console.log(error);
   }
 };
 
