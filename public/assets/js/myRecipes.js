@@ -1,3 +1,11 @@
+const promptLogin = () => {
+  window.location.replace(`/login`);
+};
+
+const promptSignup = () => {
+  window.location.replace(`/signup`);
+};
+
 const saveToFavourites = async (event) => {
   const title = $('[name="recipe-title"]').text();
   const image = $('[name="recipe-image"]').attr("src");
@@ -53,3 +61,5 @@ $('button[name="remove-from-favourites-btn"]').on(
   "click",
   deleteFromFavourites
 );
+$("#prompt-login-btn").on("click", promptLogin);
+$("#prompt-signup-btn").on("click", promptSignup);
