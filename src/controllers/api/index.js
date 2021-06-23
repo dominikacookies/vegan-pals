@@ -218,6 +218,8 @@ const deleteCookTogether = async (req, res) => {
 
 // save recipe to favourites
 const saveRecipe = async (req, res) => {
+  const { loggedIn } = req.session;
+
   try {
     const { title, image, id } = req.body;
 
@@ -237,10 +239,14 @@ const saveRecipe = async (req, res) => {
     const newRecipeData = await Recipe.create(newRecipe);
     return res.status(200).json(newRecipeData);
   } catch (error) {
-    console.error(error.message);
-    return res.status(500).json({
-      error: "Could not save recipe",
-    });
+    if (!loggedIn) {
+      return res.status(401).json({ error: "User not logged in" });
+    } else {
+      console.error(error.message);
+      return res.status(500).json({
+        error: "Could not save recipe",
+      });
+    }
   }
 };
 
@@ -252,10 +258,9 @@ const deleteRecipe = async (req, res) => {
     const deleteResult = await Recipe.destroy({
       where: {
         recipe_id: recipeId,
-        user_id: userId,
+        user_id: req.session.user.id,
       },
     });
-
     if (!deleteResult) {
       return res.status(404).json({
         error: "Recipe doesn't exist for this user",

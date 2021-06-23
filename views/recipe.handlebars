@@ -33,17 +33,15 @@
       </div>
     </div>
     
-    <div class="col">
+     <div class="col">
       <div class="card" style="background-color: #304922;">
-         <div class="card-body">
-            <a href="/myrecipes">
-          <button type="submit" class="btn" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
-          </a></div> </div>
-                
-  </div>
-  <div class="col-sm-2">
-    <div class="card">
+        <div class="card-body card-title">
+
+          <button id="{{id}}" name="add-to-favourites-btn" type="button" class="btn main-button-style" data-bs-toggle="modal" data-bs-target="#login-modal" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
+        </div>
+      </div>
     </div>
+
   </section>
   </div>
   <section class="row">
@@ -68,5 +66,24 @@
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login or Sign up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>You must be logged in to save a recipe.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Log in</button>
+        <button type="button" class="btn btn-primary">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
 {{>footer}}
