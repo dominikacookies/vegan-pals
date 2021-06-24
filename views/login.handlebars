@@ -24,19 +24,21 @@
           placeholder="Password"
         />
       </div>
-      <div class="login-buttons-container">
-        <div class="mb-3 d-grid gap-2">
+      
+      <div class="login-buttons-container d-flex flex-wrap">
+        <div class="login-buttons">
           <button
             type="submit"
-            class="login-button btn main-button-style mb-3 p-1"
+            class="login-button btn main-button-style"
           >
             Login
           </button>
         </div>
-        <div class="mb-3 d-grid gap-2">
-          <a href="/signup" class="btn mb-3 p-1 main-button-style">Signup</a>
+        <div class="signup-button">
+          <a href="/signup" class="btn main-button-style">Signup</a>
         </div>
       </div>
     </form>
   </section>
 </main>
+{{>footer}}

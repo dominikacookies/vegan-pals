@@ -1,83 +1,83 @@
 {{> public-nav }}
-<main>
+<main class="sign-up-page">
   <section
-    id="sign-up-page"
-    class="sign-up-page text-center form-container mx-auto"
+    class="sign-up-form-container text-center form-container d-flex flex-wrap"
   >
-    <section class="sign-up-form-container d-flex flex-wrap">
-      <h2 class="text-center mb-3">Sign Up</h2>
-      <form id="sign-up-form">
-        <div id="sign-up-error-messages"></div>
-        <div class="d-flex flex-wrap">
-          <div class="mb-3 w-100">
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              placeholder="First Name"
-            />
-          </div>
-          <div class="mb-3 w-100">
-            <input
-              type="text"
-              class="form-control"
-              id="lastName"
-              placeholder="Last Name"
-            />
-          </div>
+    <h2 class="text-center mb-3">Sign Up</h2>
+    <form id="sign-up-form">
+      <div id="sign-up-error-messages"></div>
+      <div class="d-flex flex-wrap">
+        <div class="mb-3 w-100">
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="First Name"
+          />
+        </div>
+        <div class="mb-3 w-100">
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            placeholder="Last Name"
+          />
+        </div>
 
-          <div class="fw-bolder">Intolerances:</div>
+        <div class="fw-bolder">Intolerances:</div>
 
-          {{#each intolerances as |intolerance|}}
+        {{#each intolerances as |intolerance|}}
 
-          <div class="form-check mx-2 mb-2">
-            <input
-              class="form-check-input radioButton intolerance"
-              type="checkbox"
-              name="{{intolerance}}"
-              id="{{intolerance}}"
-            />
-            <label class="form-check-label" for="{{intolerance}}"
-              >{{intolerance}}</label
+        <div class="form-check mx-2 mb-2">
+          <input
+            class="form-check-input radioButton intolerance"
+            type="checkbox"
+            name="{{intolerance}}"
+            id="{{intolerance}}"
+          />
+          <label class="form-check-label" for="{{intolerance}}"
+            >{{intolerance}}</label
+          >
+        </div>
+        {{/each}}
+
+        <div class="mb-3 w-100">
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            placeholder="Email"
+          />
+        </div>
+        <div class="mb-3 w-100 sign-up inputs">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="mb-3 w-100">
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            placeholder="Confirm password"
+          />
+        </div>
+        <div class="d-grid gap-2 mx-auto">
+          <div class="sign-up-button-container">
+            <button
+              class="btn"
+              type="submit"
+              style="background-color: #304922; color: #f6efdd"
             >
-          </div>
-          {{/each}}
-
-          <div class="mb-3 w-100">
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              placeholder="Email"
-            />
-          </div>
-          <div class="mb-3 w-100 sign-up inputs">
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="Password"
-            />
-          </div>
-          <div class="mb-3 w-100">
-            <input
-              type="password"
-              class="form-control"
-              id="confirmPassword"
-              placeholder="Confirm password"
-            />
-          </div>
-          <div class="d-grid gap-2 mx-auto">
-            <div class="sign-up-button-container">
-              <button class="btn" type="submit" style="background-color: #304922;
-  color: #f6efdd;">
-  <h5>Sign Up</h5>
-               
-              </button>
-            </div>
+              <h5>Sign Up</h5>
+            </button>
           </div>
         </div>
-      </form>
-    </section>
+      </div>
+    </form>
   </section>
 </main>
+{{>footer}}

@@ -12,12 +12,29 @@ main {
   margin-right: 35;
   margin-left: 35;
 }
+
+.main-button-style {
+  background-color: #304922;
+  color: #f6efdd;
+  max-height: 40px;
+}
 /* partials style */
 
 .search-bar {
-  border-radius: 35px;
-  padding: 1rem;
+  border-radius: 4rem;
+  padding: 2rem;
   background-color: #daaf53;
+  margin: auto;
+  margin-bottom: 3rem;
+  max-width: 65vw;
+}
+
+.search-button {
+  width: 4rem;
+  position: absolute;
+  right: 2rem;
+  background-color: #304922;
+  color: #f6efdd;
 }
 
 .navbar {
@@ -31,6 +48,7 @@ main {
   color: white;
   height: 4rem;
   padding-top: 1rem;
+  margin-top: 8rem;
 }
 
 /* my recipes page */
@@ -60,36 +78,47 @@ main {
   background-color: #304922;
   color: #f6efdd;
 }
+/* private homepage styles */
 
-.main-button-style {
-  background-color: #304922;
-  color: #f6efdd;
-  max-height: 40px;
+.upcoming-header {
+  margin: 3rem 0rem 0rem 0rem;
+}
+
+/* public homepage styles */
+
+.how-it-works {
+  margin: 2rem;
+  padding: 2rem;
+}
+.guide-card {
+  background-color: #f6efdd;
+  border: 0.3rem solid #daaf53;
 }
 
 /* login page */
 .login-page {
-  padding-top: 5rem;
+  padding: 5rem;
 }
 
 .login-form-container {
   background-color: #daaf53;
   width: 60vw;
-  padding-top: 5rem;
+  padding: 5rem 1rem 3rem 1rem;
   border-radius: 35px;
 }
 
 /* sign-up page */
 
 .sign-up-page {
-  width: 50vw;
-  margin: 5rem 0rem 5rem 0rem;
+  padding-bottom: 5rem;
 }
 
 .sign-up-form-container {
   background-color: #daaf53;
   padding: 3rem;
   border-radius: 35px;
+  width: 50vw;
+  margin: auto;
 }
 
 /* cooktogether */
@@ -107,11 +136,6 @@ main {
 .cooktogether-section h4 {
   padding-bottom: 10px !important;
 }
-/* private homepage styles */
-
-.upcoming-header {
-  margin: 3rem 0rem 0rem 0rem;
-}
 
 /* search-results */
 
@@ -123,15 +147,15 @@ main {
   padding: 5rem;
 }
 
-@media (max-width: 767.98px) {
-  .login-form-container {
-    width: 50%;
-  }
-}
-
 @media screen and (max-width: 768px) {
   main {
     margin-right: 10;
     margin-left: 10;
+  }
+  .search-bar {
+    font-size: smaller;
+  }
+  .navtitle {
+    display: none;
   }
 }
