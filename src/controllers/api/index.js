@@ -228,6 +228,24 @@ const search = async (req, res) => {
   console.log("search result");
 };
 
+const saveBio = async (req,res) => {
+  try {
+    const bio = req.body.bio
+  const updateUserBio = await User.update({bio},{
+    where: {
+      id: req.session.user.id
+    }
+  })
+  console.log(updateUserBio)
+    res.render("cooktogether",{bio})
+  
+  } catch(err) {
+    res.status(500).json({
+      error: "Couldn't save bio",
+    });
+  }
+}
+
 module.exports = {
   createCookTogether,
   updateCookTogether,
@@ -235,4 +253,5 @@ module.exports = {
   saveRecipe,
   deleteRecipe,
   search,
+  saveBio,
 };

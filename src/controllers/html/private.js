@@ -1,5 +1,6 @@
 const { Recipe, User, CookTogether } = require("../../models");
 const { Op } = require("sequelize");
+let userBio;
 
 const renderCookTogether = async (req, res) => {
   const requestedCookTogetherIds = await CookTogether.findAll({
@@ -34,13 +35,13 @@ const renderCookTogether = async (req, res) => {
         },
       ],
     });
-
+    userBio = userInformation[0].user.bio
     return userInformation.get({ plain: true });
 
   });
 
   const requestedCookTogethers = await Promise.all(requestedPromises);
-
+  
   const sentCookTogethers = await CookTogether.findAll({
     where: {
       user_id: req.session.user.id,
@@ -91,10 +92,12 @@ const renderCookTogether = async (req, res) => {
 
   console.log(upcomingCookTogethers)
 
+  
   res.render("cooktogether", {
     requestedCookTogethers,
     sentCookTogethers,
     upcomingCookTogethers,
+    userBio,
   });
 };
 

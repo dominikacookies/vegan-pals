@@ -166,6 +166,25 @@ const deleteCooktogether = async (event) => {
   }
 };
 
+const saveBio = async () => { 
+  const userBio = $("#userBio").val()
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    body: JSON.stringify({
+    bio: userBio
+    }),
+  };
+  const response = await fetch("/api/saveBio",options)
+  console.log(response)
+}
+
+
+
+
 $("#searchButton").on("click", onSubmit);
 $("#renderMoreResults").on("click", renderMoreResults);
 $("#cooktogether-button").on("click", createCookTogether);
@@ -173,3 +192,4 @@ $('[data-name="pal-selector"]').on("click", getPalId)
 $(".extra-info-button").on("click", provideCooktogetherContactDetails);
 $(".cancel-request-button").on("click", deleteCooktogether);
 $(".decline-request-button").on("click", deleteCooktogether);
+$("#bioBtn").on("click",saveBio)
