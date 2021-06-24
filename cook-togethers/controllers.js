@@ -100,7 +100,7 @@ const renderRecipePage = async (req, res) => {
 
   const ingredients = response.data.extendedIngredients.map((ingredient) => {
     return ingredient.original;
-  });
+  }); 
 
   const recipeData = {
     title: response.data.title,
