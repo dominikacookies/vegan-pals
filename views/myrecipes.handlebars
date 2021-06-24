@@ -4,44 +4,53 @@
 {{>public-nav}}
 {{/if}}
 <main>
-  <div class="mb-5">
+  <section class="my-recipes-all">
     <h1 class="main-header-style text-center">Your yummy recipes</h1>
     {{#if recipes}}
-      <section class="card-group p-2" style="justify-content: space-around">
-        <div class="d-inline-flex flex-wrap justify-content-center p-4">
-          {{#each recipes as |recipe|}}
-            <div class="search-results-container d-inline-flex flex-wrap mx-auto" style="justify-content: center">
-              <div class="card d-inline-flex p-2 bd-highlight m-3">
-                <a href="recipe/{{this.recipe_id}}" class="text-decoration-none text-dark">
-                  <div id="recipe-card" class="mx-auto text-center">
-                    <img src="{{this.image}}" class="card-img-top mb-3" alt="Image of dish" />
-                    <h4 class="text-center">
-                      {{this.dish_name}}
-                    </h4>
-                  </div>
-                </a>
-                <div class="row">
-                  <div class="col-3"></div>
-                <div class="col-4 d-flex justify-content-center">
-                  <a href='/recipe/{{recipe.recipe_id}}' target="_blank" class="btn main-button-style"> View recipe </a>
-                </div>
-                <div class="col-2 d-flex justify-content-center">
-                  <button id="{{recipe.recipe_id}}" name="remove-from-favourites-btn" class="btn btn-danger"><i class="far fa-trash-alt text-white p-1 fs-5"
-                      ></i></button>
-                </div>
-                <div class="col-3"></div>
-                </div>
-              </div>
-          {{/each}}
+    <section class="your-yummy-recipes d-flex flex-row">
+      <div class="card-group">
+        {{#each recipes as |recipe|}}
+        <div class="card main-recipe-card">
+          <div class="card-body">
+            <a href="recipe/{{this.recipe_id}}" class="text-decoration-none">
+              <img
+                src="{{this.image}}"
+                class="card-img-top"
+                alt="Image of dish"
+              />
+              <h4 class="card-title text-center">{{this.dish_name}}</h4>
+            </a>
+
+            <a
+              href="/recipe/{{recipe.recipe_id}}"
+              target="_blank"
+              class="card-link btn main-button-style"
+            >
+              View recipe
+            </a>
+
+            <button
+              id="{{recipe.recipe_id}}"
+              name="remove-from-favourites-btn"
+              class="card-link btn btn-danger"
+            >
+              <i class="far fa-trash-alt fs-4"></i>
+            </button>
+          </div>
         </div>
-    {{ else }} 
-      <div class="text-center">
-        <h3> Oh no! You don't have any recipes saved yet!</h3>
-        <h3> Search now to get cooking.</h3>
-        {{>private-searchbar}}
-      </div> 
-    {{/if}}
-       </section>
-  </div>
+
+        {{/each}} {{ else }}
+        <div class="text-center">
+          <h3>Oh no! You don't have any recipes saved yet!</h3>
+          <h3>Search now to get cooking.</h3>
+          {{>private-searchbar}}
+        </div>
+        {{/if}}
+      </div>
+    </section>
+  </section>
 </main>
+
+
+
 {{>footer}}

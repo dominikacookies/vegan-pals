@@ -45,26 +45,27 @@
         <h3> You don't have any cooktogethers yet. </h3> 
         <p> How it works: </p>
         <p> 1. Save a recipe,  2. Select a pal,  3. Get cooking together! </p>
-        <a href="/cooktogether/myrecipes" class="btn btn-primary">Get started!</a>
-        <a href="#search-bar" class="btn btn-outline-success">Find a recipe</a>
+        <a href="/cooktogether/myrecipes" class="btn main-button-style">Get started!</a>
+        <a href="#search-bar" class="btn main-button-style">Find a recipe</a>
       </div>
       {{/if}}
 
 
       </section>
-      <section id="your-recipes" class="mb-5">
+      <section id="your-recipes" class="your-recipes">
         <h2 class="main-header-style">Your yummy recipes</h2>
-        <section class="card-group p-2" style="justify-content: space-around">
-          {{#if latestSavedRecipes}}
+        <section class="your-yummy-recipes">
+         {{#if latestSavedRecipes}}
             {{#each latestSavedRecipes}}
               {{> recipe-card}}
             {{/each }}
           {{else}}
             <div class="text-center">
               <h3> You don't have any recipes saved yet. </h3> 
-              <a href="#search-bar" class="btn btn-primary">Find a recipe now</a>
+              <a href="#search-bar" class="btn main-button-style">Find a recipe now</a>
             </div>
           {{/if}}
+         
         </section>
       </section>
     </div>
