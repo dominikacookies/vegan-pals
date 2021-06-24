@@ -218,6 +218,11 @@ main {
   margin: 15px;
 }
 
+.pal-img {
+  width: 100%;
+  min-height: 150px
+} 
+
 /* search-results */
 
 @media screen and (max-width: 768px) {
