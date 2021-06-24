@@ -1,31 +1,38 @@
 {{>private-nav}}
 
 <main>
-  <section class="d-flex flex-row justify-content-evenly m-5 p-3">
-    <div>
-      <h2 class="p-1">Find a new pal!</h2>
+  <h2 class="text-center">Welcome to your Cook Together page {{name}}!</h2>
+  <section class="row">
 
+    <div class="col-5">
+      <div class="card m-4 container">
 
-      <a href="/cooktogether/myrecipes" class="btn btn-outline-success">Search</a>
+        <div><img
+            src="https://images.unsplash.com/photo-1556911261-6bd341186b2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+            class="card-img-top" alt="Man and woman standing in the kitchen cooking" />
+        </div>
+        {{#if bio}}
+        <p>{{bio}}</p>
+        {{else}}
+        <div>
+          <input type="text" class="form-control" placeholder="Type in your bio here" id="userBio" />
+        </div>
+        <div class="text-center d-grid gap-2">
+          <button id="bioBtn" class="btn btn-outline-success ">Submit</button>
+        </div>
+        {{/if}}
+
+      </div>
     </div>
-    <div class="card m-4" style="width: 25vw">
-      <img
-        src="https://images.unsplash.com/photo-1556911261-6bd341186b2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-        class="card-img-top"
-        alt="Man and woman standing in the kitchen cooking"
-      />
+    <div class="col-1"></div>
 
-      {{#if bio}}
-      <p>{{bio}}</p>
-      {{else}}
-      <input type="text" class="form-control col-form-label-lg" placeholder="type in your bio here" id="userBio" />
-      <button id="bioBtn">submit</button>
-      {{/if}}
-    
-      <div>
-         
-      </div> 
+    <div class="col-6">
+      <h2 class="p-1 text-center">Find a new pal!</h2>
+      <div class="d-grid gap-2">
+        <a href="/cooktogether/myrecipes" class="btn btn-outline-success ">Search</a>
+      </div>
     </div>
+
   </section>
 
   <section id="carousels-container" class="container carousel-container" style="justify-content: center">
@@ -37,7 +44,7 @@
 
       <div class="carousel-inner">
         {{#each upcomingCookTogethers as |upcoming|}}
-             
+
         <div class="carousel-item {{#ifFirst @index}} active {{/ifFirst}}">
           <div class="card mb-3 mx-auto">
             <div class="row">
@@ -64,8 +71,8 @@
 
 
 
-      {{/each}}
-  
+        {{/each}}
+
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselSent" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

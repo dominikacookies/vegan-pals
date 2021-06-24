@@ -3,6 +3,8 @@ const { Op } = require("sequelize");
 let userBio;
 
 const renderCookTogether = async (req, res) => {
+  const name = req.session.user.firstName;
+  console.log(name);
   const requestedCookTogetherIds = await CookTogether.findAll({
     where: {
       user_id: req.session.user.id,
@@ -12,36 +14,37 @@ const renderCookTogether = async (req, res) => {
     nested: true,
   });
 
-  const requestedPromises = requestedCookTogetherIds.map( async (cooktogether) => {
-    const userInformation = await CookTogether.findOne({
-      attributes: [
-        "recipe_title",
-        "contact_details",
-        "datetime",
-        "meal_type",
-        "recipe_image",
-        "request_id",
-      ],
-      where: {
-        request_id: cooktogether.request_id,
-        user_id: {
-          [Op.ne]: req.session.user.id,
+  const requestedPromises = requestedCookTogetherIds.map(
+    async (cooktogether) => {
+      const userInformation = await CookTogether.findOne({
+        attributes: [
+          "recipe_title",
+          "contact_details",
+          "datetime",
+          "meal_type",
+          "recipe_image",
+          "request_id",
+        ],
+        where: {
+          request_id: cooktogether.request_id,
+          user_id: {
+            [Op.ne]: req.session.user.id,
+          },
         },
-      },
-      include: [
-        {
-          model: User,
-          attributes: ["first_name", "last_name", "bio"],
-        },
-      ],
-    });
-    userBio = userInformation[0].user.bio
-    return userInformation.get({ plain: true });
-
-  });
+        include: [
+          {
+            model: User,
+            attributes: ["first_name", "last_name", "bio"],
+          },
+        ],
+      });
+      userBio = userInformation[0].user.bio;
+      return userInformation.get({ plain: true });
+    }
+  );
 
   const requestedCookTogethers = await Promise.all(requestedPromises);
-  
+
   const sentCookTogethers = await CookTogether.findAll({
     where: {
       user_id: req.session.user.id,
@@ -87,17 +90,16 @@ const renderCookTogether = async (req, res) => {
     return userInformation.get({ plain: true });
   });
 
-
   const upcomingCookTogethers = await Promise.all(upcomingPromises);
 
-  console.log(upcomingCookTogethers)
+  console.log(upcomingCookTogethers);
 
-  
   res.render("cooktogether", {
     requestedCookTogethers,
     sentCookTogethers,
     upcomingCookTogethers,
     userBio,
+    name,
   });
 };
 
@@ -115,7 +117,6 @@ const renderMyRecipesCookTogether = async (req, res) => {
 };
 
 const renderCookTogetherPals = async (req, res) => {
-
   const { recipeId } = req.params;
   req.session.recipeId = recipeId;
 
@@ -132,7 +133,7 @@ const renderCookTogetherPals = async (req, res) => {
         { peanut_intolerance: peanut },
         { sesame_intolerance: sesame },
         { sulphite_intolerance: sulphite },
-        { tree_nut_intolerance: req.session.user.intolerances["tree nut"]},
+        { tree_nut_intolerance: req.session.user.intolerances["tree nut"] },
         { wheat_intolerance: wheat },
       ],
       id: {
