@@ -230,7 +230,8 @@ const search = async (req, res) => {
 
 const saveBio = async (req,res) => {
   try {
-    const bio = req.body.bio
+    
+  const bio = req.body.bio
   const updateUserBio = await User.update({bio},{
     where: {
       id: req.session.user.id
