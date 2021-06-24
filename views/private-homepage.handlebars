@@ -18,7 +18,7 @@
               />
             </div>
             <div class="col-md-6">
-              <div class="card-body">
+              <div class="card-body h-100 w-100">
                 <h5 class="card-title">
                   {{mostUpcomingCooktogether.recipe_title}} with
                   {{mostUpcomingCooktogether.user.first_name}}
@@ -53,33 +53,11 @@
 
       </section>
       <section id="your-recipes" class="mb-5">
-        <h2 class="mb-3">Your yummy recipes</h2>
+        <h2 class="mb-3 text-center">Your yummy recipes</h2>
         <section class="card-group p-2" style="justify-content: space-around">
           {{#if latestSavedRecipes}}
-            {{#each latestSavedRecipes as |recipe|}}
-            <a href="/recipe/{{recipe.recipe_id}}">
-              <div
-                class="
-                  card
-                  d-inline-flex
-                  justify-content-between
-                  p-2
-                  bd-highlight
-                "
-                style="width: 18rem; height: 20rem; background-color: #304922"
-              >
-                <div class="card-body mx-auto">
-                  <img
-                    src="{{recipe.image}}"
-                    class="card-img-top mb-3"
-                    alt="Image of dish"
-                  />
-                  <h5 class="card-title btn recipe-title text-center fw-bold" style="width: 15rem;">
-                    {{recipe.dish_name}}
-                  </h5>
-                </div>
-              </div>
-            </a>
+            {{#each latestSavedRecipes}}
+              {{> recipe-card}}
             {{/each }}
           {{else}}
             <div class="text-center">

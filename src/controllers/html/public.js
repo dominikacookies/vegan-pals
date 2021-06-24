@@ -64,8 +64,9 @@ const renderHomePage = async (req, res) => {
           nested: true,
         });
 
-        mostUpcomingCooktogether = upcomingCooktogetherDetails[0].get({plain: true})
-      }
+      const mostUpcomingCooktogether = upcomingCooktogetherDetails[0].get({
+        plain: true,
+      });
 
       const latestSavedRecipes = await Recipe.findAll({
         where: {
@@ -154,7 +155,7 @@ const renderSearchResults = async (req, res) => {
 
     const recipeData = response.data.results.map((recipe) => {
       const recipeInfo = {
-        title: recipe.title,
+        dish_name: recipe.title,
         image: recipe.image,
         recipe_id: recipe.id,
       };
@@ -175,7 +176,7 @@ const renderSearchResults = async (req, res) => {
 
     const recipeData = response.data.results.map((recipe) => {
       const recipeInfo = {
-        title: recipe.title,
+        dish_name: recipe.title,
         image: recipe.image,
         recipe_id: recipe.id,
       };
