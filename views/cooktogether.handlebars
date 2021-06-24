@@ -2,42 +2,53 @@
 
 <main>
   <h2 class="text-center">Welcome to your Cook Together page {{name}}!</h2>
-  <section class="row">
+  <br>
+  <section class="row p-2 mx-auto">
 
-    <div class="col-5">
+    <div class="col-6">
       <div class="card m-4 container">
 
         <div><img
             src="https://images.unsplash.com/photo-1556911261-6bd341186b2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
             class="card-img-top" alt="Man and woman standing in the kitchen cooking" />
         </div>
-        {{#if bio}}
-        <p>{{bio}}</p>
-        {{else}}
-        <div>
-          <input type="text" class="form-control" placeholder="Type in your bio here" id="userBio" />
-        </div>
-        <div class="text-center d-grid gap-2">
-          <button id="bioBtn" class="btn btn-outline-success ">Submit</button>
-        </div>
-        {{/if}}
-
       </div>
     </div>
-    <div class="col-1"></div>
 
     <div class="col-6">
-      <h2 class="p-1 text-center">Find a new pal!</h2>
+
+      {{#if bio}}
+      <p>{{bio}}</p>
+      {{else}}
+      <div>
+        <h3 class="text-center">How it works:</h3>
+      </div>
+      <br>
+      <div>
+        <h4 class="p-1">1. Update your bio here:</h3>
+        <input type="text" class="form-control" placeholder="Type in your bio here" id="userBio" />
+      </div>
+      <br>
+      <div class="text-center d-grid gap-2">
+        <button id="bioBtn" class="btn btn-outline-success ">Submit</button>
+      </div>
+      {{/if}}
+
+      <div>
+        <br>
+      
+      </div>
+      <h4 class="p-1">2. Find a new pal:</h3>
       <div class="d-grid gap-2">
         <a href="/cooktogether/myrecipes" class="btn btn-outline-success ">Search</a>
       </div>
     </div>
 
   </section>
-
+<br>
   <section id="carousels-container" class="container carousel-container" style="justify-content: center">
     <div>
-      <h4>Upcoming Cook Togethers</h4>
+      <h3 class="text-center">Upcoming Cook Togethers</h3>
     </div>
     <div id="carouselSent" class="carousel slide p-5 {{!-- justify-content-evenly --}}" data-bs-touch="false"
       data-bs-interval="false">
@@ -52,7 +63,7 @@
                 <img src="{{upcoming.recipe_image}}" alt="{{upcoming.recipe_title}}" style="height: 20vw" />
               </div>
               <div class="col-md-6">
-                <div class="card-body">
+                <div class="card-body h-100 w-100">
                   <h5 id="recipe-name" class="card-title">
                     {{upcoming.recipe_title}} with {{upcoming.user.first_name}}
                   </h5>
@@ -86,7 +97,7 @@
     <div id="carouselReceived" class="carousel slide p-5 justify-content-evenly" data-bs-touch="false"
       data-bs-interval="false">
       <div>
-        <h4>Received Cook Together Requests</h4>
+        <h4 class="text-center">Received Cook Together Requests</h4>
       </div>
 
       {{#each requestedCookTogethers as |requested|}}
@@ -133,7 +144,7 @@
     <div id="carouselSent" class="carousel slide p-5 justify-content-evenly" data-bs-touch="false"
       data-bs-interval="false">
       <div>
-        <h4>Sent Cook Together Requests</h4>
+        <h4 class="text-center">Sent Cook Together Requests</h4>
       </div>
 
       {{#each sentCookTogethers as |sent|}}
