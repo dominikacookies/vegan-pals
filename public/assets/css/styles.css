@@ -12,12 +12,29 @@ main {
   margin-right: 35;
   margin-left: 35;
 }
+
+.main-button-style {
+  background-color: #304922;
+  color: #f6efdd;
+  max-height: 40px;
+}
 /* partials style */
 
 .search-bar {
-  border-radius: 35px;
-  padding: 1rem;
+  border-radius: 4rem;
+  padding: 2rem;
   background-color: #daaf53;
+  margin: auto;
+  margin-bottom: 3rem;
+  max-width: 65vw;
+}
+
+.search-button {
+  width: 4rem;
+  position: absolute;
+  right: 2rem;
+  background-color: #304922;
+  color: #f6efdd;
 }
 
 .navbar {
@@ -59,12 +76,6 @@ main {
 .card-body {
   background-color: #304922;
   color: #f6efdd;
-}
-
-.main-button-style {
-  background-color: #304922;
-  color: #f6efdd;
-  max-height: 40px;
 }
 
 /* login page */
