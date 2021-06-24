@@ -60,12 +60,11 @@ main {
 
 /*  recipe card partial */
 .recipe-card-container {
+  border: 0.5rem solid #304922;
   margin: auto;
 }
-
 .main-recipe-card {
-  margin-bottom: 1rem;
-  background-color: #304922;
+  background-color: #f6efdd;
   padding: 1rem;
   width: 25vw;
   height: 25vw;
