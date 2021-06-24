@@ -1,20 +1,25 @@
-<section class="search-bar mx-auto">
+<section class="search-bar">
   <div>
     <h3 class="text-center">Find new exciting recipes</h3>
-    <form class="input-group mb-4 mt-4 mx-auto">
+    <form class="input-group mb-4 mt-4">
       <input
         type="text"
         id="searchInput"
-        class="form-control me-3 rounded-pill"
-        placeholder="search for recipes here"
-      />
-
+        class="form-control rounded-pill"
+        placeholder="Search for recipes here"
+      /><button
+        id="searchButton"
+        type="click"
+        class="btn search-button input-group-text fw-bold rounded-pill"
+        type="button"
+      ><i class="fas fa-search"></i></button>
       <div class="input-group-append"></div>
+
     </form>
   </div>
+
   <section id="prep-time" class="d-flex flex-row">
     <div class="fw-bold mx-2">Prep-Time:</div>
-
     <div class="form-check">
       <input
         class="form-check-input radioButton prep-time"
@@ -50,12 +55,5 @@
     </div>
 
   </section>
-  <div class="search-button">
-    <button
-      id="searchButton"
-      type="click"
-      class="btn main-button-style input-group-text mb-3 mt-3 fw-bold"
-      type="button"
-    >SEARCH</button>
-  </div>
+
 </section>
