@@ -18,6 +18,7 @@ main {
 .main-header-style {
   color: #304922;
   margin: 3rem 0rem 3rem 0rem;
+  text-align: center;
 }
 .main-button-style {
   background-color: #304922;
