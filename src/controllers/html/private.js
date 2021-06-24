@@ -20,7 +20,6 @@ const renderCookTogether = async (req, res) => {
 
   const requestedPromises = requestedCookTogetherIds.map(
     async (cooktogether) => {
-      console.log(cooktogether);
       const userInformation = await CookTogether.findOne({
         attributes: [
           "recipe_title",

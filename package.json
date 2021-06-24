@@ -9,7 +9,7 @@
   "scripts": {
     "seed": "node src/db/seeds/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js",
+    "start": "node src/db/seeds/seed.js && node src/server.js",
     "dev": "nodemon src/server.js"
   },
   "repository": {

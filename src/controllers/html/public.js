@@ -18,6 +18,7 @@ const baseParams = {
 const renderHomePage = async (req, res) => {
   try {
     const { loggedIn } = req.session;
+
     if (loggedIn) {
       const upcomingCooktogether = await CookTogether.findOne({
         attributes: ["request_id"],
@@ -25,12 +26,9 @@ const renderHomePage = async (req, res) => {
           user_id: req.session.user.id,
           status: "accepted",
         },
-        order: [["datetime", "DESC"]],
         raw: true,
         nested: true,
       });
-
-      let mostUpcomingCooktogether;
 
       if (upcomingCooktogether) {
         // TO DO: add image
@@ -81,16 +79,16 @@ const renderHomePage = async (req, res) => {
           latestSavedRecipes,
           name,
         });
-      } else {
-        const latestSavedRecipes = await Recipe.findAll({
-          order: [["createdAt", "DESC"]],
-          limit: 6,
-          raw: true,
-          nested: true,
-        });
-
-        res.render("public-homepage", { latestSavedRecipes });
       }
+    } else {
+      const latestSavedRecipes = await Recipe.findAll({
+        order: [["createdAt", "DESC"]],
+        limit: 6,
+        raw: true,
+        nested: true,
+      });
+
+      res.render("public-homepage", { latestSavedRecipes });
     }
   } catch (err) {
     console.log(err.message);
