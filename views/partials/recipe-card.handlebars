@@ -1,11 +1,8 @@
-<div
-  class="search-results-container d-inline-flex mx-auto"
+<section
+  class="recipe-card-container d-inline-flex flex-wrap"
   style="justify-content: center"
 >
-  <div
-    class="card d-inline-flex p-2 bd-highlight m-3"
-    style="width: 30vw; height: 28vw;"
-  >
+  <div class="main-recipe-card card">
     <a href="recipe/{{this.recipe_id}}">
       <div id="recipe-card" class="mx-auto">
         <img
@@ -13,13 +10,10 @@
           class="card-img-top mb-3"
           alt="Image of dish"
         />
-        <h5
-          class="card-title text-center btn recipe-title fw-bold"
-          style="width: 25vw"
-        >
+        <h5 class="card-title text-center btn recipe-title fw-bold">
           {{this.dish_name}}
         </h5>
       </div>
     </a>
   </div>
-</div>
+</section>
