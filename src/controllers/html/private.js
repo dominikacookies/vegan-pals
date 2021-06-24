@@ -4,7 +4,12 @@ let userBio;
 
 const renderCookTogether = async (req, res) => {
   const name = req.session.user.firstName;
-  console.log(name);
+  const { bio } = await User.findOne({
+    where: {
+      id: req.session.user.id,
+    },
+    attributes: ["bio"],
+  });
   const requestedCookTogetherIds = await CookTogether.findAll({
     where: {
       user_id: req.session.user.id,
@@ -38,8 +43,8 @@ const renderCookTogether = async (req, res) => {
           },
         ],
       });
-      userBio = userInformation[0].user.bio;
-      return userInformation.get({ plain: true });
+
+      userInformation.get({ plain: true });
     }
   );
 
@@ -98,7 +103,7 @@ const renderCookTogether = async (req, res) => {
     requestedCookTogethers,
     sentCookTogethers,
     upcomingCookTogethers,
-    userBio,
+    bio,
     name,
   });
 };

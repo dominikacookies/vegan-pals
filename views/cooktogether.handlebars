@@ -17,22 +17,25 @@
 
     <div class="col-6">
 
-      {{#if bio}}
-      <p>{{bio}}</p>
-      {{else}}
+     
       <div>
         <h3 class="text-center">How it works:</h3>
       </div>
       <br>
       <div>
-        <h4 class="p-1">1. Update your bio here:</h3>
-          <input type="text" class="form-control" placeholder="Type in your bio here" id="userBio" />
+        <h4 class="p-1">1. Update your bio here:</h4>
+        {{#if bio}}
+        <input type="text" class="form-control" placeholder='{{bio}}' id="bio" />
+            {{else}}
+          <input type="text" class="form-control" placeholder="Type in your bio here" id="bio" />
+            {{/if}}
       </div>
+     
       <br>
       <div class="text-center d-grid gap-2">
         <button id="bioBtn" class="btn btn-outline-success ">Submit</button>
       </div>
-      {{/if}}
+     
 
       <div>
         <br>
