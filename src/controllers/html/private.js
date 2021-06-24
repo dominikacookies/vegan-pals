@@ -86,7 +86,6 @@ const renderCookTogether = async (req, res) => {
     return userInformation.get({ plain: true });
   });
 
-
   const upcomingCookTogethers = await Promise.all(upcomingPromises);
 
   console.log(upcomingCookTogethers)
@@ -171,7 +170,7 @@ const renderMyRecipes = async (req, res) => {
     raw: true,
     nested: true,
   });
-  
+
   res.render("myrecipes", { recipes, loggedIn });
 };
 
