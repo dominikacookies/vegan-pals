@@ -171,7 +171,7 @@ const renderMyRecipes = async (req, res) => {
     raw: true,
     nested: true,
   });
-
+  
   res.render("myrecipes", { recipes, loggedIn });
 };
 
