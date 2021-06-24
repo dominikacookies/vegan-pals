@@ -6,6 +6,8 @@
       {{>private-searchbar}}
       <section id="nearest-upcoming" class="mb-5">
         <h2 class="upcoming-header mb-3 text-center">Upcoming Cooktogether</h2>
+
+        {{#if mostUpcomingCooktogether}}
         <div class="card mb-3 mx-auto" style="max-width: 70vw">
           <div class="row">
             <div class="col-md-6">
@@ -16,7 +18,7 @@
               />
             </div>
             <div class="col-md-6">
-              <div class="card-body">
+              <div class="card-body h-100 w-100">
                 <h5 class="card-title">
                   {{mostUpcomingCooktogether.recipe_title}} with
                   {{mostUpcomingCooktogether.user.first_name}}
@@ -38,13 +40,31 @@
             </div>
           </div>
         </div>
+      {{else}}
+      <div class="text-center">
+        <h3> You don't have any cooktogethers yet. </h3> 
+        <p> How it works: </p>
+        <p> 1. Save a recipe,  2. Select a pal,  3. Get cooking together! </p>
+        <a href="/cooktogether/myrecipes" class="btn btn-primary">Get started!</a>
+        <a href="#search-bar" class="btn btn-outline-success">Find a recipe</a>
+      </div>
+      {{/if}}
+
+
       </section>
       <section id="your-recipes" class="mb-5">
         <h2 class="mb-3 text-center">Your yummy recipes</h2>
         <section class="card-group p-2" style="justify-content: space-around">
-          {{#each latestSavedRecipes}}
-          {{> recipe-card}}
-          {{/each }}
+          {{#if latestSavedRecipes}}
+            {{#each latestSavedRecipes}}
+              {{> recipe-card}}
+            {{/each }}
+          {{else}}
+            <div class="text-center">
+              <h3> You don't have any recipes saved yet. </h3> 
+              <a href="#search-bar" class="btn btn-primary">Find a recipe now</a>
+            </div>
+          {{/if}}
         </section>
       </section>
     </div>

@@ -77,7 +77,6 @@ const logout = async (req, res) => {
       return res.render("login");
     });
   } else {
-    console.log(error.message);
     return res.status(500).json({
       error: "Unable to logout.",
     });
