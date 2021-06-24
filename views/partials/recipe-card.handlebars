@@ -1,0 +1,25 @@
+<div
+  class="search-results-container d-inline-flex mx-auto"
+  style="justify-content: center"
+>
+  <div
+    class="card d-inline-flex p-2 bd-highlight m-3"
+    style="width: 30vw; height: 28vw;"
+  >
+    <a href="recipe/{{this.recipe_id}}">
+      <div id="recipe-card" class="mx-auto">
+        <img
+          src="{{this.image}}"
+          class="card-img-top mb-3"
+          alt="Image of dish"
+        />
+        <h5
+          class="card-title text-center btn recipe-title fw-bold"
+          style="width: 25vw"
+        >
+          {{this.dish_name}}
+        </h5>
+      </div>
+    </a>
+  </div>
+</div>
