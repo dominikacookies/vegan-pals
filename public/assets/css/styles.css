@@ -48,6 +48,7 @@ main {
   color: white;
   height: 4rem;
   padding-top: 1rem;
+  margin-top: 8rem;
 }
 
 /* my recipes page */
@@ -96,27 +97,28 @@ main {
 
 /* login page */
 .login-page {
-  padding-top: 5rem;
+  padding: 5rem;
 }
 
 .login-form-container {
   background-color: #daaf53;
   width: 60vw;
-  padding-top: 5rem;
+  padding: 5rem 1rem 3rem 1rem;
   border-radius: 35px;
 }
 
 /* sign-up page */
 
 .sign-up-page {
-  width: 50vw;
-  margin: 5rem 0rem 5rem 0rem;
+  padding-bottom: 5rem;
 }
 
 .sign-up-form-container {
   background-color: #daaf53;
   padding: 3rem;
   border-radius: 35px;
+  width: 50vw;
+  margin: auto;
 }
 
 /* cooktogether */
@@ -145,12 +147,6 @@ main {
   padding: 5rem;
 }
 
-@media (max-width: 767.98px) {
-  .login-form-container {
-    width: 50%;
-  }
-}
-
 @media screen and (max-width: 768px) {
   main {
     margin-right: 10;
@@ -158,5 +154,8 @@ main {
   }
   .search-bar {
     font-size: smaller;
+  }
+  .navtitle {
+    display: none;
   }
 }

@@ -1,23 +1,31 @@
 <nav class="navbar navbar-expand navbar-dark mb-5">
   <div class="container-fluid">
-    <div><a class="navbar-brand fw-bold" href="/">Vegan Pals</a><i
-        class="fas fa-pepper-hot fa-2x"
-        style="color: white;"
-      ></i></div>
+    <div>
+      <a class="navbar-brand fw-bold" href="/"><span class="navtitle">Vegan Pals</span>
+        <i class="fas fa-home fa-2x" style="color: white"></i></a>
+    </div>
     <div class="d-flex">
-      <div><i class="fas fa-users fa-2x" style="color: white;"></i><a
-          class="navbar-brand fw-bold p-2"
-          href="/cooktogether"
-        >Cook Together</a></div>
-      <div><i class="fas fa-utensils fa-2x" style="color: white;"></i><a
-          class="navbar-brand fw-bold p-2"
-          href="/myrecipes"
-        >My Recipes</a></div>
-      <div><i class="fas fa-sign-out-alt fa-2x" style="color: white;"></i><a
+      <div>
+        <a class="navbar-brand fw-bold p-2" href="/cooktogether"><i
+            class="fas fa-users fa-2x"
+            style="color: white"
+          ></i><span class="navtitle">Cook Together</span></a>
+      </div>
+      <div>
+        <a class="navbar-brand fw-bold p-2" href="/myrecipes"><i
+            class="fas fa-utensils fa-2x"
+            style="color: white"
+          ></i><span class="navtitle">My Recipes</span></a>
+      </div>
+      <div>
+        <a
           id="logout-link"
           class="navbar-brand fw-bold p-2"
           href="/auth/logout"
-        >Logout</a></div>
+        ><i class="fas fa-sign-out-alt fa-2x" style="color: white"></i><span
+            class="navtitle"
+          >Logout</span></a>
+      </div>
     </div>
   </div>
 </nav>
