@@ -34,6 +34,7 @@ main {
   margin: auto;
   margin-bottom: 3rem;
   max-width: 65vw;
+  z-index: -10;
 }
 
 .search-button {
@@ -61,18 +62,18 @@ main {
 /*  recipe card partial */
 .recipe-card-container {
   border: 0.5rem solid #304922;
-  margin: auto;
+  margin: 0.5rem;
 }
 .main-recipe-card {
   background-color: #f6efdd;
   padding: 1rem;
   width: 25vw;
-  height: 25vw;
+  height: 26vw;
 }
 
 .recipe-title {
-  background-color: #f6efdd;
-  color: #304922;
+  background-color: #304922;
+  color: #f6efdd;
   justify-content: center;
   width: 22vw;
 }
@@ -118,10 +119,22 @@ main {
   padding: 2rem;
 }
 
+/* my recipes page */
+.my-recipes-all {
+  margin: auto;
+}
+
 /* private homepage styles */
+.private-homepage-all {
+  margin: auto;
+}
 
 .upcoming-header {
   margin: 3rem 0rem 0rem 0rem;
+}
+.your-yummy-recipes {
+  justify-content: center;
+  margin: auto;
 }
 
 /* public homepage styles */
