@@ -77,8 +77,6 @@ const renderHomePage = async (req, res) => {
         nested: true,
       });
 
-      console.log(latestSavedRecipes)
-
       const name = req.session.user.firstName;
 
       return res.render("private-homepage", {
@@ -134,14 +132,14 @@ const renderSignupPage = (req, res) => {
   }
 };
 
-const getUserIntolerances = (intolerances) =>
+const renderSearchResults = async (req, res) => {
+  const { loggedIn } = req.session;
+
+  const getUserIntolerances = (intolerances) =>
   Object.entries(intolerances)
     .filter(([key, value]) => value === 1)
     .map(([key, value]) => key)
     .join(",");
-
-const renderSearchResults = async (req, res) => {
-  const { loggedIn } = req.session;
 
   if (loggedIn) {
     const { intolerances } = req.session.user;
@@ -164,7 +162,9 @@ const renderSearchResults = async (req, res) => {
       return recipeInfo;
     });
 
-    res.render("search-results", { recipeData, loggedIn });
+    const requestUrl = response.request.res.responseUrl
+
+    res.render("search-results", { recipeData, loggedIn, requestUrl });
   } else {
     const response = await axios.get(COMPLEX_SEARCH_URL, {
       params: {
@@ -183,7 +183,9 @@ const renderSearchResults = async (req, res) => {
       return recipeInfo;
     });
 
-    res.render("search-results", { recipeData, loggedIn });
+    const requestUrl = response.request.res.responseUrl
+
+    res.render("search-results", { recipeData, loggedIn, requestUrl });
   }
 };
 
@@ -222,3 +224,5 @@ module.exports = {
   renderSearchResults,
   renderRecipePage,
 };
+
+
