@@ -1,9 +1,10 @@
-/* colours
+/* colour pallete HEX codes
 dark green - #304922
 lighter green - #8EB44F
 pink/red - #ED6160
 yellow - #DAAF53
 pale beige - #F6EFDD*/
+
 body {
   background-color: #f6efdd;
 }
@@ -13,6 +14,10 @@ main {
   margin-left: 35;
 }
 
+/* styles for elements on multiple pages */
+.main-header-style {
+  margin: 3rem 0rem 3rem 0rem;
+}
 .main-button-style {
   background-color: #304922;
   color: #f6efdd;
@@ -158,14 +163,6 @@ main {
 }
 
 /* search-results */
-
-.results-header {
-  margin: 5rem 0rem 5rem 0rem;
-}
-
-.results-cards {
-  padding: 5rem;
-}
 
 @media screen and (max-width: 768px) {
   main {
