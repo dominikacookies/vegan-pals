@@ -56,8 +56,6 @@ const renderMoreResults = async (event) => {
 const getPalId = (event) => {
   const palId = $(event.target).data("pal");
   $("#cooktogether-button").attr("data-pal", palId);
-
-  console.log(palId);
 };
 
 const createCookTogether = async (event) => {
@@ -67,13 +65,15 @@ const createCookTogether = async (event) => {
   const contactDetailsForSendingUser = $(".contact-details").val();
   const userIdReceivingInvite = $(event.target).attr("data-pal");
 
-  console.log(
-    date,
-    mealType,
-    message,
-    contactDetailsForSendingUser,
-    userIdReceivingInvite
-  );
+  console.log(date, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite)
+
+  if (!date || !mealType || !userIdReceivingInvite || message == "" || contactDetailsForSendingUser == "") {
+    $(event.target).siblings("#errors").empty()
+    $(event.target).siblings("#errors").append(`
+    <p> Please provide all of the above information to send the request. </p>
+    `)
+    return
+  }
 
   const options = {
     method: "POST",
