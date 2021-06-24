@@ -1,9 +1,10 @@
-/* colours
+/* colour pallete HEX codes
 dark green - #304922
 lighter green - #8EB44F
 pink/red - #ED6160
 yellow - #DAAF53
 pale beige - #F6EFDD*/
+
 body {
   background-color: #f6efdd;
 }
@@ -12,12 +13,35 @@ main {
   margin-right: 35;
   margin-left: 35;
 }
+
+/* styles for elements on multiple pages */
+.main-header-style {
+  color: #304922;
+  margin: 3rem 0rem 3rem 0rem;
+  text-align: center;
+}
+.main-button-style {
+  background-color: #304922;
+  color: #f6efdd;
+  max-height: 40px;
+}
 /* partials style */
 
 .search-bar {
-  border-radius: 35px;
-  padding: 1rem;
+  border-radius: 4rem;
+  padding: 2rem;
   background-color: #daaf53;
+  margin: auto;
+  margin-bottom: 3rem;
+  max-width: 65vw;
+}
+
+.search-button {
+  width: 4rem;
+  position: absolute;
+  right: 2rem;
+  background-color: #304922;
+  color: #f6efdd;
 }
 
 .navbar {
@@ -31,65 +55,115 @@ main {
   color: white;
   height: 4rem;
   padding-top: 1rem;
+  margin-top: 8rem;
 }
 
-/* my recipes page */
+/*  recipe card partial */
+.recipe-card-container {
+  margin: auto;
+}
+
+.main-recipe-card {
+  margin-bottom: 1rem;
+  background-color: #304922;
+  padding: 1rem;
+  width: 25vw;
+  height: 25vw;
+}
 
 .recipe-title {
   background-color: #f6efdd;
   color: #304922;
+  justify-content: center;
   width: 22vw;
+}
+.card-img-top {
+  width: 22vw;
+  height: 17vw;
+  object-fit: cover;
 }
 
 /* recipe render page */
 
-.ingredient-list {
-  font-size: 0.8rem;
-}
 .recipe-car-anchors-container {
   text-align: center;
 }
 
+.recipe-img-cards {
+  width: 50vw;
+  margin: auto;
+  padding-bottom: 8vh;
+}
+.recipe-image {
+  border: 0.2rem solid #daaf53;
+  border-radius: 3rem;
+}
+
 .recipe-card-sm {
+  background-color: #304922;
   color: #f6efdd;
-  height: 5.5rem;
   width: 10rem;
+  max-height: 5.5rem;
+}
+.recipe-info {
+  width: 80vw;
+  margin: auto;
+}
+.ingredient-list {
+  font-size: 0.8rem;
+  text-align: center;
+}
+.directions {
+  border: 0.3rem solid #daaf53;
+  border-radius: 2rem;
+  padding: 2rem;
 }
 
-.card-body {
-  background-color: #304922;
-  color: #f6efdd;
+/* private homepage styles */
+
+.upcoming-header {
+  margin: 3rem 0rem 0rem 0rem;
 }
 
-.main-button-style {
-  background-color: #304922;
-  color: #f6efdd;
-  max-height: 40px;
+/* public homepage styles */
+
+.how-it-works {
+  margin: 2rem;
+  padding: 2rem;
+}
+.guide-card {
+  background-color: #f6efdd;
+  border: 0.3rem solid #daaf53;
+}
+.other-pals-love {
+  margin: auto;
+  width: 80vw;
 }
 
 /* login page */
 .login-page {
-  padding-top: 5rem;
+  padding: 5rem;
 }
 
 .login-form-container {
   background-color: #daaf53;
   width: 60vw;
-  padding-top: 5rem;
+  padding: 5rem 1rem 3rem 1rem;
   border-radius: 35px;
 }
 
 /* sign-up page */
 
 .sign-up-page {
-  width: 50vw;
-  margin: 5rem 0rem 5rem 0rem;
+  padding-bottom: 5rem;
 }
 
 .sign-up-form-container {
   background-color: #daaf53;
   padding: 3rem;
   border-radius: 35px;
+  width: 50vw;
+  margin: auto;
 }
 
 /* cooktogether */
@@ -107,31 +181,18 @@ main {
 .cooktogether-section h4 {
   padding-bottom: 10px !important;
 }
-/* private homepage styles */
-
-.upcoming-header {
-  margin: 3rem 0rem 0rem 0rem;
-}
 
 /* search-results */
-
-.results-header {
-  margin: 5rem 0rem 5rem 0rem;
-}
-
-.results-cards {
-  padding: 5rem;
-}
-
-@media (max-width: 767.98px) {
-  .login-form-container {
-    width: 50%;
-  }
-}
 
 @media screen and (max-width: 768px) {
   main {
     margin-right: 10;
     margin-left: 10;
+  }
+  .search-bar {
+    font-size: smaller;
+  }
+  .navtitle {
+    display: none;
   }
 }

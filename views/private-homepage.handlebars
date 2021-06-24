@@ -1,11 +1,11 @@
 {{>private-nav}}
 <main>
-  <h1 class="text-center mb-4">Hey {{name}}</h1>
+  <h1 class="main-header-style">Hey {{name}}</h1>
   <div class="d-flex flex-row justify-content-evenly">
     <div class="mt-5">
       {{>private-searchbar}}
       <section id="nearest-upcoming" class="mb-5">
-        <h2 class="upcoming-header mb-3 text-center">Upcoming Cooktogether</h2>
+        <h2 class="main-header-style">Upcoming Cooktogether</h2>
 
         {{#if mostUpcomingCooktogether}}
         <div class="card mb-3 mx-auto" style="max-width: 70vw">
@@ -53,7 +53,7 @@
 
       </section>
       <section id="your-recipes" class="mb-5">
-        <h2 class="mb-3 text-center">Your yummy recipes</h2>
+        <h2 class="main-header-style">Your yummy recipes</h2>
         <section class="card-group p-2" style="justify-content: space-around">
           {{#if latestSavedRecipes}}
             {{#each latestSavedRecipes}}

@@ -9,10 +9,10 @@
     {{#if loggedIn}} {{>private-searchbar}} {{else}} {{>public-searchbar}}
     {{/if}}
     <div>
-      <h1 class="results-header text-center mb-3">Recipe Search Results</h1>
+      <h1 class="main-header-style text-center mb-3">Recipe Search Results</h1>
     </div>
 
-    <div class="card-group results-cards">
+    <div class="card-group">
       {{#each recipeData}}
              {{> recipe-card}}
       {{/each}}
