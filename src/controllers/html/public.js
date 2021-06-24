@@ -19,24 +19,20 @@ const renderHomePage = async (req, res) => {
   try {
     const { loggedIn } = req.session;
     if (loggedIn) {
+      const upcomingCooktogether = await CookTogether.findOne({
+        attributes: ["request_id"],
+        where: {
+          user_id: req.session.user.id,
+          status: "accepted",
+        },
+        order: [["datetime", "DESC"]],
+        raw: true,
+        nested: true,
+      });
 
-      const upcomingCooktogether = await CookTogether.findOne(
-        {
-          attributes: ["request_id"],
-          where: {
-            user_id: req.session.user.id,
-            status: "accepted",
-          },
-          order: [["datetime", "DESC"]],
-          raw: true,
-          nested: true,
-        }
-      );
-
-      let mostUpcomingCooktogether
+      let mostUpcomingCooktogether;
 
       if (upcomingCooktogether) {
-
         // TO DO: add image
         const upcomingCooktogetherDetails = await CookTogether.findAll({
           order: [["createdAt", "ASC"]],
@@ -64,37 +60,37 @@ const renderHomePage = async (req, res) => {
           nested: true,
         });
 
-      const mostUpcomingCooktogether = upcomingCooktogetherDetails[0].get({
-        plain: true,
-      });
+        const mostUpcomingCooktogether = upcomingCooktogetherDetails[0].get({
+          plain: true,
+        });
 
-      const latestSavedRecipes = await Recipe.findAll({
-        where: {
-          user_id: req.session.user.id,
-        },
-        order: [["createdAt", "DESC"]],
-        limit: 6,
-        raw: true,
-        nested: true,
-      });
+        const latestSavedRecipes = await Recipe.findAll({
+          where: {
+            user_id: req.session.user.id,
+          },
+          order: [["createdAt", "DESC"]],
+          limit: 6,
+          raw: true,
+          nested: true,
+        });
 
-      const name = req.session.user.firstName;
+        const name = req.session.user.firstName;
 
-      return res.render("private-homepage", {
-        mostUpcomingCooktogether,
-        latestSavedRecipes,
-        name,
-      });
+        return res.render("private-homepage", {
+          mostUpcomingCooktogether,
+          latestSavedRecipes,
+          name,
+        });
+      } else {
+        const latestSavedRecipes = await Recipe.findAll({
+          order: [["createdAt", "DESC"]],
+          limit: 6,
+          raw: true,
+          nested: true,
+        });
 
-    } else {
-      const latestSavedRecipes = await Recipe.findAll({
-        order: [["createdAt", "DESC"]],
-        limit: 6,
-        raw: true,
-        nested: true,
-      });
-
-      res.render("public-homepage", { latestSavedRecipes });
+        res.render("public-homepage", { latestSavedRecipes });
+      }
     }
   } catch (err) {
     console.log(err.message);
@@ -137,10 +133,10 @@ const renderSearchResults = async (req, res) => {
   const { loggedIn } = req.session;
 
   const getUserIntolerances = (intolerances) =>
-  Object.entries(intolerances)
-    .filter(([key, value]) => value === 1)
-    .map(([key, value]) => key)
-    .join(",");
+    Object.entries(intolerances)
+      .filter(([key, value]) => value === 1)
+      .map(([key, value]) => key)
+      .join(",");
 
   if (loggedIn) {
     const { intolerances } = req.session.user;
@@ -163,7 +159,7 @@ const renderSearchResults = async (req, res) => {
       return recipeInfo;
     });
 
-    const requestUrl = response.request.res.responseUrl
+    const requestUrl = response.request.res.responseUrl;
 
     res.render("search-results", { recipeData, loggedIn, requestUrl });
   } else {
@@ -184,7 +180,7 @@ const renderSearchResults = async (req, res) => {
       return recipeInfo;
     });
 
-    const requestUrl = response.request.res.responseUrl
+    const requestUrl = response.request.res.responseUrl;
 
     res.render("search-results", { recipeData, loggedIn, requestUrl });
   }
@@ -225,5 +221,3 @@ module.exports = {
   renderSearchResults,
   renderRecipePage,
 };
-
-

@@ -4,16 +4,17 @@
   {{>public-nav}}  
 {{/if}}
 
-<main><figure id="image-container" class="mx-auto mb-4" style="width: 50vw">
+<main>
+  <section class="recipe-img-cards"><figure id="image-container" class="mx-auto" style="width: 50vw">
     <figcaption id="recipe-name" class="text-center">
-      <h2 name="recipe-title" class="m-5 fw-bold" style="color: #304922;">{{title}}</h2>
+      <h2 name="recipe-title" class="main-header-style">{{title}}</h2>
     </figcaption>
     <img src={{image}} name="recipe-image" class="recipe-image" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
   </figure>
 
   <div class="container d-flex justify-content-center">
   <section
-    class="card-group row text-center pb-4 mb-5"
+    class="card-group row text-center "
     style="justify-content: center"
   >
     <div class="col">
@@ -47,19 +48,20 @@
     </div>
 
   </section>
-  </div>
-  <section class="row">
-    <div class="col-sm-3 ms-5">
+  </div></section>
+  
+  <section class="recipe-info d-flex row">
+    <div class="col-sm-3">
       <div class="card">
-        <h3 class="ms-3"> Ingredients: </h3>
-        <ul class="list-group text-center list-group-flush ingredient-list">
+        <h3 class="ingredients"> Ingredients: </h3>
+        <ul class="list-group list-group-flush ingredient-list">
           {{#each ingredients as |ingredient|}}
             <li class="list-group-item">{{ingredient}}</li>
           {{/each}}
         </ul>
       </div>
     </div>
-    <div class="col-sm-6 m-5">
+    <div class="col-sm-9">
       <div class="directions">
         <h3>Directions:</h3>
         <p>
@@ -83,8 +85,8 @@
         <p>You must be logged in to save a recipe.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" id="prompt-login-btn" class="btn btn-secondary" data-bs-dismiss="modal">Log in</button>
-        <button type="button" id="prompt-signup-btn" class="btn btn-primary">Sign up</button>
+        <button type="button" id="prompt-login-btn" class="btn main-button-style" data-bs-dismiss="modal">Log in</button>
+        <button type="button" id="prompt-signup-btn" class="btn main-button-style">Sign up</button>
       </div>
     </div>
   </div>

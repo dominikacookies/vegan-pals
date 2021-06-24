@@ -1,9 +1,10 @@
-/* colours
+/* colour pallete HEX codes
 dark green - #304922
 lighter green - #8EB44F
 pink/red - #ED6160
 yellow - #DAAF53
 pale beige - #F6EFDD*/
+
 body {
   background-color: #f6efdd;
 }
@@ -13,6 +14,12 @@ main {
   margin-left: 35;
 }
 
+/* styles for elements on multiple pages */
+.main-header-style {
+  color: #304922;
+  margin: 3rem 0rem 3rem 0rem;
+  text-align: center;
+}
 .main-button-style {
   background-color: #304922;
   color: #f6efdd;
@@ -51,33 +58,67 @@ main {
   margin-top: 8rem;
 }
 
-/* my recipes page */
+/*  recipe card partial */
+.recipe-card-container {
+  margin: auto;
+}
+
+.main-recipe-card {
+  margin-bottom: 1rem;
+  background-color: #304922;
+  padding: 1rem;
+  width: 25vw;
+  height: 25vw;
+}
 
 .recipe-title {
   background-color: #f6efdd;
   color: #304922;
+  justify-content: center;
   width: 22vw;
+}
+.card-img-top {
+  width: 22vw;
+  height: 17vw;
+  object-fit: cover;
 }
 
 /* recipe render page */
 
-.ingredient-list {
-  font-size: 0.8rem;
-}
 .recipe-car-anchors-container {
   text-align: center;
 }
 
-.recipe-card-sm {
-  color: #f6efdd;
-  height: 5.5rem;
-  width: 10rem;
+.recipe-img-cards {
+  width: 50vw;
+  margin: auto;
+  padding-bottom: 8vh;
+}
+.recipe-image {
+  border: 0.2rem solid #daaf53;
+  border-radius: 3rem;
 }
 
-.card-body {
+.recipe-card-sm {
   background-color: #304922;
   color: #f6efdd;
+  width: 10rem;
+  max-height: 5.5rem;
 }
+.recipe-info {
+  width: 80vw;
+  margin: auto;
+}
+.ingredient-list {
+  font-size: 0.8rem;
+  text-align: center;
+}
+.directions {
+  border: 0.3rem solid #daaf53;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
 /* private homepage styles */
 
 .upcoming-header {
@@ -93,6 +134,10 @@ main {
 .guide-card {
   background-color: #f6efdd;
   border: 0.3rem solid #daaf53;
+}
+.other-pals-love {
+  margin: auto;
+  width: 80vw;
 }
 
 /* login page */
@@ -138,14 +183,6 @@ main {
 }
 
 /* search-results */
-
-.results-header {
-  margin: 5rem 0rem 5rem 0rem;
-}
-
-.results-cards {
-  padding: 5rem;
-}
 
 @media screen and (max-width: 768px) {
   main {
