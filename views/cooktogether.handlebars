@@ -114,7 +114,7 @@
         <div class="card mb-3 mx-auto">
           <div class="row">
             <div class="col-md-6">
-              <img src="{{requested.recipe_image}}" alt="{{requested.recipe_image}}" style="height: 20vw" />
+              <img src="{{requested.recipe_image}}" alt="{{requested.recipe_title}}" style="height: 20vw" />
             </div>
             <div class="col-md-6">
               <div class="card-body h-100 w-100">
@@ -135,10 +135,7 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-
+    
     {{/each}}
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselReceived" data-bs-slide="prev">
@@ -164,7 +161,7 @@
         <div class="card mb-3 mx-auto">
           <div class="row">
             <div class="col-md-6">
-              <img src="{{sent.recipe_image}}" alt="{{sent.title}}" style="height: 20vw" />
+              <img src="{{sent.recipe_image}}" alt="{{sent.recipe_title}}" style="height: 20vw" />
             </div>
             <div class="col-md-6">
               <div class="card-body h-100 w-100">
@@ -174,7 +171,7 @@
                 <p class="card-text">
                   Meeting for {{sent.meal_type}} on {{sent.datetime}}
                 </p>
-                <p class="card-text">About: {{ sent.user.bio }}</p>
+                <p class="card-text">About: {{ sent.bio }}</p>
                 <div id="{{sent.request_id}}">
                   <button class="cancel-request-button btn main-button-style">Cancel</button>
                 </div>

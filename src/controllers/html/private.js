@@ -1,6 +1,5 @@
 const { Recipe, User, CookTogether } = require("../../models");
 const { Op } = require("sequelize");
-let userBio;
 
 const renderCookTogether = async (req, res) => {
   const name = req.session.user.firstName;
@@ -21,6 +20,7 @@ const renderCookTogether = async (req, res) => {
 
   const requestedPromises = requestedCookTogetherIds.map(
     async (cooktogether) => {
+      console.log(cooktogether);
       const userInformation = await CookTogether.findOne({
         attributes: [
           "recipe_title",
@@ -44,11 +44,12 @@ const renderCookTogether = async (req, res) => {
         ],
       });
 
-      userInformation.get({ plain: true });
+      return userInformation.get({ plain: true });
     }
   );
 
   const requestedCookTogethers = await Promise.all(requestedPromises);
+  console.log(requestedCookTogethers);
 
   const sentCookTogethers = await CookTogether.findAll({
     where: {
@@ -91,13 +92,10 @@ const renderCookTogether = async (req, res) => {
         },
       ],
     });
-
     return userInformation.get({ plain: true });
   });
 
   const upcomingCookTogethers = await Promise.all(upcomingPromises);
-
-  console.log(upcomingCookTogethers);
 
   res.render("cooktogether", {
     requestedCookTogethers,
@@ -163,8 +161,7 @@ const renderCookTogetherPals = async (req, res) => {
 
     return pal;
   };
-
-  const palsWithRecipeInfo = pals.map(hasPalSavedRecipe);
+  pals.map(hasPalSavedRecipe);
 
   res.render("cooktogether-pals", { pals });
 };
@@ -187,9 +184,9 @@ const renderMyRecipes = async (req, res) => {
 const renderPrivateHomePage = (req, res) => {
   try {
     const { firstName } = req.session;
-    res.render("privatehomepage", { firstName });
+    res.render("private-homepage", { firstName });
   } catch (err) {
-    console.log(err.message);
+    console.error(err.message);
     res.status(500).json({ error: "Failed to render" });
   }
 };
