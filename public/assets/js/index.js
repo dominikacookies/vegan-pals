@@ -44,11 +44,11 @@ const renderMoreResults = async () => {
 };
 
 const getPalId = (event) => {
-  const palId = $(event.target).data("pal")
-  $("#cooktogether-button").attr("data-pal", palId)
+  const palId = $(event.target).data("pal");
+  $("#cooktogether-button").attr("data-pal", palId);
 
-  console.log(palId)
-}
+  console.log(palId);
+};
 
 const createCookTogether = async (event) => {
   const date = $("#date-input").val();
@@ -95,11 +95,11 @@ const createCookTogether = async (event) => {
 };
 
 const acceptCooktogether = async (event) => {
-  const parentContainer = $(event.target).parent()
+  const parentContainer = $(event.target).parent();
   const cooktogetherId = parentContainer.attr("id");
-  const contactDetails = $(event.target).siblings("#contact-info").val()
+  const contactDetails = $(event.target).siblings("#contact-info").val();
 
-  console.log(contactDetails)
+  console.log(contactDetails);
 
   const options = {
     method: "PUT",
@@ -107,14 +107,14 @@ const acceptCooktogether = async (event) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      contactDetails
+      contactDetails,
     }),
     redirect: "follow",
   };
 
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
 
-  console.log(response)
+  console.log(response);
 
   if (response.status === 200) {
     parentContainer.empty();
@@ -128,20 +128,19 @@ const acceptCooktogether = async (event) => {
 };
 
 const provideCooktogetherContactDetails = async (event) => {
-
-  const parentContainer = $(event.target).parent()
-  parentContainer.empty()
+  const parentContainer = $(event.target).parent();
+  parentContainer.empty();
   parentContainer.append(`
     <p class="small-text-bolded"> Insta, Whatsapp or pigeon mail? </p>
     <input id="contact-info" placeholder="Contact details">
     <button class="accept-request-button"> Accept </button>
   `);
-  
+
   $(".accept-request-button").on("click", acceptCooktogether);
 };
 
 const deleteCooktogether = async (event) => {
-  const parentContainer = $(event.target).parent()
+  const parentContainer = $(event.target).parent();
   const cooktogetherId = parentContainer.attr("id");
 
   const options = {
@@ -154,9 +153,9 @@ const deleteCooktogether = async (event) => {
 
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
 
-  console.log(response)
+  console.log(response);
   if (response.status === 200) {
-    $(event.currentTarget).parent().empty()
+    $(event.currentTarget).parent().empty();
     $(event.currentTarget).parent().append(`
     <p> Deleted successfully. </p>
     `);
@@ -166,8 +165,8 @@ const deleteCooktogether = async (event) => {
   }
 };
 
-const saveBio = async () => { 
-  const userBio = $("#userBio").val()
+const saveBio = async () => {
+  const userBio = $("#bio").val();
   const options = {
     method: "POST",
     headers: {
@@ -175,21 +174,18 @@ const saveBio = async () => {
     },
     redirect: "follow",
     body: JSON.stringify({
-    bio: userBio
+      bio: userBio,
     }),
   };
-  const response = await fetch("/api/saveBio",options)
-  console.log(response)
-}
-
-
-
+  //if response is false, error message displayed
+  const response = await fetch("/api/saveBio", options);
+};
 
 $("#searchButton").on("click", onSubmit);
 $("#renderMoreResults").on("click", renderMoreResults);
 $("#cooktogether-button").on("click", createCookTogether);
-$('[data-name="pal-selector"]').on("click", getPalId)
+$('[data-name="pal-selector"]').on("click", getPalId);
 $(".extra-info-button").on("click", provideCooktogetherContactDetails);
 $(".cancel-request-button").on("click", deleteCooktogether);
 $(".decline-request-button").on("click", deleteCooktogether);
-$("#bioBtn").on("click",saveBio)
+$("#bioBtn").on("click", saveBio);
