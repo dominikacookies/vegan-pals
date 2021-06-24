@@ -16,6 +16,7 @@ main {
 
 /* styles for elements on multiple pages */
 .main-header-style {
+  color: #304922;
   margin: 3rem 0rem 3rem 0rem;
 }
 .main-button-style {
