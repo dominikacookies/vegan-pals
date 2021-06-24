@@ -67,7 +67,7 @@ const createCookTogether = async (event) => {
 
   console.log(date, mealType, message, contactDetailsForSendingUser, userIdReceivingInvite)
 
-  if (!date || !mealType || !userIdReceivingInvite || message == "" || contactDetailsForSendingUser == "") {
+  if (!date || !mealType || !userIdReceivingInvite ) {
     $(event.target).siblings("#errors").empty()
     $(event.target).siblings("#errors").append(`
     <p> Please provide all of the above information to send the request. </p>

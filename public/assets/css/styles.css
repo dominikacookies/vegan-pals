@@ -93,11 +93,6 @@ main {
   justify-content: center;
   width: 22vw;
 }
-.card-img-top {
-  width: 22vw;
-  height: 17vw;
-  object-fit: cover;
-}
 
 /* recipe render page */
 
