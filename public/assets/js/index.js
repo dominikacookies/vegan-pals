@@ -1,5 +1,7 @@
 $(".datepicker").datepicker();
 
+let searchResultsOffset = 0
+
 const onSubmit = async (event) => {
   event.preventDefault();
 
@@ -39,8 +41,16 @@ const onSubmit = async (event) => {
   );
 };
 
-const renderMoreResults = async () => {
-  console.log("render");
+const clearSearchResultsOffset = () => {
+  searchResultsOffset = 0
+}
+
+const renderMoreResults = async (event) => {
+  searchResultsOffset += 10 
+  const requestUrl = $(event.target).data("requesturl")
+
+  const response = await fetch(`${requestUrl}&offset=${searchResultsOffset}`);
+  console.log(response);
 };
 
 const getPalId = (event) => {
@@ -182,6 +192,7 @@ const saveBio = async () => {
 };
 
 $("#searchButton").on("click", onSubmit);
+$("#renderMoreResults").on("load", clearSearchResultsOffset);
 $("#renderMoreResults").on("click", renderMoreResults);
 $("#cooktogether-button").on("click", createCookTogether);
 $('[data-name="pal-selector"]').on("click", getPalId);
