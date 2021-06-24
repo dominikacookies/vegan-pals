@@ -6,37 +6,42 @@
 <main>
   <div class="mb-5">
     <h1 class="mb-3 text-center">Your yummy recipes</h1>
-    <section class="card-group p-2" style="justify-content: space-around">
-      <div class="d-inline-flex flex-wrap justify-content-center p-4">
-        {{#each recipes}}
-        <div class="search-results-container d-inline-flex flex-wrap mx-auto" style="justify-content: center">
-          <div class="card d-inline-flex p-2 bd-highlight m-3">
-            <a href="recipe/{{this.recipe_id}}" class="text-decoration-none text-dark">
-              <div id="recipe-card" class="mx-auto text-center">
-                <img src="{{this.image}}" class="card-img-top mb-3" alt="Image of dish" />
-                <h4 class="text-center">
-                  {{this.dish_name}}
-                </h4>
+    {{#if recipes}}
+      <section class="card-group p-2" style="justify-content: space-around">
+        <div class="d-inline-flex flex-wrap justify-content-center p-4">
+          {{#each recipes as |recipe|}}
+            <div class="search-results-container d-inline-flex flex-wrap mx-auto" style="justify-content: center">
+              <div class="card d-inline-flex p-2 bd-highlight m-3">
+                <a href="recipe/{{this.recipe_id}}" class="text-decoration-none text-dark">
+                  <div id="recipe-card" class="mx-auto text-center">
+                    <img src="{{this.image}}" class="card-img-top mb-3" alt="Image of dish" />
+                    <h4 class="text-center">
+                      {{this.dish_name}}
+                    </h4>
+                  </div>
+                </a>
+                <div class="row">
+                  <div class="col-3"></div>
+                <div class="col-4 d-flex justify-content-center">
+                  <a href='/recipe/{{recipe.recipe_id}}' target="_blank" class="btn main-button-style"> View recipe </a>
+                </div>
+                <div class="col-2 d-flex justify-content-center">
+                  <button id="{{recipe.recipe_id}}" name="remove-from-favourites-btn" class="btn btn-danger"><i class="far fa-trash-alt text-white p-1 fs-5"
+                      ></i></button>
+                </div>
+                <div class="col-3"></div>
+                </div>
               </div>
-            </a>
-            <div class="row">
-              <div class="col-3"></div>
-            <div class="col-4 d-flex justify-content-center">
-              <a href='/recipe/{{recipe.recipe_id}}' target="_blank" class="btn main-button-style"> View recipe </a>
-            </div>
-            <div class="col-2 d-flex justify-content-center">
-              <button id="{{recipe.recipe_id}}" name="remove-from-favourites-btn" class="btn btn-danger"><i class="far fa-trash-alt text-white p-1 fs-5"
-                  ></i></button>
-            </div>
-            <div class="col-3"></div>
-            </div>
-          </div>
-
           {{/each}}
         </div>
-      </div>
-
-    </section>
+    {{ else }} 
+      <div class="text-center">
+        <h3> Oh no! You don't have any recipes saved yet!</h3>
+        <h3> Search now to get cooking.</h3>
+        {{>private-searchbar}}
+      </div> 
+    {{/if}}
+       </section>
   </div>
 </main>
 {{>footer}}
