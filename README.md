@@ -15,7 +15,7 @@
 
 ## Project Link
 
-Click [here]() to view the project on GitHub pages.
+Click [here](https://stormy-stream-13655.herokuapp.com/) to view the project on GitHub pages.
 
 // to be added
 
@@ -47,7 +47,10 @@ Otilia: https://github.com/otivisan22
 
 ### User Flows
 
-//to be added
+![screenshot1](public/assets/screenshots/first.jpg)
+![screenshot2](public/assets/screenshots/second.png)
+![screenshot3](public/assets/screenshots/third.png)
+![screenshot4](public/assets/screenshots/forth.png)
 
 ### Technologies Used
 
@@ -59,8 +62,7 @@ Otilia: https://github.com/otivisan22
 
 ### Wireframes
 
-// to be added the images
-// screenshot
+![screenshot5](public/assets/screenshots/Wireframe.png)
 
 ## Plans for Improvement
 
