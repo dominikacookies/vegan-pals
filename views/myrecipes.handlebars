@@ -7,20 +7,23 @@
   <section class="my-recipes-all">
     <h1 class="main-header-style text-center">Your yummy recipes</h1>
     {{#if recipes}}
-    <section class="your-yummy-recipes d-flex flex-row">
-      <div class="card-group">
-        {{#each recipes as |recipe|}}
-        <div class="card main-recipe-card">
-          <div class="card-body">
-            <a href="recipe/{{this.recipe_id}}" class="text-decoration-none">
-              <img
-                src="{{this.image}}"
-                class="card-img-top"
-                alt="Image of dish"
-              />
-              <h4 class="card-title text-center">{{this.dish_name}}</h4>
-            </a>
 
+    <div class="card-group">
+      {{#each recipes as |recipe|}}
+      <section class="recipe-card-container d-flex flex-wrap">
+        <div class="card my-recipe-card">
+          <a href="recipe/{{this.recipe_id}}">
+          <div id="image-block" class="mx-auto"> <img
+              src="{{this.image}}"
+              class="card-img-top mb-3"
+              alt="Image of dish"
+            />
+            <h5 class="card-title text-center btn recipe-title">
+              {{this.dish_name}}
+            </h5></div>
+           
+          </a>
+          <div class="my-recipe-buttons">
             <a
               href="/recipe/{{recipe.recipe_id}}"
               target="_blank"
@@ -38,18 +41,20 @@
             </button>
           </div>
         </div>
+      </section>
 
-        {{/each}} {{ else }}
-        <div class="text-center">
-          <h3>Oh no! You don't have any recipes saved yet!</h3>
-          <h3>Search now to get cooking.</h3>
-          {{>private-searchbar}}
-        </div>
-        {{/if}}
+      {{/each}} {{ else }}
+      <div class="text-center">
+        <h3>Oh no! You don't have any recipes saved yet!</h3>
+        <h3>Search now to get cooking.</h3>
+        {{>private-searchbar}}
       </div>
-    </section>
+      {{/if}}
+    </div>
   </section>
 </main>
+
+
 
 
 

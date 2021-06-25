@@ -1,16 +1,13 @@
-<section
-  class="recipe-card-container d-inline-flex flex-wrap"
-  style="justify-content: center"
->
+<section class="recipe-card-container d-inline-flex flex-wrap">
   <div class="main-recipe-card card">
     <a href="recipe/{{this.recipe_id}}">
-      <div id="recipe-card" class="mx-auto">
+      <div id="image-block" class="mx-auto">
         <img
           src="{{this.image}}"
           class="card-img-top mb-3"
           alt="Image of dish"
         />
-        <h5 class="card-title text-center btn recipe-title fw-bold">
+        <h5 class="card-title text-center btn recipe-title">
           {{this.dish_name}}
         </h5>
       </div>
