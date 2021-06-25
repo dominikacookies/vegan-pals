@@ -126,7 +126,7 @@
     "message": "",
     "contact_details": "",
     "status": "sent",
-    "user_id": "",
+    "user_id": "1",
     "recipe_id": "633711",
     "recipe_title": "Baked Penne",
     "recipe_image": "https://spoonacular.com/recipeImages/633711-312x231.jpg"
@@ -138,7 +138,7 @@
     "message": "Hey, let's try making this recipe",
     "contact_details": "07492772254",
     "status": "requested",
-    "user_id": "",
+    "user_id": "4",
     "recipe_id": "633711",
     "recipe_title": "Baked Penne",
     "recipe_image": "https://spoonacular.com/recipeImages/633711-312x231.jpg"
