@@ -19,7 +19,7 @@ main {
 }
 
 .main-card-style {
-  background-color:#fffbef;
+  background-color: #fffbef;
   border-width: 1px;
   border-color: #304922;
   margin: 5px;
@@ -37,7 +37,8 @@ main {
   max-height: 40px;
 }
 .main-button-style:hover {
-  color: #f6efdd;
+  background-color: #8eb44f;
+  color: #304922;
   padding: 7px;
 }
 
@@ -79,6 +80,7 @@ main {
 .recipe-card-container {
   border: 0.5rem solid #304922;
   margin: 0.5rem;
+  justify-content: center;
 }
 .main-recipe-card {
   background-color: #f6efdd;
@@ -91,9 +93,23 @@ main {
   background-color: #304922;
   color: #f6efdd;
   justify-content: center;
-  width: 22vw;
+  width: 22.5vw;
+  font-weight: normal;
 }
 
+/* my recipes page */
+.my-recipes-all {
+  margin: auto;
+}
+.my-recipe-card {
+  background-color: #f6efdd;
+  padding: 1rem;
+  width: 25vw;
+  height: 28.5vw;
+}
+.my-recipe-buttons {
+  width: 22.5vw;
+}
 /* recipe render page */
 
 .recipe-car-anchors-container {
@@ -128,11 +144,6 @@ main {
   border: 0.3rem solid #daaf53;
   border-radius: 2rem;
   padding: 2rem;
-}
-
-/* my recipes page */
-.my-recipes-all {
-  margin: auto;
 }
 
 /* private homepage styles */
