@@ -1,11 +1,12 @@
 {{>private-nav}}
-
 <main>
-  <h2 class="main-header-style">Welcome to your Cook Together page {{name}}!</h2>
+  <h2 class="main-header-style">
+    Welcome to your Cook Together page, {{name}}!
+  </h2>
 
-  <section id="intro-section" class="row p-2 mx-auto">
+  <section class="intro-section-container row">
     <div class="col-6">
-      <div class="m-4 container">
+      <div class="container">
         <img
           src="https://images.unsplash.com/photo-1556911261-6bd341186b2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
           class="card-img-top"
@@ -14,12 +15,12 @@
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-6 intro-section">
       <header>
-        <h3 class="main-header-style">How it works:</h3>
+        <h3 class="intro-title">How it works:</h3>
       </header>
-      <div>
-        <h5 class="p-1">1. Update your bio here:</h5>
+      <div class="p-3">
+        <h5>1. Update your bio here:</h5>
         {{#if bio}}
         <input
           type="text"
@@ -35,9 +36,9 @@
           id="bio"
         />
         {{/if}}
-      </div>
+      
 
-      <div class="p-1">
+      <div >
         <button id="bioBtn" class="btn main-button-style">Submit</button>
       </div>
 
@@ -46,7 +47,7 @@
         <a href="/cooktogether/myrecipes" class="btn main-button-style"
           >Search</a
         >
-      </div>
+      </div></div>
     </div>
   </section>
 
@@ -57,7 +58,7 @@
   >
     {{!--carousel1--}}
     <header>
-      <h3 class="text-center">Upcoming Cook Togethers</h3>
+      <h3 class="main-header-style">Upcoming Cook Togethers</h3>
     </header>
     <section
       id="carouselUpcoming"
@@ -167,10 +168,9 @@
             </div>
           </div>
         </article>
-      
 
-      {{/each}}
-</div>
+        {{/each}}
+      </div>
       <button
         class="carousel-control-prev"
         type="button"
@@ -233,10 +233,9 @@
             </div>
           </div>
         </article>
-      
 
-      {{/each}}
-</div>
+        {{/each}}
+      </div>
       <button
         class="carousel-control-prev"
         type="button"

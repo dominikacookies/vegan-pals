@@ -20,15 +20,17 @@ main {
 
 .main-card-style {
   background-color: #fffbef;
-  border-width: 1px;
-  border-color: #304922;
-  margin: 5px;
+  border-width: 5px;
+  border-color: #daaf53;
+  width: 20rem;
+  margin: auto;
+  padding: 1rem;
 }
 
 /* styles for elements on multiple pages */
 .main-header-style {
   color: #304922;
-  margin: 3rem 0rem 3rem 0rem;
+  margin: 3rem 0rem 2rem 0rem;
   text-align: center;
 }
 .main-button-style {
@@ -84,9 +86,8 @@ main {
 }
 .main-recipe-card {
   background-color: #f6efdd;
-  padding: 1rem;
+  padding: 0.5rem;
   width: 25vw;
-  height: 26vw;
 }
 
 .recipe-title {
@@ -200,8 +201,17 @@ main {
   margin: auto;
 }
 
-/* cooktogether */
-
+/* cooktogether page */
+.intro-section {
+  margin: auto;
+}
+.intro-section-container {
+  margin: auto;
+  padding: 2rem 0rem 2rem 0rem;
+}
+.intro-title {
+  text-align: center;
+}
 .small-text-bolded {
   font-size: 13.5px;
   color: black;
@@ -222,6 +232,10 @@ main {
 
 .cooktogether-container {
   margin: 15px;
+}
+/* pals page */
+.pal-cards {
+  margin: auto;
 }
 
 /* search-results */
