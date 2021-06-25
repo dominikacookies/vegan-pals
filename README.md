@@ -15,35 +15,30 @@
 
 ## Project Link
 
-Click [here](https://stormy-stream-13655.herokuapp.com/) to view the project on GitHub pages.
-
-// to be added
+Click [here](https://stormy-stream-13655.herokuapp.com/) to view the project on Heroku.
 
 ## Getting Started
 
 - Clone the GitHub project into your local machine
 - Navigate into the project
 
-// to add more
-//commands
-
 ```
-git clone //to be added
+git clone https://github.com/dominikacookies/vegan-pals
 cd vegan-pals
 code .
 ```
 
 ## Contributors
 
-Dominika: https://github.com/dominikacookies
-Marcus: https://github.com/marcuslau0903
-Misha: https://github.com/misha244
-Syreeta:https://github.com/SyreetaC
-Otilia: https://github.com/otivisan22
+- Dominika: https://github.com/dominikacookies
+- Marcus: https://github.com/marcuslau0903
+- Misha: https://github.com/misha244
+- Syreeta:https://github.com/SyreetaC
+- Otilia: https://github.com/otivisan22
 
 ## About the Project
 
-// to be added
+The concept for this project was to develop an app on which me we can match users with the same intolerances and in that way they can cook together via online by scheduling a cooking session based on the recipes that they have saved and intolerances.
 
 ### User Flows
 
@@ -54,11 +49,23 @@ Otilia: https://github.com/otivisan22
 
 ### Technologies Used
 
-//to be added
+- MySQL
+- CSS
+- JS
+- Handlebars
+- Bootstrap 5
+- Express
+- jQuery
+- Axios
+- JSON
+- bcrypt
+- uuid
 
 ### Web APIs
 
-// to be added
+We have used one API for this project
+
+- [Food API and Recipe AP](https://spoonacular.com/food-api/)
 
 ### Wireframes
 
@@ -66,8 +73,8 @@ Otilia: https://github.com/otivisan22
 
 ## Plans for Improvement
 
-//to be added
+As a future plan we have decided to develop a Live Chat Box with emojis in order for the vegan pals to have a more easy way to communicate with each other. And also a save recipe button so that when you click on it will render users who also liked this recipe.
 
 ## Screenshots
 
-// to be added
+![screenshot4](public/assets/screenshots/forth.png)
