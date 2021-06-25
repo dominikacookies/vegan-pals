@@ -33,14 +33,16 @@
     "password": "passwordpassword",
     "bio": "Hello, I love cooking!",
     "gluten_intolerance": "true",
-    "soy_intolerance": "true"
+    "wheat_intolerance": "true"
   },
   {
     "first_name": "James",
     "last_name": "Acaster",
     "email": "acaster@offmenu.com",
     "password": "dietcoke",
-    "bio": "Hi, I'm comedian James Acaster and I love ice-cream"
+    "bio": "Hi, I'm comedian James Acaster and I love ice-cream",
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
   },
   {
     "first_name": "Aparna",
@@ -48,8 +50,8 @@
     "email": "aparna@hotmail.com",
     "password": "scallion",
     "bio": "I love korean food and I voiced Hollyhock on BoJack Horseman!",
-    "sesame_intolerance": "true",
-    "sulphite_intolerance": "true"
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
   },
   {
     "first_name": "Danny",
@@ -74,7 +76,8 @@
     "email": "josephine.murphy@example.com",
     "password": "baseball",
     "bio": "I love snowboarding and I'm trying to cook more!",
-    "tree_nut_intolerance": "true"
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
   },
   {
     "first_name": "Nikolia",
@@ -231,9 +234,8 @@
     "email": "aillistong@abc.net.au",
     "password": "yzujwyru2PC",
     "bio": "Etiam vel augue.",
-    "gluten_intolerance": true,
-    "peanut_intolerance": true,
-    "grain_intolerance": true
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
   },
   {
     "first_name": "Shelton",

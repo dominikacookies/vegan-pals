@@ -32,7 +32,7 @@
   {
     "recipe_id": "663559",
     "dish_name": "Tomato and lentil soup",
-    "user_id": 3,
+    "user_id": 4,
     "image": "https://spoonacular.com/recipeImages/663559-312x231.jpg"
   },
   {
@@ -50,7 +50,7 @@
   {
     "recipe_id": "663150",
     "dish_name": "Thai Savory Brown Fried Rice",
-    "user_id": 6,
+    "user_id": 4,
     "image": "https://spoonacular.com/recipeImages/663150-312x231.jpg"
   },
   {
@@ -86,7 +86,7 @@
   {
     "recipe_id": "633101",
     "dish_name": "Autumn Pumpkin Cake",
-    "user_id": 2,
+    "user_id": 4,
     "image": "https://spoonacular.com/recipeImages/633101-312x231.jpg"
   },
   {
@@ -98,7 +98,7 @@
   {
     "recipe_id": "664471",
     "dish_name": "Vegan Peanut Butter Chocolate Cheesecake",
-    "user_id": 6,
+    "user_id": 4,
     "image": "https://spoonacular.com/recipeImages/664471-312x231.jpg"
   },
   {
@@ -110,7 +110,7 @@
   {
     "recipe_id": "662669",
     "dish_name": "Swiss Chard Linguine",
-    "user_id": 7,
+    "user_id": 4,
     "image": "https://spoonacular.com/recipeImages/662669-312x231.jpg"
   },
   {
