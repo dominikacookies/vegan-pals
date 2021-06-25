@@ -1,1 +1,61 @@
-<h1>Your favourite recipes</h1>
+{{#if loggedIn}}
+{{>private-nav}}
+{{else}}
+{{>public-nav}}
+{{/if}}
+<main>
+  <section class="my-recipes-all">
+    <h1 class="main-header-style text-center">Your yummy recipes</h1>
+    {{#if recipes}}
+
+    <div class="card-group">
+      {{#each recipes as |recipe|}}
+      <section class="recipe-card-container d-flex flex-wrap mb-3">
+        <div class="card my-recipe-card">
+          <a href="recipe/{{this.recipe_id}}">
+          <div id="image-block" class="mx-auto"> <img
+              src="{{this.image}}"
+              class="card-img-top mb-1 my-recipe-img"
+              alt="Image of dish"
+            />
+            <h5 class="card-title text-center btn my-recipe-title">
+              {{this.dish_name}}
+            </h5></div>
+           
+          </a>
+          <div class="my-recipe-buttons">
+            <a
+              href="/recipe/{{recipe.recipe_id}}"
+              target="_blank"
+              class="card-link btn main-button-style"
+            >
+              View recipe
+            </a>
+
+            <button
+              id="{{recipe.recipe_id}}"
+              name="remove-from-favourites-btn"
+              class="card-link btn btn-danger"
+            >
+              <i class="far fa-trash-alt fs-4"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {{/each}} {{ else }}
+      <div class="text-center">
+        <h3>Oh no! You don't have any recipes saved yet!</h3>
+        <h3>Search now to get cooking.</h3>
+        {{>private-searchbar}}
+      </div>
+      {{/if}}
+    </div>
+  </section>
+</main>
+
+
+
+
+
+{{>footer}}

@@ -1,0 +1,72 @@
+{{>private-nav}}
+<main>
+  <h1 class="main-header-style">Hey, {{name}}!</h1>
+  <div class="d-flex flex-row justify-content-evenly">
+    <div class="mt-5">
+      {{>private-searchbar}}
+      <section id="nearest-upcoming" class="mb-5">
+        <h2 class="main-header-style">Upcoming Cooktogether</h2>
+
+        {{#if mostUpcomingCooktogether}}
+        <div class="nearest-upcoming card mb-3 mx-auto">
+          <div class="row">
+            <div class="col-md-6">
+              <img
+                src="{{mostUpcomingCooktogether.recipe_image}}"
+                alt="..."
+                style="height: 25vw;"
+              />
+            </div>
+            <div class="col-md-6">
+              <div class="card-body h-100 w-100">
+                <h5 class="card-title">
+                  {{mostUpcomingCooktogether.recipe_title}} with
+                  {{mostUpcomingCooktogether.user.first_name}}
+                </h5>
+                <p class="card-text">
+                  Meeting for {{mostUpcomingCooktogether.meal_type}} on
+                  {{mostUpcomingCooktogether.datetime}}
+                </p>
+                <p class="card-text">
+                  Get in touch: {{mostUpcomingCooktogether.contact_details}}
+                </p>
+                <a
+                  href="/recipe/{{mostUpcomingCooktogether.recipe_id}}"
+                  class="btn main-button-style"
+                >
+                  View recipe
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{else}}
+      <div class="text-center">
+        <h3> You don't have any cooktogethers yet. </h3> 
+        <p> How it works: </p>
+        <p> 1. Save a recipe,  2. Select a pal,  3. Get cooking together! </p>
+        <a href="/cooktogether/myrecipes" class="btn main-button-style">Get started!</a>
+        <a href="#search-bar" class="btn main-button-style">Find a recipe</a>
+      </div>
+      {{/if}}
+
+
+      </section>
+      <section class="your-yummy-recipes">
+        <h2 class="main-header-style">Your yummy recipes</h2>
+         {{#if latestSavedRecipes}}
+         <div class="card-group"> {{#each latestSavedRecipes}}
+              {{> recipe-card}}
+            {{/each }}</div>
+           
+          {{else}}
+            <div class="text-center">
+              <h3> You don't have any recipes saved yet. </h3> 
+              <a href="#search-bar" class="btn main-button-style">Find a recipe now</a>
+            </div>
+          {{/if}}
+      </section>
+    </div>
+  </div>
+</main>
+{{>footer}}

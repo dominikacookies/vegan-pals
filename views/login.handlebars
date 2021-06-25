@@ -1,1 +1,44 @@
-<h1>Login here</h1>
+{{> public-nav }} 
+   
+<main class="login-page">
+  <section class="login-form-container mx-auto">
+    <div class="text-center mb-4">
+      <h2 class="mb-3">Welcome back pal!</h2>
+      <h3>Enter your details to login</h3>
+    </div>
+    <form id="login-form">
+      <div id="login-error-messages"></div>
+      <div class="mb-3 login-inputs">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email address"
+        />
+      </div>
+      <div class="mb-3 login-inputs">
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+        />
+      </div>
+      
+      <div class="login-buttons-container d-flex flex-wrap">
+        <div class="login-buttons">
+          <button
+            type="submit"
+            class="login-button btn main-button-style"
+          >
+            Login
+          </button>
+        </div>
+        <div class="signup-button">
+          <a href="/signup" class="btn main-button-style">Signup</a>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>
+{{>footer}}

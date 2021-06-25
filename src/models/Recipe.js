@@ -35,6 +35,10 @@ const schema = {
       key: "id",
     },
   },
+  image: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 };
 
 Recipe.init(schema, options);

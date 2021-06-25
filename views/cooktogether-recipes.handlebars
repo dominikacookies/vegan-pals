@@ -1,0 +1,45 @@
+
+{{>private-nav}}
+<main>
+  <section>
+    <h1 class="main-header-style">Choose a recipe to cook with a pal</h1>
+    <div class="card-group">
+      {{#each recipes as |recipe|}}
+      <section class="d-flex flex-wrap recipe-card-container">
+        <div class="card recipe-card-pal mb-3">
+          
+            <img
+              src="{{recipe.image}}"
+              class="card-img-top mb-1 recipe-img"
+              alt="Image of dish"
+            />
+            <h5 class="card-title btn recipe-title">
+              {{recipe.dish_name}}
+            </h5>
+
+            <div class="d-flex flex-row justify-content-around">
+              <a
+                href="/cooktogether/myrecipes/pals/{{recipe.recipe_id}}"
+                class="btn main-button-style"
+              >
+                Choose recipe
+              </a>
+              <a
+                href="/recipe/{{recipe.recipe_id}}"
+                target="_blank"
+                class="btn main-button-style"
+              >
+                View recipe
+              </a>
+            </div>
+          
+        </div>
+      </section>
+      {{/each }}
+    </div>
+  </section>
+</main>
+
+
+
+{{>footer}}

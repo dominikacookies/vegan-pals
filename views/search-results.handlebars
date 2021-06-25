@@ -1,2 +1,36 @@
-<h1>Search results show here</h1>
-<p> {{data}}</p>
+{{#if loggedIn}} 
+  {{>private-nav}}  
+{{else}}
+  {{>public-nav}}
+{{/if}}
+
+<main>
+  <section class="search-results ">
+    {{#if loggedIn}} {{>private-searchbar}} {{else}} {{>public-searchbar}}
+    {{/if}}
+    <div>
+      <h1 class="main-header-style text-center mb-3">Recipe Search Results</h1>
+    </div>
+
+    <div class="card-group">
+      {{#each recipeData}}
+             {{> recipe-card}}
+      {{/each}}
+    </div>
+
+
+    <div class="d-grid gap-2 col-6 mx-auto m-5">
+      <button
+        class="btn"
+        type="button"
+        id="renderMoreResults"
+        data-requesturl = {{requestUrl}}
+        style="background-color: #304922; color: #f6efdd"
+      >
+        Render more results
+      </button>
+    </div>
+  </section>
+</main>
+
+{{>footer}}

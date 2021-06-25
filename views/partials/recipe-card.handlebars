@@ -1,0 +1,16 @@
+<section class="recipe-card-container d-inline-flex flex-wrap">
+  <div class="main-recipe-card card">
+    <a href="recipe/{{this.recipe_id}}" target="_blank">
+      <div id="image-block" class="mx-auto">
+        <img
+          src="{{this.image}}"
+          class="card-img-top mb-3 recipe-img"
+          alt="Image of dish"
+        />
+        <h5 class="card-title text-center btn recipe-title">
+          {{this.dish_name}}
+        </h5>
+      </div>
+    </a>
+  </div>
+</section>

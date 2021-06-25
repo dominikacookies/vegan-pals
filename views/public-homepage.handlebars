@@ -1,0 +1,80 @@
+{{>public-nav}}
+<main>
+  <h1 class="main-header-style">Hey, Pal!</h1>
+
+  <div class="d-flex flex-row justify-content-evenly">
+    <div class="mt-5">
+      {{>public-searchbar}}
+      <section class="how-it-works">
+        <h2 class="main-header-style">How It Works</h2>
+        <div class="d-flex flex-row justify-content-evenly">
+          <div class="guide-card card text-dark rounded-3" style="max-width: 18rem; height: 12rem">
+            <i class="
+                fas
+                fa-2x fa-search
+                position-absolute
+                top-0
+                start-50
+                translate-middle-x
+                mt-4
+              "></i>
+              <br>
+            <div class="mt-5">
+              <h4 class="card-title mb-2 text-center">1. Find a recipe</h4>
+              <h6 class="card-text text-center">
+                Find exciting new recipes that accommodate your intolerances.
+              </h6>
+            </div>
+          </div>
+          <div class="guide-card card text-dark rounded-3" style="max-width: 18rem; height: 12rem">
+            <i class="
+                far
+                fa-2x fa-save
+                position-absolute
+                top-0
+                start-50
+                translate-middle-x
+                mt-4
+              "></i>
+              <br>
+            <div class="mt-5">
+              <h4 class="card-title mb-2 text-center">2. Save it for later</h4>
+              <h6 class="card-text text-center">Save your chosen yummy recipes to cook later.</h6>
+            </div>
+          </div>
+          <div class="guide-card card text-dark rounded-3" style="max-width: 18rem; height: 12rem">
+            <i class="
+                fas
+                fa-2x fa-users
+                position-absolute
+                top-0
+                start-50
+                translate-middle-x
+                mt-4
+              "></i>
+              <br>
+            <div class="mt-5">
+              <h4 class="card-title mb-2 text-center">3. Cook it with a pal!</h4>
+              <h6 class="card-text text-center">
+                Find new awesome pals to cook you favourite recipes with!
+              </h6>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="other-pals-love">
+        <h2 class="main-header-style">Other pals love</h2>
+        <section class="card-group">
+
+          {{#each latestSavedRecipes}}
+          {{> recipe-card}}
+          {{/each }}
+
+
+        </section>
+
+      </section>
+    </div>
+  </div>
+</main>
+{{>footer}}

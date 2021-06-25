@@ -1,5 +1,4 @@
 .login-page-container {
-  background-color: aqua;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -12,6 +11,15 @@
   left: 20%;
 }
 
+.main-button-style {
+  background-color: #304922;
+  color: #f6efdd;
+  width: 150px;
+  max-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+}
 .login-error-message {
   text-align: center;
   color: red;
@@ -29,8 +37,11 @@
 
 .login-button {
   width: 150px;
+  max-height: 30px;
   display: inline;
-  margin: 10px
+  margin: 10px;
+  background-color: black;
+  color: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -42,4 +53,3 @@
     width: 80%;
   }
 }
-

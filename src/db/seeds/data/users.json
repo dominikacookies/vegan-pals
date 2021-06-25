@@ -23,7 +23,245 @@
     "email": "shrek@shrek.com",
     "password": "password420",
     "bio": "What are you doing in my swamp?",
-    "gluten_intolerance": "false",
+    "gluten_intolerance": "true",
     "soy_intolerance": "true"
+  },
+  {
+    "first_name": "Misha",
+    "last_name": "Shtebunaeva",
+    "email": "misha@lovevegan.com",
+    "password": "MyPassword",
+    "bio": "I love cooking, hiking and bus",
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
+  },
+  {
+    "first_name": "James",
+    "last_name": "Acaster",
+    "email": "acaster@offmenu.com",
+    "password": "dietcoke",
+    "bio": "Hi, I'm comedian James Acaster and I love ice-cream",
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
+  },
+  {
+    "first_name": "Aparna",
+    "last_name": "Nancherla",
+    "email": "aparna@hotmail.com",
+    "password": "scallion",
+    "bio": "I love korean food and I voiced Hollyhock on BoJack Horseman!",
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
+  },
+  {
+    "first_name": "Danny",
+    "last_name": "Gonzalez",
+    "email": "danny@gmail.com",
+    "password": "securepassword",
+    "bio": "I love to relax with my friends, drink wine and watch re-runs of ALF",
+    "tree_nut_intolerance": "true"
+  },
+  {
+    "first_name": "Elon",
+    "last_name": "Musk",
+    "email": "elon@spacex.com",
+    "password": "password111",
+    "bio": "Hey guys, have you heard of Doge Coin?? You should buy some!",
+    "sesame_intolerance": "true",
+    "sulphite_intolerance": "true"
+  },
+  {
+    "first_name": "Josephine",
+    "last_name": "Murphy",
+    "email": "josephine.murphy@example.com",
+    "password": "baseball",
+    "bio": "I love snowboarding and I'm trying to cook more!",
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
+  },
+  {
+    "first_name": "Nikolia",
+    "last_name": "Blackley",
+    "email": "nblackley0@yale.edu",
+    "password": "pblUijhl",
+    "bio": "Nunc nisl.",
+    "gluten_intolerance": true,
+    "wheat_intolerance": true
+  },
+  {
+    "first_name": "Maximo",
+    "last_name": "Gregor",
+    "email": "mgregor1@tripod.com",
+    "password": "HW39SDn9",
+    "bio": "Integer ac neque.",
+    "gluten_intolerance": true,
+    "grain_intolerance": true,
+    "sulphite_intolerance": true
+  },
+  {
+    "first_name": "Krystle",
+    "last_name": "Rye",
+    "email": "krye2@nyu.edu",
+    "password": "SHxaWXlMV",
+    "bio": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem.",
+    "peanut_intolerance": true,
+    "grain_intolerance": true,
+    "soy_intolerance": true,
+    "sulphite_intolerance": true
+  },
+  {
+    "first_name": "Dede",
+    "last_name": "Belk",
+    "email": "dbelk3@netvibes.com",
+    "password": "aVc8XTP6",
+    "bio": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+    "soy_intolerance": true
+  },
+  {
+    "first_name": "Nadine",
+    "last_name": "Lawry",
+    "email": "nlawry4@icio.us",
+    "password": "IMXkGVnQ0",
+    "bio": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+    "gluten_intolerance": true,
+    "wheat_intolerance": true
+  },
+  {
+    "first_name": "Anselma",
+    "last_name": "Figgess",
+    "email": "afiggess5@bluehost.com",
+    "password": "8Chc202R",
+    "bio": "Integer tincidunt ante vel ipsum.",
+    "soy_intolerance": true
+  },
+  {
+    "first_name": "Carlene",
+    "last_name": "Inkster",
+    "email": "cinkster6@fc2.com",
+    "password": "bu6CmcgnZf",
+    "bio": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+    "gluten_intolerance": true,
+    "wheat_intolerance": true
+  },
+  {
+    "first_name": "Keenan",
+    "last_name": "O'Bradane",
+    "email": "kobradane7@last.fm",
+    "password": "cHoYuJpe",
+    "bio": "In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",
+    "peanut_intolerance": true
+  },
+  {
+    "first_name": "Kerianne",
+    "last_name": "Wellsman",
+    "email": "kwellsman8@irs.gov",
+    "password": "NKmdvjTbkS",
+    "bio": "Integer ac leo.",
+    "peanut_intolerance": true,
+    "sesame_intolerance": true,
+    "grain_intolerance": true
+  },
+  {
+    "first_name": "Marga",
+    "last_name": "Breissan",
+    "email": "mbreissan9@apple.com",
+    "password": "hNLK7E2kRgMg",
+    "bio": "Praesent id massa id nisl venenatis lacinia.",
+    "gluten_intolerance": true,
+    "peanut_intolerance": true
+  },
+  {
+    "first_name": "Major",
+    "last_name": "Vell",
+    "email": "mvella@unc.edu",
+    "password": "UIYIJad",
+    "bio": "Morbi a ipsum.",
+    "gluten_intolerance": true,
+    "peanut_intolerance": true
+  },
+  {
+    "first_name": "Lorrayne",
+    "last_name": "Bowlas",
+    "email": "lbowlasb@pen.io",
+    "password": "YNpv71g",
+    "bio": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",
+    "gluten_intolerance": true,
+    "peanut_intolerance": true,
+    "soy_intolerance": true,
+    "wheat_intolerance": true
+  },
+  {
+    "first_name": "Sigmund",
+    "last_name": "Checkley",
+    "email": "scheckleyc@spotify.com",
+    "password": "hQvOrc5ToXQ",
+    "bio": "Nulla facilisi.",
+    "peanut_intolerance": true,
+    "sesame_intolerance": true
+  },
+  {
+    "first_name": "Verney",
+    "last_name": "Lismore",
+    "email": "vlismored@elpais.com",
+    "password": "9jv1Pg",
+    "bio": "Pellentesque ultrices mattis odio.",
+    "gluten_intolerance": true,
+    "peanut_intolerance": true,
+    "tree_nut_intolerance": true
+  },
+  {
+    "first_name": "Adora",
+    "last_name": "Overlow",
+    "email": "aoverlowe@mail.ru",
+    "password": "5LiuCgSNv",
+    "bio": "Duis aliquam convallis nunc.",
+    "peanut_intolerance": true,
+    "sesame_intolerance": true
+  },
+  {
+    "first_name": "Mikael",
+    "last_name": "Beville",
+    "email": "mbevillef@dot.gov",
+    "password": "YHJwr3lNx",
+    "bio": "Mauris sit amet eros.",
+    "sesame_intolerance": true,
+    "soy_intolerance": true,
+    "sulphite_intolerance": true
+  },
+  {
+    "first_name": "Ariel",
+    "last_name": "Illiston",
+    "email": "aillistong@abc.net.au",
+    "password": "yzujwyru2PC",
+    "bio": "Etiam vel augue.",
+    "gluten_intolerance": "true",
+    "wheat_intolerance": "true"
+  },
+  {
+    "first_name": "Shelton",
+    "last_name": "Cregeen",
+    "email": "scregeenh@cnet.com",
+    "password": "8EwVvugxv",
+    "bio": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae..",
+    "gluten_intolerance": true,
+    "sesame_intolerance": true,
+    "soy_intolerance": true
+  },
+  {
+    "first_name": "Alford",
+    "last_name": "Ironmonger",
+    "email": "aironmongeri@hugedomains.com",
+    "password": "MmmBr0VUk",
+    "bio": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+    "grain_intolerance": true,
+    "sulphite_intolerance": true,
+    "tree_nut_intolerance": true
+  },
+  {
+    "first_name": "Irina",
+    "last_name": "Dansie",
+    "email": "idansiej@domainmarket.com",
+    "password": "8cNxXfv76x8",
+    "bio": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy."
   }
 ]

@@ -1,0 +1,95 @@
+{{#if loggedIn}}
+  {{>private-nav}}  
+{{else}}
+  {{>public-nav}}  
+{{/if}}
+
+<main>
+  <section class="recipe-img-cards"><figure id="image-container" class="mx-auto" style="width: 50vw">
+    <figcaption id="recipe-name" class="text-center">
+      <h2 name="recipe-title" class="main-header-style">{{title}}</h2>
+    </figcaption>
+    <img src={{image}} name="recipe-image" class="recipe-image" alt="Recipe image" style="width: 50vw; height: 40px border-color:#304922" />
+  </figure>
+
+  <div class="container d-flex justify-content-center">
+  <section
+    class="card-group row text-center "
+    style="justify-content: center"
+  >
+    <div class="col">
+      <div class="card recipe-card-sm">
+        <div class="card-body">
+          <h5 class="card-title">Cook time:</h5>
+          <p class="card-text">{{prepTime}} minutes</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card recipe-card-sm">
+        <div class="card-body">
+          <h5 class="card-title">Serves:</h5>
+          <p class="card-text">{{servings}}</p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="col">
+      <div class="card" style="background-color: #304922;">
+        <div class="card-body card-title">
+         
+        {{#if loggedIn}}
+           <button id="{{id}}" name="add-to-favourites-btn" type="button" class="card body" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
+        {{else}}
+            <button id="{{id}}" name="add-to-favourites-btn" type="button" data-bs-toggle="modal" data-bs-target="#login-modal" class="card body" style="background-color: #304922; color:#ED6160"><i class="far fs-1 fa-heart"></i></button>
+        {{/if}}
+        </div>
+      </div>
+    </div>
+
+  </section>
+  </div></section>
+  
+  <section class="recipe-info d-flex row">
+    <div class="col-sm-3">
+      <div class="card">
+        <h3 class="ingredients"> Ingredients: </h3>
+        <ul class="list-group list-group-flush ingredient-list">
+          {{#each ingredients as |ingredient|}}
+            <li class="list-group-item">{{ingredient}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="directions">
+        <h3>Directions:</h3>
+        <p>
+          {{{directions}}}
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login or Sign up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>You must be logged in to save a recipe.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="prompt-login-btn" class="btn main-button-style" data-bs-dismiss="modal">Log in</button>
+        <button type="button" id="prompt-signup-btn" class="btn main-button-style">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+{{>footer}}

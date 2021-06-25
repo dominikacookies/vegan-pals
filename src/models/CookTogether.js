@@ -24,7 +24,7 @@ const schema = {
     allowNull: false,
   },
   datetime: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: false,
   },
   meal_type: {
@@ -59,6 +59,10 @@ const schema = {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  recipe_image: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
 };
 
 CookTogether.init(schema, options);

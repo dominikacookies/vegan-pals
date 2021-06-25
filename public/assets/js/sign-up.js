@@ -1,18 +1,53 @@
 const handleSignupSubmit = async (event) => {
   event.preventDefault();
 
-  const firstname = $("#firstname").val();
-  const lastname = $("#lasttname").val();
+  const checkedIntoleranceElements = document.querySelectorAll(
+    ".intolerance:checked"
+  );
+
+  let intolerances = {};
+  const defaultIntolerances = {
+    gluten: false,
+    peanut: false,
+    sesame: false,
+    grain: false,
+    soy: false,
+    sulphite: false,
+    "tree nut": false,
+    wheat: false,
+  };
+
+  if (checkedIntoleranceElements.length > 0) {
+    const intoleranceElements = Array.prototype.slice.call(
+      checkedIntoleranceElements
+    );
+    const intoleranceToObject = (acc, currValue) => {
+      return {
+        ...acc,
+        [currValue.name]: true,
+      };
+    };
+    intolerances = intoleranceElements.reduce(intoleranceToObject, {});
+  }
+
+  const firstName = $("#firstName").val();
+  const lastName = $("#lastName").val();
   const password = $("#password").val();
   const email = $("#email").val();
+  const bio = "";
   const confirmPassword = $("#confirmPassword").val();
 
   if (password === confirmPassword) {
     const requestBody = {
-      firstname: firstname,
-      lastname: lastname,
-      password: password,
-      email: email,
+      firstName,
+      lastName,
+      password,
+      email,
+      bio,
+      intolerances: {
+        ...defaultIntolerances,
+        ...intolerances,
+      },
     };
 
     const options = {
@@ -24,7 +59,7 @@ const handleSignupSubmit = async (event) => {
       body: JSON.stringify(requestBody),
     };
 
-    const response = await fetch("/auth/sign-up", options);
+    const response = await fetch("/auth/signup", options);
 
     if (response.status === 200) {
       window.location.replace("/login");
