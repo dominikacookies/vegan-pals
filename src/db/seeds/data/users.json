@@ -30,8 +30,8 @@
     "first_name": "Misha",
     "last_name": "Shtebunaeva",
     "email": "misha@lovevegan.com",
-    "password": "",
-    "bio": "I love cooking, hiking and bus stops!",
+    "password": "MyPassword",
+    "bio": "I love cooking, hiking and bus",
     "gluten_intolerance": "true",
     "wheat_intolerance": "true"
   },
