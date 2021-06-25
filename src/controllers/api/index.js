@@ -40,26 +40,27 @@ const createCookTogether = async (req, res) => {
     console.log(recipe);
 
     const newCookTogether = [
-      // row for user requesting cook together
+      // row for user receiving cook together invite
       {
         request_id: newCookTogetherId,
         datetime: date,
         meal_type: mealType,
-        status: "sent",
-        user_id: req.session.user.id,
+        status: "received",
+        user_id: userIdReceivingInvite,
         recipe_id: req.session.recipeId,
         recipe_title: recipe.dish_name,
         recipe_image: recipe.image,
       },
-      // row for user receiving cook together invite
+
+      // row for user requesting cook together
       {
         request_id: newCookTogetherId,
         datetime: date,
         meal_type: mealType,
         message: message,
         contact_details: contactDetailsForSendingUser,
-        status: "received",
-        user_id: userIdReceivingInvite,
+        status: "sent",
+        user_id: req.session.user.id,
         recipe_id: req.session.recipeId,
         recipe_title: recipe.dish_name,
         recipe_image: recipe.image,
@@ -228,24 +229,25 @@ const search = async (req, res) => {
   console.log("search result");
 };
 
-const saveBio = async (req,res) => {
+const saveBio = async (req, res) => {
   try {
-    
-  const bio = req.body.bio
-  const updateUserBio = await User.update({bio},{
-    where: {
-      id: req.session.user.id
-    }
-  })
-  console.log(updateUserBio)
-    res.render("cooktogether",{bio})
-  
-  } catch(err) {
+    const bio = req.body.bio;
+    const updateUserBio = await User.update(
+      { bio },
+      {
+        where: {
+          id: req.session.user.id,
+        },
+      }
+    );
+    console.log(updateUserBio);
+    res.render("cooktogether", { bio });
+  } catch (err) {
     res.status(500).json({
       error: "Couldn't save bio",
     });
   }
-}
+};
 
 module.exports = {
   createCookTogether,
