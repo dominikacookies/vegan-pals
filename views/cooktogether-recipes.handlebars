@@ -6,18 +6,18 @@
     <div class="card-group">
       {{#each recipes as |recipe|}}
       <section class="d-flex flex-wrap recipe-card-container">
-        <div class="card main-recipe-card">
-          <div class="card-body mx-auto">
+        <div class="card recipe-card-pal mb-3">
+          
             <img
               src="{{recipe.image}}"
-              class="card-img-top mb-3"
+              class="card-img-top mb-1 recipe-img"
               alt="Image of dish"
             />
-            <h5 class="card-title text-center btn recipe-title">
+            <h5 class="card-title btn recipe-title">
               {{recipe.dish_name}}
             </h5>
 
-            <div class="d-flex flex-wrap justify-content-around">
+            <div class="d-flex flex-row justify-content-around">
               <a
                 href="/cooktogether/myrecipes/pals/{{recipe.recipe_id}}"
                 class="btn main-button-style"
@@ -32,7 +32,7 @@
                 View recipe
               </a>
             </div>
-          </div>
+          
         </div>
       </section>
       {{/each }}

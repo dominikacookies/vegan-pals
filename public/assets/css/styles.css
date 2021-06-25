@@ -18,15 +18,6 @@ main {
   margin-left: 35;
 }
 
-.main-card-style {
-  background-color: #fffbef;
-  border-width: 5px;
-  border-color: #daaf53;
-  width: 20rem;
-  margin: auto;
-  padding: 1rem;
-}
-
 /* styles for elements on multiple pages */
 .main-header-style {
   color: #304922;
@@ -80,25 +71,27 @@ main {
 
 /*  recipe card partial */
 .recipe-card-container {
-  border: 0.5rem solid #304922;
-  margin: 0.5rem;
-  justify-content: center;
+  margin: auto;
 }
 .main-recipe-card {
   background-color: #f6efdd;
-  padding: 0.5rem;
+  padding: 10px;
   width: 25vw;
+  height: 28vw;
+  border: 0.5rem solid #304922;
+  margin: 1rem;
 }
 .recipe-img {
-  width: 24vw;
+  width: 22vw;
   height: 20vw;
   object-fit: cover;
 }
 .recipe-title {
   background-color: #304922;
   color: #f6efdd;
-  justify-content: center;
-  width: 22.5vw;
+  align-items: center;
+  width: 22vw;
+  height: 4rem;
   font-weight: normal;
 }
 
@@ -108,12 +101,22 @@ main {
 }
 .my-recipe-card {
   background-color: #f6efdd;
+  border: 0.5rem solid #304922;
   padding: 1rem;
-  width: 25vw;
-  height: 28.5vw;
+  width: 26vw;
+  height: 29vw;
 }
-.my-recipe-buttons {
+.my-recipe-title {
+  background-color: #304922;
+  color: #f6efdd;
   width: 22.5vw;
+  font-weight: normal;
+  height: 4rem;
+}
+.my-recipe-img {
+  width: 22.5vw;
+  height: 17vw;
+  object-fit: cover;
 }
 /* recipe render page */
 
@@ -159,8 +162,10 @@ main {
 .upcoming-header {
   margin: 3rem 0rem 0rem 0rem;
 }
-.your-yummy-recipes {
-  justify-content: center;
+.nearest-upcoming {
+  max-width: 70vw;
+  border: 0.3rem solid #daaf53;
+  padding: 1rem;
   margin: auto;
 }
 
@@ -244,9 +249,25 @@ main {
   border: 0.3rem solid #daaf53;
 }
 
+.recipe-card-pal {
+  background-color: #f6efdd;
+  border: 0.5rem solid #304922;
+  padding: 1rem;
+  width: 26vw;
+  height: 28.5vw;
+}
+
 /* pals page */
 .pal-cards {
   margin: auto;
+}
+.pal-card-style {
+  margin: auto;
+  background-color: #fffbef;
+  border-width: 5px;
+  border-color: #daaf53;
+  width: 20rem;
+  padding: 1rem;
 }
 
 /* search-results */

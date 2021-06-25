@@ -10,17 +10,17 @@
     <div class="card-group">
       {{#each pals as |pal|}}
       <section class="pal-cards">
-        <div class="card main-card-style">
+        <div class="card pal-card-style">
           <img
             src="/assets/images/avatars.png"
             class="card-img-top pal-img"
             alt="Illustration of several smiling people"
           />
           <div class="card-body text-center">
-            <h5 class="card-title pt-2">
+            <h5 class="card-title">
               {{pal.first_name}} {{pal.last_name}}
             </h5>
-            <p>About: {{ pal.bio }}</p>
+            <header class="pal-bio">About: {{ pal.bio }}</header>
             <button
               type="button"
               class="btn main-button-style"

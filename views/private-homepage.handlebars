@@ -1,6 +1,6 @@
 {{>private-nav}}
 <main>
-  <h1 class="main-header-style">Hey {{name}}</h1>
+  <h1 class="main-header-style">Hey, {{name}}!</h1>
   <div class="d-flex flex-row justify-content-evenly">
     <div class="mt-5">
       {{>private-searchbar}}
@@ -8,7 +8,7 @@
         <h2 class="main-header-style">Upcoming Cooktogether</h2>
 
         {{#if mostUpcomingCooktogether}}
-        <div class="card mb-3 mx-auto" style="max-width: 70vw">
+        <div class="nearest-upcoming card mb-3 mx-auto">
           <div class="row">
             <div class="col-md-6">
               <img
@@ -52,21 +52,19 @@
 
 
       </section>
-      <section id="your-recipes" class="your-recipes">
+      <section class="your-yummy-recipes">
         <h2 class="main-header-style">Your yummy recipes</h2>
-        <section class="your-yummy-recipes">
          {{#if latestSavedRecipes}}
-            {{#each latestSavedRecipes}}
+         <div class="card-group"> {{#each latestSavedRecipes}}
               {{> recipe-card}}
-            {{/each }}
+            {{/each }}</div>
+           
           {{else}}
             <div class="text-center">
               <h3> You don't have any recipes saved yet. </h3> 
               <a href="#search-bar" class="btn main-button-style">Find a recipe now</a>
             </div>
           {{/if}}
-         
-        </section>
       </section>
     </div>
   </div>
