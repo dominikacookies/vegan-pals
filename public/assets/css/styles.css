@@ -109,21 +109,27 @@ main {
 .my-recipe-card {
   background-color: #f6efdd;
   border: 0.5rem solid #304922;
-  padding: 1rem;
+  padding: 1vw;
   width: 26vw;
   height: 29vw;
+}
+.my-recipe-buttons {
+  background-color: #daaf53;
 }
 .my-recipe-title {
   background-color: #f6efdd;
   color: #304922;
   width: 22.5vw;
   font-weight: bolder;
-  height: 4rem;
+  height: 4vw;
 }
 .my-recipe-img {
   width: 22.5vw;
   height: 17vw;
   object-fit: cover;
+}
+.trash-button {
+  position: absolute;
 }
 /* recipe render page */
 
@@ -151,9 +157,17 @@ main {
   width: 80vw;
   margin: auto;
 }
-.ingredient-list {
-  font-size: 0.8rem;
+.ingredients-card {
+  border: 0.2rem solid #daaf53;
+  background-color: #daaf53;
+}
+.ingredients {
   text-align: center;
+}
+.ingredient-list {
+  font-size: 0.9rem;
+  text-align: center;
+  background-color: #f6efdd;
 }
 .directions {
   border: 0.3rem solid #daaf53;
@@ -274,7 +288,9 @@ main {
   border-width: 5px;
   border-color: #daaf53;
   width: 20rem;
-  padding: 1rem;
+}
+.pal-bio {
+  height: 6rem;
 }
 
 /* search-results */
@@ -295,6 +311,17 @@ main {
   }
   .navtitle {
     display: none;
+  }
+  .my-recipe-title,
+  .recipe-title,
+  .main-button-style {
+    font-size: 9px;
+  }
+  .view-button {
+    display: none;
+  }
+  .fs-4 {
+    font-size: 5em;
   }
 }
 
