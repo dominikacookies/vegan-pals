@@ -18,17 +18,10 @@ main {
   margin-left: 35;
 }
 
-.main-card-style {
-  background-color: #fffbef;
-  border-width: 1px;
-  border-color: #304922;
-  margin: 5px;
-}
-
 /* styles for elements on multiple pages */
 .main-header-style {
   color: #304922;
-  margin: 3rem 0rem 3rem 0rem;
+  margin: 3rem 0rem 2rem 0rem;
   text-align: center;
 }
 .main-button-style {
@@ -51,15 +44,22 @@ main {
   margin: auto;
   margin-bottom: 3rem;
   max-width: 65vw;
-  z-index: -10;
+}
+
+.input-form {
+  position: relative;
+}
+.search-input {
+  position: relative;
+  z-index: 1;
 }
 
 .search-button {
-  width: 4rem;
   position: absolute;
-  right: 2rem;
+  width: 4rem;
   background-color: #304922;
   color: #f6efdd;
+  z-index: 3;
 }
 
 .navbar {
@@ -78,23 +78,28 @@ main {
 
 /*  recipe card partial */
 .recipe-card-container {
-  border: 0.5rem solid #304922;
-  margin: 0.5rem;
-  justify-content: center;
+  margin: auto;
 }
 .main-recipe-card {
   background-color: #f6efdd;
-  padding: 1rem;
+  padding: 10px;
   width: 25vw;
-  height: 26vw;
+  height: 28vw;
+  border: 0.5rem solid #304922;
+  margin: 1rem;
 }
-
+.recipe-img {
+  width: 22vw;
+  height: 20vw;
+  object-fit: cover;
+}
 .recipe-title {
-  background-color: #304922;
-  color: #f6efdd;
-  justify-content: center;
-  width: 22.5vw;
-  font-weight: normal;
+  background-color: #f6efdd;
+  color: #304922;
+  align-items: center;
+  width: 22vw;
+  height: 4rem;
+  font-weight: bolder;
 }
 
 /* my recipes page */
@@ -103,12 +108,22 @@ main {
 }
 .my-recipe-card {
   background-color: #f6efdd;
+  border: 0.5rem solid #304922;
   padding: 1rem;
-  width: 25vw;
-  height: 28.5vw;
+  width: 26vw;
+  height: 29vw;
 }
-.my-recipe-buttons {
+.my-recipe-title {
+  background-color: #f6efdd;
+  color: #304922;
   width: 22.5vw;
+  font-weight: bolder;
+  height: 4rem;
+}
+.my-recipe-img {
+  width: 22.5vw;
+  height: 17vw;
+  object-fit: cover;
 }
 /* recipe render page */
 
@@ -154,8 +169,10 @@ main {
 .upcoming-header {
   margin: 3rem 0rem 0rem 0rem;
 }
-.your-yummy-recipes {
-  justify-content: center;
+.nearest-upcoming {
+  max-width: 70vw;
+  border: 0.3rem solid #daaf53;
+  padding: 1rem;
   margin: auto;
 }
 
@@ -200,8 +217,17 @@ main {
   margin: auto;
 }
 
-/* cooktogether */
-
+/* cooktogether page */
+.intro-section {
+  margin: auto;
+}
+.intro-section-container {
+  margin: auto;
+  padding: 2rem 0rem 2rem 0rem;
+}
+.intro-title {
+  text-align: center;
+}
 .small-text-bolded {
   font-size: 13.5px;
   color: black;
@@ -224,8 +250,41 @@ main {
   margin: 15px;
 }
 
+.carousel-style {
+  padding: 1rem;
+  margin: auto;
+  border: 0.3rem solid #daaf53;
+}
+
+.recipe-card-pal {
+  background-color: #f6efdd;
+  border: 0.5rem solid #304922;
+  padding: 1rem;
+  width: 26vw;
+  height: 28.5vw;
+}
+
+/* pals page */
+.pal-cards {
+  margin: auto;
+}
+.pal-card-style {
+  margin: auto;
+  background-color: #fffbef;
+  border-width: 5px;
+  border-color: #daaf53;
+  width: 20rem;
+  padding: 1rem;
+}
+
 /* search-results */
 
+/* MEDIA QUERIES */
+/* Phones */
+@media screen and (max-width: 480px) {
+}
+
+/* Tablet */
 @media screen and (max-width: 768px) {
   main {
     margin-right: 10;
@@ -237,4 +296,12 @@ main {
   .navtitle {
     display: none;
   }
+}
+
+/* Tablet landscape */
+@media screen and (max-width: 1024px) {
+}
+
+/* Desktop */
+@media screen and (max-width: 1280px) {
 }

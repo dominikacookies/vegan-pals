@@ -1,23 +1,45 @@
 
 {{>private-nav}}
 <main>
-  <div class="ms-100, me-100">
-    <h1 class="pb-5 text-center">Choose a recipe to cook with a pal</h1>
-
-    <div class="d-flex flex-wrap justify-content-around">
+  <section>
+    <h1 class="main-header-style">Choose a recipe to cook with a pal</h1>
+    <div class="card-group">
       {{#each recipes as |recipe|}}
-          <div class="card d-inline-flex  justify-content-between p-2 bd-highlight main-card-style" style="width: 20rem">
-            <div class="card-body mx-auto">
-              <img src={{recipe.image}} class="card-img-top" alt="Image of dish" />
-              <h5 class="card-title text-center pt-4">{{recipe.dish_name}}</h5>
+      <section class="d-flex flex-wrap recipe-card-container">
+        <div class="card recipe-card-pal mb-3">
+          
+            <img
+              src="{{recipe.image}}"
+              class="card-img-top mb-1 recipe-img"
+              alt="Image of dish"
+            />
+            <h5 class="card-title btn recipe-title">
+              {{recipe.dish_name}}
+            </h5>
+
+            <div class="d-flex flex-row justify-content-around">
+              <a
+                href="/cooktogether/myrecipes/pals/{{recipe.recipe_id}}"
+                class="btn main-button-style"
+              >
+                Choose recipe
+              </a>
+              <a
+                href="/recipe/{{recipe.recipe_id}}"
+                target="_blank"
+                class="btn main-button-style"
+              >
+                View recipe
+              </a>
             </div>
-            <div class="d-flex flex-wrap justify-content-around ">
-              <a href='/cooktogether/myrecipes/pals/{{recipe.recipe_id}}' class="btn main-button-style"> Choose recipe </a>
-              <a href='/recipe/{{recipe.recipe_id}}' target="_blank" class="btn main-button-style"> View recipe </a>
-            </div>
-          </div>
+          
+        </div>
+      </section>
       {{/each }}
     </div>
-  </div>
+  </section>
 </main>
+
+
+
 {{>footer}}

@@ -10,15 +10,15 @@
 
     <div class="card-group">
       {{#each recipes as |recipe|}}
-      <section class="recipe-card-container d-flex flex-wrap">
+      <section class="recipe-card-container d-flex flex-wrap mb-3">
         <div class="card my-recipe-card">
           <a href="recipe/{{this.recipe_id}}">
           <div id="image-block" class="mx-auto"> <img
               src="{{this.image}}"
-              class="card-img-top mb-3"
+              class="card-img-top mb-1 my-recipe-img"
               alt="Image of dish"
             />
-            <h5 class="card-title text-center btn recipe-title">
+            <h5 class="card-title text-center btn my-recipe-title">
               {{this.dish_name}}
             </h5></div>
            

@@ -1,55 +1,124 @@
 
 {{>private-nav}}
 <main>
-    <h1 class="pb-5 text-center">Which pal would you like to cook with?</h1>
+  <h1 class="main-header-style">Which pal would you like to cook with?</h1>
 
-    <div class="d-flex flex-wrap justify-content-around" data-recipe='{{recipeId}}'>
+  <div
+    class="d-flex flex-wrap justify-content-around"
+    data-recipe="{{recipeId}}"
+  >
+    <div class="card-group">
       {{#each pals as |pal|}}
-          <div class="card main-card-style" style="width: 18rem">
-            <img src="/assets/images/avatars.png" class="card-img-top pal-img" alt="Image of dish" />
-            <div class="card-body text-center">
-              <h5 class="card-title pt-2">{{pal.first_name}} {{pal.last_name}}</h5>
-              <p> About: {{ pal.bio }}</p>
-              <button type="button" class="btn main-button-style" data-bs-toggle="offcanvas" data-name="pal-selector" data-pal={{pal.id}} data-bs-target='#pal'>
-               Cook together
-             </button>
-            </div>
+      <section class="pal-cards">
+        <div class="card pal-card-style">
+          <img
+            src="/assets/images/avatars.png"
+            class="card-img-top pal-img"
+            alt="Illustration of several smiling people"
+          />
+          <div class="card-body text-center">
+            <h5 class="card-title">
+              {{pal.first_name}} {{pal.last_name}}
+            </h5>
+            <header class="pal-bio">About: {{ pal.bio }}</header>
+            <button
+              type="button"
+              class="btn main-button-style"
+              data-bs-toggle="offcanvas"
+              data-name="pal-selector"
+              data-pal="{{pal.id}}"
+              data-bs-target="#pal"
+            >
+              Cook together
+            </button>
           </div>
-      {{/each }}
-        <div class="offcanvas offcanvas-end beige-bkg" id="pal" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-          <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">The details</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <div class="cooktogether-container d-flex flex-column">
-                <p> Alright! Let's get this party started!</p>
-                <p> Is this a breakfast, lunch or dinner get together? </p>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="breakfast">
-                    <label class="form-check-label" for="inlineRadio1">Breakfast</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="lunch">
-                    <label class="form-check-label" for="inlineRadio2">Lunch</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="din">
-                    <label class="form-check-label" for="inlineRadio3">Dinner</label>
-                  </div>
-                <p class="pt-3"> What date works for you?</p>
-                  <input type="text" class="datepicker col s10 offset-l1 offset-m1 offset-s1 text-black center-align" id="date-input" placeholder="Select your date"/>
-                <p class="pt-3"> What's the best way to contact you? </p>
-                  <textarea class="contact-details"> </textarea>
-                <p class="pt-3"> Message </p>
-                 <textarea class="message"> </textarea>
-                <div>
-                <button type="button" class="btn main-button-style", id="cooktogether-button">Send invite</button>
-                <div id="errors"></div>
-                </div>
-              </div>
-          </div>  
         </div>
+      </section>
+      {{/each }}
     </div>
-</main> 
+    <div
+      class="offcanvas offcanvas-end beige-bkg"
+      id="pal"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">The details</h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="cooktogether-container d-flex flex-column">
+          <p>Alright! Let's get this party started!</p>
+          <p>Is this a breakfast, lunch or dinner get together?</p>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio1"
+              value="breakfast"
+            />
+            <label class="form-check-label" for="inlineRadio1">Breakfast</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio2"
+              value="lunch"
+            />
+            <label class="form-check-label" for="inlineRadio2">Lunch</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio3"
+              value="din"
+            />
+            <label class="form-check-label" for="inlineRadio3">Dinner</label>
+          </div>
+          <p class="pt-3">What date works for you?</p>
+          <input
+            type="text"
+            class="
+              datepicker
+              col
+              s10
+              offset-l1 offset-m1 offset-s1
+              text-black
+              center-align
+            "
+            id="date-input"
+            placeholder="Select your date"
+          />
+          <p class="pt-3">What's the best way to contact you?</p>
+          <textarea class="contact-details"> </textarea>
+          <p class="pt-3">Message</p>
+          <textarea class="message"> </textarea>
+          <div>
+            <button
+              type="button"
+              class="btn main-button-style"
+              ,
+              id="cooktogether-button"
+            >
+              Send invite
+            </button>
+            <div id="errors"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+ 
 {{>footer}}

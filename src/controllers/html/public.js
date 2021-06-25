@@ -110,7 +110,7 @@ const renderSignupPage = (req, res) => {
   try {
     const intolerances = [
       "gluten",
-      "gray",
+      "grain",
       "soy",
       "peanut",
       "sesame",

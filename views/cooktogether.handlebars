@@ -1,11 +1,12 @@
 {{>private-nav}}
-
 <main>
-  <h2 class="main-header-style">Welcome to your Cook Together page {{name}}!</h2>
+  <h2 class="main-header-style">
+    Welcome to your Cook Together page, {{name}}!
+  </h2>
 
-  <section id="intro-section" class="row p-2 mx-auto">
+  <section class="intro-section-container row">
     <div class="col-6">
-      <div class="m-4 container">
+      <div class="container">
         <img
           src="https://images.unsplash.com/photo-1556911261-6bd341186b2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
           class="card-img-top"
@@ -14,12 +15,12 @@
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-6 intro-section">
       <header>
-        <h3 class="main-header-style">How it works:</h3>
+        <h3 class="intro-title">How it works:</h3>
       </header>
-      <div>
-        <h5 class="p-1">1. Update your bio here:</h5>
+      <div class="p-3">
+        <h5>1. Update your bio here:</h5>
         {{#if bio}}
         <input
           type="text"
@@ -35,9 +36,9 @@
           id="bio"
         />
         {{/if}}
-      </div>
+      
 
-      <div class="p-1">
+      <div >
         <button id="bioBtn" class="btn main-button-style">Submit</button>
       </div>
 
@@ -46,7 +47,7 @@
         <a href="/cooktogether/myrecipes" class="btn main-button-style"
           >Search</a
         >
-      </div>
+      </div></div>
     </div>
   </section>
 
@@ -57,10 +58,10 @@
   >
     {{!--carousel1--}}
     <header>
-      <h3 class="text-center">Upcoming Cook Togethers</h3>
+      <h3 class="main-header-style">Upcoming Cook Togethers</h3>
     </header>
     <section
-      id="carouselSent"
+      id="carouselUpcoming"
       class="carousel slide p-5"
       data-bs-touch="false"
       data-bs-interval="false"
@@ -69,7 +70,7 @@
         {{#each upcomingCookTogethers as |upcoming|}}
 
         <article class="carousel-item {{#ifFirst @index}} active {{/ifFirst}}">
-          <div class="card mb-3 mx-auto">
+          <div class="card mb-3 mx-auto carousel-style">
             <div class="row">
               <div class="col-md-6">
                 <img
@@ -84,12 +85,12 @@
                     {{upcoming.recipe_title}} with {{upcoming.user.first_name}}
                   </h5>
                   <p class="card-text">
-                    Get in touch: {{upcoming.contact_details}}
+                    <p class="fw-bolder"> Get in touch: {{upcoming.contact_details}}</p>
                   </p>
                   <p class="card-text">
                     Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}}
                   </p>
-                  <p>About: {{ upcoming.user.bio }}</p>
+                  <p><p class="fw-bolder">About {{upcoming.user.first_name}}:</p>  {{ upcoming.user.bio }}</p>
                 </div>
               </div>
             </div>
@@ -101,7 +102,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselSent"
+        data-bs-target="#carouselUpcoming"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -110,7 +111,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#carouselSent"
+        data-bs-target="#carouselUpcoming"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -132,7 +133,7 @@
         {{#each requestedCookTogethers as |requested|}}
 
         <article class="carousel-item {{#ifFirst @index}} active {{/ifFirst}}">
-          <div class="card mb-3 mx-auto">
+          <div class="card mb-3 mx-auto carousel-style">
             <div class="row">
               <div class="col-md-6">
                 <img
@@ -151,7 +152,7 @@
                     Meeting for {{requested.meal_type}} on
                     {{requested.datetime}}
                   </p>
-                  <p class="card-text">About: {{ requested.user.bio }}</p>
+                  <p class="card-text"><p class="fw-bolder">About {{requested.user.first_name}}:</p> {{ requested.user.bio }}</p>
                   <div class="requests-buttons" id="{{requested.request_id}}">
                     <button class="extra-info-button btn main-button-style">
                       Accept
@@ -167,10 +168,9 @@
             </div>
           </div>
         </article>
+
+        {{/each}}
       </div>
-
-      {{/each}}
-
       <button
         class="carousel-control-prev"
         type="button"
@@ -205,7 +205,7 @@
         {{#each sentCookTogethers as |sent|}}
 
         <article class="carousel-item {{#ifFirst @index}} active {{/ifFirst}}">
-          <div class="card mb-3 mx-auto">
+          <div class="card carousel-style">
             <div class="row">
               <div class="col-md-6">
                 <img
@@ -217,12 +217,12 @@
               <div class="col-md-6">
                 <div class="card-body h-100 w-100">
                   <h5 id="recipe-name" class="card-title">
-                    {{sent.recipe_title}} with {{sent.user.first_name}}
+                    {{sent.recipe_title}}
                   </h5>
                   <p class="card-text">
                     Meeting for {{sent.meal_type}} on {{sent.datetime}}
                   </p>
-                  <p class="card-text">About: {{ sent.bio }}</p>
+                  
                   <div id="{{sent.request_id}}">
                     <button class="cancel-request-button btn main-button-style">
                       Cancel
@@ -233,10 +233,9 @@
             </div>
           </div>
         </article>
+
+        {{/each}}
       </div>
-
-      {{/each}}
-
       <button
         class="carousel-control-prev"
         type="button"
