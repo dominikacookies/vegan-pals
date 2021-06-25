@@ -226,6 +226,12 @@ main {
 
 /* search-results */
 
+/* MEDIA QUERIES */
+/* Phones */
+@media screen and (max-width: 480px) {
+}
+
+/* Tablet */
 @media screen and (max-width: 768px) {
   main {
     margin-right: 10;
@@ -237,4 +243,12 @@ main {
   .navtitle {
     display: none;
   }
+}
+
+/* Tablet landscape */
+@media screen and (max-width: 1024px) {
+}
+
+/* Desktop */
+@media screen and (max-width: 1280px) {
 }
