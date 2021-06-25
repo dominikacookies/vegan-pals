@@ -37,7 +37,8 @@ main {
   max-height: 40px;
 }
 .main-button-style:hover {
-  color: #f6efdd;
+  background-color: #daaf53;
+  color: #304922;
   padding: 7px;
 }
 
