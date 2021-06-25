@@ -137,7 +137,7 @@
     "meal_type": "lunch",
     "message": "Hey, let's try making this recipe",
     "contact_details": "07492772254",
-    "status": "requested",
+    "status": "received",
     "user_id": "4",
     "recipe_id": "633711",
     "recipe_title": "Baked Penne",
