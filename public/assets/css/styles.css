@@ -114,7 +114,7 @@ main {
   height: 29vw;
 }
 .my-recipe-buttons {
-  background-color: #daaf53;
+  align-items: flex-end;
 }
 .my-recipe-title {
   background-color: #f6efdd;
@@ -313,7 +313,9 @@ main {
     display: none;
   }
   .my-recipe-title,
-  .recipe-title,
+  .recipe-title {
+    display: none;
+  }
   .main-button-style {
     font-size: 9px;
   }
@@ -322,6 +324,11 @@ main {
   }
   .fs-4 {
     font-size: 5em;
+  }
+  .my-recipe-card,
+  .main-recipe-card {
+    padding: 0px;
+    height: 24vw;
   }
 }
 
