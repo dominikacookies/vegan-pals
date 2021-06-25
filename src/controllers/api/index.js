@@ -118,9 +118,7 @@ const updateCookTogether = async (req, res) => {
       {
         where: {
           request_id: cookTogetherId,
-          user_id: {
-            [Op.ne]: req.session.user.id,
-          },
+          user_id: req.session.user.id,
         },
       }
     );
