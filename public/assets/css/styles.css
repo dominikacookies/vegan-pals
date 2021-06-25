@@ -87,12 +87,12 @@ main {
   object-fit: cover;
 }
 .recipe-title {
-  background-color: #304922;
-  color: #f6efdd;
+  background-color: #f6efdd;
+  color: #304922;
   align-items: center;
   width: 22vw;
   height: 4rem;
-  font-weight: normal;
+  font-weight: bolder;
 }
 
 /* my recipes page */
@@ -107,10 +107,10 @@ main {
   height: 29vw;
 }
 .my-recipe-title {
-  background-color: #304922;
-  color: #f6efdd;
+  background-color: #f6efdd;
+  color: #304922;
   width: 22.5vw;
-  font-weight: normal;
+  font-weight: bolder;
   height: 4rem;
 }
 .my-recipe-img {

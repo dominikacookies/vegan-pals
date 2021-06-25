@@ -90,7 +90,7 @@
                   <p class="card-text">
                     Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}}
                   </p>
-                  <p>About: {{ upcoming.user.bio }}</p>
+                  <p>About {{upcoming.user.first_name}} : {{ upcoming.user.bio }}</p>
                 </div>
               </div>
             </div>
@@ -152,7 +152,7 @@
                     Meeting for {{requested.meal_type}} on
                     {{requested.datetime}}
                   </p>
-                  <p class="card-text">About: {{ requested.user.bio }}</p>
+                  <p class="card-text">About {{requested.user.first_name}}: {{ requested.user.bio }}</p>
                   <div class="requests-buttons" id="{{requested.request_id}}">
                     <button class="extra-info-button btn main-button-style">
                       Accept
@@ -217,12 +217,12 @@
               <div class="col-md-6">
                 <div class="card-body h-100 w-100">
                   <h5 id="recipe-name" class="card-title">
-                    {{sent.recipe_title}} with {{sent.user.first_name}}
+                    {{sent.recipe_title}}
                   </h5>
                   <p class="card-text">
                     Meeting for {{sent.meal_type}} on {{sent.datetime}}
                   </p>
-                  <p class="card-text">About: {{ sent.bio }}</p>
+                  
                   <div id="{{sent.request_id}}">
                     <button class="cancel-request-button btn main-button-style">
                       Cancel
