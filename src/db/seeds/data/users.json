@@ -27,11 +27,11 @@
     "soy_intolerance": "true"
   },
   {
-    "first_name": "Alice",
-    "last_name": "Smith",
-    "email": "alice@gmail.com",
-    "password": "passwordpassword",
-    "bio": "Hello, I love cooking!",
+    "first_name": "Misha",
+    "last_name": "Shtebunaeva",
+    "email": "misha@lovevegan.com",
+    "password": "MyPassword",
+    "bio": "I love cooking, hiking and bus",
     "gluten_intolerance": "true",
     "wheat_intolerance": "true"
   },

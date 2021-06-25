@@ -45,12 +45,36 @@ const clearSearchResultsOffset = () => {
   searchResultsOffset = 0
 }
 
+const renderMoreRecipeCards = (recipe) => {
+  $(".card-group").append(`
+    <section class="recipe-card-container d-inline-flex flex-wrap">
+    <div class="main-recipe-card card">
+      <a href="recipe/${recipe.id}" target="_blank">
+        <div id="image-block" class="mx-auto">
+          <img
+            src=${recipe.image}
+            class="card-img-top mb-3 recipe-img"
+            alt="Image of dish"
+          />
+          <h5 class="card-title text-center btn recipe-title">
+            ${recipe.title}
+          </h5>
+        </div>
+      </a>
+    </div>
+  </section>
+  `)
+}
+
 const renderMoreResults = async (event) => {
   searchResultsOffset += 10 
   const requestUrl = $(event.target).data("requesturl")
 
+  console.log(requestUrl)
+
   const response = await fetch(`${requestUrl}&offset=${searchResultsOffset}`);
-  console.log(response);
+  const data = await response.json()
+  data.results.forEach(renderMoreRecipeCards)
 };
 
 const getPalId = (event) => {

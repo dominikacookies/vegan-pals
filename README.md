@@ -15,57 +15,72 @@
 
 ## Project Link
 
-Click [here]() to view the project on GitHub pages.
-
-// to be added
+Click [here](https://stormy-stream-13655.herokuapp.com/) to view the project on Heroku.
 
 ## Getting Started
 
 - Clone the GitHub project into your local machine
 - Navigate into the project
 
-// to add more
-//commands
-
 ```
-git clone //to be added
+git clone https://github.com/dominikacookies/vegan-pals
 cd vegan-pals
 code .
 ```
 
 ## Contributors
 
-Dominika: https://github.com/dominikacookies
-Marcus: https://github.com/marcuslau0903
-Misha: https://github.com/misha244
-Syreeta:https://github.com/SyreetaC
-Otilia: https://github.com/otivisan22
+- Dominika: https://github.com/dominikacookies
+- Marcus: https://github.com/marcuslau0903
+- Misha: https://github.com/misha244
+- Syreeta:https://github.com/SyreetaC
+- Otilia: https://github.com/otivisan22
 
 ## About the Project
 
-// to be added
+The concept for this project was to develop an app on which me we can match users with the same intolerances and in that way they can cook together via online by scheduling a cooking session based on the recipes that they have saved and intolerances.
 
 ### User Flows
 
-//to be added
+![screenshot1](public/assets/screenshots/first.png)
+![screenshot2](public/assets/screenshots/second.png)
+![screenshot3](public/assets/screenshots/third.png)
+![screenshot4](public/assets/screenshots/forth.png)
 
 ### Technologies Used
 
-//to be added
+- MySQL
+- CSS
+- JS
+- Handlebars
+- Bootstrap 5
+- Express
+- jQuery
+- Axios
+- JSON
+- bcrypt
+- uuid
 
 ### Web APIs
 
-// to be added
+We have used one API for this project
+
+- [Food API and Recipe AP](https://spoonacular.com/food-api/)
 
 ### Wireframes
 
-// to be added the images
-// screenshot
+![screenshot5](public/assets/screenshots/Wireframe.png)
 
 ## Plans for Improvement
 
-//to be added
+As a future plan we have decided to develop a Live Chat Box with emojis in order for the vegan pals to have a more easy way to communicate with each other. And also a save recipe button so that when you click on it will render users who also liked this recipe.
 
 ## Screenshots
 
-// to be added
+![screenshot6](public/assets/screenshots/loginPage.png)
+![screenshot7](public/assets/screenshots/signupPage.png)
+![screenshot8](public/assets/screenshots/photo1.png)
+![screenshot9](public/assets/screenshots/photo2.png)
+![screenshot10](public/assets/screenshots/photo3.png)
+![screenshot11](public/assets/screenshots/photo5.png)
+![screenshot12](public/assets/screenshots/photo6.png)

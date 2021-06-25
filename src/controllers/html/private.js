@@ -173,6 +173,7 @@ const renderMyRecipes = async (req, res) => {
     where: {
       user_id: req.session.user.id,
     },
+    order: [["createdAt", "DESC"]],
     raw: true,
     nested: true,
   });
