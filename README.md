@@ -42,7 +42,7 @@ The concept for this project was to develop an app on which me we can match user
 
 ### User Flows
 
-![screenshot1](public/assets/screenshots/first.jpg)
+![screenshot1](public/assets/screenshots/first.png)
 ![screenshot2](public/assets/screenshots/second.png)
 ![screenshot3](public/assets/screenshots/third.png)
 ![screenshot4](public/assets/screenshots/forth.png)
