@@ -89,7 +89,11 @@ main {
   padding: 0.5rem;
   width: 25vw;
 }
-
+.recipe-img {
+  width: 24vw;
+  height: 20vw;
+  object-fit: cover;
+}
 .recipe-title {
   background-color: #304922;
   color: #f6efdd;
@@ -233,6 +237,13 @@ main {
 .cooktogether-container {
   margin: 15px;
 }
+
+.carousel-style {
+  padding: 1rem;
+  margin: auto;
+  border: 0.3rem solid #daaf53;
+}
+
 /* pals page */
 .pal-cards {
   margin: auto;
