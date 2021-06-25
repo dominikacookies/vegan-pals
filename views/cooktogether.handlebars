@@ -22,12 +22,9 @@
       <div class="p-3">
         <h5>1. Update your bio here:</h5>
         {{#if bio}}
-        <input
-          type="text"
-          class="form-control"
-          placeholder="{{bio}}"
-          id="bio"
-        />
+        <textarea
+          id="bio" class="w-75"
+        > {{bio}} </textarea>
         {{else}}
         <input
           type="text"
