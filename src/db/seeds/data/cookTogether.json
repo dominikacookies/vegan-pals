@@ -168,30 +168,6 @@
     "recipe_image": "https://spoonacular.com/recipeImages/662669-312x231.jpg"
   },
   {
-    "request_id": "5677",
-    "datetime": "2021-07-14 18:55:40",
-    "meal_type": "lunch",
-    "message": "",
-    "contact_details": "",
-    "status": "accepted",
-    "user_id": "9",
-    "recipe_id": "634048",
-    "recipe_title": "Banana Chocolate Pudding",
-    "recipe_image": "https://spoonacular.com/recipeImages/634048-312x231.jpg"
-  },
-  {
-    "request_id": "5677",
-    "datetime": "2021-07-14 12:05:20",
-    "meal_type": "lunch",
-    "message": "Hey, let's try making this recipe",
-    "contact_details": "07359871662",
-    "status": "accepted",
-    "user_id": "5",
-    "recipe_id": "634048",
-    "recipe_title": "Banana Chocolate Pudding",
-    "recipe_image": "https://spoonacular.com/recipeImages/634048-312x231.jpg"
-  },
-  {
     "request_id": "9801",
     "datetime": "2021-07-02 18:55:40",
     "meal_type": "lunch",
