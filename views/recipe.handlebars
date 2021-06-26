@@ -52,11 +52,11 @@
   
   <section class="recipe-info d-flex row">
     <div class="col-sm-3">
-      <div class="card">
+      <div class="card ingredients-card">
         <h3 class="ingredients"> Ingredients: </h3>
         <ul class="list-group list-group-flush ingredient-list">
           {{#each ingredients as |ingredient|}}
-            <li class="list-group-item">{{ingredient}}</li>
+            <li class="list-group-item" style="background-color: #f6efdd;">{{ingredient}}</li>
           {{/each}}
         </ul>
       </div>

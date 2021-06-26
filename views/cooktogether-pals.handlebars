@@ -9,7 +9,7 @@
   >
     <div class="card-group">
       {{#each pals as |pal|}}
-      <section class="pal-cards">
+      <section class="pal-cards mb-3">
         <div class="card pal-card-style">
           <img
             src="/assets/images/avatars.png"
@@ -20,7 +20,7 @@
             <h5 class="card-title">
               {{pal.first_name}} {{pal.last_name}}
             </h5>
-            <header class="pal-bio">About: {{ pal.bio }}</header>
+            <header class="pal-bio"><header class="fw-bolder">About {{pal.first_name}}:</header>  {{ pal.bio }}</header>
             <button
               type="button"
               class="btn main-button-style"
