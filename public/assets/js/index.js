@@ -133,8 +133,6 @@ const acceptCooktogether = async (event) => {
   const cooktogetherId = parentContainer.attr("id");
   const contactDetails = $(event.target).siblings("#contact-info").val();
 
-  console.log(contactDetails);
-
   const options = {
     method: "PUT",
     headers: {
@@ -147,8 +145,6 @@ const acceptCooktogether = async (event) => {
   };
 
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
-
-  console.log(response);
 
   if (response.status === 200) {
     parentContainer.empty();
@@ -167,7 +163,7 @@ const provideCooktogetherContactDetails = async (event) => {
   parentContainer.append(`
     <p class="small-text-bolded"> Insta, Whatsapp or pigeon mail? </p>
     <input id="contact-info" placeholder="Contact details">
-    <button class="accept-request-button"> Accept </button>
+    <button class="accept-request-button main-button-style"> Accept </button>
   `);
 
   $(".accept-request-button").on("click", acceptCooktogether);
@@ -186,11 +182,10 @@ const deleteCooktogether = async (event) => {
   };
 
   const response = await fetch(`/api/cooktogether/${cooktogetherId}`, options);
-
-  console.log(response);
+  console.log(response.status)
   if (response.status === 200) {
-    $(event.currentTarget).parent().empty();
-    $(event.currentTarget).parent().append(`
+    parentContainer.empty();
+    parentContainer.append(`
     <p> Deleted successfully. </p>
     `);
     setTimeout(() => {

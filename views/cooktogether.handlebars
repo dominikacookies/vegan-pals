@@ -82,10 +82,10 @@
                     {{upcoming.recipe_title}} with {{upcoming.user.first_name}}
                   </h5>
                   <p class="card-text">
-                    <p class="fw-bolder"> Get in touch: {{upcoming.contact_details}}</p>
+                    Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}}
                   </p>
                   <p class="card-text">
-                    Meeting for {{upcoming.meal_type}} on {{upcoming.datetime}}
+                    <p class="fw-bolder"> Get in touch: {{upcoming.contact_details}}</p>
                   </p>
                   <p><p class="fw-bolder">About {{upcoming.user.first_name}}:</p>  {{ upcoming.user.bio }}</p>
                 </div>
@@ -149,9 +149,11 @@
                     Meeting for {{requested.meal_type}} on
                     {{requested.datetime}}
                   </p>
+                  <p class="card-text"><p class="fw-bolder">Message from {{requested.user.first_name}} :</p> {{ requested.message}} </p>
+                  <div class="requests-buttons" id="{{requested.request_id}}">
                   <p class="card-text"><p class="fw-bolder">About {{requested.user.first_name}}:</p> {{ requested.user.bio }}</p>
                   <div class="requests-buttons" id="{{requested.request_id}}">
-                    <button class="extra-info-button btn main-button-style">
+                    <button class="extra-info-button main-button-style btn">
                       Accept
                     </button>
                     <button

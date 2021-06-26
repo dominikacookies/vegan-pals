@@ -28,6 +28,7 @@ const renderCookTogether = async (req, res) => {
           "meal_type",
           "recipe_image",
           "request_id",
+          "message"
         ],
         where: {
           request_id: cooktogether.request_id,

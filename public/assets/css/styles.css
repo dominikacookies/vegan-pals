@@ -100,6 +100,8 @@ main {
   width: 22vw;
   height: 4rem;
   font-weight: bolder;
+  font-size: 20px;
+  padding-top: 5px;
 }
 
 /* my recipes page */
@@ -114,7 +116,7 @@ main {
   height: 29vw;
 }
 .my-recipe-buttons {
-  align-items: flex-end;
+  margin: auto;
 }
 .my-recipe-title {
   background-color: #f6efdd;

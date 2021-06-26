@@ -31,7 +31,7 @@
     "last_name": "Shtebunaeva",
     "email": "misha@lovevegan.com",
     "password": "MyPassword",
-    "bio": "I love cooking, hiking and bus",
+    "bio": "I love cooking, hiking and wild adventures",
     "gluten_intolerance": "true",
     "wheat_intolerance": "true"
   },
@@ -84,7 +84,7 @@
     "last_name": "Blackley",
     "email": "nblackley0@yale.edu",
     "password": "pblUijhl",
-    "bio": "Nunc nisl.",
+    "bio": "Massive cat lover that's passionate about cooking.",
     "gluten_intolerance": true,
     "wheat_intolerance": true
   },
@@ -93,7 +93,7 @@
     "last_name": "Gregor",
     "email": "mgregor1@tripod.com",
     "password": "HW39SDn9",
-    "bio": "Integer ac neque.",
+    "bio": "Carrot lover, tomato hater. Apart from that, pretty cool guy.",
     "gluten_intolerance": true,
     "grain_intolerance": true,
     "sulphite_intolerance": true
@@ -103,7 +103,7 @@
     "last_name": "Rye",
     "email": "krye2@nyu.edu",
     "password": "SHxaWXlMV",
-    "bio": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem.",
+    "bio": "I'm passionate about travelling and trying new cuisines. My favourite trip was to Sri Lanka.",
     "peanut_intolerance": true,
     "grain_intolerance": true,
     "soy_intolerance": true,
@@ -114,7 +114,7 @@
     "last_name": "Belk",
     "email": "dbelk3@netvibes.com",
     "password": "aVc8XTP6",
-    "bio": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+    "bio": "Unapologetic communicator. Travel trailblazer. Twitter fanatic. Coffee ninja.",
     "soy_intolerance": true
   },
   {
@@ -122,7 +122,7 @@
     "last_name": "Lawry",
     "email": "nlawry4@icio.us",
     "password": "IMXkGVnQ0",
-    "bio": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+    "bio": "Explorer. Coffee nerd. Wannabe internet maven. Lifelong entrepreneur. Reader. ",
     "gluten_intolerance": true,
     "wheat_intolerance": true
   },
@@ -131,7 +131,7 @@
     "last_name": "Figgess",
     "email": "afiggess5@bluehost.com",
     "password": "8Chc202R",
-    "bio": "Integer tincidunt ante vel ipsum.",
+    "bio": "Social media junkie. Introvert. Zombie lover. Beeraholic. Troublemaker. ",
     "soy_intolerance": true
   },
   {
@@ -139,7 +139,7 @@
     "last_name": "Inkster",
     "email": "cinkster6@fc2.com",
     "password": "bu6CmcgnZf",
-    "bio": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+    "bio": "Web trailblazer. Introvert. Falls down a lot.",
     "gluten_intolerance": true,
     "wheat_intolerance": true
   },
@@ -148,7 +148,7 @@
     "last_name": "O'Bradane",
     "email": "kobradane7@last.fm",
     "password": "cHoYuJpe",
-    "bio": "In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",
+    "bio": "Tv lover. Music specialist. Explorer. Analyst. Communicator. ",
     "peanut_intolerance": true
   },
   {
@@ -156,7 +156,7 @@
     "last_name": "Wellsman",
     "email": "kwellsman8@irs.gov",
     "password": "NKmdvjTbkS",
-    "bio": "Integer ac leo.",
+    "bio": "I love shopping locally and supporting sustainable stores.",
     "peanut_intolerance": true,
     "sesame_intolerance": true,
     "grain_intolerance": true
@@ -166,7 +166,7 @@
     "last_name": "Breissan",
     "email": "mbreissan9@apple.com",
     "password": "hNLK7E2kRgMg",
-    "bio": "Praesent id massa id nisl venenatis lacinia.",
+    "bio": "Vegan bacon got me into this.",
     "gluten_intolerance": true,
     "peanut_intolerance": true
   },
@@ -175,7 +175,7 @@
     "last_name": "Vell",
     "email": "mvella@unc.edu",
     "password": "UIYIJad",
-    "bio": "Morbi a ipsum.",
+    "bio": "Life time explorer and coffee lover!",
     "gluten_intolerance": true,
     "peanut_intolerance": true
   },
@@ -184,7 +184,7 @@
     "last_name": "Bowlas",
     "email": "lbowlasb@pen.io",
     "password": "YNpv71g",
-    "bio": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",
+    "bio": "In love with anything remotley cute.",
     "gluten_intolerance": true,
     "peanut_intolerance": true,
     "soy_intolerance": true,
@@ -195,7 +195,7 @@
     "last_name": "Checkley",
     "email": "scheckleyc@spotify.com",
     "password": "hQvOrc5ToXQ",
-    "bio": "Nulla facilisi.",
+    "bio": "Possibly the only human on earth to not have Instagram, convince me.",
     "peanut_intolerance": true,
     "sesame_intolerance": true
   },
@@ -204,7 +204,7 @@
     "last_name": "Lismore",
     "email": "vlismored@elpais.com",
     "password": "9jv1Pg",
-    "bio": "Pellentesque ultrices mattis odio.",
+    "bio": "Italian cusine lover! Can't wait to visit the country!",
     "gluten_intolerance": true,
     "peanut_intolerance": true,
     "tree_nut_intolerance": true
@@ -214,7 +214,7 @@
     "last_name": "Overlow",
     "email": "aoverlowe@mail.ru",
     "password": "5LiuCgSNv",
-    "bio": "Duis aliquam convallis nunc.",
+    "bio": "Marvel movie fanatic, who is your favourite character?",
     "peanut_intolerance": true,
     "sesame_intolerance": true
   },
@@ -223,7 +223,7 @@
     "last_name": "Beville",
     "email": "mbevillef@dot.gov",
     "password": "YHJwr3lNx",
-    "bio": "Mauris sit amet eros.",
+    "bio": "Extroverted introvert looking forward to making new friends!",
     "sesame_intolerance": true,
     "soy_intolerance": true,
     "sulphite_intolerance": true
@@ -233,7 +233,7 @@
     "last_name": "Illiston",
     "email": "aillistong@abc.net.au",
     "password": "yzujwyru2PC",
-    "bio": "Etiam vel augue.",
+    "bio": "Globe trotter, always up for a new adventure!",
     "gluten_intolerance": "true",
     "wheat_intolerance": "true"
   },
@@ -242,7 +242,7 @@
     "last_name": "Cregeen",
     "email": "scregeenh@cnet.com",
     "password": "8EwVvugxv",
-    "bio": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae..",
+    "bio": "A curious mind, if you're passionate about any topic I'd love to hear about it!",
     "gluten_intolerance": true,
     "sesame_intolerance": true,
     "soy_intolerance": true
@@ -252,7 +252,7 @@
     "last_name": "Ironmonger",
     "email": "aironmongeri@hugedomains.com",
     "password": "MmmBr0VUk",
-    "bio": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+    "bio": "Although I play chess in my spare time, I'm not as boring as I sound :D",
     "grain_intolerance": true,
     "sulphite_intolerance": true,
     "tree_nut_intolerance": true
