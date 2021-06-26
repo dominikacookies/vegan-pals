@@ -172,7 +172,7 @@
     "datetime": "2021-07-14 18:55:40",
     "meal_type": "lunch",
     "message": "",
-    "contact_details": "acaster@offmenu.com",
+    "contact_details": "",
     "status": "accepted",
     "user_id": "9",
     "recipe_id": "634048",
@@ -190,5 +190,29 @@
     "recipe_id": "634048",
     "recipe_title": "Banana Chocolate Pudding",
     "recipe_image": "https://spoonacular.com/recipeImages/634048-312x231.jpg"
+  },
+  {
+    "request_id": "9801",
+    "datetime": "2021-07-02 18:55:40",
+    "meal_type": "lunch",
+    "message": "",
+    "contact_details": "Facebook Josephine Murphy",
+    "status": "received",
+    "user_id": "9",
+    "recipe_id": "633101",
+    "recipe_title": "Autumn Pumpkin Cake",
+    "recipe_image": "https://spoonacular.com/recipeImages/633101-312x231.jpg"
+  },
+  {
+    "request_id": "9801",
+    "datetime": "2021-07-02 12:05:20",
+    "meal_type": "lunch",
+    "message": "Hi! this looks delicious - fancy making it together?",
+    "contact_details": "07359871662",
+    "status": "sent",
+    "user_id": "12",
+    "recipe_id": "633101",
+    "recipe_title": "Autumn Pumpkin Cake",
+    "recipe_image": "https://spoonacular.com/recipeImages/633101-312x231.jpg"
   }
 ]
