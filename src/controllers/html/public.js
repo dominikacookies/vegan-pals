@@ -30,8 +30,9 @@ const renderHomePage = async (req, res) => {
         nested: true,
       });
 
+      let mostUpcomingCooktogether
+
       if (upcomingCooktogether) {
-        // TO DO: add image
         const upcomingCooktogetherDetails = await CookTogether.findAll({
           order: [["createdAt", "ASC"]],
           attributes: [
@@ -61,25 +62,26 @@ const renderHomePage = async (req, res) => {
         const mostUpcomingCooktogether = upcomingCooktogetherDetails[0].get({
           plain: true,
         });
-
-        const latestSavedRecipes = await Recipe.findAll({
-          where: {
-            user_id: req.session.user.id,
-          },
-          order: [["createdAt", "DESC"]],
-          limit: 6,
-          raw: true,
-          nested: true,
-        });
-
-        const name = req.session.user.firstName;
-
-        return res.render("private-homepage", {
-          mostUpcomingCooktogether,
-          latestSavedRecipes,
-          name,
-        });
       }
+
+      const latestSavedRecipes = await Recipe.findAll({
+        where: {
+          user_id: req.session.user.id,
+        },
+        order: [["createdAt", "DESC"]],
+        limit: 6,
+        raw: true,
+        nested: true,
+      });
+
+      const name = req.session.user.firstName;
+
+      return res.render("private-homepage", {
+        mostUpcomingCooktogether,
+        latestSavedRecipes,
+        name,
+      });
+
     } else {
       const latestSavedRecipes = await Recipe.findAll({
         order: [["createdAt", "DESC"]],
